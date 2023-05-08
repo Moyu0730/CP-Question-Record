@@ -11,5 +11,4 @@ const int Mod = 1e9 + 7;
 
 signed main(){
     ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-    cout << M_PI;
 }
