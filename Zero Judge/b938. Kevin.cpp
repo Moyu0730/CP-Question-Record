@@ -32,6 +32,7 @@ struct LinkedList{
             nxt[k] = nxt[nxt[k]];
         }
     }
+
 } LL;
 
 signed main(){
