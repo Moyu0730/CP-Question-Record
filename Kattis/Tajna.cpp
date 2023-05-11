@@ -10,7 +10,7 @@ using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 
-const int MAXN = 100 + 5;
+const int MAXN = 100 + 5; // For the Larger Prime Number, This Must Be Bigger then 97 ( Largest Prime Number Lower then 100 )
 const int Mod = 1e9 + 7;
 string s;
 string arr[MAXN][MAXN];
