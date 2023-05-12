@@ -16,7 +16,10 @@
         "algorithm": "cpp",
         "stack": "cpp",
         "vector": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "python.pythonPath": "D:\\python\\python.exe"
