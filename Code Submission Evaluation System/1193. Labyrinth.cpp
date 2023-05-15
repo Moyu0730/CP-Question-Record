@@ -26,7 +26,7 @@ auto dir = vector< pair<int, int> > { /* 0 -> R */ {0, 1},
                                       /* 2 -> U */ {-1, 0}, 
                                       /* 3 -> L */ {0, -1} };
 char route[MAXN][MAXN];
-string res;
+vector<char> ans;
 
 /********** 1. TLE Solution **********/
 // pair<int, int> start;
@@ -106,7 +106,7 @@ signed main(){
 
         int i = finish.first, j = finish.second;
         while( !(i == start.first and j == start.second) ){
-            cout << route[i][j];
+            ans.emplace_back(route[i][j]);
             switch( route[i][j] ){
                 case 'U':
                     i++;
@@ -122,6 +122,8 @@ signed main(){
                     break;
             }
         }
+
+        for( int i = ans.size() - 1; i >= 0 ; i-- ) cout << ans[i];
     }else{
         cout << "NO";
     }
