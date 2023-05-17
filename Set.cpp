@@ -6,6 +6,7 @@
 #include<queue>
 #include<stack>
 #include<math.h>
+#include<algorithm>
 using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
