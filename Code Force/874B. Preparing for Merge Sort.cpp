@@ -10,6 +10,7 @@
 using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define int long long
 
 const int MAXN = 1e8 + 50;
 const int Mod = 1e9 + 7;
@@ -22,11 +23,14 @@ int bs( int ctn ){
     if( vec[res].back() > ctn ) return res + 1;
 
     while( step > 0 ){
+        if( step == 0 ) break;
+        if( res - step < 0 ){
+            step /= 2; 
+            continue;
+        } 
+
         if( vec[res-step].back() < ctn ) res -= step;
         else step /= 2;
-        
-        if( step == 0 ) break;
-        if( res - step < 0 ) step /= 2;
     }
     
     return res;
