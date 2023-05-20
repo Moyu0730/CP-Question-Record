@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : ZeroJudge c001. 10405 - Longest Common Subsequence */
 
 /*
  * String1 : Len = n, String2 : Len = m
