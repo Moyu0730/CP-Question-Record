@@ -4,9 +4,8 @@
  * 定義：dp[i][j] = 
  *                  i : The Max Cost from 0 to i (Include)
  *                  j : The Type of Activity
- * 轉移：dp[i][j] = 
- *                  max()
- * 基底：dp[0] = 0, dp[1] = abs(stone[1] - stone[0])
+ * 轉移：dp[i][j] = max( dp[ind-1][another type], dp[ind-1][another type] ) + act[i][j];
+ * 基底：dp[0][0] = act[0][0], dp[0][1] = act[0][1], dp[0][2] = act[0][2];
  */
 
 
