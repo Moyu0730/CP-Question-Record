@@ -1,4 +1,4 @@
-/* Question : AtCoder DP Contest - A - Frog 2 */
+/* Question : AtCoder DP Contest - B - Frog 2 */
 
 /*
  * 定義： dp[i] = The Less Cost from 0 to i (Include)
