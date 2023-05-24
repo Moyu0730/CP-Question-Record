@@ -6,7 +6,7 @@
 
 ## 2023. 05. 23
 
-> <font style="color: red">**Half AC Haven't Solved**</font> - 【CSES】1085. Array Division
+> <font style="color: red">**Half AC Haven't Solved**</font> - 【CSES】1085. Array Division</br>
 > <font style="color: green">**Solved**</font> - 【AtCoder】 DP Contest - C - Vacation
 
 ## 2023. 05. 18 
