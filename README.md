@@ -7,7 +7,8 @@
 ## 2023. 05. 23
 
 **Half AC Haven't Solved** - 【CSES】1085. Array Division
-<br>**Solved** - 【AtCoder】 DP Contest - C - Vacation
+
+**Solved** - 【AtCoder】 DP Contest - C - Vacation
 
 ## 2023. 05. 18 
 
