@@ -2,11 +2,13 @@
 
 ## 2023. 05. 24
 
-**Solved** - 【CSES】2023. 05. 24】1620. Factory Machines
+**Solved** - 【CSES】 1620. Factory Machines
+
+**Solved** - 【CSES】 1667. Message Route
 
 ## 2023. 05. 23
 
-**Half AC Haven't Solved** - 【CSES】1085. Array Division
+**Half AC Haven't Solved** - 【CSES】 1085. Array Division
 
 **Solved** - 【AtCoder】 DP Contest - C - Vacation
 
