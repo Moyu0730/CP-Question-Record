@@ -2,7 +2,11 @@
 
 ## 2023. 05. 27
 
-**Solved** - 【CF】 B. Tim Chen no Loli Base
+**Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) B. Tim Chen no Loli Base
+
+## 2023. 05. 26
+
+**Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) D. Checkered Arena
 
 ## 2023. 05. 24
 
