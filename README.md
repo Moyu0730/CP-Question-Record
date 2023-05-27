@@ -2,6 +2,8 @@
 
 ## 2023. 05. 27
 
+**80% Solution** - 【CF】( 2023 MD Subject Ability Intramural Competition ) E. Stock Analyst
+
 **Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) B. Tim Chen no Loli Base
 
 ## 2023. 05. 26
