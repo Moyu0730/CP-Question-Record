@@ -21,7 +21,6 @@ bool valid( int t ){
 
         p.f = max(p.f, arr[i]);
         p.s = min(p.s, arr[i]);
-        // cout << i << " " << p.f << " " << p.s << "\n";
 
         if( abs( p.f - p.s ) > t ){
             tmp++;
@@ -40,8 +39,6 @@ signed main(){
 
     int step = 1e9, res = 0;
     while( step > 0 ){
-        // cout << step + res << " " << valid(step + res)<< "\n";
-
         if( !valid(step + res) ) res += step;
         else step /= 2;
     }
@@ -54,7 +51,6 @@ signed main(){
 
         p.f = max(p.f, arr[i]);
         p.s = min(p.s, arr[i]);
-        // cout << i << " " << p.f << " " << p.s << "\n";
 
         if( abs( p.f - p.s ) > res ){
             cout << last << " " << i << "\n";
