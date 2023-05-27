@@ -14,7 +14,6 @@ int arr[MAXN];
 int n, k;
 
 bool valid( int t ){
-
     pair<int, int> p;   // { Max, Min }
     int tmp = 0;
     for( int i = 0 ; i < n ; i++ ){
