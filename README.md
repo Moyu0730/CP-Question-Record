@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 05. 27
+
+**Solved** - 【CF】 B. Tim Chen no Loli Base
+
 ## 2023. 05. 24
 
 **Solved** - 【CSES】 1620. Factory Machines
