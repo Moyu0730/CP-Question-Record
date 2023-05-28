@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 05. 28
+
+**Solved** - 【ZeroJudge】 a020. ID Verification
+
 ## 2023. 05. 27
 
 **Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) E. Stock Analyst
