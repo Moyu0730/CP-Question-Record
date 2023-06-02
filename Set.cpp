@@ -1,12 +1,6 @@
 /* Question : OJ Number */
 
-#include<iostream>
-#include<iomanip>
-#include<vector>
-#include<queue>
-#include<stack>
-#include<math.h>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
