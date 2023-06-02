@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 06. 02
+
+**Solved** - 【NTFSOJ】 275 Dynamic Median
+
 ## 2023. 05. 28
 
 **Solved** - 【ZeroJudge】 a020. ID Verification
