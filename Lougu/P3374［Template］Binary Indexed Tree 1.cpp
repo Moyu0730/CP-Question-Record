@@ -18,36 +18,23 @@ int func( int x ){
 
 int query( int pos ){
     int res = 0;
-    for( int i = pos ; i > 0 ; i -= func(i) ){
-        res += bit[i];
-    }
-
+    for( int i = pos ; i > 0 ; i -= func(i) ) res += bit[i];
     return res;
 }
 
 void add( int pos, int val ){
-    for( int i = pos ; i <= n ; i += func(i) ){
-        bit[i] += val;
-    }
+    for( int i = pos ; i <= n ; i += func(i) ) bit[i] += val;
 }
 
 signed main(){
     opt;
     cin >> n >> m;
-    for( int i = 1 ; i <= n ; i++ ){
-        cin >> arr[i];
-    }
-
-    for( int i = 1 ; i <= n ; i++ ){
-        add(i, arr[i]);
-    }
+    for( int i = 1 ; i <= n ; i++ ) cin >> arr[i];
+    for( int i = 1 ; i <= n ; i++ ) add(i, arr[i]);
 
     for( int i = 0 ; i < m ; i++ ){
         cin >> op >> a >> b;
-        if( op == 1 ){
-            add( a, b );
-        }else{
-            cout << query(b) - query(a-1) << "\n";
-        }
+        if( op == 1 ) add( a, b );
+        else cout << query(b) - query(a-1) << "\n";
     }
 }
