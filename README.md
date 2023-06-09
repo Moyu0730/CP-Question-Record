@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 06. 09
+
+**Solved** - 【CSES】 1674. Subordinates
+
+**Solved** - 【Lougu】 P3374［Template］Binary Indexed Tree 1.cpp - Solved
+
 ## 2023. 06. 02
 
 **Solved** - 【NTFSOJ】 275 Dynamic Median
