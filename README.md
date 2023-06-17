@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 06. 17
+
+**50% Soliton** - 【TIOJ】 1081. B. Image recognition
+
 ## 2023. 06. 09
 
 **Solved** - 【CSES】 1674. Subordinates
