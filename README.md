@@ -2,6 +2,8 @@
 
 ## 2023. 06. 17
 
+**Solved** - 【Lougu】 P1352. Prom Without Boss
+
 **50% Soliton** - 【TIOJ】 1081. B. Image recognition
 
 ## 2023. 06. 09
