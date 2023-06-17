@@ -2,6 +2,8 @@
 
 ## 2023. 06. 17
 
+**Solved** - 【Kattis】 Playfair Cipher
+
 **Solved** - 【Luogu】 P1352. Prom Without Boss
 
 **50% Soliton** - 【TIOJ】 1081. B. Image recognition
