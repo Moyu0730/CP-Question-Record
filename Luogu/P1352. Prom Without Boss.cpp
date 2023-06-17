@@ -1,4 +1,4 @@
-/* Question : Lougue P1352. Prom Without Boss */
+/* Question : Luogue P1352. Prom Without Boss */
 
 #include<bits/stdc++.h>
 using namespace std;

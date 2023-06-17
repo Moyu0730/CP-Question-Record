@@ -1,4 +1,4 @@
-/* Question : Lougu P3374［Template］Binary Indexed Tree 1 */
+/* Question : Luogu P3374［Template］Binary Indexed Tree 1 */
 
 #include<bits/stdc++.h>
 using namespace std;
