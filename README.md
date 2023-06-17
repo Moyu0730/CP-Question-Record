@@ -2,7 +2,7 @@
 
 ## 2023. 06. 17
 
-**Solved** - 【Lougu】 P1352. Prom Without Boss
+**Solved** - 【Luogu】 P1352. Prom Without Boss
 
 **50% Soliton** - 【TIOJ】 1081. B. Image recognition
 
@@ -10,7 +10,7 @@
 
 **Solved** - 【CSES】 1674. Subordinates
 
-**Solved** - 【Lougu】 P3374［Template］Binary Indexed Tree 1.cpp - Solved
+**Solved** - 【Luogu】 P3374［Template］Binary Indexed Tree 1.cpp - Solved
 
 ## 2023. 06. 02
 
