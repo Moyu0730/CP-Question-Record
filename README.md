@@ -10,7 +10,7 @@
 
 **Solved** - 【Luogu】 P1352. Prom Without Boss
 
-**50% Soliton** - 【TIOJ】 1081. B. Image recognition
+**50% Soluton** - 【TIOJ】 1081. B. Image recognition
 
 ## 2023. 06. 09
 
