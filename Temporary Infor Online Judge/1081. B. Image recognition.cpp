@@ -34,13 +34,17 @@ signed main(){
             for( int j = 0 ; j < m ; j++ ){
                 flag = false;
                 if( visited[i][j] == false ){
+                    if( graph[i][j] == 0 ){
+                        visited[i][j] = true;
+                        continue;
+                    }
                     q.push({i, j});
                     while( !q.empty() ){
                         int x = q.front().first;
                         int y = q.front().second;
                         q.pop();
 
-                        for( int t = 0 ; t < 8 ; t++ ){
+                        for( int t = 0 ; t < 9 ; t++ ){
                             int a = x + dir[t].first;
                             int b = y + dir[t].second;
 
