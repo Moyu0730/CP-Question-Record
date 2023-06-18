@@ -2,6 +2,8 @@
 
 ## 2023. 06. 18
 
+**Solved** - 【Luogu】 P1036. [ NOIP2002 Popularization Group ] Selection Number
+
 **Solved** - 【Luogu】 P2677. [ USACO07DEC ] Bookshelf 2 B
 
 **Solved** - 【AtCoder】 Beginner Contest 240 - C - Jumping Takahashi
