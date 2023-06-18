@@ -2,6 +2,8 @@
 
 ## 2023. 06. 18
 
+**Solved** - 【Luogu】 P2677. [ USACO07DEC ] Bookshelf 2 B
+
 **Solved** - 【AtCoder】 Beginner Contest 240 - C - Jumping Takahashi
 
 **Solved** - 【Luogu】 P1100. High and Low Swap
