@@ -2,6 +2,8 @@
 
 ## 2023. 06. 18
 
+**Solved** - 【Luogu】 P1100. High and Low Swap
+
 **Solved** - 【TIOJ】 1081. B. Image recognition
 
 ## 2023. 06. 17
