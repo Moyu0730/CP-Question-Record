@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 06. 18
+
+**Solved** - 【TIOJ】 1081. B. Image recognition
+
 ## 2023. 06. 17
 
 **Solved** - 【Kattis】 Playfair Cipher
