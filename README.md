@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 06. 25
+
+**Solved** - 【ZeroJudge】 k734. Open Treasure Box
+
+**Solved** - 【CF】 510C. Fox And Names 
+
 ## 2023. 06. 18
 
 **Solved** - 【Luogu】 P1036. [ NOIP2002 Popularization Group ] Selection Number
