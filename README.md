@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 02
+
+**Solved** - 【Luogu】 P1629. Postman Delivering Letter
+
 ## 2023. 06. 25
 
 **Solved** - 【ZeroJudge】 k734. Open Treasure Box
