@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 04
+
+**Solved** - 【ZeroJudge】 a674. 10048 - Audiophobia
+
 ## 2023. 07. 02
 
 **Solved** - 【Luogu】 P1629. Postman Delivering Letter
