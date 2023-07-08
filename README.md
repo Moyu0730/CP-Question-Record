@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 07
+
+**Solved** - 【MDJudge】 C040. Question 10 of the 2020 CIC Quarterfinals
+
 ## 2023. 07. 04
 
 **Solved** - 【ZeroJudge】 a674. 10048 - Audiophobia
