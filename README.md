@@ -2,6 +2,8 @@
 
 ## 2023. 07. 09
 
+**Solved** - 【CSES】 1070. Permutations
+
 **Solved** - 【CSES】 1094. Increasing Array
 
 ## 2023. 07. 08
