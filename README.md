@@ -1,6 +1,10 @@
 # CP-Question-Record
 
-## 2023. 07. 07
+## 2023. 07. 09
+
+**Solved** - 【CSES】 1094. Increasing Array
+
+## 2023. 07. 08
 
 **Solved** - 【CSES】 1096. Repetitions
 
