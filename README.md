@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 12
+
+**Solved** - 【ZeroJudge】 e446. Arrangement Generation
+
 ## 2023. 07. 09
 
 **Solved** - 【CSES】 1070. Permutations
