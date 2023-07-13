@@ -16,6 +16,12 @@ const int Mod = 1e9 + 7;
 int n, len;
 string str;
 
+bool compare( char a, char b ){
+    char aa = toupper(a), bb = toupper(b);
+	if( aa == bb ) return a <= b;
+	else return aa < bb;
+}
+
 void reverseArray( int begin, int end ){
     int dif = end - begin;
     for( int i = 0 ; i < dif / 2 + 1 ; i++ ) swap( str[begin+i], str[end-i] );
@@ -23,13 +29,13 @@ void reverseArray( int begin, int end ){
 
 bool nextPermutation(){
     int p = len - 1; // p stands for Partition Number
-    while( p > 0 && str[p] <= str[p-1] ) p--;
+    while( p > 0 && compare(str[p], str[p-1]) ) p--;
     p--;
 
     if( p == -1 ) return false;
 
     int c = len - 1; // c stands for Change Number
-    while( str[c] <= str[p] ) c--;
+    while( compare(str[c], str[p]) ) c--;
 
     swap(str[c], str[p]);
     reverseArray(p+1, len-1);
@@ -41,7 +47,7 @@ signed main(){
     cin >> n;
     for( int i = 0 ; i < n ; i++ ){
         cin >> str;
-        sort(str.begin(), str.end());
+        sort(str.begin(), str.end(), compare);
         // cout << str;
         len = str.size();
         do{
