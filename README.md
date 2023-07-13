@@ -2,7 +2,7 @@
 
 ## 2023. 07. 13
 
-**Looks Great but WA** - 【UVa】 195. Anagram.cpp
+**TLE Answer** - 【UVa】 195. Anagram.cpp
 
 ## 2023. 07. 12
 
