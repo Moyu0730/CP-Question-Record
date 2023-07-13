@@ -45,8 +45,7 @@ signed main(){
         // cout << str;
         len = str.size();
         do{
-            for( int i = 0 ; i < len ; i++ ) cout << str[i];
-            cout << "\n";
+            cout << str << "\n";
         }while( nextPermutation() );
     }
 }
