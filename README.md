@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 14
+
+**Solved** - 【UVa】 195. Anagram.cpp
+
 ## 2023. 07. 13
 
 **TLE Answer** - 【UVa】 195. Anagram.cpp
