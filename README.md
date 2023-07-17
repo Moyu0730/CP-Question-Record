@@ -2,6 +2,8 @@
 
 ## 2023. 07. 17
 
+**Solved** - 【CSES】 1071. Number Spiral
+
 **Solved** - 【TCIRC】 d097. AP325 P-7-10 Pit Jumping
 
 ## 2023. 07. 16
