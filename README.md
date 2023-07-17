@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 17
+
+**Solved** - 【TCIRC】 d097. AP325 P-7-10 Pit Jumping
+
 ## 2023. 07. 16
 
 **Solved** - 【AtCoder】 Competitive Professional Typical 90 Questions - 002 - Encyclopedia of Parentheses（★3）
