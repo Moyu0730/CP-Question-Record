@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 07. 16
+
+**Solved** - 【AtCoder】 Competitive Professional Typical 90 Questions - 002 - Encyclopedia of Parentheses（★3）
+
+**Solved** - 【CSES】 1624. Chessboard and Queens
+
 ## 2023. 07. 14
 
 **Solved** - 【UVa】 195. Anagram.cpp
