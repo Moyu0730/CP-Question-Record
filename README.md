@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 18
+
+**Solved** - 【CSES】 1617. Bit Strings
+
 ## 2023. 07. 17
 
 **Solved** - 【CSES】 1071. Number Spiral
