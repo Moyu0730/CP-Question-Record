@@ -2,6 +2,8 @@
 
 ## 2023. 07. 18
 
+**Solved** - 【CSES】 1634. Minimizing Coins
+
 **Solved** - 【CSES】 1617. Bit Strings
 
 ## 2023. 07. 17
