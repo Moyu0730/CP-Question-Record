@@ -2,6 +2,8 @@
 
 ## 2023. 07. 18
 
+**Solved** - 【CSES】 1092. Two Sets
+
 **Solved** - 【CSES】 1670. Swap Game
 
 **Solved** - 【CSES】 1634. Minimizing Coins
