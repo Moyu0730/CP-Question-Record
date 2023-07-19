@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 19
+
+**Solved** - 【Luogu】 P1396. Rescue
+
 ## 2023. 07. 18
 
 **Solved** - 【CSES】 1092. Two Sets
