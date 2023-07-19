@@ -2,6 +2,8 @@
 
 ## 2023. 07. 19
 
+**Solved** - 【CSES】 1090. Ferris Wheel
+
 **Solved** - 【Luogu】 P1396. Rescue
 
 ## 2023. 07. 18
