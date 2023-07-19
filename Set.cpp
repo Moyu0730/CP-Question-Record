@@ -4,7 +4,7 @@
 using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-#define mem(x) memset(x, 0x3F, sizeof(x));
+#define mem(x, value) memset(x, value, sizeof(x));
 #define pii pair<int, int>
 #define pdd pair<double, double>
 #define f first
