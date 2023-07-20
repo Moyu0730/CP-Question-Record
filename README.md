@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 07. 20
+
+**Solved** - 【CSES】 1672. Shortest Routes II
+
+**Solved** - 【CSES】 1671. Shortest Routes I
+
 ## 2023. 07. 19
 
 **Solved** - 【CSES】 1090. Ferris Wheel
