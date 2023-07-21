@@ -21,7 +21,6 @@ bool valid( int ans ){
     op = 1, ind = 0, tmp = 0;
 
     while( ind < n ){
-        // cout << ind << " " << tmp << " " << op << "\n";
         if( arr[ind] > ans ) return false;
         if( tmp + arr[ind] <= ans ){
             tmp += arr[ind];
