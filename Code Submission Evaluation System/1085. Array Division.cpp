@@ -1,4 +1,4 @@
-/* Question : CSES Number */
+/* Question : CSES 1085. Array Division */
 
 #include<iostream>
 #include<iomanip>
@@ -14,15 +14,18 @@ using namespace std;
 
 const int MAXN = 2e5 + 50;
 const int Mod = 1e9 + 7;
-int n, k, res;
+int n, k, res, op, ind, tmp;
 int arr[MAXN];
 
 bool valid( int ans ){
-    int op = 0, ind = 0, tmp;
+    op = 1, ind = 0, tmp = 0;
 
     while( ind < n ){
-        if( tmp + arr[ind] <= ans ) tmp += arr[ind];
-        else{
+        // cout << ind << " " << tmp << " " << op << "\n";
+        if( arr[ind] > ans ) return false;
+        if( tmp + arr[ind] <= ans ){
+            tmp += arr[ind];
+        }else{
             op++;
             tmp = arr[ind];
         }
@@ -37,7 +40,6 @@ signed main(){
     cin >> n >> k;
     for( int i = 0 ; i < n ; i++ ){
         cin >> arr[i];
-        res = max( res, arr[i] );
     }
 
     int step = 1e18;
@@ -46,6 +48,5 @@ signed main(){
         else step /= 2;
     }
 
-    cout << res;
-    // cout << valid(1e18);
+    cout << res+1 << "\n";
 }
