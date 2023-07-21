@@ -1,6 +1,12 @@
 # CP-Question-Record
 
+## 2023. 07. 21
+
+**Solved** - 【CSES】 1085. Array Division
+
 ## 2023. 07. 20
+
+**Solved** - 【CSES】 1673. High Score
 
 **Solved** - 【CSES】 1672. Shortest Routes II
 
