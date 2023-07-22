@@ -1,6 +1,12 @@
 # CP-Question-Record
 
+## 2023. 07. 22
+
+**Solved** - 【UVa】 291. The House Of Santa Claus
+
 ## 2023. 07. 21
+
+**Solved** - 【CSES】 1635. Coin Combinations I
 
 **Solved** - 【CSES】 1085. Array Division
 
@@ -42,11 +48,11 @@
 
 ## 2023. 07. 14
 
-**Solved** - 【UVa】 195. Anagram.cpp
+**Solved** - 【UVa】 195. Anagram
 
 ## 2023. 07. 13
 
-**TLE Answer** - 【UVa】 195. Anagram.cpp
+**TLE Answer** - 【UVa】 195. Anagram
 
 ## 2023. 07. 12
 
