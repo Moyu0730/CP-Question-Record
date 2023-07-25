@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 07. 25
+
+**Seems Like AC, but UVa Was Dead** - 【UVa】 441. Lotto
+
+## 2023. 07. 24
+
+**Solved** - 【CSES】 1091. Concert Tickets
+
 ## 2023. 07. 22
 
 **Solved** - 【UVa】 291. The House Of Santa Claus
