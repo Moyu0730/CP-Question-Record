@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 26
+
+**Solved** - 【UVa】 441. Lotto
+
 ## 2023. 07. 25
 
 **Seems Like AC, but UVa Was Dead** - 【UVa】 441. Lotto
