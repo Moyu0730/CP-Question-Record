@@ -14,6 +14,7 @@ const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 13 + 50;
 const int Mod = 1e9 + 7;
 int k, arr[MAXN], out[MAXN];
+bool flag;
 
 void print( int t, int cnt ){
     if( t == 0 ){
@@ -34,8 +35,9 @@ signed main(){
     opt;
     while( cin >> k ){
         if( k == 0 ) break;
+        if( flag ) cout << "\n";
+        flag = true;
         for( int i = 0 ; i < k ; i++ ) cin >> arr[i];
         print(6, 0);
-        cout << "\n";
     }
 }
