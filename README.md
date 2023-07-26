@@ -2,6 +2,8 @@
 
 ## 2023. 07. 26
 
+**TLE Answer** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
+
 **Solved** - 【UVa】 441. Lotto
 
 ## 2023. 07. 25
