@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 07. 29
+
+**Solved** - 【CSES】 1161. Stick Divisions
+
+**Solved** - 【CSES】 1630. Tasks and Deadlines
+
 ## 2023. 07. 26
 
 **TLE Answer** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
