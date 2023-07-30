@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 07. 30
+
+**Solved** - 【CSES】 1072. Two Knights 
+
 ## 2023. 07. 29
 
 **Solved** - 【CSES】 1161. Stick Divisions
