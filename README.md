@@ -1,6 +1,12 @@
 # CP-Question-Record
 
+## 2023. 07. 31
+
+*Solved** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
+
 ## 2023. 07. 30
+
+**Solved** - 【TOJ】 36. Simple Problem
 
 **Solved** - 【CSES】 1072. Two Knights 
 
