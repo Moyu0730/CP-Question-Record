@@ -1,8 +1,16 @@
 # CP-Question-Record
 
+## 2023. 08. 02
+
+**Solved** - 【AtCoder】 Beginner Contest 119 - C - Synthetic Kadomatsu
+
+## 2023. 08. 01
+
+**Solved** - 【CSES】 1195. Flight Discount
+
 ## 2023. 07. 31
 
-*Solved** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
+**Solved** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
 
 ## 2023. 07. 30
 
