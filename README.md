@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 08. 04
+
+**Solved** - 【CSES】 1650. Range Xor Queries
+
+## 2023. 08. 03
+
+**Solved** - 【ZeroJudge】 d799. Interval Summation
+
 ## 2023. 08. 02
 
 **Solved** - 【AtCoder】 Beginner Contest 119 - C - Synthetic Kadomatsu
