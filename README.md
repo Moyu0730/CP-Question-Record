@@ -1,5 +1,19 @@
 # CP-Question-Record
 
+## 2023. 08. 07
+
+**Solved** - 【CSES】 1649. Dynamic Range Minimum Queries
+
+## 2023. 08. 06
+
+**Haven't Finish** - 【Luogu】 P1313. [ NOIP2011 Improvement Group ] Calculation Coefficient
+
+**Solved** - 【CSES】 1712. Exponentiation II
+
+## 2023. 08. 05
+
+**Haven't Finish** - 【CF】 1394A. Orac and LCM
+
 ## 2023. 08. 04
 
 **Solved** - 【CSES】 1650. Range Xor Queries
@@ -166,13 +180,13 @@
 
 ## 2023. 05. 27
 
-**Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) E. Stock Analyst
+**Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) E. Stock Analyst
 
-**Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) B. Tim Chen no Loli Base
+**Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) B. Tim Chen no Loli Base
 
 ## 2023. 05. 26
 
-**Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) D. Checkered Arena
+**Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) D. Checkered Arena
 
 ## 2023. 05. 24
 
