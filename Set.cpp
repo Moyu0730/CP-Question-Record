@@ -11,6 +11,7 @@ using namespace std;
 #define pb push_back
 #define f first
 #define s second
+#define int long long
 
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 1e8 + 50;
