@@ -1,5 +1,15 @@
 # CP-Question-Record
 
+## 2023. 08. 10
+
+**Solved** - 【CSES】 1687. Company Queries I
+
+**Solved** - 【CSES】 1688. Company Queries II
+
+## 2023. 08. 09
+
+**Haven't Finish** - 【CSES】 1734. Distinct Values Queries
+
 ## 2023. 08. 07
 
 **Solved** - 【CSES】 1649. Dynamic Range Minimum Queries
