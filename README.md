@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 08. 11
+
+**Solved** - 【CSES】 1618. Trailing Zeros
+
 ## 2023. 08. 10
 
 **Solved** - 【CSES】 1687. Company Queries I
