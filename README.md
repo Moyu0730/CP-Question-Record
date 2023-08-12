@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 08. 12
+
+**Solved** - 【CSES】 1754. Coin Piles
+
 ## 2023. 08. 11
 
 **Solved** - 【CSES】 1618. Trailing Zeros
