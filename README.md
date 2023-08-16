@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 08. 16
+
+**Solved** - 【AtCoder】 Beginner Contest 152 - D - Handstand 2
+
+**Solved** - 【CSES】 1755. Palindrome Reorder
+
 ## 2023. 08. 12
 
 **Solved** - 【CSES】 1754. Coin Piles
