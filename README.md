@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 08. 17
+
+**Solved** - 【AtCoder】 Beginner Contest 196 - D - Hanjo
+
 ## 2023. 08. 16
 
 **Solved** - 【AtCoder】 Beginner Contest 152 - D - Handstand 2
