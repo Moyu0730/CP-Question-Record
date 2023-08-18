@@ -1,6 +1,14 @@
 # CP-Question-Record
 
+## 2023. 08. 18
+
+**Solved** - 【AtCoder】 Beginner Contest 178 - F - Contrast
+
 ## 2023. 08. 17
+
+**Solved** - 【CSES】 1622. Creating Strings
+
+**Solved** - 【CSES】 2205. Gray Code
 
 **Solved** - 【CSES】 1143. Hotel Queries
 
