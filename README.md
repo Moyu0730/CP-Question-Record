@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 08. 23
+
+**Solved** - 【TIOJ】 1198. 8-puzzle
+
 ## 2023. 08. 22
 
 **Solved** - 【CSES】 1137. Subtree Queries
