@@ -6,15 +6,15 @@
 
 ## 2023. 08. 23
 
+**Solved** - 【TIOJ】 1198. 8-puzzle
+
+## 2023. 08. 22
+
 **15% Solution** - 【2023 MD Player Training】 Simulation Contest 1 - B. Conveyor
 
 **20% Solution** - 【2023 MD Player Training】 Simulation Contest 1 - A. Fivesteps
 
 **Solved** - 【2023 MD Player Training】 Simulation Contest 1 - C. Hsr
-
-**Solved** - 【TIOJ】 1198. 8-puzzle
-
-## 2023. 08. 22
 
 **Solved** - 【CSES】 1137. Subtree Queries
 
