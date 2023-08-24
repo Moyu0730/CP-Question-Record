@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 08. 24
+
+**Solved** - 【MDJudge】 B053. Go Alone
+
 ## 2023. 08. 23
 
 **Solved** - 【TIOJ】 1198. 8-puzzle
