@@ -13,48 +13,102 @@ using namespace std;
 #define s second
 #define int long long
 
-const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
-                                            // D     R       U         L
+const auto dir = vector< pair<int, int> > { {1, 0},     // D
+                                            {0, 1},     // R
+                                            {-1, 0},    // U
+                                            {0, -1} };      // L
 const int MAXN = 5000 + 50;
-const int Mod = 1e9 + 7;
+const int N = 30000000 + 7;
 int n, m, res;
-char graph[MAXN][MAXN];
 pii st, ed;
-bool flag;
+char graph[MAXN][MAXN];
+int dis[MAXN][MAXN];
+bool vis[MAXN][MAXN];
+deque<pii> dq;
 string str;
-bool visited[MAXN][MAXN];
-// queue< pair<pii, int> > q;
-// queue< vector<vector<bool>> > used;
-// vector<vector<bool>> def, v'
+map<char, int> mp;
 
-void dfs( int i, int j, int num ){
-    if( i == ed.f && j == ed.s ){
-        res = min(res, num);
-        return;
-    }
+void bfs(){
+    dq.push_front(st);
+    mem(dis, -1);
+    dis[st.f][st.s] = 0;
+    
+    while( !dq.empty() ){
+        pii cnt = dq.front();
+        dq.pop_front();
 
-    if( visited[i][j] == true ) return;
-    if( graph[i][j] == '#' ) return;
+        if( cnt == ed ) return;
+        if( vis[cnt.f][cnt.s] ) continue;
+        
+        vis[cnt.f][cnt.s] = true;
+        int d = dis[cnt.f][cnt.s];
+ 
+        for( int t = 0 ; t < 4 ; t++ ){
+            pii nxt = {cnt.f + dir[t].f, cnt.s + dir[t].s};
 
-    for( int t = 0 ; t < 4 ; t++ ){
-        int ni = i + dir[t].f;
-        int nj = j + dir[t].s;
+            if( nxt.s > m || nxt.s <= 0 || nxt.f > n || nxt.f <= 0 ) continue;
+            if( graph[nxt.f][nxt.s] == '#' ) continue;
 
-        flag = true;
-        if( graph[i][j] == 'U' && t != 2 ) flag = false;
-        else if( graph[i][j] == 'D' && t != 0 ) flag = false;
-        else if( graph[i][j] == 'L' && t != 3 ) flag = false;
-        else if( graph[i][j] == 'R' && t != 1 ) flag = false;
-
-        if( nj > m || nj <= 0 || ni > n || ni <= 0 ) continue;
-
-        visited[i][j] = true;
-        if( flag == false ) dfs(ni, nj, num+1);
-        else dfs(ni, nj, num);
-        visited[i][j] = false;
+            int nxtd = t != mp[graph[cnt.f][cnt.s]] ? d+1 : d;
+            if( dis[nxt.f][nxt.s] == -1 || nxtd < dis[nxt.f][nxt.s] ){
+                dis[nxt.f][nxt.s] = nxtd;
+                if( t != mp[graph[cnt.f][cnt.s]]) dq.push_back(nxt);
+                else dq.push_front(nxt);
+            }
+        }
     }
 }
 
+signed main(){
+    opt;
+    cin >> n >> m;
+    for( int i = 1 ; i <= n ; i++ ){
+        cin >> str;
+        for( int j = 0 ; j < str.size() ; j++ ) graph[i][j+1] = str[j];
+    }
+    cin >> st.f >> st.s;
+    cin >> ed.f >> ed.s;
+
+    mp['U'] = 2;
+    mp['D'] = 0;
+    mp['L'] = 3;
+    mp['R'] = 1;
+
+    bfs();
+
+    cout << dis[ed.f][ed.s] << "\n";
+}
+
+/***** DFS(Failed) *****/
+// void dfs( int i, int j, int num ){
+//     if( i == ed.f && j == ed.s ){
+//         res = min(res, num);
+//         return;
+//     }
+
+//     if( visited[i][j] == true ) return;
+//     if( graph[i][j] == '#' ) return;
+
+//     for( int t = 0 ; t < 4 ; t++ ){
+//         int ni = i + dir[t].f;
+//         int nj = j + dir[t].s;
+
+//         flag = true;
+//         if( graph[i][j] == 'U' && t != 2 ) flag = false;
+//         else if( graph[i][j] == 'D' && t != 0 ) flag = false;
+//         else if( graph[i][j] == 'L' && t != 3 ) flag = false;
+//         else if( graph[i][j] == 'R' && t != 1 ) flag = false;
+
+//         if( nj > m || nj <= 0 || ni > n || ni <= 0 ) continue;
+
+//         visited[i][j] = true;
+//         if( flag == false ) dfs(ni, nj, num+1);
+//         else dfs(ni, nj, num);
+//         visited[i][j] = false;
+//     }
+// }
+
+/***** BFS(Failed) *****/
 // void bfs(){
 //     q.push({{st.f, st.s}, 0});
     
@@ -100,23 +154,3 @@ void dfs( int i, int j, int num ){
 //     }
 //     return;
 // }
-
-signed main(){
-    // opt;
-    cin >> n >> m;
-    for( int i = 1 ; i <= n ; i++ ){
-        cin >> str;
-        for( int j = 0 ; j < str.size() ; j++ ){
-            graph[i][j+1] = str[j];
-        }
-    }
-    cin >> st.f >> st.s;
-    cin >> ed.f >> ed.s;
-
-    // bfs();
-    res = 1e9;
-    dfs(st.f, st.s, 0);
-
-    if( res != 1e9) cout << res << "\n";
-    else cout << "-1\n";
-}
