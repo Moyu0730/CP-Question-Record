@@ -1,5 +1,7 @@
 # CP-Question-Record
 
+## 2023. 08. 28
+
 ## 2023. 08. 27
 
 **Solved** - 【AtCoder】 Beginner Contest 317 - A - Potions
