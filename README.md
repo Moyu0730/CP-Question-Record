@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 08. 25
+
+**Solved** - 【2023 MD Player Training】 Simulation Contest 1 - B. Conveyor
+
 ## 2023. 08. 24
 
 **Solved** - 【MDJudge】 B053. Go Alone
