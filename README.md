@@ -1,8 +1,12 @@
 # CP-Question-Record
 
-## 2023. 08. 28
+## 2023. 08. 29
 
 **1/3 WA** - 【AtCoder】 Beginner Contest 317 - E - Avoid Eye Contact
+
+## 2023. 08. 28
+
+**Solved** - 【AtCoder】 Beginner Contest 317 - D - President
 
 ## 2023. 08. 27
 

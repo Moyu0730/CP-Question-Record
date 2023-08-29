@@ -35,7 +35,7 @@ void bfs(){
             pii nxt = {cnt.f + dir[t].f, cnt.s + dir[t].s};
 
             if( nxt.f >= n || nxt.f < 0 || nxt.s >= m || nxt.s < 0 ) continue;
-            if( grid[nxt.f][nxt.s] == '#' ) continue;
+            if( grid[nxt.f][nxt.s] == '#' || grid[nxt.f][nxt.s] == '!' ) continue;
             if( dis[nxt.f][nxt.s] != -1 ) continue;
 
             dis[nxt.f][nxt.s] = dis[cnt.f][cnt.s] + 1;
@@ -59,23 +59,23 @@ signed main(){
     for( auto i : p ){
         if( grid[i.f][i.s] == '^' ){
             for( int d = i.f - 1 ; d >= 0 ; d-- ){
-                if( grid[d][i.s] != '.' ) break;
-                grid[d][i.s] = '#';
+                if( grid[d][i.s] != '.' && grid[d][i.s] != '!' ) break;
+                grid[d][i.s] = '!';
             }
         }else if( grid[i.f][i.s] == 'v' ){
             for( int d = i.f + 1 ; d < n ; d++ ){
-                if( grid[d][i.s] != '.' ) break;
-                grid[d][i.s] = '#';
+                if( grid[d][i.s] != '.' && grid[d][i.s] != '!' ) break;
+                grid[d][i.s] = '!';
             } 
         }else if( grid[i.f][i.s] == '<' ){
             for( int d = i.s - 1 ; d >= 0 ; d-- ){
-                if( grid[i.f][d] != '.' ) break;
-                grid[i.f][d] = '#';
+                if( grid[i.f][d] != '.' && grid[i.f][d] != '!' ) break;
+                grid[i.f][d] = '!';
             }
         }else if( grid[i.f][i.s] == '>' ){
             for( int d = i.s + 1 ; d < m ; d++ ){
-                if( grid[i.f][d] != '.' ) break;
-                grid[i.f][d] = '#';
+                if( grid[i.f][d] != '.' && grid[i.f][d] != '!' ) break;
+                grid[i.f][d] = '!';
             }
         }
         grid[i.f][i.s] = '#';
