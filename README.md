@@ -2,6 +2,8 @@
 
 ## 2023. 08. 29
 
+**Solved** - 【AtCoder】 Beginner Contest 317 - E - Avoid Eye Contact
+
 **1/3 WA** - 【AtCoder】 Beginner Contest 317 - E - Avoid Eye Contact
 
 ## 2023. 08. 28
