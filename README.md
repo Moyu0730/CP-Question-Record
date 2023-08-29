@@ -2,6 +2,8 @@
 
 ## 2023. 08. 28
 
+**1/3 WA** - 【AtCoder】 Beginner Contest 317 - E - Avoid Eye Contact
+
 ## 2023. 08. 27
 
 **Solved** - 【AtCoder】 Beginner Contest 317 - A - Potions
