@@ -1,8 +1,10 @@
 # CP-Question-Record
 
-## 2023. 08. 29
+## 2023. 09. 01
 
-**Solved** - 【AtCoder】 Beginner Contest 317 - E - Avoid Eye Contact
+**Solved** - 【CSES】 1190. Subarray Sum Queries
+
+## 2023. 08. 29
 
 **1/3 WA** - 【AtCoder】 Beginner Contest 317 - E - Avoid Eye Contact
 
