@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 09. 07
+
+**Solved** - 【CSES】 1628. Meet In The Middle
+
 ## 2023. 09. 01
 
 **Solved** - 【CSES】 1190. Subarray Sum Queries
