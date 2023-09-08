@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : CF 【2023 MD Player Training】 Simulation Contest 2 - A. The Second Largest */
 
 #include<bits/stdc++.h>
 using namespace std;
