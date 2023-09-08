@@ -8,6 +8,12 @@
 
 ## 2023. 09. 02
 
+**Solved** - 【AtCoder】 Beginner Contest 318 - A - Full Moon
+
+**Solved** - 【AtCoder】 Beginner Contest 318 - B - Overlapping sheets
+
+**Solved** - 【AtCoder】 Beginner Contest 318 - C - Blue Spring
+
 **Solved** - 【AtCoder】 Beginner Contest 315 - A - Tcdr
 
 **Solved** - 【AtCoder】 Beginner Contest 315 - B - The Middle Day
