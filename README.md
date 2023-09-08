@@ -2,7 +2,19 @@
 
 ## 2023. 09. 07
 
+**Solved** - 【2023 MD Player Training】 Simulation Contest 1 - A. Fivesteps
+
 **Solved** - 【CSES】 1628. Meet In The Middle
+
+## 2023. 09. 02
+
+**Solved** - 【AtCoder】 Beginner Contest 315 - A - Tcdr
+
+**Solved** - 【AtCoder】 Beginner Contest 315 - B - The Middle Day
+
+**Solved** - 【AtCoder】 Beginner Contest 315 - C - Flavors
+
+**Solved** - 【AtCoder】 Beginner Contest 315 - E - Prerequisites
 
 ## 2023. 09. 01
 
