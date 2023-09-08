@@ -1,0 +1,39 @@
+/* Question : AtCoder Beginner Contest 315 - B - The Middle Day */
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define pirq(type) priority_queue<type, vector<type>, greater<type>>
+#define mem(x, value) memset(x, value, sizeof(x));
+#define pii pair<int, int>
+#define pdd pair<double, double>
+#define pb push_back
+#define f first
+#define s second
+#define int long long
+
+const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
+const int MAXN = 1e2 + 50;
+const int Mod = 1e9 + 7;
+int m, sum, arr[MAXN], bs[MAXN];
+
+signed main(){
+    opt;
+    cin >> m;
+
+    sum = 0;
+    for( int i = 0 ; i < m ; i++ ){
+        cin >> arr[i];
+        sum += arr[i];
+
+        if( i == 0 ) bs[i] = arr[i];
+        else bs[i] = bs[i-1] + arr[i];
+    }
+
+    int mid = ( sum + 1 ) / 2;
+    int ind = lower_bound( bs, bs + m, mid) - bs - 1;
+    
+    if( m > 1 ) cout << ind + 2 << " " << mid - bs[ind] << " ";
+    else cout << 1 << " " << mid << " ";
+}
