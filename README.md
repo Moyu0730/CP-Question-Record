@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 09. 13
+
+**Solved** - 【CSES】 1753. String Matching
+
 ## 2023. 09. 07
 
 **Solved** - 【2023 MD Player Training】 Simulation Contest 1 - A. Fivesteps
