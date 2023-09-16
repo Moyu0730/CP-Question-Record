@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 09. 16
+
+**Solved** - 【AtCoder】 Beginner Contest 320 - A - Leyland Number
+
+**Remain 1 WA** - 【AtCoder】 Beginner Contest 320 - D. Relative Position
+
+**Solved** - 【AtCoder】 Beginner Contest 320 - E. Somen Nagashi
+
 ## 2023. 09. 13
 
 **Solved** - 【CSES】 1753. String Matching
