@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : TOJ 273. Diamond */
 
 #include<bits/stdc++.h>
 using namespace std;
