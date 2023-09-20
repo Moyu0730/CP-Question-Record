@@ -4,7 +4,7 @@
 using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-#define priq(type) priority_queue<type, vector<type>, greater<type>>
+#define pirq(type) priority_queue<type, vector<type>, greater<type>>
 #define mem(x, value) memset(x, value, sizeof(x));
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -16,7 +16,12 @@ using namespace std;
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 1e8 + 50;
 const int Mod = 1e9 + 7;
+int n;
+string str = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679";
 
 signed main(){
     opt;
+    cin >> n;
+    for( int i = 0 ; i <= n+1 ; i++ ) cout << str[i];
+    cout << "\n";
 }

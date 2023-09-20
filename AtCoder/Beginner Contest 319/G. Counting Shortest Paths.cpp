@@ -1,10 +1,10 @@
-/* Question : OJ Number */
+/* Question : AtCoder Beginner Contest 319 - G - Counting Shortest Paths */
 
 #include<bits/stdc++.h>
 using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-#define priq(type) priority_queue<type, vector<type>, greater<type>>
+#define pirq(type) priority_queue<type, vector<type>, greater<type>>
 #define mem(x, value) memset(x, value, sizeof(x));
 #define pii pair<int, int>
 #define pdd pair<double, double>

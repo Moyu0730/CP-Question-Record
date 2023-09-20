@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 09. 20
+
+**Solved** - 【TOJ】 273. Diamond
+
 ## 2023. 09. 16
 
 **Solved** - 【AtCoder】 Beginner Contest 320 - A - Leyland Number

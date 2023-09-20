@@ -1,10 +1,10 @@
-/* Question : OJ Number */
+/* Question : AtCoder Beginner Contest 320 - C - Slot Strategy 2 (Easy)  */
 
 #include<bits/stdc++.h>
 using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-#define priq(type) priority_queue<type, vector<type>, greater<type>>
+#define pirq(type) priority_queue<type, vector<type>, greater<type>>
 #define mem(x, value) memset(x, value, sizeof(x));
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -16,7 +16,12 @@ using namespace std;
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 1e8 + 50;
 const int Mod = 1e9 + 7;
+int m, res;
+string a, b, c;
 
 signed main(){
     opt;
+    cin >> m >> a >> b >> c;
+
+    for( )
 }
