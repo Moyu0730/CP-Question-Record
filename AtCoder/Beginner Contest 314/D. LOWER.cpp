@@ -19,6 +19,7 @@ const int Mod = 1e9 + 7;
 int n, q, a, b;
 char c;
 vector<tuple<int, int, char>> vtp;
+int last = -1, type;
 string str;
 
 void toUpper(){
@@ -38,13 +39,21 @@ signed main(){
     cin >> n >> str >> q;
     for( int i = 0 ; i < q ; i++ ){
         cin >> a >> b >> c;
+        if( a != 1 ){
+            last = i;
+            type = a;
+        }
         vtp.pb({a, b, c});
     }
-
-    for( auto i : vtp ){
-        if( get<0>(i) == 1 ) str[get<1>(i)-1] = get<2>(i);
-        else if( get<0>(i) == 2 ) toLower();
-        else toUpper();
+    
+    for( int i = 0 ; i < vtp.size() ; i++ ){
+        if( i < last && get<0>(vtp[i]) != 1 ) continue;
+        if( i == last ){
+            if( type == 2 ) toLower();
+            else toUpper();
+        }else{
+            str[get<1>(vtp[i])-1] = get<2>(vtp[i]);
+        }
     }
 
     cout << str << "\n";
