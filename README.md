@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 09. 22
+
+**Solved** - 【AtCoder】 Beginner Contest 314 - D. LOWER
+
+**Solved** - 【TOJ】 630. EatAllLeftMost
+
 ## 2023. 09. 20
 
 **Solved** - 【TOJ】 273. Diamond
