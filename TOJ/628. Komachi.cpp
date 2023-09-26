@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : TOJ 628. Komachi */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -43,11 +43,13 @@ signed main(){
     }
 
     for( int i = 1 ; i <= m ; i++ ){
-        cout << sch[i].size() << " ";
-        if( sch[i].size() == 0 ) continue;
+        cout << sch[i].size();
 
-        sort( sch[i].begin(), sch[i].end() );
-        for( auto j : sch[i] ) cout << j << " ";
+        if( sch[i].size() != 0 ){
+            sort( sch[i].begin(), sch[i].end() );
+            for( auto j : sch[i] ) cout << " " << j;
+        }
+
         cout << "\n";
     }
 }
