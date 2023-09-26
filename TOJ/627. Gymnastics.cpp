@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : TOJ 627. Gymnastics */
 
 #include<bits/stdc++.h>
 using namespace std;
