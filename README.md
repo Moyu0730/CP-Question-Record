@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 09. 27
+
+**Solved** - 【Green Judge】 d086-2. Settle Accounts
+
+## 2023. 09. 26
+
+**Solved** - 【TOJ】 628. Komachi
+
 ## 2023. 09. 22
 
 **Solved** - 【AtCoder】 Beginner Contest 314 - D. LOWER
