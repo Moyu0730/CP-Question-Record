@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 09. 30
+
+**Solved** - 【CSES】 1623. Apple Division
+
 ## 2023. 09. 27
 
 **Solved** - 【Green Judge】 d086-2. Settle Accounts
