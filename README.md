@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 10. 04
+
+**Solved** - 【CSES】 1131. Tree Diameter
+
+## 2023. 10. 03
+
+**Solved** - 【TIOJ】 1224. Rectangular Coverage Area
+
 ## 2023. 09. 30
 
 **Solved** - 【CSES】 1623. Apple Division
