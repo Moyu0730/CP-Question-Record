@@ -6,6 +6,8 @@
 
 **Solved** - 【CSES】 1629. Movie Festival
 
+**Solved** - 【CSES】 1111. Longest Palindrome
+
 ## 2023. 10. 06
 
 **Solved** - 【CSES】 1619. Restaurant Customers
