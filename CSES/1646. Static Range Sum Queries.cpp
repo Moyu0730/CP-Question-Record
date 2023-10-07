@@ -17,14 +17,12 @@ const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 1e8 + 50;
 const int Mod = 1e9 + 7;
 vector<int> pre, v;
-vector<pii> nums;
-int n, q, x;
+int n, q, l, r, x;
  
 signed main() {
 	cin >> n >> q;
 	pre.resize(n+5);
 	v.resize(n+5);
-	nums.resize(q+5);
 	for( int i = 1 ; i <= n ; i++ ){
 		cin >> x;
 		v[i] = x;
@@ -32,9 +30,7 @@ signed main() {
 	}
 	
 	for( int i = 1 ; i <= q ; i++ ){
-		cin >> nums[i].first >> nums[i].second;
+		cin >> l >> r;
+		cout << pre[r] - pre[l-1] << '\n';
 	}
-	for( int i = 1 ; i <= q ; i++ ){
-		cout << pre[nums[i].second]-pre[nums[i].first-1] << '\n';
-	} 
 }
