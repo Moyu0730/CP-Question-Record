@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 10. 07
+
+**Opt** - 【CSES】 1646. Static Range Sum Queries
+
+**Solved** - 【CSES】 1629. Movie Festival
+
 ## 2023. 10. 06
 
 **Solved** - 【CSES】 1619. Restaurant Customers
