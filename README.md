@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 10. 06
+
+**Solved** - 【CSES】 1619. Restaurant Customers
+
+**Solved** - 【CSES】 1666. Building Roads
+
 ## 2023. 10. 04
 
 **Solved** - 【CSES】 1131. Tree Diameter
@@ -351,3 +357,7 @@
 ## 2023. 05. 18 
 
 **Solved** - 【ZeroJudge】 b844. A Bunch of Buttons
+
+## 2022. 07. 21
+
+**Solved** - 【CSES】 1646. Static Range Sum Queries
