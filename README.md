@@ -26,6 +26,14 @@
 
 **Solved** - 【CSES】 1623. Apple Division
 
+**Solved** - 【AtCoder】 Beginner Contest 182 - A. Twiblr
+
+**Solved** - 【AtCoder】 Beginner Contest 182 - B - Almost GCD
+
+**Solved** - 【AtCoder】 Beginner Contest 182 - C - To 3
+
+**TLE** - 【AtCoder】 Beginner Contest 182 - D. Wandering
+
 ## 2023. 09. 27
 
 **Solved** - 【Green Judge】 d086-2. Settle Accounts
