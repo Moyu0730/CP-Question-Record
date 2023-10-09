@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 10. 09
+
+**Solved** - 【CSES】 2189. Point Location Test
+
 ## 2023. 10. 07
 
 **Opt** - 【CSES】 1646. Static Range Sum Queries
