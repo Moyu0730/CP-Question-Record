@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 10. 16
+
+**Solved** - 【CF】 APCS Practice Contest - B. Ladder String
+
+## 2023. 10. 14
+
+**Solved** - 【CF】 APCS Practice Contest - A. ABC5
+
 ## 2023. 10. 09
 
 **Solved** - 【CSES】 2189. Point Location Test
