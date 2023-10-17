@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 10. 17
+
+**Solved** - 【Luogu】 P1901. Transmitting Station
+
 ## 2023. 10. 16
 
 **Solved** - 【CF】 APCS Practice Contest - B. Ladder String
