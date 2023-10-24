@@ -6,6 +6,10 @@
 
 **Solving** - 【AtCoder】 Beginner Contest 324 - F. Beautiful Path
 
+**TLE** - 【AtCoder】 Beginner Contest 324 - F. Beautiful Path
+
+**Solved** - 【AtCoder】 Beginner Contest 324 - F. Beautiful Path
+
 ## 2023. 10. 17
 
 **Solved** - 【Luogu】 P1901. Transmitting Station
