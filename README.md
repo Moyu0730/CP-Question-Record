@@ -10,6 +10,8 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 324 - F. Beautiful Path
 
+**Solved** - 【AtCoder】 Educational DP Contest - F. LCS
+
 **Change File Name** - 【AtCoder】 Educational DP Contest - A. Frog 1
 
 **Change File Name** - 【AtCoder】 Educational DP Contest - B. Frog 2
