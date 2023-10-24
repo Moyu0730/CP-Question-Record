@@ -18,35 +18,24 @@ const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 2e5 + 50;
 const int Mod = 1e9 + 7;
 int n, m, u, v, b, c;
-double dis[MAXN];
+double dis[MAXN], dp[MAXN];
 vector<vector<pair<int, pdd>>> graph;
 
-bool dij( int root, double x ){
-    mem(dis, -10000.0);
-    priq(pdi) pq;
-    pq.push({0.0, root});
-    dis[root] = 0;
+bool check( int root, double val ){
+    mem(dp, -1e8);
+    dp[root] = 0;
+    for( int i = root ; i <= n ; i++ ){
+        for( auto it : graph[i] ){
+            int v = it.f;
+            double b = it.s.f;
+            double c = it.s.s;
+            double w = b - (c * val);
 
-    while( !pq.empty() ){
-        double d = pq.top().f;
-        int node = pq.top().s;
-        pq.pop();
-
-        if( d < dis[node] ) continue;
-        for( auto i : graph[node] ){
-            int v = i.f;
-            double b = i.s.f;
-            double c = i.s.s;
-
-            double w = b - (c * x) + d;
-            if( w > dis[v] ){
-                dis[v] = w;
-                pq.push({w, v});
-            }
+            dp[v] = max(dp[v], dp[i] + w);
         }
     }
 
-    return dis[n] >= 0;
+    return dp[n] >= 0;
 }
 
 signed main(){
@@ -64,7 +53,7 @@ signed main(){
     while( dif >= 1e-9 ){
         double mid = (l + r) / 2.0;
         
-        if( dij(1, mid) ) l = mid;
+        if( check(1, mid) ) l = mid;
         else r = mid;
 
         dif = abs(res - mid);
