@@ -10,6 +10,16 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 324 - F. Beautiful Path
 
+**Change File Name** - 【AtCoder】 Educational DP Contest - A. Frog 1
+
+**Change File Name** - 【AtCoder】 Educational DP Contest - B. Frog 2
+
+**Change File Name** - 【AtCoder】 Educational DP Contest - C. Vacation
+
+## 2023. 10. 18
+
+**Solved** - 【AtCoder】 Educational DP Contest - D. Knapsack 1
+
 ## 2023. 10. 17
 
 **Solved** - 【Luogu】 P1901. Transmitting Station
