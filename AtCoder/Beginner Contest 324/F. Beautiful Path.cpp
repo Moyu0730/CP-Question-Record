@@ -4,7 +4,7 @@
 using namespace std;
 
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-#define priq(type) priority_queue<type, vector<type>, greater<type>>
+#define priq(type) priority_queue<type, vector<type>>
 #define mem(x, value) memset(x, value, sizeof(x));
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -22,7 +22,7 @@ double dis[MAXN];
 vector<vector<pair<int, pdd>>> graph;
 
 bool dij( int root, double x ){
-    mem(dis, -1000000.0);
+    mem(dis, -10000.0);
     priq(pdi) pq;
     pq.push({0.0, root});
     dis[root] = 0;
@@ -38,7 +38,7 @@ bool dij( int root, double x ){
             double b = i.s.f;
             double c = i.s.s;
 
-            double w = b - c * x;
+            double w = b - (c * x) + d;
             if( w > dis[v] ){
                 dis[v] = w;
                 pq.push({w, v});
@@ -58,13 +58,13 @@ signed main(){
         graph[u].pb({v, {b, c}});
     }
 
-    double dif = 200000;
-    double l = 0, r = 200000;
+    double dif = 2e9;
+    double l = 0, r = 2e9;
     double res = 0;
     while( dif >= 1e-9 ){
         double mid = (l + r) / 2.0;
         
-        if( dij(1, mid) )  l = mid;
+        if( dij(1, mid) ) l = mid;
         else r = mid;
 
         dif = abs(res - mid);
