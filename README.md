@@ -4,6 +4,10 @@
 
 **Solved** - 【CSES】 2195. Convex Hull
 
+**Solved** - 【CSES】 2191. Polygon Area
+
+**Solved** - 【CSES】 1673. High Score
+
 ## 2023. 10. 24
 
 **Solved** - 【AtCoder】 Beginner Contest 324 - E. Joint Two Strings
