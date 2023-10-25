@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 10. 25
+
+**Solved** - 【CSES】 2195. Convex Hull
+
 ## 2023. 10. 24
 
 **Solved** - 【AtCoder】 Beginner Contest 324 - E. Joint Two Strings
