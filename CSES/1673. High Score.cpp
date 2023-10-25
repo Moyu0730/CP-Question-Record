@@ -74,6 +74,9 @@ signed main(){
     }
 
     if( m == 1 && n > 1 ) cout << -1 * edge[0].first << "\n";
-    else if( n == 1 && m == 1 ) cout << "-1\n";
+    else if( n == 1 && m == 1 ){
+        if( edge[0].f < 0 ) cout << "-1\n";
+        else cout << "0\n";
+    } 
     else cout << bell(1) << "\n";
 }
