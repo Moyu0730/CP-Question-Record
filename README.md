@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 10. 26
+
+**Solved** - 【ZeroJudge】 c517. 2. South Bird
+
 ## 2023. 10. 25
 
 **Solved** - 【CSES】 2195. Convex Hull
