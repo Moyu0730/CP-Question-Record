@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 10. 27
+
+**Solved** - 【ZeroJudge】 c518. 3. String Encryption
+
 ## 2023. 10. 26
 
 **Solved** - 【ZeroJudge】 c517. 2. South Bird
