@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 10. 30
+
+**Solved** - 【AtCoder】 Beginner Contest 325 - A. Takahashi San
+
+**Solved** - 【AtCoder】 Beginner Contest 325 - C. Sensors
+
+**Solved** - 【AtCoder】 Beginner Contest 325 - D. Printing Machine
+
 ## 2023. 10. 27
 
 **Solved** - 【ZeroJudge】 c518. 3. String Encryption
