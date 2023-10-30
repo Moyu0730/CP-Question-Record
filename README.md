@@ -8,6 +8,8 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 325 - D. Printing Machine
 
+**Solved** - 【AtCoder】 Beginner Contest 325 - E. Our Clients, Please Wait a Moment
+
 ## 2023. 10. 27
 
 **Solved** - 【ZeroJudge】 c518. 3. String Encryption
