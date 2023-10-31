@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2023. 10. 31
+
+**Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
+
+**Change Name** - 【AtCoder】 Educational DP Contest - D. Knapsack 1
+
 ## 2023. 10. 30
 
 **Solved** - 【AtCoder】 Beginner Contest 325 - A. Takahashi San
