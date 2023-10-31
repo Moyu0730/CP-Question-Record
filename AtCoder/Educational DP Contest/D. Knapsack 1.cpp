@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : Atcoder DP Contest - D. Knapsack 1 */
 
 #include<bits/stdc++.h>
 using namespace std;
