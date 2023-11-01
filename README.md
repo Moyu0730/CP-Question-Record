@@ -6,6 +6,10 @@
 
 **Change Name** - 【AtCoder】 Educational DP Contest - D. Knapsack 1
 
+**Solved** - 【AtCoder】 Educational DP Contest - G. Longest Path
+
+**Solved** - 【AtCoder】 Educational DP Contest - H. Grid 1
+
 ## 2023. 10. 30
 
 **Solved** - 【AtCoder】 Beginner Contest 325 - A. Takahashi San
