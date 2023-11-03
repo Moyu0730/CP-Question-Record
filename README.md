@@ -14,6 +14,8 @@
 
 **Solved** - 【CSES】 1637. Removing Digits
 
+**Solved** - 【CSES】 1158. Book Shop
+
 ## 2023. 10. 31
 
 **Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
