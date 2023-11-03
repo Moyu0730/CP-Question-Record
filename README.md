@@ -12,6 +12,8 @@
 
 **Solved** - 【CSES】 1636. Coin Combinations II
 
+**Solved** - 【CSES】 1637. Removing Digits
+
 ## 2023. 10. 31
 
 **Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
