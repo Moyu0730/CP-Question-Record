@@ -6,6 +6,8 @@
 
 **Solved** - 【ZeroJudge】 c520. 5. Boss Baodao
 
+**Solved** - 【ZeroJudge】 b899. 2. Item Detect
+
 ## 2023. 10. 31
 
 **Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
