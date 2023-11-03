@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 11. 03
+
+**Solved** - 【ZeroJudge】 b898. 1. Pythagorean Theorem
+
 ## 2023. 10. 31
 
 **Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
