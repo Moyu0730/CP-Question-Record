@@ -4,6 +4,8 @@
 
 **Solved** - 【ZeroJudge】 b898. 1. Pythagorean Theorem
 
+**Solved** - 【ZeroJudge】 c520. 5. Boss Baodao
+
 ## 2023. 10. 31
 
 **Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
