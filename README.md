@@ -8,6 +8,8 @@
 
 **Solved** - 【ZeroJudge】 b899. 2. Item Detect
 
+**Solved** - 【ZeroJudge】 b900. 3. Squirmy Worm
+
 ## 2023. 10. 31
 
 **Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
