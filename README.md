@@ -12,6 +12,8 @@
 
 **Solved** - 【CSES】 1668. Building Teams
 
+**Solved** - 【CSES】 1669. Round Trip
+
 ## 2023. 11. 03
 
 **Solved** - 【ZeroJudge】 b898. 1. Pythagorean Theorem
