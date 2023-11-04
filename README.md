@@ -1,5 +1,15 @@
 # CP-Question-Record
 
+## 2023. 11. 04
+
+**Solved** - 【AtCoder】 Beginner Contest 327 - A. ab
+
+**Solved** - 【AtCoder】 Beginner Contest 327 - B. A^A
+
+**Solved** - 【AtCoder】 Beginner Contest 327 - C. Number Place
+
+**Solved** - 【AtCoder】 Beginner Contest 327 - D. Good Tuple Problem
+
 ## 2023. 11. 03
 
 **Solved** - 【ZeroJudge】 b898. 1. Pythagorean Theorem
