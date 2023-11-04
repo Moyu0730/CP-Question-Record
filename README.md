@@ -10,6 +10,8 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 327 - D. Good Tuple Problem
 
+**Solved** - 【CSES】 1668. Building Teams
+
 ## 2023. 11. 03
 
 **Solved** - 【ZeroJudge】 b898. 1. Pythagorean Theorem
