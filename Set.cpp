@@ -9,8 +9,10 @@ using namespace std;
 #define pii pair<int, int>
 #define pdd pair<double, double>
 #define pb push_back
-#define f first
-#define s second
+#define F first
+#define S second
+#define x first
+#define y second
 #define int long long
 
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
