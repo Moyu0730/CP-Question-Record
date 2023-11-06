@@ -69,7 +69,7 @@ void modify( int L, int R, int ml, int mr, int val, int v ){
     segment_tree[v].val = segment_tree[nL].rv() + segment_tree[nR].rv();
 }
 
-/* ---------- Dijstra ---------- */
+/* ---------- Dijkstra ---------- */
 void dij( int root ){
     pirq(pii) pq;
     pq.push({0, root});
