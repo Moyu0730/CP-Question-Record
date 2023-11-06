@@ -169,7 +169,7 @@ int lca( int a, int b ){
     }
 }
 
-// BIT
+/* ---------- BIT ---------- */
 int n, m, op, a, b;
 int arr[MAXN];
 int bit[MAXN];
