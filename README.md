@@ -6,6 +6,8 @@
 
 **Solved** - 【CSES】 1074. Stick Lengths
 
+**Solved** - 【CSES】 1643. Maximum Subarray Sum 
+
 ## 2023. 11. 04
 
 **Solved** - 【AtCoder】 Beginner Contest 327 - A. ab
