@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 11. 10
+
+**Solved** - 【CSES】 1640. Sum of Two Values
+
 ## 2023. 11. 04
 
 **Solved** - 【AtCoder】 Beginner Contest 327 - A. ab
