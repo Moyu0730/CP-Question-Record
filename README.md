@@ -4,6 +4,8 @@
 
 **Solved** - 【CSES】 1640. Sum of Two Values
 
+**Solved** - 【CSES】 1074. Stick Lengths
+
 ## 2023. 11. 04
 
 **Solved** - 【AtCoder】 Beginner Contest 327 - A. ab
