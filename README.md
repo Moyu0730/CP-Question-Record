@@ -10,6 +10,8 @@
 
 **solved** - 【CSES】 2216. Collecting Numbers
 
+**solved** - 【CSES】 2183. Missing Coin Sum
+
 ## 2023. 11. 04
 
 **Solved** - 【AtCoder】 Beginner Contest 327 - A. ab
