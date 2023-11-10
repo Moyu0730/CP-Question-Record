@@ -8,6 +8,8 @@
 
 **Solved** - 【CSES】 1643. Maximum Subarray Sum 
 
+**solved** - 【CSES】 2216. Collecting Numbers
+
 ## 2023. 11. 04
 
 **Solved** - 【AtCoder】 Beginner Contest 327 - A. ab
