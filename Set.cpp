@@ -11,8 +11,8 @@ using namespace std;
 #define pb push_back
 #define F first
 #define S second
-#define x first
-#define y second
+#define X first
+#define Y second
 #define int long long
 
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
