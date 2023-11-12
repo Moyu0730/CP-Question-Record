@@ -1,5 +1,15 @@
 # CP-Question-Record
 
+## 2023. 11. 12
+
+**Solved** - 【AtCoder】 Beginner Contest 328 - A. Not Too Hard
+
+**Solved** - 【AtCoder】 Beginner Contest 328 - B. 11.11
+
+**Solved** - 【AtCoder】 Beginner Contest 328 - C. Consecutive
+
+**Solved** - 【AtCoder】 Beginner Contest 328 - D. Take ABC
+
 ## 2023. 11. 10
 
 **Solved** - 【CSES】 1640. Sum of Two Values
