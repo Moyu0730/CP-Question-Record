@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 11. 14
+
+**Solved** - 【CSES】 1141. Playlist
+
 ## 2023. 11. 12
 
 **Solved** - 【AtCoder】 Beginner Contest 328 - A. Not Too Hard
