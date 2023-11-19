@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 11. 19
+
+**Solved** - 【AtCoder】 Beginner Contest 329 - D. Election Quick Report
+
 ## 2023. 11. 14
 
 **Solved** - 【CSES】 1141. Playlist
