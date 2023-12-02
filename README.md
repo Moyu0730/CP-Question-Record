@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 12. 02
+
+**Solved** - 【AtCoder】 Beginner Contest 331 - A. Tomorrow
+
+**Solved** - 【AtCoder】 Beginner Contest 331 - B. Buy One Carton of Milk
+
+**Solved** - 【AtCoder】 Beginner Contest 331 - C. Sum of Numbers Greater Than Me
+
 ## 2023. 11. 19
 
 **Solved** - 【AtCoder】 Beginner Contest 329 - D. Election Quick Report
