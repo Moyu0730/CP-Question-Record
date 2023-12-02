@@ -8,6 +8,12 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 331 - C. Sum of Numbers Greater Than Me
 
+## 2023. 11. 29
+
+**Solved** - 【AtCoder】 Beginner Contest 329 - F. Colored Ball
+
+**WA** - 【AtCoder】 Beginner Contest 329 - E. Stamp
+
 ## 2023. 11. 19
 
 **Solved** - 【AtCoder】 Beginner Contest 329 - D. Election Quick Report
