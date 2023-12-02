@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : AtCoder Beginner Contest 329 - E. Stamp */
 
 #include<bits/stdc++.h>
 using namespace std;
