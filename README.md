@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2023. 12. 10
+
+**Solved** - 【CSES】 1163. Traffic Lights
+
+## 2023. 12. 08
+
+**Solved** - 【AtCoder】 Beginner Contest 330 - E. Mex and Update
+
 ## 2023. 12. 02
 
 **Solved** - 【AtCoder】 Beginner Contest 331 - A. Tomorrow
