@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 12. 14
+
+**Solved** - 【ZeroJudge】 f640. Function Expression Evaluation
+
 ## 2023. 12. 10
 
 **Solved** - 【CSES】 1163. Traffic Lights
