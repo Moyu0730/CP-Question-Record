@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 12. 15
+
+**Solved** - 【TCIRC】 d009. AP325 Q-1-11. Delete Rectangle Edge — Recursive（APCS201910, Subtask）
+
 ## 2023. 12. 14
 
 **Solved** - 【ZeroJudge】 f640. Function Expression Evaluation
