@@ -2,6 +2,8 @@
 
 ## 2023. 12. 16
 
+**Modify File Name** - 【TCIRC】 d012. AP325 P-2-3. Exponentiation by Squaring
+
 **Solved** - 【TCIRC】 d012. Exponentiation by Squaring
 
 **Solved** - 【ZeroJudge】 f581. 3. Roundabout Exit
