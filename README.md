@@ -2,6 +2,8 @@
 
 ## 2023. 12. 16
 
+**Solved** - 【TCIRC】 d013. AP325 Q-2-4. Exponentiation by Squaring — Integers Less than 200 Digits
+
 **Modify File Name** - 【TCIRC】 d012. AP325 P-2-3. Exponentiation by Squaring
 
 **Solved** - 【TCIRC】 d012. Exponentiation by Squaring
