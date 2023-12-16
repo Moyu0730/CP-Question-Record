@@ -2,6 +2,8 @@
 
 ## 2023. 12. 16
 
+**Solved** - 【ZeroJudge】 f581. 3. Roundabout Exit
+
 **Solved** - 【TCIRC】 d011. AP325 P-2-2. Discretization – Sort
 
 ## 2023. 12. 15
