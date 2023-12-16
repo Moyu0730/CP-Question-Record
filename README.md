@@ -2,6 +2,8 @@
 
 ## 2023. 12. 16
 
+**Solved** - 【TCIRC】 d012. Exponentiation by Squaring
+
 **Solved** - 【ZeroJudge】 f581. 3. Roundabout Exit
 
 **Solved** - 【TCIRC】 d011. AP325 P-2-2. Discretization – Sort
