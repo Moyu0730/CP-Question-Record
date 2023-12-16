@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 12. 16
+
+**Solved** - 【TCIRC】 d011. AP325 P-2-2. Discretization – Sort
+
 ## 2023. 12. 15
 
 **Solved** - 【TCIRC】 d009. AP325 Q-1-11. Delete Rectangle Edge — Recursive（APCS201910, Subtask）
