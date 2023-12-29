@@ -2,6 +2,8 @@
 
 ## 2023. 12. 29
 
+**Solved** - 【TCIRC】 d015. AP325 P-2-6. Two-Number Problem
+
 **Solved** - 【TCIRC】 d014. AP325 Q-2-5. Exponentiation by Squaring with Fibonacci Numbers
 
 ## 2023. 12. 16
