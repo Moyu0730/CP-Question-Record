@@ -1,0 +1,40 @@
+/* Question : TCIRC d015. AP325 P-2-6. Two-Number Problem */
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define priq(type) priority_queue<type, vector<type>, greater<type>>
+#define mem(x, value) memset(x, value, sizeof(x));
+#define pii pair<int, int>
+#define pdd pair<double, double>
+#define pb push_back
+#define F first
+#define S second
+#define X first
+#define Y second
+#define int long long
+
+const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
+const int MAXN = 1e5 + 50;
+const int Mod = 1e9 + 7;
+int m, n, k, a[MAXN], b[MAXN];
+
+signed main(){
+    opt;
+    cin >> m >> n >> k;
+    for( int i = 0 ; i < m ; i++ ) cin >> a[i];
+    for( int i = 0 ; i < n ; i++ ) cin >> b[i];
+
+    sort(a, a + m);
+    sort(b, b + n);
+
+    int res = 0, ptr = n-1;
+    for( int i = 0 ; i < m ; i++ ){
+        while( a[i] + b[ptr] > k && ptr > 0 ) ptr--;
+        
+        if( a[i] + b[ptr] == k ) res++;
+    }
+
+    cout << res << "\n";
+}
