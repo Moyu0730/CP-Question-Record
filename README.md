@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 12. 29
+
+**Solved** - 【TCIRC】 d014. AP325 Q-2-5. Exponentiation by Squaring with Fibonacci Numbers
+
 ## 2023. 12. 16
 
 **Solved** - 【TCIRC】 d013. AP325 Q-2-4. Exponentiation by Squaring — Integers Less than 200 Digits
