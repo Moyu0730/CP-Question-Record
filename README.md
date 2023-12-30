@@ -4,6 +4,8 @@
 
 **Solved** - 【TCIRC】 d016. AP325 Q-2-7. Complementary Teams（APCS201906）
 
+**Opt** - 【TCIRC】 d016. AP325 Q-2-7. Complementary Teams（APCS201906）
+
 ## 2023. 12. 29
 
 **Solved** - 【TCIRC】 d015. AP325 P-2-6. Two-Number Problem
