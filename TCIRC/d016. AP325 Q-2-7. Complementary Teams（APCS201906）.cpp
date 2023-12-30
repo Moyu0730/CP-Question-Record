@@ -28,9 +28,6 @@ signed main(){
 
     for( int i = 0 ; i < n ; i++ ){
         cin >> str;
-        
-        auto it = unique(str.begin(), str.end());
-        str.erase(it, str.end());
 
         int tmp = 0;
         for( int i = 0 ; i < str.size() ; i++ ) tmp |= (1<<(str[i]-'A'));
