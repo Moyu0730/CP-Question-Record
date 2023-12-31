@@ -2,9 +2,11 @@
 
 ## 2023. 12. 31
 
+**Solved** - 【TCIRC】 d018. AP325 P-2-9. Subset Product（Halved Enumeration）（@@）
+
 **Solved** - 【TCIRC】 d019. AP325 Q-2-10. Subset Sum（Halved Enumeration）
 
-**Solved** - 【TCIRC】 d018. AP325 P-2-9. Subset Product（Halved Enumeration）（@@）
+**Solved** - 【TCIRC】 d020. AP325 P-2-11. The Closest Interval Sum（*）
 
 ## 2023. 12. 30
 
