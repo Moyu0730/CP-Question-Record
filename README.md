@@ -2,6 +2,8 @@
 
 ## 2023. 12. 31
 
+**Solved** - 【TCIRC】 d019. AP325 Q-2-10. Subset Sum（Halved Enumeration）
+
 **Solved** - 【TCIRC】 d018. AP325 P-2-9. Subset Product（Halved Enumeration）（@@）
 
 ## 2023. 12. 30
