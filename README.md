@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 12. 31
+
+**Solved** - 【TCIRC】 d018. AP325 P-2-9. Subset Product（Halved Enumeration）（@@）
+
 ## 2023. 12. 30
 
 **Solved** - 【TCIRC】 d016. AP325 Q-2-7. Complementary Teams（APCS201906）
