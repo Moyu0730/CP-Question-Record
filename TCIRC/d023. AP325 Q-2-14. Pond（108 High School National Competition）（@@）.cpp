@@ -52,7 +52,7 @@ void rec( int left, int right, int water, int in ){
 }
 
 signed main(){
-    // opt;
+    opt;
     cin >> n >> input >> w;
     for( int i = 0 ; i < n ; i++ ){
         cin >> h[i];
@@ -62,9 +62,6 @@ signed main(){
     }
 
     sort(v.begin(), v.end());
-
-    // for( auto i : v ) cout << i.S << " " << i.F << "\n";
-    // cout << v[v.size()-1].S << "\n";
 
     rec(0, n-1, w, input);
 
