@@ -2,6 +2,10 @@
 
 ## 2023. 01. 05
 
+**Working On It** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
+
+**Remove Unused Code** - 【TCIRC】 d023. AP325 Q-2-14. Pond（108 High School National Competition）（@@）
+
 **Solved** - 【TCIRC】 d023. AP325 Q-2-14. Pond（108 High School National Competition）（@@）
 
 **Solved** - 【TCIRC】 d022. AP325 Q-2-13. Exponentiation by Squaring with Irrational Numbers（108 High School National Competition, Simplifed）
