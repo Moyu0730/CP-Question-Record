@@ -21,7 +21,7 @@ const int Mod = 1e9 + 7;
 string str;
 
 signed main(){
-    // opt;
+    opt;
     while( cin >> str ){
         stack<char> st;
 
