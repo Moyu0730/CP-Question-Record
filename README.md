@@ -10,6 +10,14 @@
 
 **Solved** - 【TCIRC】 d027. AP325 Q-3-3. Addition, Subtraction, Multiplication and Division
 
+**Solved** - 【TCIRC】 d028. AP325 P-3-4. The Closest Taller（APCS201902, Subtask）
+
+**Remove Deleted File**
+
+**Solved** - 【TCIRC】 d029. AP325 Q-3-5. The Taller with A Bench Cooking Chicken Steaks（APCS201902）
+
+**Solved** - 【TCIRC】 d030. AP325 P-3-6. Cutting Down Trees（APCS202001）
+
 ## 2023. 01. 05
 
 **Working On It** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
