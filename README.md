@@ -2,6 +2,8 @@
 
 ## 2023. 01. 06
 
+**Anti-Annotation** - 【TCIRC】 d026. AP325 P-3-2. Bracket Matching
+
 **Solved** - 【TCIRC】 d026. AP325 P-3-2. Bracket Matching
 
 **Solved** - 【TCIRC】 d052. AP325 P-5-2. Maximum Continuous Subarray（Divide and Conquer）
