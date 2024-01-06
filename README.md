@@ -8,6 +8,8 @@
 
 **Anti-Annotation** - 【TCIRC】 d026. AP325 P-3-2. Bracket Matching
 
+**Solved** - 【TCIRC】 d027. AP325 Q-3-3. Addition, Subtraction, Multiplication and Division
+
 ## 2023. 01. 05
 
 **Working On It** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
