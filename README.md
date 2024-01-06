@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 01. 06
+
+**Solved** - 【TCIRC】 d052. AP325 P-5-2. Maximum Continuous Subarray（Divide and Conquer）
+
 ## 2023. 01. 05
 
 **Working On It** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
