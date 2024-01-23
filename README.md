@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 01. 12
+
+**Solved** - 【TCIRC】 d025. AP325 P-3-1. Height and Root of Tree（Bottom-Up）（APCS201710）
+
 ## 2023. 01. 06
 
 **Solved** - 【TCIRC】 d052. AP325 P-5-2. Maximum Continuous Subarray（Divide and Conquer）
