@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 01. 24
+
+**Solved** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
+
 ## 2023. 01. 12
 
 **Solved** - 【TCIRC】 d025. AP325 P-3-1. Height and Root of Tree（Bottom-Up）（APCS201710）
