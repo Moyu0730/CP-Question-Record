@@ -18,14 +18,20 @@ using namespace std;
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 3e5 + 50;
 const int Mod = 1e9 + 7;
-int q, n, m, res, arr[MAXN][51], cnt[MAXN];
+int q, n, m, tmp, res, cnt[MAXN];
 set<int> st;
+vector<vector<int>> arr;
 
 signed main(){
     opt;
-    cin >> q >> n >> m;
-    for( int i = 1 ; i <= n ; i++ ){
-        for( int j = 1 ; j <= m ; j++ ) cin >> arr[i][j];
+    cin >> q >> m >> n;
+    arr.resize(m+5);
+    for( int i = 1 ; i <= m ; i++ ){
+        arr[i].resize(n+5);
+        for( int j = 1 ; j <= n ; j++ ){
+            cin >> tmp;
+            arr[i][j] = tmp;
+        }
     }
 
     for( int i = 1 ; i <= m ; i++ ){
@@ -35,7 +41,7 @@ signed main(){
             st.insert(0);
 
             for( int k = 1 ; k <= n ; k++ ){
-                cnt[k] = i == j ? arr[k][j] : cnt[k] + arr[k][j];
+                cnt[k] = i == j ? arr[j][k] : cnt[k] + arr[j][k];
                 sum += cnt[k];
 
                 auto val = st.lower_bound(sum - q);
