@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 01. 28
+
+**Solved** - 【TCIRC】 d034. AP325 P-3-10. Full-Color Ribbon（Requires Discretization or Dictionary）（@@）
+
 ## 2023. 01. 27
 
 **Solved** - 【TCIRC】 d033. AP325 P-3-9. Most Color Bands
