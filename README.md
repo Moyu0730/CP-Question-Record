@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2023. 01. 29
+
+**Solved** - 【TCIRC】 d032. AP325 P-3-8. Maximum Segment Difference for Fixed-length Intervals
+
 ## 2023. 01. 28
 
 **Solved** - 【TCIRC】 d034. AP325 P-3-10. Full-Color Ribbon（Requires Discretization or Dictionary）（@@）
