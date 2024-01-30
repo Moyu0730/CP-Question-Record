@@ -1,28 +1,34 @@
 # CP-Question-Record
 
-## 2023. 01. 29
+## 2024. 01. 30
+
+**Solved** - 【TCIRC】 
+
+## 2024. 01. 29
 
 **Solved** - 【TCIRC】 d032. AP325 P-3-8. Maximum Segment Difference for Fixed-length Intervals
 
-## 2023. 01. 28
+**Solved** - 【TCIRC】 d035. AP325 Q-3-11. The Longest Distinct Color Band
+
+## 2024. 01. 28
 
 **Solved** - 【TCIRC】 d034. AP325 P-3-10. Full-Color Ribbon（Requires Discretization or Dictionary）（@@）
 
-## 2023. 01. 27
+## 2024. 01. 27
 
 **Solved** - 【TCIRC】 d033. AP325 P-3-9. Most Color Bands
 
-## 2023. 01. 24
+## 2024. 01. 24
 
 **Solved** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
 
 **Solved** - 【TCIRC】 d031. AP325 P-3-7. The Closest Interval Sum of A Sequence of Positive Integers
 
-## 2023. 01. 12
+## 2024. 01. 12
 
 **Solved** - 【TCIRC】 d025. AP325 P-3-1. Height and Root of Tree（Bottom-Up）（APCS201710）
 
-## 2023. 01. 06
+## 2024. 01. 06
 
 **Solved** - 【TCIRC】 d052. AP325 P-5-2. Maximum Continuous Subarray（Divide and Conquer）
 
@@ -40,7 +46,7 @@
 
 **Solved** - 【TCIRC】 d030. AP325 P-3-6. Cutting Down Trees（APCS202001）
 
-## 2023. 01. 05
+## 2024. 01. 05
 
 **Working On It** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
 
