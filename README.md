@@ -4,6 +4,8 @@
 
 **Rename File** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
 
+**Solved** - 【TCIRC】 d037. AP325 Q-3-13. Maximum Y Difference within X Difference Range
+
 ## 2024. 01. 30
 
 **Solved** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
