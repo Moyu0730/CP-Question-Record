@@ -1,4 +1,4 @@
-/* Question : TCIRC d035. AP325 Q-3-11. The Longest Distinct Color Band */
+/* Question : TCIRC d036. AP325 Q-3-12. Perfect Ribbons（APCS201906） */
 
 #include<bits/stdc++.h>
 using namespace std;
