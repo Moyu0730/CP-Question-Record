@@ -1,8 +1,12 @@
 # CP-Question-Record
 
+## 2024. 02. 01
+
+**Rename File** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
+
 ## 2024. 01. 30
 
-**Solved** - 【TCIRC】 
+**Solved** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
 
 ## 2024. 01. 29
 
