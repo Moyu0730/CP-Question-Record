@@ -6,6 +6,8 @@
 
 **Solved** - 【TCIRC】 d038. AP325 Q-3-14 Linear Function（@@）
 
+**Opt Code** - 【TCIRC】 d037. AP325 Maximum Y Difference within X Difference Range
+
 ## 2024. 02. 03
 
 **Solved** - 【AtCoder】 Beginner Contest 339 - A. TLD
