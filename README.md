@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 07
+
+**Solved** - 【TCIRC】 d038. AP325 Q-3-14 Linear Function（@@）
+
 ## 2024. 02. 01
 
 **Rename File** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
