@@ -13,7 +13,7 @@ using namespace std;
 #define S second
 #define X first
 #define Y second
-// #define int long long
+#define int long long
 
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 1e8 + 50;
@@ -44,8 +44,6 @@ signed main(){
             st.erase(v[q.front()].S);
             q.pop();
         }
-
-        // cout << *st.begin() << " " << *st.rbegin() << "\n";
 
         res = max(res, abs(*st.begin() - *st.rbegin()));
     }
