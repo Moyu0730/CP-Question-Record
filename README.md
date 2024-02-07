@@ -4,6 +4,14 @@
 
 **Solved** - 【TCIRC】 d038. AP325 Q-3-14 Linear Function（@@）
 
+## 2024. 02. 03
+
+**Solved** - 【AtCoder】 Beginner Contest 339 - A. TLD
+
+**Solved** - 【AtCoder】 Beginner Contest 339 - B. Langton's Takahashi
+
+**Solved** - 【AtCoder】 Beginner Contest 339 - C. Perfect Bus
+
 ## 2024. 02. 01
 
 **Rename File** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
