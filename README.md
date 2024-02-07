@@ -2,6 +2,8 @@
 
 ## 2024. 02. 07
 
+**Solved** - 【AtCoder】 Beginner Contest 339 D. Synchronized Players
+
 **Solved** - 【TCIRC】 d038. AP325 Q-3-14 Linear Function（@@）
 
 ## 2024. 02. 03
