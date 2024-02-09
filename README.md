@@ -6,6 +6,8 @@
 
 **Solved** - 【TCIRC】 d043. AP325 P-4-2. The Three Battles of Swordsman
 
+**Solved** - 【TCIRC】 d044. AP325 P-4-3. Ten Years of Sharpening a Sword（Minimum Completion Time）
+
 ## 2024. 02. 07
 
 **Solved** - 【AtCoder】 Beginner Contest 339 D. Synchronized Players
