@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 09
+
+**Solved** - 【TCIRC】 d042. AP325 P-4-1. Shaolin Temple Tokens
+
 ## 2024. 02. 07
 
 **Solved** - 【AtCoder】 Beginner Contest 339 D. Synchronized Players
