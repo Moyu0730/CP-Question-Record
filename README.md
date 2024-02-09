@@ -4,6 +4,8 @@
 
 **Solved** - 【TCIRC】 d042. AP325 P-4-1. Shaolin Temple Tokens
 
+**Solved** - 【TCIRC】 d043. AP325 P-4-2. The Three Battles of Swordsman
+
 ## 2024. 02. 07
 
 **Solved** - 【AtCoder】 Beginner Contest 339 D. Synchronized Players
