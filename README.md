@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 10
+
+**Solved** - 【TCIRC】 d045. AP325 P-4-4. Several Huashan Sword Debates（Activity Selection）
+
 ## 2024. 02. 09
 
 **Solved** - 【TCIRC】 d042. AP325 P-4-1. Shaolin Temple Tokens
