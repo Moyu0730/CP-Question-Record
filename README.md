@@ -12,6 +12,8 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 340 - D. Super Takahashi Bros.
 
+**Opt Code** - 【TCIRC】 d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
+
 ## 2024. 02. 10
 
 **Solved** - 【TCIRC】 d045. AP325 P-4-4. Several Huashan Sword Debates（Activity Selection）
