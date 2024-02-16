@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 16
+
+**Solved** - 【TCIRC】 d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
+
 ## 2024. 02. 10
 
 **Solved** - 【TCIRC】 d045. AP325 P-4-4. Several Huashan Sword Debates（Activity Selection）
