@@ -4,6 +4,14 @@
 
 **Solved** - 【TCIRC】 d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
 
+**Solved** - 【AtCoder】 Beginner Contest 340 - A. Arithmetic Progression
+
+**Solved** - 【AtCoder】 Beginner Contest 340 - B. Append
+
+**Solved** - 【AtCoder】 Beginner Contest 340 - C. Divide and Divide
+
+**Solved** - 【AtCoder】 Beginner Contest 340 - D. Super Takahashi Bros.
+
 ## 2024. 02. 10
 
 **Solved** - 【TCIRC】 d045. AP325 P-4-4. Several Huashan Sword Debates（Activity Selection）
