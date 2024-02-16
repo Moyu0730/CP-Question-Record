@@ -22,7 +22,7 @@ int n, res, cnt;
 vector<pii> arr;
 
 bool cmp( pii a, pii b ){
-    return (double)a.F / (double)a.S < (double)b.F / (double)b.S;
+    return a.F * b.S < a.S * b.F;
 }
 
 signed main(){
