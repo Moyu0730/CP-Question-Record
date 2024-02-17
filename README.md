@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 02. 17
+
+**Solved** - 【AtCoder】 Beginner Contest 340 - E. Mancala 2
+
+**Add INF Const** - Set.cpp
+
 ## 2024. 02. 16
 
 **Solved** - 【TCIRC】 d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
