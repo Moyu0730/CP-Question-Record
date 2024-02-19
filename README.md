@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2024. 02. 19
+
+**Solved** - 【AtCoder】 Beginner Contest 341 - A. Print 341
+
+**Solved** - 【AtCoder】 Beginner Contest 341 - B. Foreign Exchange
+
+**Solved** - 【AtCoder】 Beginner Contest 341 - C. Takahashi Gets Lost
+
 ## 2024. 02. 17
 
 **Solved** - 【AtCoder】 Beginner Contest 340 - E. Mancala 2
