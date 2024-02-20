@@ -1,5 +1,17 @@
 # CP-Question-Record
 
+## 2024. 02. 20
+
+**RePush** - 【AtCoder】 Beginner Contest 328 - A. Not Too Hard
+
+**RePush** - 【AtCoder】 Beginner Contest 328 - B. 11/11
+
+**RePush** - 【AtCoder】 Beginner Contest 328 - C. Consecutive
+
+**RePush** - 【AtCoder】 Beginner Contest 328 - D. Take ABC
+
+**Solved** - 【ZreoJudge】 h558. pB. Keyboard
+
 ## 2024. 02. 19
 
 **Solved** - 【AtCoder】 Beginner Contest 341 - A. Print 341
