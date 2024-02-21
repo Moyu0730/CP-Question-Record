@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 21
+
+**Solved** - 【ZeroJudge】 h557. pA. Entrance
+
 ## 2024. 02. 20
 
 **RePush** - 【AtCoder】 Beginner Contest 328 - A. Not Too Hard
@@ -10,7 +14,7 @@
 
 **RePush** - 【AtCoder】 Beginner Contest 328 - D. Take ABC
 
-**Solved** - 【ZreoJudge】 h558. pB. Keyboard
+**Solved** - 【ZeroJudge】 h558. pB. Keyboard
 
 ## 2024. 02. 19
 
