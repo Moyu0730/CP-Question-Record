@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : ZeroJudge h557. pA. Entrance */
 
 #include<bits/stdc++.h>
 using namespace std;
