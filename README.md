@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 22
+
+**Solved** - 【AtCoder】 Beginner Contest 339 - E. Smooth Subsequence
+
 ## 2024. 02. 21
 
 **Solved** - 【ZeroJudge】 h557. pA. Entrance
