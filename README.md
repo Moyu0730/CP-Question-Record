@@ -4,6 +4,12 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 339 - E. Smooth Subsequence
 
+**Solved** - 【TCIRC】 d047. AP325 Q-4-6. Automatic Lockers in Shaolin Temple（APCS201710）
+
+**Solved** - 【TCIRC】 d048. AP325 P-4-7. Yue Buquns Two-Way Merge（＊）
+
+**Solved** - 【TCIRC】 d053. AP325 Q-4-8. First Come First Served（＊）
+
 ## 2024. 02. 21
 
 **Solved** - 【ZeroJudge】 h557. pA. Entrance
