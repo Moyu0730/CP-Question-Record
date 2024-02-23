@@ -4,6 +4,8 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 341 - D. Only one of two
 
+**Solved** - 【TCIRC】 d049. AP325 P-4-9. Base Station（APCS201703）
+
 ## 2024. 02. 22
 
 **Solved** - 【AtCoder】 Beginner Contest 339 - E. Smooth Subsequence
