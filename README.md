@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 23
+
+**Solved** - 【AtCoder】 Beginner Contest 341 - D. Only one of two
+
 ## 2024. 02. 22
 
 **Solved** - 【AtCoder】 Beginner Contest 339 - E. Smooth Subsequence
