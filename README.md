@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 24
+
+**Solved** - 【AtCoder】 Beginner Contest 341 - E. Alternating String
+
 ## 2024. 02. 23
 
 **Solved** - 【AtCoder】 Beginner Contest 341 - D. Only one of two
