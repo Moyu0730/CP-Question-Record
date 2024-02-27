@@ -4,6 +4,8 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 341 - E. Alternating String
 
+**Solved** - 【CSES】 1073. Towers.cpp
+
 ## 2024. 02. 23
 
 **Solved** - 【AtCoder】 Beginner Contest 341 - D. Only one of two
