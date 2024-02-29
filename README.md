@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 02. 29
+
+**Opt BIT Templete**
+
 ## 2024. 02. 24
 
 **Solved** - 【AtCoder】 Beginner Contest 341 - E. Alternating String
