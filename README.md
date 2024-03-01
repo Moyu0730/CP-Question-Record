@@ -1,8 +1,20 @@
 # CP-Question-Record
 
+## 2024. 03. 01
+
+**Solved** - 【AtCoder】 Beginner Contest 342 - D. Square Pair
+
 ## 2024. 02. 29
 
 **Opt BIT Templete**
+
+## 2024. 02. 25
+
+**Solved** - 【AtCoder】 Beginner Contest 342 - A. Yay!
+
+**Solved** - 【AtCoder】 Beginner Contest 342 - B. Which is ahead
+
+**Solved** - 【AtCoder】 Beginner Contest 342 - C. Many Replacement
 
 ## 2024. 02. 24
 
