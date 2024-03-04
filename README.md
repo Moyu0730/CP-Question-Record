@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 03. 04
+
+**Solved** - 【CSES】 1746. Array Description
+
 ## 2024. 03. 01
 
 **Solved** - 【AtCoder】 Beginner Contest 342 - D. Square Pair
