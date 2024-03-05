@@ -4,6 +4,8 @@
 
 **Solved** - 【CSES】 2413. Counting Towers
 
+**Solved** - 【CSES】 1744. Rectangle Cutting
+
 ## 2024. 03. 04
 
 **Solved** - 【CSES】 1746. Array Description
