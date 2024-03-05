@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 03. 05
+
+**Solved** - 【CSES】 2413. Counting Towers
+
 ## 2024. 03. 04
 
 **Solved** - 【CSES】 1746. Array Description
