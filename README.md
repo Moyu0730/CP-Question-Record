@@ -1,5 +1,15 @@
 # CP-Question-Record
 
+## 2024. 03. 06
+
+**Solved** - 【TCIRC】 d066. AP325 P-6-1. Minimum Cost for Children To Go Up Stairs
+
+**Solved** - 【TCIRC】 d067. AP325 P-6-2. Discontinuous Performance Remuneration
+
+**Solved** - 【TCIRC】 d068. AP325 P-6-3. Minimum Cost of Monitoring Neighbors
+
+**Solved** - 【TCIRC】 d072. AP325 Q-6-4. Choose One of Two Levels
+
 ## 2024. 03. 05
 
 **Solved** - 【CSES】 2413. Counting Towers
