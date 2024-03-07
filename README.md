@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 03. 07
+
+**Solved** - 【TCIRC】 d052. AP325 P-4-13. Maximum Continuous Subpermutation（Same As P-5-2）
+
+**Solved** - 【TCIRC】 d073. AP325 Q-6-5. Two-Dimensional Maximum Submatrix
+
 ## 2024. 03. 06
 
 **Solved** - 【TCIRC】 d066. AP325 P-6-1. Minimum Cost for Children To Go Up Stairs
