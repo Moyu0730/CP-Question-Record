@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2024. 03. 09
+
+**Solved** - 【TCIRC】 d054. AP325 Q-4-10. White Cloud Bear Gallbladder Pills to Restore Energy
+
+## 2024. 03. 08
+
+**Solved** - 【TCIRC】 d069. AP325 P-6-6. Checkerboard Route
+
 ## 2024. 03. 07
 
 **Solved** - 【TCIRC】 d052. AP325 P-4-13. Maximum Continuous Subpermutation（Same As P-5-2）
