@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 03. 10
+
+**Solved** - 【TCIRC】 d071. AP325 P-6-9. Free Large-Scale Moving in Hypermarkets
+
 ## 2024. 03. 09
 
 **Solved** - 【TCIRC】 d054. AP325 Q-4-10. White Cloud Bear Gallbladder Pills to Restore Energy
