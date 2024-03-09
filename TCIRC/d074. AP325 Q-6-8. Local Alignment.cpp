@@ -26,7 +26,6 @@ int cmp( int a, int b, int c, int d ){
     v.pb(b);
     v.pb(c);
     v.pb(d);
-
     sort( v.begin(), v.end() );
 
     return v[3];
