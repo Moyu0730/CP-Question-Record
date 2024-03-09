@@ -4,6 +4,8 @@
 
 **Solved** - 【TCIRC】 d054. AP325 Q-4-10. White Cloud Bear Gallbladder Pills to Restore Energy
 
+**Solved** - 【TCIRC】 d070. AP325 P-6-7. LCS
+
 **Solved** - 【TCIRC】 d074. Q-6-8. Local Alignment
 
 ## 2024. 03. 08
