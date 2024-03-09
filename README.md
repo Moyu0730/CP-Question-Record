@@ -4,6 +4,8 @@
 
 **Solved** - 【TCIRC】 d071. AP325 P-6-9. Free Large-Scale Moving in Hypermarkets
 
+**Solved** - 【ZeroJudge】 k184. pA. House
+
 ## 2024. 03. 09
 
 **Solved** - 【TCIRC】 d054. AP325 Q-4-10. White Cloud Bear Gallbladder Pills to Restore Energy
