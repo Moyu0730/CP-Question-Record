@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2024. 04. 09
+
+**Solved** - 【TCIRC】 d050. AP325 P-4-11. Line Segment Union（APCS 201603）
+
+**Solved** - 【TCIRC】 d051. AP325 P-4-12. One Transaction
+
+**Solved** - 【TCIRC】 d055. AP325 P-4-14. Control Point（2D-max）
+
 ## 2024. 03. 10
 
 **Solved** - 【TCIRC】 d071. AP325 P-6-9. Free Large-Scale Moving in Hypermarkets
