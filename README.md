@@ -6,6 +6,8 @@
 
 **Solved** - 【TCIRC】 d058. AP325 Q-4-17. Deadline Master
 
+**Solved** - d059. AP325 Q-4-18. The Cabinet Sister of Shaolin Temple（@@）（＊）
+
 ## 2024. 04. 09
 
 **Solved** - 【TCIRC】 d050. AP325 P-4-11. Line Segment Union（APCS 201603）
