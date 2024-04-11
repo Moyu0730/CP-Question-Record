@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 04. 11
+
+**Solved** - 【TCIRC】 d057. AP325 Q-4-16. Making Money and Fines
+
 ## 2024. 04. 09
 
 **Solved** - 【TCIRC】 d050. AP325 P-4-11. Line Segment Union（APCS 201603）
