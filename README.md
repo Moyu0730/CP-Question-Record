@@ -4,6 +4,10 @@
 
 **Solved** - 【TCIRC】 1001. Hello World!
 
+**Solved** - 【ZeroJudge】 a002. Simple Addition
+
+**Solved** - 【AtCoder】 A. Three Dice
+
 ## 2024. 04. 12
 
 **Solved** - 【TCIRC】 d060. AP325 Q-4-19. The Meeting Place of the Leaders of The Five Sacred Mountains
