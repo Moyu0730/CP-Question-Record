@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 05. 02
+
+**Solved** - 【ZeroJudge】 a003. Two Lights Mage Divination
+
+**Solved** - 【ZeroJudge】 d649. Digital Triangle
+
 ## 2024. 04. 30
 
 **Solved** - 【TCIRC】 1001. Hello World!
