@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 05. 06
+
+**Solved** - 【ZeroJudge】 j605. 1. Programming Exam
+
 ## 2024. 05. 02
 
 **Solved** - 【ZeroJudge】 a003. Two Lights Mage Divination
