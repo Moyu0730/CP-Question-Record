@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 05. 07
+
+**Solved** - 【ZeroJudge】 g276. 2. Demon King no Labyrinth
+
 ## 2024. 05. 06
 
 **Solved** - 【ZeroJudge】 j605. 1. Programming Exam
