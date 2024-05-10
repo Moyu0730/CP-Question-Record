@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 05. 08
+
+**Solved** - 【AtCoder】 Beginner Contest 351 - C. Merge the balls
+
 ## 2024. 05. 07
 
 **Solved** - 【ZeroJudge】 g276. 2. Demon King no Labyrinth
