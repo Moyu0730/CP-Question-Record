@@ -6,7 +6,7 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 352 - D. Permutation Subsequence
 
-    * Set + vector<pii> + sort
+    。 Set + vector<pii> + sort
 
 ## 2024. 05. 08
 
