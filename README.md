@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2024. 05. 13
+
+**Solved** - 【AtCoder】 Beginner Contest 352 - C. Standing On The Shoulders
+
+**Solved** - 【AtCoder】 Beginner Contest 352 - D. Permutation Subsequence
+
+    * Set + vector<pii> + sort
+
 ## 2024. 05. 08
 
 **Solved** - 【AtCoder】 Beginner Contest 351 - C. Merge the balls
