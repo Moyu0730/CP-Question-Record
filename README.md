@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 06. 07
+
+**Solved** - 【ZeroJudge】 b967. 4. Blood Relationship
+
+    。 Simple Tree Diameter
+
 ## 2024. 05. 13
 
 **Solved** - 【AtCoder】 Beginner Contest 352 - C. Standing On The Shoulders
