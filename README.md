@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2026. 06. 26
+
+**Solved** - 【HWSH】 a062. Stick Midpoint Cut
+
+    。Recursive Application
+
 ## 2024. 06. 07
 
 **Solved** - 【ZeroJudge】 b967. 4. Blood Relationship
