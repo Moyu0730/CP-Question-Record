@@ -1,6 +1,12 @@
 # CP-Question-Record
 
-## 2026. 06. 26
+## 2024. 07. 02
+
+**Solved** - 【HWSH】 a155. Sum of Subsets（APCS201810, Subtask）
+
+    。Recursive with Subset
+
+## 2024. 06. 26
 
 **Solved** - 【HWSH】 a062. Stick Midpoint Cut
 
