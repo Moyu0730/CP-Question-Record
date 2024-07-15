@@ -6,6 +6,10 @@
 
     。Recursive + Basic String Processing
 
+**Solved** - 【ZeroJudge】 f928. Serial Bomb............Boom!
+
+    。Recursive / BFS
+
 ## 2024. 07. 02
 
 **Solved** - 【CSES】 2165. Tower of Hanoi
