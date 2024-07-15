@@ -1,8 +1,14 @@
 # CP-Question-Record
 
+## 2024. 07. 15
+
+**Solved** - 【ZeroJudge】 d672. 10922 - 2 the 9s
+
+    。Recursive + Basic String Processing
+
 ## 2024. 07. 02
 
-**solved** - 【CSES】 2165. Tower of Hanoi
+**Solved** - 【CSES】 2165. Tower of Hanoi
 
     。Recursive Application
 
