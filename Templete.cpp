@@ -190,3 +190,32 @@ void update( int i, int val ){
         i += lowbit(i);
     }
 }
+
+/* ---------- KSM ---------- */
+int ksm( int base, int power ){
+    int res = 1;
+    while( power > 0 ){
+        if( power & 1 ) res *= base;
+        
+        power >>= 1;
+        base *= base;
+    }
+
+    return res;
+}
+
+/* ---------- Modular Multiplicative Inverse ---------- */
+int mmi( int base, int mod ){
+    int res = 1;
+    int power = mod - 2;
+    while( power > 0 ){
+        if( power & 1 ){
+            res = ( res * base ) % mod;
+        }
+
+        base = ( base * base ) % mod;
+        power >>= 1;
+    }
+
+    return res;
+}
