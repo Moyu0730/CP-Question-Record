@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 08. 10
+
+**Solved** - 【ZeroJudge】 a104. Sort - Bubble Sort
+
+**Solved** - 【ZeroJudge】 a104. Sort - Selection Sort
+
 ## 2024. 07. 15
 
 **Solved** - 【ZeroJudge】 d672. 10922 - 2 the 9s
