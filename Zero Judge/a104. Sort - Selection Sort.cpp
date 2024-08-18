@@ -26,13 +26,13 @@ signed main(){
         for( int i = 0 ; i < n ; i++ ) cin >> arr[i];
 
         for( int i = 0 ; i < n ; i++ ){
+            int min_ind = i;
+
             for( int j = i ; j < n ; j++ ){
-                int min_ind = i;
-
                 if( arr[j] < arr[min_ind] ) min_ind = j;
-
-                swap(arr[i], arr[min_ind]);
             }
+
+            swap(arr[i], arr[min_ind]);
         }
 
         for( int i = 0 ; i < n ; i++ ) cout << arr[i] << " \n"[i==n-1];
