@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : ZeroJudge a104. Sort - Selection Sort */
 
 #include<bits/stdc++.h>
 using namespace std;
