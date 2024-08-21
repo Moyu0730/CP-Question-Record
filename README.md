@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 08. 21
+
+**Solved** - 【ZeroJudge】 a104. Sort - Insertion Sort
+
+**Add Question Info** - 【ZeroJudge】 a104. Sort - Insertion Sort
+
 ## 2024. 08. 10
 
 **Solved** - 【ZeroJudge】 a104. Sort - Bubble Sort
