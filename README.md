@@ -2,6 +2,8 @@
 
 ## 2024. 08. 24
 
+**Oprtimize** - 【ZeroJudge】 a104. Sort - Merge Sort
+
 **Solved** - 【ZeroJudge】 a104. Sort - Merge Sort
 
     。Sort Algorithm
