@@ -39,19 +39,10 @@ void merge( int left, int right ){
     // Merge
     int idx_L = 0, idx_R = 0;
     for( int i = left ; i <= right ; i++ ){
-        if( idx_L > mid - left ){
-            arr[i] = R[idx_R];
-            idx_R++;
-        }else if( idx_R > right - ( mid + 1 ) ){
-            arr[i] = L[idx_L];
-            idx_L++;
-        }else if( L[idx_L] < R[idx_R] ){
-            arr[i] = L[idx_L];
-            idx_L++;
-        }else{
-            arr[i] = R[idx_R];
-            idx_R++;
-        }
+        if( idx_L > mid - left ) arr[i] = R[idx_R++];
+        else if( idx_R > right - ( mid + 1 ) ) arr[i] = L[idx_L++];
+        else if( L[idx_L] < R[idx_R] ) arr[i] = L[idx_L++];
+        else arr[i] = R[idx_R++];
     }
 }
 
