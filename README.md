@@ -2,6 +2,8 @@
 
 ## 2024. 08. 24
 
+**Remove Redundant Array** - 【ZeroJudge】 a104. Sort - Merge Sort
+
 **Oprtimize** - 【ZeroJudge】 a104. Sort - Merge Sort
 
 **Solved** - 【ZeroJudge】 a104. Sort - Merge Sort
