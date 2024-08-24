@@ -18,7 +18,7 @@ const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 1e3 + 50;
 const int Mod = 1e9 + 7;
 const int INF = 1e9;
-int n, arr[MAXN], res[MAXN];
+int n, arr[MAXN];
 
 void merge( int left, int right ){
     // Terminal Condition
