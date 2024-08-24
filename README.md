@@ -1,8 +1,16 @@
 # CP-Question-Record
 
+## 2024. 08. 24
+
+**Solved** - 【ZeroJudge】 a104. Sort - Merge Sort
+
+    。Sort Algorithm
+
 ## 2024. 08. 21
 
 **Solved** - 【ZeroJudge】 a104. Sort - Insertion Sort
+
+    。Sort Algorithm
 
 **Add Question Info** - 【ZeroJudge】 a104. Sort - Insertion Sort
 
@@ -10,7 +18,11 @@
 
 **Solved** - 【ZeroJudge】 a104. Sort - Bubble Sort
 
+    。Sort Algorithm
+
 **Solved** - 【ZeroJudge】 a104. Sort - Selection Sort
+
+    。Sort Algorithm
 
 ## 2024. 07. 15
 
