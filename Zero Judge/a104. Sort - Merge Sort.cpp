@@ -24,7 +24,7 @@ void merge( int left, int right ){
     // Terminal Condition
     if( right == left ) return;
 
-    // Devide
+    // Divide
     int mid = ( left + right ) / 2;
     merge(left, mid);
     merge(mid + 1, right);
