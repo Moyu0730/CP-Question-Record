@@ -2,6 +2,8 @@
 
 ## 2024. 08. 24
 
+**Correcnt Spelling Error** - 【ZeroJudge】 a104. Sort - Merge Sort
+
 **Remove Redundant Array** - 【ZeroJudge】 a104. Sort - Merge Sort
 
 **Oprtimize** - 【ZeroJudge】 a104. Sort - Merge Sort
