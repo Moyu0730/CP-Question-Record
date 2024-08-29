@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 08. 29
+
+**Solved** - 【ZeroJudge】 a104. Sort - Quick Sort
+
+    。Sort Algorithm
+
 ## 2024. 08. 24
 
 **Correcnt Spelling Error** - 【ZeroJudge】 a104. Sort - Merge Sort
