@@ -1,6 +1,16 @@
 # CP-Question-Record
 
-Careful amend
+## 2024. 09. 14
+
+**Opt Setup Code**
+
+## 2024. 09. 12
+
+**Solved** - 【AtCoder】 Beginner Contest 370 - A. Raise Both Hands
+
+**Solved** - 【AtCoder】 Beginner Contest 370 - B. Binary Alchemy
+
+**Solved** - 【AtCoder】 Beginner Contest 370 - C. Word Ladder
 
 ## 2024. 08. 29
 
