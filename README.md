@@ -1,5 +1,7 @@
 # CP-Question-Record
 
+Careful amend
+
 ## 2024. 08. 29
 
 **Solved** - 【ZeroJudge】 a104. Sort - Quick Sort
