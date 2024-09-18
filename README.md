@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 09. 18
+
+**Solved** - 【AtCoder】 Beginner Contest 369 - E. Sightseeing Tour
+
 ## 2024. 09. 14
 
 **Opt Setup Code**
