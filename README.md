@@ -4,6 +4,12 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 369 - E. Sightseeing Tour
 
+    。Flyod-Warshall + Enum
+
+**Solved** - 【AtCoder】 Beginner Contest 369 - C. Count Arithmetic Subarrays
+
+    。Basic Mathematical Operations
+
 ## 2024. 09. 14
 
 **Opt Setup Code**
