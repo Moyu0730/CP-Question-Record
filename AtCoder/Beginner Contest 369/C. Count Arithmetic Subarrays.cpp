@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : AtCoder Beginner Contest 369 - C. Count Arithmetic Subarrays */
 
 #include<bits/stdc++.h>
 using namespace std;
