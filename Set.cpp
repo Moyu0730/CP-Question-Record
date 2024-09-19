@@ -17,8 +17,11 @@ using namespace std;
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 1e8 + 50;
 const int Mod = 1e9 + 7;
+const int LLINF = 1e18;
 const int INF = 1e9;
 
 signed main(){
-    opt;
+    #ifndef LOCAL
+        opt;
+    #endif
 }
