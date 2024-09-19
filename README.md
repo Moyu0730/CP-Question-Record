@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2024. 09. 19
+
+**Solved** - 【AtCoder】 Beginner Contest 369 - D. Bonus EXP
+
+    。Dynamic Programming
+
+**Opt IO Optimize & Add Long Long INF** - Set.cpp
+
 ## 2024. 09. 18
 
 **Solved** - 【AtCoder】 Beginner Contest 369 - E. Sightseeing Tour
