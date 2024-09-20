@@ -1,10 +1,48 @@
 # CP-Question-Record
 
+## 2024. 09. 20
+
+**Solved** - 【AtCoder】 Beginner Contest 369 - F. Gather Coins
+
+。LIS in O(NlogN)
+
+* Implementation Theory
+    1. Given $k$ coins $(r_1, c_1), ​(r_2, c_2),$ ⋯⋯ $, (r_k, c_k)$ ⮕ we can determine if there exist a path that can collect all the coins as follows :
+        * First sort the coins in ascending order of $r$, then sort the coins in ascending order of $c$​.
+        * There exists a path that can collect all the given $k$ coins if and only if $c_1′ ≤ c_2′ ≤$ ⋯⋯ $≤ c_k′$.
+    
+    2. Suppose that the given $N$ coins are sorted in ascending order of $(r,c)$. Then, by the fact above, this problem is boiled down to finding a **L**ongest （weakly） **I**ncreasing **S**ubsequence （LIS）.
+
+    3. Simplify the Question into **" Given positive integer sequence $C = (C_1, C_2,$ ⋯⋯ $, C_N​)$, one can find the length of a LIS of $C$ "**
+
+    4. The standard **LIS** algorithm implementation definition should be as follows.
+        1. Prepare a length-$N$ sequence $D$ initialized with $∞$.
+        2. Do the following for $i = 1, 2,$ ⋯⋯ $, N$. For the minimum $j$ with $D_j > c_i$ , replace $D_j$  with $c_i$.
+        3. The length of a LIS of $C$ is the maximum $j$ with $D_j < ∞$.
+
+        Where each $D_j$ stands for the smallest last element of a length-$j$ （weakly） increasing subsequence of $C_1​, C_2,$ ⋯⋯ $, C_i$ （or $∞$ if there is no such subsequence）.
+    
+    5. However, if we just use the algorithm above, we will find that we cannot trace the path. Thus, to find an example of LIS instead of its length only, let us modify the algorithm as follows.
+
+        1. Prepare a length-$N$ sequence $D$ initialized with $∞$.
+        2. Prepare a length-$N$ sequence $Id$ and $Pre$.
+        3. Do the following for $i = 1, 2,$ ⋯⋯ $, N$.
+            * For the minimum $j$ with $D_j > C_i$​ , replace $D_j$ with $C_i$, and replace $Id_j$ with $i$. If $j > 1$, replace $Pre_i$​ with $Id_{j−1}$​, too.
+        4. The length of a LIS of $C$ is the maximum $j$ with $D_j < ∞$.
+        5. Let $len$ be the length of a LIS of C. Consider a length-$len$ sequence obtained by applying $l−1$ times the action $i ↦ Pre_i$​ to $Id_l$, same as $Id_l​$，$Pre_{Id_l}​$，$Pre_{Pre_{Id_l}}​$，⋯⋯ . The reversal of this sequence is an example of a LIS of $C$.
+
+* Implementation Details
+    1. 【Line 41】Remember to use `upper_bound()` not `lower_bound()`, because we need the Longest **Weakly** Increasing Subsequence
+    
+        ```cpp
+        41｜int it = upper_bound(dp.begin(), dp.end(), coin[i].S) - dp.begin();
+        ```
+
 ## 2024. 09. 19
 
 **Solved** - 【AtCoder】 Beginner Contest 369 - D. Bonus EXP
 
-    。Dynamic Programming
+。Dynamic Programming
 
 **Opt IO Optimize & Add Long Long INF** - Set.cpp
 
@@ -12,11 +50,11 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 369 - E. Sightseeing Tour
 
-    。Flyod-Warshall + Enum
+。Flyod-Warshall + Enum
 
 **Solved** - 【AtCoder】 Beginner Contest 369 - C. Count Arithmetic Subarrays
 
-    。Basic Mathematical Operations
+。Basic Mathematical Operations
 
 **Update Quesiton Statement**
 
@@ -36,7 +74,7 @@
 
 **Solved** - 【ZeroJudge】 a104. Sort - Quick Sort
 
-    。Sort Algorithm
+。Sort Algorithm
 
 ## 2024. 08. 24
 
@@ -48,13 +86,13 @@
 
 **Solved** - 【ZeroJudge】 a104. Sort - Merge Sort
 
-    。Sort Algorithm
+。Sort Algorithm
 
 ## 2024. 08. 21
 
 **Solved** - 【ZeroJudge】 a104. Sort - Insertion Sort
 
-    。Sort Algorithm
+。Sort Algorithm
 
 **Add Question Info** - 【ZeroJudge】 a104. Sort - Insertion Sort
 
@@ -62,43 +100,43 @@
 
 **Solved** - 【ZeroJudge】 a104. Sort - Bubble Sort
 
-    。Sort Algorithm
+。Sort Algorithm
 
 **Solved** - 【ZeroJudge】 a104. Sort - Selection Sort
 
-    。Sort Algorithm
+。Sort Algorithm
 
 ## 2024. 07. 15
 
 **Solved** - 【ZeroJudge】 d672. 10922 - 2 the 9s
 
-    。Recursive + Basic String Processing
+。Recursive + Basic String Processing
 
 **Solved** - 【ZeroJudge】 f928. Serial Bomb............Boom!
 
-    。Recursive / BFS
+。Recursive / BFS
 
 ## 2024. 07. 02
 
 **Solved** - 【CSES】 2165. Tower of Hanoi
 
-    。Recursive Application
+。Recursive Application
 
 **Solved** - 【HWSH】 a155. Sum of Subsets（APCS201810, Subtask）
 
-    。Recursive with Subset
+。Recursive with Subset
 
 ## 2024. 06. 26
 
 **Solved** - 【HWSH】 a062. Stick Midpoint Cut
 
-    。Recursive Application
+。Recursive Application
 
 ## 2024. 06. 07
 
 **Solved** - 【ZeroJudge】 b967. 4. Blood Relationship
 
-    。 Simple Tree Diameter
+。 Simple Tree Diameter
 
 ## 2024. 05. 13
 
@@ -106,7 +144,7 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 352 - D. Permutation Subsequence
 
-    。 Set + vector<pii> + sort
+。 Set + vector<pii> + sort
 
 ## 2024. 05. 08
 
