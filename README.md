@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 09. 22
+
+**solved** - 【AtCoder】 Beginner Contest 369 - C. Triple Attack
+
 ## 2024. 09. 20
 
 **Opt README.md Contents**
