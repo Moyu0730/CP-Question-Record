@@ -23,8 +23,8 @@ const int INF = 1e9;
 int n, k, a, b, res, used[MAXN];
 vector<vector<int>> edge;
 
-bool dfs( int cnt, int fa ){
-    bool valid = used[cnt];
+int dfs( int cnt, int fa ){
+    int valid = used[cnt];
 
     for( auto i : edge[cnt] ){
         if( i == fa ) continue;
@@ -56,6 +56,6 @@ signed main(){
         used[node] = 1;
     }
 
-    dfs(root, -1);
+    dfs(node, -1);
     cout << res << "\n";
 }
