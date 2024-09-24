@@ -2,6 +2,34 @@
 
 ## 2024. 09. 24
 
+**Update Answer II** - 【AtCoder】 Beginner Contest 368 - D. Minimum Steiner Tree
+
+**Update Answer** - 【AtCoder】 Beginner Contest 368 - D. Minimum Steiner Tree
+
+**Solved** - 【AtCoder】 Beginner Contest 368 - D. Minimum Steiner Tree
+
+。DFS
+
+* Implementation Theory    
+    1. Taking the last specified vertices as the root, proceed DFS.
+    2. Determine whether current vertex needs to retain or not during the DFS.
+        * To know whether its subtree has vertices that need to be retained, and if so, the current vertex is needed to be retained.
+    3. What DFS returned is whether the subtree has any vertex that need to be retained.
+    4. The final answer is the number of vertices which needed to be retained.
+
+* Implementation Details
+    1. 【Line 32】Here use the characteristics of the OR operation to store whether any vertex in the subtree is a specified vertex. In addition, it is worth noting that Bool type variables can also be used to record here.
+    
+        ```cpp
+            valid |= dfs(i, cnt);
+        ```
+    
+    2. 【Line 59】Remember that the last specified vertex must be used as the root vertex here, otherwise problems will occur. For example, when there are two nodes, assuming No. 1 is the root node and No. 2 is the specified vertex, the output will be 2 instead of 1.
+
+        ```cpp
+            dfs(node, -1);
+        ```
+
 **Commit & Push All Unexist Files** - Remove `Setup.cpp`
 
 ## 2024. 09. 22
