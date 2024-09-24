@@ -1,8 +1,12 @@
 # CP-Question-Record
 
+## 2024. 09. 24
+
+**Commit & Push All Unexist Files** - Remove `Setup.cpp`
+
 ## 2024. 09. 22
 
-**solved** - 【AtCoder】 Beginner Contest 369 - C. Triple Attack
+**Solved** - 【AtCoder】 Beginner Contest 369 - C. Triple Attack
 
 ## 2024. 09. 20
 
