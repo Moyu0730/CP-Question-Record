@@ -170,25 +170,34 @@ int lca( int a, int b ){
 }
 
 /* ---------- BIT ---------- */
-int n, m, op, a, b;
-int arr[MAXN];
-int bit[MAXN];
+int n, BIT[MAXN];
 
 int lowbit( int x ){
-    return x&(-x);
+    return x & -x;
 }
 
 int query( int pos ){
-    int res = 0;
-    for( int i = pos ; i > 0 ; i -= lowbit(i) ) res += bit[i];
-    return res;
+    if( pos <= 0 ) return 0;
+
+    int ans = 0;
+    while( pos ){
+        ans += BIT[pos];
+        pos -= lowbit(pos);
+    }
+
+    return ans;
 }
 
-void update( int i, int val ){
-    while( i < n ){
-        bit[i] += val;
-        i += lowbit(i);
+void update( int x, int val ){
+    while( x <= n ){
+        BIT[x] += val;
+        x += lowbit(x);
     }
+}
+
+int sum( int l, int r ){
+    if( l > r ) return 0;
+    return query(r) - query(l - 1);
 }
 
 /* ---------- KSM ---------- */
