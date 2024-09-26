@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 09. 26
+
+**Solved** - 【AtCoder】 Beginner Contest 368 - G. Add and Multiply Queries
+
+**Update BIT Code**
+
 ## 2024. 09. 24
 
 **Update Answer II** - 【AtCoder】 Beginner Contest 368 - D. Minimum Steiner Tree
