@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 09. 28
+
+**Solved** - 【CSES】 1647. Static Range Minimum Queries
+
+。Segment Tree / DP1
+
 ## 2024. 09. 26
 
 **Solved** - 【AtCoder】 Beginner Contest 368 - G. Add and Multiply Queries
