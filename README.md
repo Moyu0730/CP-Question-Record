@@ -2,9 +2,11 @@
 
 ## 2024. 09. 28
 
+**Correct README.md**
+
 **Solved** - 【CSES】 1647. Static Range Minimum Queries
 
-。Segment Tree / DP1
+。Segment Tree / DP
 
 ## 2024. 09. 26
 
