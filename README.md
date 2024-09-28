@@ -2,6 +2,8 @@
 
 ## 2024. 09. 28
 
+**Update Set.cpp**
+
 **Correct README.md**
 
 **Solved** - 【CSES】 1647. Static Range Minimum Queries
