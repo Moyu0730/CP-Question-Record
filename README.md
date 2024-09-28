@@ -2,6 +2,12 @@
 
 ## 2024. 09. 28
 
+**Solved** - 【Luogu】 P3376.【Template】Maximum Network Flow
+
+**Solved** - 【Luogu】 P3379.【Template】LCA
+
+**Modify File Name** - 【Luogu】 P3385.【Template】Negative Cycle
+
 **Solved** - 【Luogu】 P3385.【Templete】Negative Cycle
 
 **Update Set.cpp**
