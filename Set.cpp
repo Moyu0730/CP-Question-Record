@@ -21,7 +21,5 @@ const int LLINF = 1e18;
 const int INF = 1e9;
 
 signed main(){
-    #ifndef LOCAL
-        opt;
-    #endif
+    opt;
 }
