@@ -2,6 +2,8 @@
 
 ## 2024. 09. 28
 
+**Solved** - 【Luogu】 P3385.【Templete】Negative Cycle
+
 **Update Set.cpp**
 
 **Correct README.md**
