@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 10. 12
+
+**Solved** - 【CSES】 1164. Room Allocation
+
 ## 2024. 10. 07
 
 **Update Set.cpp**
