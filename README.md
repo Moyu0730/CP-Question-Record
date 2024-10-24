@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+## 2024. 10. 24
+
+**Solved** - 【CSES】 1641. Sum of Three Values
+
 ## 2024. 10. 12
 
 **Solved** - 【CSES】 1164. Room Allocation
