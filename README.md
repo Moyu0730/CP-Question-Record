@@ -4,12 +4,14 @@
 
 **Solved** - 【CSES】 1645. Nearest Smaller Values
 
-。 Segment Tree + Discretization - O(NlogN)
+。 Segment Tree、Discretization - O(NlogN)
 
 * Implementation Details
     * Notice to query like `query(1, n, 1, arr[i]-1, 1)` not `query(1, n, 1, arr[i], 1)`, but modify must be `modify(1, n, arr[i], arr[i], i, 1);`
 
 **Solved** - 【CSES】 1644. Maximum Subarray Sum II
+
+。 Basic Set Operation、Prefix Sum
 
 * Notice 
     * `erase(val)` in `set` will erase all of the value which equals to val
@@ -43,7 +45,7 @@
 
 **Solved** - 【CSES】 1647. Static Range Minimum Queries
 
-。Segment Tree / DP
+。Segment Tree、DP
 
 ## 2024. 09. 26
 
@@ -139,7 +141,7 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 369 - E. Sightseeing Tour
 
-。Flyod-Warshall + Enum
+。Flyod-Warshall、Enum
 
 **Solved** - 【AtCoder】 Beginner Contest 369 - C. Count Arithmetic Subarrays
 
@@ -199,11 +201,11 @@
 
 **Solved** - 【ZeroJudge】 d672. 10922 - 2 the 9s
 
-。Recursive + Basic String Processing
+。Recursive、Basic String Processing
 
 **Solved** - 【ZeroJudge】 f928. Serial Bomb............Boom!
 
-。Recursive / BFS
+。Recursive、BFS
 
 ## 2024. 07. 02
 
@@ -233,7 +235,7 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 352 - D. Permutation Subsequence
 
-。 Set + vector<pii> + sort
+。 Set、vector<pii>、Sort
 
 ## 2024. 05. 08
 
