@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2024. 11. 02
+
+**Solved** - 【CSES】 1644. Maximum Subarray Sum II
+
+* Notice 
+    * `erase(val)` in `set` will erase all of the value which equals to val
+    * `set` will be sorted `.first` and then `.second`
+
 ## 2024. 10. 24
 
 **Solved** - 【CSES】 1641. Sum of Three Values
