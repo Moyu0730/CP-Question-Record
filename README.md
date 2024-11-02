@@ -2,6 +2,8 @@
 
 ## 2024. 11. 02
 
+**Modify Problem Title**
+
 **Solved** - 【CSES】 1645. Nearest Smaller Values
 
 。 Segment Tree、Discretization - O(NlogN)
