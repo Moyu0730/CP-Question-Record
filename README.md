@@ -2,6 +2,13 @@
 
 ## 2024. 11. 02
 
+**Solved** - 【CSES】 1645. Nearest Smaller Values
+
+。 Segment Tree + Discretization - O(NlogN)
+
+* Implementation Details
+    * Notice to query like `query(1, n, 1, arr[i]-1, 1)` not `query(1, n, 1, arr[i], 1)`, but modify must be `modify(1, n, arr[i], arr[i], i, 1);`
+
 **Solved** - 【CSES】 1644. Maximum Subarray Sum II
 
 * Notice 
