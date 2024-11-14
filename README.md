@@ -2,9 +2,17 @@
 
 ## 2024. 11. 14
 
-**Solved** - 【CSES】 1642. Sum of Four Values
+### 【CSES】 1645. Nearest Smaller Values
 
-。Basic Enumerate & Sort Algorithm
+**Solved**
+
+。Monotonic Stack - O(N)
+
+### 【CSES】 1642. Sum of Four Values
+
+**Solved**
+
+。Basic Enumerate & Sort Algorithm - O(N<sup>3</sup>)
 
 * Key to Solving the Problem
     1. O(N<sup>2</sup>) method to get the first two elements
