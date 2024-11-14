@@ -1,5 +1,29 @@
 # CP-Question-Record
 
+## 2024. 11. 14
+
+**Solved** - 【CSES】 1642. Sum of Four Values
+
+。Basic Enumerate & Sort Algorithm
+
+* Key to Solving the Problem
+    1. O(N<sup>2</sup>) method to get the first two elements
+    2. O(N) method to get the last two elements like below
+
+        ```cpp
+            int k = j + 1, l = n - 1;
+            while( k < l ){
+                int sum = sum of four elements;
+                if( sum > x ) l--;
+                else if( sum < x ) k++;
+                else Output index of four elements respectively
+            }
+        ```
+
+        First initialize the `index value of the third and fourth` element to `j+1 and n-1`, respectively. <br>
+        Then, if sum of four elements less than x, increase k by 1. Otherwise, check whether sum equals to x or not. <br>
+        If sum doesn't equals to x, decrease l by 1. Otherwise, output the answer.
+
 ## 2024. 11. 02
 
 **Modify Problem Title**
