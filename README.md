@@ -2,6 +2,12 @@
 
 ## 2024. 11. 14
 
+### 【CSES】 1660. Subarray Sums I
+
+**Solved**
+
+。Binary Serach - O(NlogN)
+
 ### 【CSES】 1645. Nearest Smaller Values
 
 **Solved**
