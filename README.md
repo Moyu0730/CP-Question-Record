@@ -1,5 +1,11 @@
 # CP-Question-Record
 
+## 2024. 11. 16
+
+### 【CSES】 1631. Reading Books
+
+。Greedy
+
 ## 2024. 11. 14
 
 ### 【CSES】 1661. Subarray Sums II
