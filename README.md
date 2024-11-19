@@ -1,8 +1,18 @@
 # CP-Question-Record
 
+## 2024. 11. 19
+
+### 【CSES】 2431. Digit Queries
+
+**Solved**
+
+。Basic Math Problem
+
 ## 2024. 11. 16
 
 ### 【CSES】 1631. Reading Books
+
+**Solved**
 
 。Greedy
 
