@@ -1,5 +1,63 @@
 # CP-Question-Record
 
+## 2024. 11. 20
+
+**Solved**
+
+。Brust DFS + Pruning
+
+* Implementation Details
+    * DFS Section
+        ```cpp
+            void solve( int cnt, int x, int y ){
+                if( used[x][y] ) return;
+                if( x == 1 && y == 7 && cnt < str.size() ) return;
+                if( cnt == str.size() ){
+                    /* Finish Operation */
+                    ans++;
+                    return;
+                }
+            
+                used[x][y] = true;
+            
+                if( str[cnt] == 'D' ) solve(cnt+1, x, y + 1);
+                if( str[cnt] == 'U' ) solve(cnt+1, x, y - 1);
+                if( str[cnt] == 'L' ) solve(cnt+1, x - 1, y);
+                if( str[cnt] == 'R' ) solve(cnt+1, x + 1, y);
+                if( str[cnt] == '?' ) {
+                    for( int t = 0 ; t < 4 ; t++ ){
+                        solve(cnt+1, x + dir[t].F, y + dir[t].S);
+                    }
+                }
+            
+                used[x][y] = false;
+            }
+        ```
+    * Pruning
+        * Key to Pruning : If graph gonna create 2 different disconnected component, then cut it
+        ```cpp
+            /* Section 1 */
+            /*
+                Pruning State（'#' Stands for True or Visited, 'Now' Stands for Current Position）
+                    | ?  #  ? | ?  ?  ? |
+                    | ? Now ? | # Now # |
+                    | ?  #  ? | ?  ?  ? |
+             */
+            if( used[x-1][y] && used[x+1][y] && !used[x][y+1] && !used[x][y-1] ) return;
+            if( !used[x-1][y] && !used[x+1][y] && used[x][y+1] && used[x][y-1] ) return;
+
+            /* Section 2 */
+            /*
+                Pruning State（'#' Stands for True or Visited, 'Now' Stands for Current Position）
+                    | #  ?  |  ?   # | ? Now | Now  ? |
+                    | ? Now | Now  ? | #  ?  |  ?   # |
+             */
+            if( used[x-1][y-1] && !used[x][y-1] && !used[x-1][y] ) return;
+            if( used[x+1][y-1] && !used[x][y-1] && !used[x+1][y] ) return;
+            if( used[x-1][y+1] && !used[x-1][y] && !used[x][y+1] ) return;
+            if( used[x+1][y+1] && !used[x+1][y] && !used[x][y+1] ) return;
+        ```
+
 ## 2024. 11. 19
 
 ### 【CSES】 2431. Digit Queries
