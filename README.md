@@ -2,6 +2,8 @@
 
 ## 2024. 11. 20
 
+### 【CSES】 1625. Grid Paths
+
 **Solved**
 
 。Brust DFS + Pruning
