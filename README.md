@@ -1,5 +1,41 @@
 # CP-Question-Record
 
+## 2024. 12. 10
+
+#### 【ZeroJudge】 n750. 10858 - Unique Factorization
+
+**Solved**
+
+。Prime + Brust Force
+
+* Implementation Details
+    * Output Data from `set<vector<int>>`
+        ```cpp
+            set<vector<int>> res;
+            vector<int> path;
+
+            for( auto st : res ){
+                for( auto it : st ) cout << it << " ";
+                cout << "\n";
+            }
+        ```
+
+        This is very useful, but remember to clear all of the containers before use.
+
+        ```cpp
+            set<vector<int>> res;
+            vector<int> path;
+
+            path.clear();
+            res.clear();
+        ```
+    * Bruse Force
+        Use backtracking to generate all factorizations
+        
+        1. First define a backtracking function `dfs(`$x$`)`, where $x$ is the current number to be factored, and maintain a `path` to store the current factorization.
+        2. When decreasing back, try concatenating $x$ as the product of two or more numbers and make sure the result is non-decreasing.
+        3. In order to ensure that the result is non-decreasing, when looking for the next factor, we can limit the range of factors to $[pre, x]$, where $pre$ is the last number in `path`, if `path` is empty, Then $pre$ = 2.
+
 ## 2024. 11. 20
 
 ### 【CSES】 1625. Grid Paths
