@@ -76,19 +76,19 @@
         ```cpp
             /* Section 1 */
             /*
-                Pruning State（'#' Stands for True or Visited, 'Now' Stands for Current Position）
-                    | ?  #  ? | ?  ?  ? |
-                    | ? Now ? | # Now # |
-                    | ?  #  ? | ?  ?  ? |
+                Pruning State（'#' Stands for True or Visited, 'F' Stands for False, 'Now' Stands for Current Position）
+                    | ?  #  ? | ?  F  ? |
+                    | F Now F | # Now # |
+                    | ?  #  ? | ?  F  ? |
              */
             if( used[x-1][y] && used[x+1][y] && !used[x][y+1] && !used[x][y-1] ) return;
             if( !used[x-1][y] && !used[x+1][y] && used[x][y+1] && used[x][y-1] ) return;
 
             /* Section 2 */
             /*
-                Pruning State（'#' Stands for True or Visited, 'Now' Stands for Current Position）
-                    | #  ?  |  ?   # | ? Now | Now  ? |
-                    | ? Now | Now  ? | #  ?  |  ?   # |
+                Pruning State（'#' Stands for True or Visited, 'F' Stands for False, 'Now' Stands for Current Position）
+                    | #  F  |  F   # | F Now | Now  F |
+                    | F Now | Now  F | #  F  |  F   # |
              */
             if( used[x-1][y-1] && !used[x][y-1] && !used[x-1][y] ) return;
             if( used[x+1][y-1] && !used[x][y-1] && !used[x+1][y] ) return;
