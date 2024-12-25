@@ -1,8 +1,93 @@
 # CP-Question-Record
 
+## 2024. 12. 25
+
+### 【CSES】 1673. High Score
+
+**Solved**
+
+。Bellman-ford + DFS
+
+* Implementation Details
+    * Bellman-Ford
+        - Used in the `bell` function to calculate shortest paths.  
+        - Initialize distances `dis` to a large value (`1e15`), with the starting node set to `0`.  
+        - Relax edges for `n-1` iterations; if an edge is relaxed in the `n`th iteration, a negative weight cycle is detected.  
+        - **Deformation** : Detected cycles are propagated using `getCycle`
+            ```cpp
+            int bell(int root) {
+                for( int i = 1 ; i <= n ; i++ ) dis[i] = 1e15;
+                dis[root] = 0;
+                for( int i = 1 ; i <= n ; i++ ){
+                    for( auto e : edge ){
+                        int w = e.f, a = e.s.f, b = e.s.s;
+                        if( dis[a] + w < dis[b] ){
+                            if (i == n) {
+                                negc[a] = true;
+                                mem(used, false);
+                                used[a] = true;
+                                getCycle(a, a);
+                            }
+                            dis[b] = dis[a] + w;
+                        }
+                    }
+                }
+                return (flag && dfs(1, false)) ? -1 : (-1 * dis[n]);
+            }
+            ```
+    * Negative Cycle Detection and Propagation  
+        - `getCycle` recursively marks nodes affected by negative weight cycles 
+            ```cpp
+            bool getCycle( int root, int init ){
+                for( auto i : graph[root] ){
+                    if( negc[i] ) return true;
+                    if( used[i] ) continue;
+            
+                    used[i] = true;
+                    
+                    if( getCycle(i, init) ){
+                        negc[i] = true;
+                        return true;
+                    }
+
+                    used[i] = false;
+                }
+            
+                return false;
+            }
+            ```
+    * DFS for Path Validation  
+        - The `dfs` function ensures that there is a valid path from node `1` to node `n`
+        - It also checks if negative cycles affect this path.
+            ```cpp
+            bool dfs( int root, bool state ){
+                bool res = false;
+                if( root == n ){
+                    return negc[n] | state;
+                }
+                else{
+                    bool tmp = state;
+                    for( auto i : graph[root] ){
+                        if( negc[i] ) tmp = true;
+                        if( used[i] ) continue;
+                        
+                        used[i] = true;
+
+                        res |= dfs(i, tmp);
+            
+                        used[i] = false;
+                        tmp = state;
+                    }
+
+                    if( root == 1 ) return res | negc[root];
+                    else return res;
+                }
+            }
+            ```
+
 ## 2024. 12. 10
 
-#### 【ZeroJudge】 n750. 10858 - Unique Factorization
+### 【ZeroJudge】 n750. 10858 - Unique Factorization
 
 **Solved**
 
