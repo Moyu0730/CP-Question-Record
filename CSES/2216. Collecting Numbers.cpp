@@ -15,6 +15,7 @@ using namespace std;
 #define y second
 #define int long long
 
+/*---------- Solution I ----------*/
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 2e5 + 50;
 const int Mod = 1e9 + 7;
@@ -32,4 +33,25 @@ signed main(){
     }
 
     cout << res << "\n";
+}
+
+/*---------- Solution II ( Better ) ----------*/
+const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
+const int MAXN = 2e5 + 50;
+const int Mod = 1e9 + 7;
+int n, res, arr[MAXN], idx[MAXN];
+
+signed main(){
+    opt;
+    cin >> n;
+    for( int i = 0 ; i < n ; i++ ){
+        cin >> arr[i];
+        idx[arr[i]] = i;
+    }
+
+    for( int i = 2 ; i <= n ; ++i ){
+        if( idx[i] < idx[i-1] ) res++;
+    }
+
+    cout << res+1 << "\n";
 }

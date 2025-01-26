@@ -1,5 +1,52 @@
 # CP-Question-Record
 
+## 2025. 01. 26
+
+### 【CSES】 2217. Collecting Numbers II
+
+**Solved**
+
+。Observation - O(max(N, M))
+
+* Core Concept : 
+    1. First get the result of the original array, and update the current answer while processing the operation
+    2. Once you want to swap pairs { $i, j$ }, noew answer only depends on pairs { $i, i \pm 1$ } and { $j, j \pm 1$ }
+* Implementation Details
+    * Special handling is required of the case `abs(i - j) = 1`
+        ```cpp
+        /***** Reference Function *****/
+        int check( int qa, int qb ){
+            int preA = idx[qa];
+            int preB = idx[qb];
+            int dif = 0;
+            
+            swap( idx[arr[a]], idx[arr[b]] );
+
+            int newA = idx[qa];
+            int newB = idx[qb];
+            int flag = qa > qb ? -1 : 1;
+
+            if( preA < preB && newA > newB ) dif += 1 * flag;
+            if( preA > preB && newA < newB ) dif -= 1 * flag;
+
+            swap( idx[arr[a]], idx[arr[b]] );
+
+            return dif;
+        }
+        
+        /***** Main *****/
+        if( abs( arr[a] - arr[b] ) == 1 ) res += check(arr[a], arr[b]) * -1;
+        ```
+
+### 【CSES】 2216. Collecting Numbers
+
+**Solved - Another Better Solution ( Solution II )**
+
+。Observation - O(N)
+
+* Key to Solving the Problem
+    * You have to found that the result only depends on how many pairs { $i, j$ } which satisfy `j = i + 1` and `index of j ( = i + 1 ) < index of i`
+
 ## 2024. 12. 25
 
 ### 【CSES】 1673. High Score
