@@ -2,6 +2,23 @@
 
 ## 2025. 01. 28 
 
+### Modify And Add Content To `Set.cpp`
+
+* Features
+    1. Modify - Pragma
+        * Remove Invalid Space
+        * Code 
+            ```cpp
+            /* Pragma */
+            #pragma GCC optimize("Ofast")
+            #pragma GCC optimize("Ofast,unroll-loops,no-stack-protector,fast-math")
+            #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+            ```
+    2. Add - sortV ( Vector )
+        ```cpp
+        #define sortV(x) sort(x.begin(), x.end());
+        ```
+
 ### Add Content To `Set.cpp`
 
 * Features
