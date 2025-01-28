@@ -2,6 +2,8 @@
 
 ## 2025. 01. 28 
 
+### Modify `Template.cpp`
+
 ### Modify `tasks.json`
 
 * Features

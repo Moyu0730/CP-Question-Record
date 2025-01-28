@@ -7,66 +7,67 @@ using namespace std;
 #define pii pair<int, int>
 #define pdd pair<double, double>
 #define pb push_back
-#define f first
-#define s second
+#define F first
+#define S second
+#define X first
+#define Y second
 #define int long long
-
-/* ---------- Segment Tree ---------- */
-#define nL v*2
-#define nR v*2+1
 
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 5e5 + 50;
 const int Mod = 1e9 + 7;
-int n, x, y, k, m, arr[MAXN];
+const long long LLINF = 0x7FFFFFFFFFFFFFFF;
+const int INF = 0x7FFFFFFF;
+
+/* ---------- Segment Tree ---------- */
+#define nL v * 2
+#define nR v * 2 + 1
 
 struct Node {
-    int val = 0, tag = 0, sz;
-    int rv(){
-        return val + (tag * sz);
-    }
-} segment_tree[MAXN * 4];
+    int val = 0, tag = 0, len;
+    int getValue(){ return val + (tag * len); }
+} SEG[MAXN * 4];
 
 void build( int L, int R, int v ){
-    segment_tree[v].sz = R - L + 1;
+    SEG[v].len = R - L + 1;
     if( R == L ){
-        segment_tree[v].val = arr[L];
+        SEG[v].val = arr[L];
         return;
     }
 
     int M = (L + R) / 2;
     build(L, M, nL);
     build(M+1, R, nR);
-    segment_tree[v].val = segment_tree[nL].val + segment_tree[nR].val;
+    SEG[v].val = SEG[nL].val + SEG[nR].val;
 }
 
 void push( int v ){
-    segment_tree[nL].tag += segment_tree[v].tag;
-    segment_tree[nR].tag += segment_tree[v].tag;
-    segment_tree[v].val = segment_tree[v].rv();
-    segment_tree[v].tag = 0;
+    SEG[nL].tag += SEG[v].tag;
+    SEG[nR].tag += SEG[v].tag;
+    SEG[v].val = SEG[v].getValue();
+    SEG[v].tag = 0;
 }
 
-int query( int L, int R, int ql, int qr, int v ){
-    if( R < L || ql > R || qr < L ) return 0;
-    if( ql <= L && qr >= R ) return segment_tree[v].rv();
+int query( int L, int R, int qL, int qR, int v ){
+    if( R < L || qL > R || qR < L ) return 0;
+    if( qL <= L && R <= qR ) return SEG[v].getValue();
 
     push(v);
     int M = (L + R) / 2;
-    return query(L, M, ql, qr, nL) + query(M+1, R, ql, qr, nR);
+    return query(L, M, qL, qR, nL) + query(M+1, R, qL, qR, nR);
 }
 
-void modify( int L, int R, int ml, int mr, int val, int v ){
-    if( R < L || ml > R || mr < L ) return;
-    if( ml <= L && mr >= R ){
-        segment_tree[v].tag += val;
+void modify( int L, int R, int mL, int mR, int val, int v ){
+    if( R < L || mL > R || mR < L ) return;
+    if( mL <= L && R <= mR ){
+        SEG[v].tag += val;
         return;
     }
 
     int M = (L + R) / 2;
-    modify(L, M, ml, mr, val, nL);
-    modify(M+1, R, ml, mr, val, nR);
-    segment_tree[v].val = segment_tree[nL].rv() + segment_tree[nR].rv();
+    modify(L, M, mL, mR, val, nL);
+    modify(M+1, R, mL, mR, val, nR);
+    SEG[v].val = SEG[nL].getValue() + SEG[nR].getValue();
 }
 
 /* ---------- Dijkstra ---------- */
@@ -75,14 +76,14 @@ void dij( int root ){
     pq.push({0, root});
     dis[root] = 0;
     while( !pq.empty() ){
-        int d = pq.top().f;
-        int node = pq.top().s;
+        int d = pq.top().F;
+        int node = pq.top().S;
         pq.pop();
 
         if( d > dis[node] ) continue;
         for( auto i : graph[node] ){
-            int v = i.f;
-            int w = i.s;
+            int v = i.F;
+            int w = i.S;
             if( d + w < dis[v] ){
                 dis[v] = d + w;
                 pq.push({dis[v], v});
@@ -92,26 +93,28 @@ void dij( int root ){
 }
 
 /* ---------- Bellman Ford ---------- */
-vector<pair<int, pii>> edge;
-int dis[MAXN], negc[MAXN];
-bool flag; // Has Negative Cycle or Not
+int bellman( int root ){
+    for( int i = 1 ; i <= n ; i++ ) dis[i] = INF;
 
-bool bell( int root ){
-    for( int i = 1 ; i <= n ; i++ ) dis[i] = 1e15;
     dis[root] = 0;
+    
     for( int i = 1 ; i <= n ; i++ ){
         for(auto e : edge ){
             int w = e.f;
             int a = e.s.f;
             int b = e.s.s;
             if( dis[a] + w < dis[b] ){
-                if( i == n-1 ) flag = true;
+                if( i == n ){
+                    flag = true;
+                }
+
                 dis[b] = dis[a] + w;
             }
         }
     }
     
-    return flag;
+    if( flag ) return -1;
+    else return dis[n];
 }
 
 /* ---------- Flyod-Warshall ---------- */
@@ -133,40 +136,46 @@ void flyod( int n ){
 }
 
 /* ---------- LCA ---------- */
-int n, q, a, b, fa[MAXN][25], dep[MAXN];
-vector<vector<int>> tree;
+int idx;
+int v[MAXN], first[MAXN], nxt[MAXN], dep[MAXN], fa[MAXN][25];
 
-void dfs( int cnt ){
+void add( int a, int b ){
+    idx++;
+    v[idx] = b;
+    nxt[idx] = first[a];
+    first[a] = idx;
+}
 
-    dep[cnt] = dep[fa[cnt][0]] + 1;
-
-    for( int i = 1 ; i < 20 ; i++ ) fa[cnt][i] = fa[ fa[cnt][i-1] ][i-1];
-    for( auto i : tree[cnt] ) dfs(i);
-
-    return;
+void dfs( int u, int father ){
+    dep[u] = dep[father] + 1;
+    for( int i = 1 ; (1<<i) <= dep[u] ; i++ ){
+        fa[u][i] = fa[ fa[u][i-1] ][i-1];
+    }
+    for( int i = first[u] ; i ; i = nxt[i] ){
+        int p = v[i];
+        if(p == father) continue;
+        fa[p][0] = u;
+        dfs(p, u);
+    }
 }
 
 int lca( int a, int b ){
-    if( dep[a] > dep[b] ) swap(a, b);
+    if( dep[a] < dep[b] ) swap(a, b);
 
-    int tmp = dep[b] - dep[a];
-    for( int i = 0 ; tmp ; i++, tmp >>= 1 ){
-        if( tmp & 1 ) b = fa[b][i];
+    for( int i = 20 ; i >= 0 ; i-- ){
+        if( dep[fa[a][i]] >= dep[b] )
+            a = fa[a][i];
+        if( a == b ) return a;
     }
 
-    if( a == b ) return a;
-    else{
-        int step = 20;
-        while( step >= 0 ){
-            if( fa[a][step] == fa[b][step] ) step--;
-            else{
-                a = fa[a][step];
-                b = fa[b][step];
-            }
+    for( int i = 20 ; i >= 0 ; i-- ){
+        if( fa[a][i] != fa[b][i] ){
+            a = fa[a][i];
+            b = fa[b][i];
         }
-
-        return fa[a][0];
     }
+
+    return fa[a][0];
 }
 
 /* ---------- BIT ---------- */
@@ -227,4 +236,19 @@ int mmi( int base, int mod ){
     }
 
     return res;
+}
+
+/* ---------- DSU ---------- */
+
+int DSU[MAXN];
+
+int query( int a ){
+    if( DSU[a] == a ) return a;
+    return DSU[a] = query(DSU[a]);
+}
+
+void mix( int a, int b ){
+    int fa = query(a);
+    int fb = query(b);
+    DSU[fa] = fb;
 }
