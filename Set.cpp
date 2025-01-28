@@ -3,6 +3,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/* Pragma */
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast, unroll-loops, no-stack-protector, fast-math")
+#pragma GCC target("sse, sse2, sse3, ssse3, sse4, popcnt, abm, mmx, avx, tune=native")
+
+/* Self Define */
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 #define pirq(type) priority_queue<type, vector<type>, greater<type>>
 #define mem(x, value) memset(x, value, sizeof(x));
@@ -21,6 +27,9 @@ const int MAXN = 1e8 + 50;
 const int Mod = 1e9 + 7;
 const long long LLINF = 0x7FFFFFFFFFFFFFFF;
 const int INF = 0x7FFFFFFF;
+const int MEMINF = 0x3F;
+const int MEMINF_VAL = 0x3F3F3F3F;
+const int MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
 signed main(){
     opt;

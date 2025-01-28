@@ -1,5 +1,30 @@
 # CP-Question-Record
 
+## 2025. 01. 28 
+
+### Add Content To `Set.cpp`
+
+* Features
+    1. Pragma
+        ```cpp
+        /* Pragma */
+        #pragma GCC optimize("Ofast")
+        #pragma GCC optimize("Ofast, unroll-loops, no-stack-protector, fast-math")
+        #pragma GCC target("sse, sse2, sse3, ssse3, sse4, popcnt, abm, mmx, avx, tune=native")
+        ```
+    2. Memset Constant
+        * Reason : `memset` is used to set each byte of memory to a specified value, but it only accepts an 8-bit integer (`unsigned char`). `INF` is 0x7FFFFFFF (a 32-bit integer), but `memset` only takes the lowest 8 bits, which is 0xFF (255). As a result, each byte of the `dp` array is set to 0xFF. If `dp` is of type `int`, each element (composed of 4 bytes) ends up being 0xFFFFFFFF (-1) instead of the intended `INF`.
+        * Code
+            ```cpp
+            const int MEMINF = 0x3F;
+            const int MEMINF_VAL = 0x3F3F3F3F;
+            const int MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
+            ```
+        * Example
+            ```cpp
+            mem(dp, MEMINF);
+            ```
+
 ## 2025. 01. 26
 
 ### 【CSES】 2217. Collecting Numbers II
