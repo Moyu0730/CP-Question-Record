@@ -1,5 +1,13 @@
 # CP-Question-Record
 
+## 2025. 01. 30
+
+### 【CSES】 2162. Josephus Problem I
+
+**Solved**
+
+。Queue Simulation - O(N)：Each number is inserted into the queue once and removed once, meaning the total number of operations is O(N)
+
 ## 2025. 01. 28 
 
 ### Push All Programs That Have Been Finished Before But Not Pushed
