@@ -9,7 +9,7 @@
 。BIT + Binary Search - O(NlogN)
 
 * Time Complexity Analysis - O(NlogN)
-    * BIT Operations (update and query) are O(logN)
+    * BIT Operations are O(logN)
     * Binary Search runs in O(logN) per step
     * Since we perform these operations N times, the total complexity is O(NlogN)
 * Core Concept
