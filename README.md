@@ -1,5 +1,49 @@
 # CP-Question-Record
 
+## 2025. 01. 31
+
+### 【CSES】 2163. Josephus Problem II
+
+**Solved**
+
+。BIT + Binary Search - O(NlogN)
+
+* Time Complexity Analysis - O(NlogN)
+    * BIT Operations (update and query) are O(logN)
+    * Binary Search runs in O(logN) per step
+    * Since we perform these operations N times, the total complexity is O(NlogN)
+* Core Concept
+    1. Use the p-th smallest number concept to determine eliminations
+        * The key observation is that every round reduces the number of available people, meaning our modulo calculations must be adjusted accordingly.
+    2. Efficiently locate the person to remove
+        * Need a data structure that support
+            1. Dynamically delete elements as people are removed
+            2. Quickly find the person at a given rank
+    3. Use BIT for efficient tracking
+        * BIT is used instead of a Segment Tree because
+            1. It efficiently tracks the number of remaining people
+            2. It allows for fast prefix sum calculations to find the p-th smallest remaining number
+* Implementation Details
+    1. Updating the next person to skip
+        * After removing a person, we update `cut` to determine how many people to skip in the next round
+            ```cpp
+            cut = k % (t-1);
+            cut += 1;
+            ```
+        * Why is this needed
+            * `t` represents the number of people left in the circle
+            * Since we are skipping `k` people, taking `k % (t-1)` ensures that the count wraps around correctly
+            * The `+1` ensures we move to the correct position
+    2. Handling circular wraparounds
+        * Since the Josephus problem involves cycling through a list, we must wrap around when we reach the end
+        * The following code ensures that if we don’t have enough people left from start to the end, we reset to the beginning and adjust `cut`
+            ```cpp
+            if( ( q = sum(start, n) ) < cut ){
+                start = 0;
+                cut = cut - q;
+            }
+            ```
+
 ## 2025. 01. 30
 
 ### 【CSES】 2162. Josephus Problem I
@@ -86,7 +130,7 @@
 
 。Observation - O(max(N, M))
 
-* Core Concept : 
+* Core Concept
     1. First get the result of the original array, and update the current answer while processing the operation
     2. Once you want to swap pairs { $i, j$ }, noew answer only depends on pairs { $i, i \pm 1$ } and { $j, j \pm 1$ }
 * Implementation Details
