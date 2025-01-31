@@ -2,6 +2,39 @@
 
 ## 2025. 01. 31
 
+### 【CSES】 2168. Nested Ranges Check
+
+**Solved**
+
+。Observation - O(NlogN)
+
+* Core Concept
+    1. Sorting Strategy
+        - Sort intervals by left endpoint in ascending order
+        - If two intervals have the same left endpoint, sort by right endpoint in descending order 
+        - This ensures that larger intervals come before smaller ones when they start at the same position
+    2. Check Strategy
+        - Find intervals that **contain** others by tracking the maximum right endpoint seen so far
+            ```cpp
+            int MAX = -1;
+            for( int i = 0 ; i < n ; ++i ){
+                if( arr[i].r <= MAX ) res[1][arr[i].id] = true;
+                else res[1][arr[i].id] = false;
+
+                MAX = max(MAX, arr[i].r);
+            }
+            ```
+        - Find intervals that are **contained** in others by tracking the minimum right endpoint seen so far
+            ```cpp
+            int MIN = INF;
+            for( int i = n - 1 ; i >= 0 ; --i ){
+                if( arr[i].r >= MIN ) res[0][arr[i].id] = true;
+                else res[0][arr[i].id] = false;
+
+                MIN = min(MIN, arr[i].r);
+            }
+            ```
+
 ### 【CSES】 2163. Josephus Problem II
 
 **Solved**
