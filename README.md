@@ -2,6 +2,34 @@
 
 ## 2025. 02. 05
 
+### 【CSES】 1662. Subarray Divisibility
+
+**Solved**
+
+。Prefix Sum + Modulo - O(N)
+
+* Core Concept
+    * Prefix Sum with Modulo
+        * Compute prefix sum `pre[i]` such that `pre[i] = (pre[i-1] + arr[i]) % n`
+        * This reduces the problem to finding subarrays where the sum is divisible by `n`
+    * Frequency Count Strategy
+        * Maintain a frequency array `res[]` to count occurrences of each remainder when computing `pre[i]`
+        * If a remainder appears more than once, it means there exist subarrays with sums that have the same remainder when divided by `n`, implying a subarray sum that is divisible by `n`
+        * The number of valid subarrays is calculated using the combination formula
+            ```cpp
+            int acc = 0;
+            for( int i = 0 ; i < n ; ++i ) acc += res[i] * ( res[i] - 1 ) / 2;
+            ```
+    * Handling Negative Modulo Values
+        * Ensure non-negative values using `(value + n) % n`
+            ```cpp
+            pre[i] = ( ( pre[i-1] + ( arr[i] % n ) ) + n ) % n;
+            ```
+* Implementation Details
+    * Initializing `res[0]`
+        * `res[0]++` is used to handle cases where a prefix sum itself is already divisible by `n`
+        * This ensures that subarrays starting from the beginning are correctly counted
+
 ### 【CSES】 2169. Nested Ranges Count
 
 **Solved**
