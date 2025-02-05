@@ -2,6 +2,61 @@
 
 ## 2025. 02. 05
 
+### 【CSES】 2169. Nested Ranges Count
+
+**Solved**
+
+。Discretization + BIT - O(NlogN)
+
+* Time Complexity Analysis - O(NlogN)
+    * Sorting the right endpoints takes O(NlogN), and assigning indices takes O(N), resulting in a total of O(NlongN)
+    * Sorting the intervals based on their left endpoints takes O(NlongN)
+    * Each query and update operation in the BIT takes O(NlongN), and we perform O(N) such operations, leading to a total of O(NlongN)
+* Implementation Details
+    * Discretization
+        * Since the right endpoints of the intervals can be too large, directly using them in BIT operations is inefficient and impractical
+        * We use coordinate compression to reduce the maximum value needed in BIT to at most 2e5, preventing excessive memory usage
+            ```cpp
+            vector<int> disc;
+
+            sort(pre, pre + n);
+            
+            disc.push_back(pre[0]);
+            for( int i = 1 ; i < n ; ++i ){
+                if( pre[i] != pre[i-1] ) disc.push_back(pre[i]);
+            }
+            
+            for( int i = 0 ; i < n ; ++i ) arr[i].r = lower_bound(disc.begin(), disc.end(), arr[i].r) - disc.begin() + 1;
+            ```
+    * Counting Intervals Contained Within Another
+        * Iterating from right to left, we check how many intervals are already in the BIT before inserting the current interval
+        * If an interval has a right endpoint greater than or equal to the smallest seen so far, it is contained within some interval
+            ```cpp
+            int MIN = INF;
+            for( int i = n - 1 ; i >= 0 ; --i ){
+                if( arr[i].r >= MIN ) res[0][arr[i].id] = query(arr[i].r);
+                else res[0][arr[i].id] = 0;
+
+                update(arr[i].r, 1);
+                MIN = min(MIN, arr[i].r);
+            }
+            ```
+        * After this process, we reset BIT to ensure the next counting step starts with an empty BIT
+            ```cpp
+            mem(BIT, 0);
+            ```
+    * Counting Intervals That Contain Another
+        * Iterating from left to right, we check how many previously seen intervals have right endpoints within the current interval’s range
+            ```cpp
+            int MAX = -1;
+            for( int i = 0 ; i < n ; ++i ){
+                if( arr[i].r <= MAX ) res[1][arr[i].id] = sum(arr[i].r, MAX);
+                else res[1][arr[i].id] = 0;
+                update(arr[i].r, 1);
+                MAX = max(MAX, arr[i].r);
+            }
+            ```
+
 ### Modify `Template.cpp`
 
 * Features
