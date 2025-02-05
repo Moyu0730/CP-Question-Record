@@ -1,5 +1,34 @@
 # CP-Question-Record
 
+## 2025. 02. 05
+
+### Modify `Template.cpp`
+
+* Features
+    1. Add `discretization()`
+        ```cpp
+            /* ---------- Discretization ---------- */
+            int discretization(){
+                int n, pre[MAXN], after[MAXN], before[MAXN]; 
+                vector<int> arr;
+
+                cin >> n;
+                for( int i = 0 ; i < n ; i++ ){
+                    cin >> before[i];
+                    pre[i] = before[i];
+                }
+
+                sort(pre, pre + n);
+
+                arr.pb(pre[0]);
+                for( int i = 1 ; i < n ; i++ ){
+                    if( pre[i] != pre[i-1] ) arr.pb(pre[i]);
+                }
+
+                for( int i = 0 ; i < n ; i++ ) after[i] = lower_bound(arr.begin(), arr.end(), before[i]) - arr.begin();
+            }
+        ```
+
 ## 2025. 01. 31
 
 ### 【CSES】 2168. Nested Ranges Check
