@@ -2,6 +2,39 @@
 
 ## 2025. 02. 07
 
+### 【CSES】 1077. Sliding Window Cost
+
+**Solved**  
+
+。Balanced Multiset + Sliding Window - O(NlogK)
+
+* Time Complexity Analysis - O(NlogK)  
+    * Each insertion, deletion, and balancing operation runs in O(logK)
+    * Since there are N insertions and deletions across the entire array, the total complexity is O(NlogK)
+* Core Concept
+    * Balanced Multiset + Sliding Window：Same as `【CSES】 1076. Sliding Window Median` 
+    * The Key Observation：The optimal target value for minimizing the cost is the **median** of the window
+    * Finding the Minimum Cost
+        * The cost is computed using the formula
+            ```
+            cost = (sum of larger elements - median x number of large elements) + (median x number of small elements - sum of smaller elements)
+            ```
+            * If `k` is **odd**, the **median** is the element at the boundary between `small` and `large`
+            * If `k` is **even**, compare two possible median choices and pick the one yielding the **minimum cost**
+* Implementation Details 
+    * Maintain two variables large sum and smallsum to reduce the time complexity of calculating the difference answer to O(1)
+        ```cpp
+        /* ---------- Ans Calculation ---------- */
+        if( k % 2 == 0 ){
+            int s = ( largesum - (*small.rbegin() * large.size() ) ) + ( (*small.rbegin() * small.size()) - smallsum );
+            int l = ( largesum - (*large.begin() * large.size() ) ) + ( (*large.begin() * small.size()) - smallsum );
+
+            cout << min(s, l) << " ";
+        }else{
+            cout << ( largesum - (mid * large.size()) ) + ( (mid * small.size()) - smallsum ) << " ";
+        }
+        ```
+
 ### 【CSES】 1076. Sliding Window Median
 
 **Solved**
@@ -34,7 +67,7 @@
         * Rebalancing is required after removal to maintain the correct structure
 * Implementation Details 
     * In the implementation, when removing an element from `small` or `large`, use `small.erase(small.find(arr[i-k+1]));` instead of `small.erase(arr[i-k+1]);`  
-        * The reason for this is that `erase(arr[i-k+1])` would remove all occurrences of `arr[i-k+1]` from the `multiset`, which is incorrect. Since we are maintaining a balance between `small` and `large`, we only want to remove **one occurrence** of the element that is sliding out of the window. Using `small.find(arr[i-k+1])` ensures that only a **single instance** of `arr[i-k+1]` is erased, preserving the correct structure of the data.
+        * The reason for this is that `erase(arr[i-k+1])` would remove all occurrences of `arr[i-k+1]` from the `multiset`, which is incorrect. Since we are maintaining a balance between `small` and `large`, we only want to remove **one occurrence** of the element that is sliding out of the window. Using `small.find(arr[i-k+1])` ensures that only a **single instance** of `arr[i-k+1]` is erased, preserving the correct structure of the data
 
 ## 2025. 02. 06
 
