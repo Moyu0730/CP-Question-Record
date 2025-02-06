@@ -1,5 +1,41 @@
 # CP-Question-Record
 
+## 2025. 02. 07
+
+### 【CSES】 1076. Sliding Window Median
+
+**Solved**
+
+。Balanced Multiset + Sliding window - O(NlogK)
+
+* Time Complexity Analysis - O(NlogK)
+    * Each insertion, deletion, and balancing operation runs in O(logK)
+    * Since there are N insertions and deletions across the entire array, the total complexity is O(NlogK)
+* Core Concept
+    * Balanced Multiset
+        * `multiset<int> small`：Stores the smaller half of the elements, including the median when `k` is odd
+        * `multiset<int> large`：Stores the larger half of the elements
+        * The elements are balanced between these two multisets such that
+            * `small` always holds at least as many elements as `large` when `k` is odd
+            * When `k` is even, the median is taken from `small`
+    * Insertion and Balancing Strategy
+        * Insert each new element into the appropriate multiset
+            * If the element is greater than or equal to the smallest value in `large`, insert it into `large`
+            * Otherwise, insert it into `small`
+        * Balance the sets
+            * If `large` has more elements than `small`, move the smallest element from `large` to `small`
+            * If `small` has more elements than `large`, move the largest element from `small` to `large`
+    * Finding the Median
+        * The median is always the largest element in `small` when `k` is odd
+        * If `k` is even, the problem specifies that the smaller of the two middle elements should be taken, which is also the largest in `small`
+    * Handling Element Removal from the Window
+        * When sliding the window forward, the outgoing element must be removed from the appropriate set
+        * This is done efficiently using `find()` and `erase()`
+        * Rebalancing is required after removal to maintain the correct structure
+* Implementation Details 
+    * In the implementation, when removing an element from `small` or `large`, use `small.erase(small.find(arr[i-k+1]));` instead of `small.erase(arr[i-k+1]);`  
+        * The reason for this is that `erase(arr[i-k+1])` would remove all occurrences of `arr[i-k+1]` from the `multiset`, which is incorrect. Since we are maintaining a balance between `small` and `large`, we only want to remove **one occurrence** of the element that is sliding out of the window. Using `small.find(arr[i-k+1])` ensures that only a **single instance** of `arr[i-k+1]` is erased, preserving the correct structure of the data.
+
 ## 2025. 02. 06
 
 ### 【CSES】 2428. Subarray Distinct Values
