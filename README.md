@@ -1,5 +1,34 @@
 # CP-Question-Record
 
+## 2025. 02. 06
+
+## Update `Templete.cpp`
+
+* Features
+    * Update Variable Name
+        ```cpp
+        /* ---------- Discretization ---------- */
+        int discretization(){
+            int n, tmp[MAXN], after[MAXN], before[MAXN]; 
+            vector<int> distinct;
+
+            cin >> n;
+            for( int i = 0 ; i < n ; i++ ){
+                cin >> before[i];
+                tmp[i] = before[i];
+            }
+
+            sort(tmp, tmp + n);
+
+            distinct.pb(tmp[0]);
+            for( int i = 1 ; i < n ; i++ ){
+                if( tmp[i] != tmp[i-1] ) distinct.pb(tmp[i]);
+            }
+
+            for( int i = 0 ; i < n ; i++ ) after[i] = lower_bound(distinct.begin(), distinct.end(), before[i]) - distinct.begin();
+        }
+        ```
+
 ## 2025. 02. 05
 
 ### 【CSES】 1662. Subarray Divisibility

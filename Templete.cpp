@@ -254,21 +254,21 @@ void mix( int a, int b ){
 
 /* ---------- Discretization ---------- */
 int discretization(){
-    int n, pre[MAXN], after[MAXN], before[MAXN]; 
-    vector<int> arr;
+    int n, tmp[MAXN], after[MAXN], before[MAXN]; 
+    vector<int> distinct;
 
     cin >> n;
     for( int i = 0 ; i < n ; i++ ){
         cin >> before[i];
-        pre[i] = before[i];
+        tmp[i] = before[i];
     }
 
-    sort(pre, pre + n);
+    sort(tmp, tmp + n);
 
-    arr.pb(pre[0]);
+    distinct.pb(tmp[0]);
     for( int i = 1 ; i < n ; i++ ){
-        if( pre[i] != pre[i-1] ) arr.pb(pre[i]);
+        if( tmp[i] != tmp[i-1] ) distinct.pb(tmp[i]);
     }
 
-    for( int i = 0 ; i < n ; i++ ) after[i] = lower_bound(arr.begin(), arr.end(), before[i]) - arr.begin();
+    for( int i = 0 ; i < n ; i++ ) after[i] = lower_bound(distinct.begin(), distinct.end(), before[i]) - distinct.begin();
 }
