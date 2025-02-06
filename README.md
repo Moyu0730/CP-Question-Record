@@ -2,6 +2,52 @@
 
 ## 2025. 02. 06
 
+### 【CSES】 2428. Subarray Distinct Values
+
+**Solved**
+
+- Sliding Window + Frequency Count - O(N)
+
+* Core Concept
+    * Data Compression
+        * Since the given values range up to 10<sup>9</sup>, direct frequency counting is impractical. Therefore, the input sequence is compressed using coordinate compression
+        * This ensures that adjacent elements in the compressed sequence are always distinct, simplifying further calculations
+        *  The compression result is stored in `amt`, a `vector<pair<int, int>>` where each entry represents a unique value and its frequency
+    * Discretization
+        * Since values can be large, compress them into a smaller range
+        * This allows efficient tracking of the number of each distinct value
+    * Sliding Window Technique
+        * Uses two pointers, `left` and `right`, to maintain a valid subarray where the number of distinct values does not exceed `k`
+        * Expands `right` while updating a frequency counter `counter[]` to track occurrences
+        * If the distinct count exceeds `k`, moves `left` to restore validity
+    * Frequency Count Strategy
+        * Maintains a frequency array `counter[]` to track the occurrences of each distinct value
+        * The number of valid subarrays ending at `right` is determined by the size of the current window
+        * Originally, the sum of valid subarrays was computed by iterating over the window
+            ```cpp
+            res += amt[left].S * (amt[it_pointer].S);
+            ```
+            But this was optimized using prefix sums to reduce complexity from O(N<sup>2</sup>) to O(N)
+            ```cpp
+            res += amt[left].S * (pre[right] - pre[left]);
+            ```
+    * Edge Cases
+        * Special case when `k = 1`：Ensures values are not counted multiple times
+            ```cpp
+            res += amt[left].S + (amt[left].S * (amt[left].S - 1) / 2);
+            if( k != 1 ) res += amt[left].S * (pre[right] - pre[left]); 
+            ```
+        * When `right` reaches the end of `amt` and `distinct value < k`, special handling is needed
+            ```cpp
+            if (right == amt.size() - 1) {
+                for (int i = left; i < amt.size(); ++i) {
+                    res += amt[i].S + (amt[i].S * (amt[i].S - 1) / 2);
+                    if (k != 1) res += amt[i].S * (pre[right] - pre[i]);
+                }
+                break;
+            }
+            ```
+
 ## Update `Templete.cpp`
 
 * Features
