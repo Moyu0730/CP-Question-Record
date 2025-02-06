@@ -6,7 +6,7 @@
 
 **Solved**
 
-- Sliding Window + Frequency Count - O(N)
+。Discretization + Sliding Window + Frequency Count - O(N)
 
 * Core Concept
     * Data Compression
