@@ -1,5 +1,42 @@
 # CP-Question-Record
 
+## 2025. 02. 08
+
+### 【CSES】 1632. Movie Festival II
+
+**Solved**  
+
+。Greedy + Multiset - O(NlogK)
+
+* Time Complexity Analysis - O(NlogK)
+    * Sorting the movie intervals takes O(NlogN)  
+    * Each movie is processed once, with at most O(logK) operations due to multiset insertion and deletion
+* Core Concept
+    * Sort movies by ending time to prioritize movies that finish the earliest
+    * Use a multiset to track the earliest available end times of currently assigned viewers
+    * Iterate through movies and assign each one to the available viewer
+        * If a viewer is available, perform a binary search on the viewers' end time to find the viewer whose end time is closest to the start time of the previous movie, and update the end time
+        * If all viewers are busy but there are less than `k` viewers, assign a new one
+        * If all `k` viewers are busy and no one is available before the movie starts, skip the movie
+* Key Observations
+    * Greedy Choice：Prioritizing earliest finishing movies allows us to maximize the number of movies watched
+    * Efficient Viewer Assignment：Using a `multiset<int>` ensures we always assign movies in O(logK) time 
+    * Binary Search：This efficiently finds the earliest available viewer who can watch the next movie
+* Implementation Details
+    * Sorting Strategy
+        * Sort movies by ending time
+        * If two movies have the same ending time, sort by starting time
+    * Handling Movie Assignments
+        * Use a `multiset<int>` to store the end times of currently assigned movies
+            * If a viewer is avaliable
+            * Reassign the earliest finished viewer using `lower_bound()`
+                ```cpp
+                auto it = mst.lower_bound(mv[i].F) != mst.begin() ? prev(mst.lower_bound(mv[i].F)) : mst.begin();
+                mst.erase(it);
+                ```
+            * Replace their previous end time with the new movie’s end time
+            * If the club still has less than `k` viewers active：Assign the movie to a new viewer
+
 ## 2025. 02. 07
 
 ### 【CSES】 1077. Sliding Window Cost
