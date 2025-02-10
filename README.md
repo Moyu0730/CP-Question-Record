@@ -1,5 +1,38 @@
 # CP-Question-Record
 
+## 2025. 02. 10
+
+### 【CSES】 1639. Edit Distance
+
+**Solved**  
+
+。Dynamic Programming - O(N<sup>2</sup>)
+
+* Core Concept
+    * Define the State
+        * Let `dp[i][j]` represent the minimum number of operations required to convert the first `i` characters of first string into the first `j` characters of second string 
+        * The three operations allowed
+            1. **Insertion**：Insert a character into first string ⮕ `dp[i][j] = dp[i][j-1] + 1`
+            2. **Deletion**：Remove a character from first string ⮕ `dp[i][j] = dp[i-1][j] + 1`
+            3. **Replacement**：Change one character in first string ⮕ `dp[i][j] = dp[i-1][j-1] + 1` 
+        * If `a[i-1] = b[j-1]`, no operation is needed ⮕ `dp[i][j] = dp[i-1][j-1]` 
+    * Base Cases
+        * Converting an empty string into prefix of second string requires `j` insertions ⮕ `dp[0][j] = j`
+        * Converting a prefix string of into another string requires `i` deletions ⮕ `dp[i][0] = i`
+    * Transition Formula
+        * dp[i][j] =  dp[i-1][j-1], **if a[i-1] = b[j-1]**
+        * min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1, **otherwise**
+* Implementation Details
+    * Initialization
+        * We initialize `dp[i][0] = i`：deleting `i` characters to match an empty string
+        * We initialize `dp[0][j] = j`：inserting `j` characters to match another string
+    * Iterating Subproblems
+        * Fill the `dp` table using bottom-up dynamic programming
+        * If the characters match, carry over `dp[i-1][j-1]`
+        * Otherwise, compute the minimum of insert, delete, replace operations
+    * Final Result
+        * The answer is stored in `dp[(first string).size()][(second string).size()]`, which gives the minimum operations needed to transform first string into second string
+
 ## 2025. 02. 08
 
 ### 【CSES】 1632. Movie Festival II
