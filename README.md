@@ -1,5 +1,54 @@
 # CP-Question-Record
 
+## 2025. 02. 11
+
+### 【CSES】 1745. Money Sums
+
+**Solved**  
+
+。DP - O(N<sup>2</sup>X<sub>i</sub>)  
+
+* Time Complexity Analysis - O(N<sup>2</sup>X<sub>i</sub>)  
+    * The problem is a variation of the subset sum problem, where we determine all possible sums that can be formed using the given coins
+    * NX<sub>i</sub> is the sum of all coins, at most 1e5.  
+    * The approach uses a 1-dim boolean DP array of size NX<sub>i</sub>+1, iterating through `n` coins
+* Core Concept
+    * This problem is a **classic dynamic programming bounded knapsack problem**
+    * Approach
+        * Define the State
+            * Let `dp[i]` be a boolean value that is true if we can form sum `i` using a subset of the given coins
+        * Base Cases
+            * Initially, `dp[0]` = true, because 0 is always achievable with no coins
+        * Transition Formula
+            * dp[j] = dp[j] \text{ OR } dp[j - x_i]
+            * If sum `j - x_i` was previously possible, then sum `j` is now possible by adding `x_i`  
+            * We process each coin only once, ensuring a Bounded Knapsack
+    * Result Collection
+        * After processing all coins, count and output the indices where `dp[j]` = true, as they represent possible sums
+* Implementation Details
+    * DP Update
+        ```cpp
+        for( int i = 0 ; i < v.size() ; ++i ){
+            for( int j = 0 ; j < v[i].F ; ++j ){
+                int amt = 0;
+                for( int k = j ; k < INF ; k += v[i].F ){
+                    if( dp[k] ) amt = v[i].S;
+                    else if( amt > 0 ){
+                        amt--;
+                        dp[k] = true;
+                        res.insert(k);
+                    }
+                }
+            }
+        }
+        ```
+        This is the bounded knapsack update, ensuring each coin is used at most its given count
+        * Outer loop：Iterate through unique coin values
+        * Inner loop：Process sums in increasing order
+        * Key logic  
+            * If `dp[k]` is already `true`, reset `amt` to the coin count
+            * If `dp[k]` is `false` and `amt > 0`, set `dp[k] = true` and decrease `amt` ⮕ ensuring limited use of each coin
+
 ## 2025. 02. 10
 
 ### 【CSES】 1639. Edit Distance
@@ -9,19 +58,20 @@
 。Dynamic Programming - O(N<sup>2</sup>)
 
 * Core Concept
-    * Define the State
-        * Let `dp[i][j]` represent the minimum number of operations required to convert the first `i` characters of first string into the first `j` characters of second string 
-        * The three operations allowed
-            1. **Insertion**：Insert a character into first string ⮕ `dp[i][j] = dp[i][j-1] + 1`
-            2. **Deletion**：Remove a character from first string ⮕ `dp[i][j] = dp[i-1][j] + 1`
-            3. **Replacement**：Change one character in first string ⮕ `dp[i][j] = dp[i-1][j-1] + 1` 
-        * If `a[i-1] = b[j-1]`, no operation is needed ⮕ `dp[i][j] = dp[i-1][j-1]` 
-    * Base Cases
-        * Converting an empty string into prefix of second string requires `j` insertions ⮕ `dp[0][j] = j`
-        * Converting a prefix string of into another string requires `i` deletions ⮕ `dp[i][0] = i`
-    * Transition Formula
-        * dp[i][j] =  dp[i-1][j-1], **if a[i-1] = b[j-1]**
-        * min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1, **otherwise**
+    * Approach
+        * Define the State
+            * Let `dp[i][j]` represent the minimum number of operations required to convert the first `i` characters of first string into the first `j` characters of second string 
+            * The three operations allowed
+                1. **Insertion**：Insert a character into first string ⮕ `dp[i][j] = dp[i][j-1] + 1`
+                2. **Deletion**：Remove a character from first string ⮕ `dp[i][j] = dp[i-1][j] + 1`
+                3. **Replacement**：Change one character in first string ⮕ `dp[i][j] = dp[i-1][j-1] + 1` 
+            * If `a[i-1] = b[j-1]`, no operation is needed ⮕ `dp[i][j] = dp[i-1][j-1]` 
+        * Base Cases
+            * Converting an empty string into prefix of second string requires `j` insertions ⮕ `dp[0][j] = j`
+            * Converting a prefix string of into another string requires `i` deletions ⮕ `dp[i][0] = i`
+        * Transition Formula
+            * dp[i][j] =  dp[i-1][j-1], **if a[i-1] = b[j-1]**
+            * min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1, **otherwise**
 * Implementation Details
     * Initialization
         * We initialize `dp[i][0] = i`：deleting `i` characters to match an empty string
