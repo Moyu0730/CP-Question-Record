@@ -1,5 +1,34 @@
 # CP-Question-Record
 
+## 2025. 02. 13
+
+### 【CSES】 1097. Removal Game
+
+**Solved**
+
+。DP Game Theory - O(N<sup>2</sup>)
+
+* Core Concept
+    * Approach
+        * Define the State
+            * Let `dp[i][j]` be the maximum score the first player can obtain from the subarray `[i, j]`
+        * Base Cases
+            * `dp[i][i] = arr[i]`, since if there is only one element left, the first player takes it
+        * Transition Formula
+            * `dp[i][j] = max(arr[i] + (pf(i + 1, j) - dp[i + 1][j]), arr[j] + (pf(i, j - 1) - dp[i][j - 1]))`
+            * If the first player picks `arr[i]`, the second player plays optimally on `[i+1, j]`, leaving the first player with `pf(i+1, j) - dp[i+1][j]`
+            * If the first player picks `arr[j]`, the second player plays optimally on `[i, j-1]`, leaving the first player with `pf(i, j-1) - dp[i][j-1]`
+        * Iteration Order
+            * Iterate in decreasing order for `i` and increasing order for `j` to ensure dependencies are computed beforehand
+                ```cpp
+                for (int i = n - 1; i >= 0; --i) {
+                    for (int j = i + 1; j < n; ++j) {
+                        dp[i][j] = max( arr[i] + (pf(i + 1, j) - dp[i + 1][j]),
+                                        arr[j] + (pf(i, j - 1) - dp[i][j - 1])  );
+                    }
+                }
+                ```
+
 ## 2025. 02. 11
 
 ### 【CSES】 1745. Money Sums
