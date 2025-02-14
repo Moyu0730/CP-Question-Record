@@ -1,5 +1,41 @@
 # CP-Question-Record
 
+## 2025. 02. 14
+
+### 【CSES】 1093. Two Sets II
+
+**Solved**
+
+。DP 0/1 Knapsack - O(N<sup>3</sup>) = O(N ${\times}$ ( N ${\times}$ ( N + 1 ) / 4 ) )
+
+* Core Concept
+    * Approach
+        * Define the State
+            * Let `dp[i][j]` be the number of ways to form sum `j` using the first `i` numbers
+        * Base Cases
+            * `dp[i][0] = 1` for all `i`, since there is exactly one way to form sum 0 ⮕ by choosing nothing
+        * Transition Formula
+            * `dp[i][j] = dp[i-1][j] + (i <= j ? dp[i-1][j-i] : 0)`
+            * If we exclude `i`, the number of ways to form `j` is `dp[i-1][j]`
+            * If we include `i`, we need to form `j-i` with the first `i-1` numbers, which is given by `dp[i-1][j-i]`
+            * Special attention is needed when `i > j` to avoid memory access errors
+* Implementation Details
+    * Iteration Order
+        * Iterate `i` from `1` to `n`, ensuring dependencies on `i-1` are computed beforehand
+            ```cpp
+            for (int i = 1; i <= n; ++i) {
+                for (int j = 0; j <= sum; ++j) {
+                    dp[i][j] = dp[i-1][j] + (i <= j ? dp[i-1][j-i] : 0);
+                    dp[i][j] %= Mod;
+                }
+            }
+            ```
+    * Special Considerations
+        * `if (sum % 2 == 1) cout << "0\n";`
+            * If the total sum is odd, it is impossible to split it into two equal halves
+        * `dp[i][j] %= Mod;`
+            * To prevent overflow, take modulo `1e9 + 7` at each step
+
 ## 2025. 02. 13
 
 ### 【CSES】 1097. Removal Game
@@ -18,16 +54,17 @@
             * `dp[i][j] = max(arr[i] + (pf(i + 1, j) - dp[i + 1][j]), arr[j] + (pf(i, j - 1) - dp[i][j - 1]))`
             * If the first player picks `arr[i]`, the second player plays optimally on `[i+1, j]`, leaving the first player with `pf(i+1, j) - dp[i+1][j]`
             * If the first player picks `arr[j]`, the second player plays optimally on `[i, j-1]`, leaving the first player with `pf(i, j-1) - dp[i][j-1]`
-        * Iteration Order
-            * Iterate in decreasing order for `i` and increasing order for `j` to ensure dependencies are computed beforehand
-                ```cpp
-                for (int i = n - 1; i >= 0; --i) {
-                    for (int j = i + 1; j < n; ++j) {
-                        dp[i][j] = max( arr[i] + (pf(i + 1, j) - dp[i + 1][j]),
-                                        arr[j] + (pf(i, j - 1) - dp[i][j - 1])  );
-                    }
+* Implementation Details
+    * Iteration Order
+        * Iterate in decreasing order for `i` and increasing order for `j` to ensure dependencies are computed beforehand
+            ```cpp
+            for (int i = n - 1; i >= 0; --i) {
+                for (int j = i + 1; j < n; ++j) {
+                    dp[i][j] = max( arr[i] + (pf(i + 1, j) - dp[i + 1][j]),
+                                    arr[j] + (pf(i, j - 1) - dp[i][j - 1])  );
                 }
-                ```
+            }
+            ```
 
 ## 2025. 02. 11
 
