@@ -2,6 +2,47 @@
 
 ## 2025. 02. 14
 
+### 【CSES】 1145. Increasing Subsequence
+
+**Solved**
+
+。LIS - DP + BIT - O(NlogN)
+
+* Core Concept
+    * BIT Approach
+        * Maintain a BIT where `BIT[i]` stores the length of the LIS ending at the compressed index `i`
+        * Query the maximum LIS length of all values smaller than `arr[i]` and update accordingly
+            ```cpp
+            int query( int pos ){
+                if( pos <= 0 ) return 0;
+
+                int ans = -1;
+                while( pos ){
+                    ans = max(ans, BIT[pos]);
+                    pos -= lowbit(pos);
+                }
+
+                return ans;
+            }
+
+            void update( int x, int val ){
+                while( x <= n ){
+                    BIT[x] = max(BIT[x], val);
+                    x += lowbit(x);
+                }
+            }
+            ```
+    * Calculation
+        * Iterate through the array, updating the BIT with the LIS length at each step  
+            ```cpp
+            for( int i = 0 ; i < n ; ++i ) update(arr[i], query(arr[i] - 1) + 1);
+            ```
+        * Retrieve the maximum LIS length stored in the BIT
+            ```cpp
+            int res = 0;
+            for( int i = 0 ; i <= Max ; ++i ) res = max(res, BIT[i]);
+            ```
+
 ### 【CSES】 1093. Two Sets II
 
 **Solved**
