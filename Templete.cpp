@@ -181,14 +181,11 @@ int lca( int a, int b ){
 /* ---------- BIT ---------- */
 int n, BIT[MAXN];
 
-int lowbit( int x ){
-    return x & -x;
-}
+int lowbit( int x ){ return x & -x; }
 
 int query( int pos ){
-    if( pos <= 0 ) return 0;
-
     int ans = 0;
+    
     while( pos ){
         ans += BIT[pos];
         pos -= lowbit(pos);
@@ -198,7 +195,7 @@ int query( int pos ){
 }
 
 void update( int x, int val ){
-    while( x <= n ){
+    while( x < MAXN ){
         BIT[x] += val;
         x += lowbit(x);
     }

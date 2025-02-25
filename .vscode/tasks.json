@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g", "-std=c++17", "${file}", "-o", "${fileBasenameNoExtension}.exe"
+                "-g", "-std=c++11", "${file}", "-o", "${fileBasenameNoExtension}.exe"
             ],
             "group": {
                 "kind": "build",

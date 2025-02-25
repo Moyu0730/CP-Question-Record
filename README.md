@@ -1,5 +1,89 @@
 # CP-Question-Record
 
+## 2025. 02. 25
+
+### 【CSES】 1140. Projects
+
+**Solved**
+
+。Discretization + DP + BIT - O(NlogN)
+
+* Core Concept
+    * Sorting Strategy
+        * Sort projects by their ending day in ascending order
+        * This allows us to process each project sequentially while maintaining an optimal substructure  
+            ```cpp
+            bool cmp( pair<pii, int> x, pair<pii, int> y ){
+                return x.F.S < y.F.S;
+            }
+
+            sort(arr.begin(), arr.end(), cmp);
+            ```
+    * BIT Approach
+        * Maintain a BIT where `BIT[i]` stores the maximum profit attainable by day `i` ⮕ The Concept of DP
+        * Query the maximum profit before the project starts and update accordingly  
+            ```cpp
+            for( auto i : arr ){
+                int cnt = query(i.F.S);      // Max profit including projects that end at i.F.S
+                int q = query(i.F.F - 1);    // Max profit before i.F.F
+
+                if( q + i.S > cnt ) update(i.F.S, q + i.S);
+            }
+            ```
+
+### Update `Templete.cpp`
+
+* Features
+    ```cpp
+    /* ---------- BIT ---------- */
+    int n, BIT[MAXN];
+
+    int lowbit( int x ){ return x & -x; }
+
+    int query( int pos ){
+        int ans = 0;
+        
+        while( pos ){
+            ans += BIT[pos];
+            pos -= lowbit(pos);
+        }
+
+        return ans;
+    }
+
+    void update( int x, int val ){
+        while( x < MAXN ){
+            BIT[x] += val;
+            x += lowbit(x);
+        }
+    }
+
+    int sum( int l, int r ){
+        if( l > r ) return 0;
+        return query(r) - query(l - 1);
+    }
+    ```
+
+## 2025. 02. 20
+
+### 【UVa】 382. Perfection
+
+**Solved**
+
+。Basic Operations
+
+### 【UVa】 10038. Jolly Jumpers
+
+**Solved**
+
+。Basic Operations
+
+### 【UVa】 12439. February 29
+
+**Solved**
+
+。Basic Operations
+
 ## 2025. 02. 14
 
 ### 【CSES】 1145. Increasing Subsequence
@@ -344,7 +428,7 @@
             }
             ```
 
-## Update `Templete.cpp`
+### Update `Templete.cpp`
 
 * Features
     * Update Variable Name
