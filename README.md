@@ -1,5 +1,39 @@
 # CP-Question-Record
 
+## 2025. 02. 28
+
+### Update `Set.cpp`
+
+### 【UVa】 494. Kindergarten Counting Game
+
+**Solved**
+
+。Basic Operations
+
+### 【UVa】 10633. Rare Easy Problem
+
+**Solved**
+
+。Basic Operations
+
+### 【UVa】 118. Mutant Flatworld Explorers
+
+**Solved**
+
+。Basic Operations
+
+### 【ZeroJudge】 c082. 00118 - Mutant Flatworld Expolrers
+
+**Solved**
+
+。Basic Operations
+
+### 【ZeroJudge】 e549. 00737 - Gleaming the Cubes
+
+**Solved**
+
+。Basic Operations
+
 ## 2025. 02. 25
 
 ### 【CSES】 1140. Projects
