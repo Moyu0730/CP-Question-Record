@@ -2,6 +2,30 @@
 
 ## 2025. 02. 28
 
+### Modify `tasks.json`
+
+* Features
+    * Make the compiler support C++17
+        ```json
+        {
+            "version": "2.0.0",
+            "tasks": [
+                {
+                    "label": "build",
+                    "type": "shell",
+                    "command": "g++",
+                    "args": [
+                        "-g", "-std=c++17", "${file}", "-o", "${fileBasenameNoExtension}.exe" // Modified Line
+                    ],
+                    "group": {
+                        "kind": "build",
+                        "isDefault": true
+                    }
+                }
+            ]
+        }
+        ```
+
 ### Update `Set.cpp`
 
 ### 【UVa】 494. Kindergarten Counting Game
