@@ -1,5 +1,16 @@
 # CP-Question-Record
 
+## 2025. 03. 01
+
+### 【UVa】 737. Gleaming the Cubes
+
+**Solved**
+
+。Basic Operations
+
+* Features
+    * UVa doesn't support `#pragma GCC target("avx")` QQ
+
 ## 2025. 02. 28
 
 ### Modify `tasks.json`
