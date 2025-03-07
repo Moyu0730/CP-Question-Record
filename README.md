@@ -2,29 +2,30 @@
 
 ## 2025. 03. 07
 
+### Adjust the Layout of README.md
+
 ### 【CSES】 1653. Elevator Rides
 
 **Solved**
 
-。Bitwise DP - O(N * 2<sup>N</sup>)
+。Bitwise DP - O(N ${\times}$ 2<sup>N</sup>)
 
 * Key Observations
     * Why Bitmask DP
-        * The problem involves subsets, making it ideal for bitmasking
-        * Given `N ≤ 20`, `2^N` is feasible with DP
+        * The problem involves subsets, making it ideal for bitmaskin
     * Why Track `last[bit]`
         * This allows us to check if adding a person exceeds capacity or fits in the current ride
 * Core Concepts
     * Approach
         * State Representation
-            * `dp[bit]`: The minimum number of elevator rides required to transport the subset of people represented by `bit`
-            * `last[bit]`: The remaining weight capacity in the last elevator ride used for this subset
-            * `bit`: A bitmask of length `n` (`0` to `(1 << n) - 1`) representing which people have been taken so far
+            * `dp[bit]` ⮕ The minimum number of elevator rides required to transport the subset of people represented by `bit`
+            * `last[bit]` ⮕ The remaining weight capacity in the last elevator ride used for this subset
+            * `bit` ⮕ A bitmask of length `n` (`0` to `(1 << n) - 1`) representing which people have been taken so far
         * Base Cases
             * `dp[0] = 1` since an empty subset requires at least one elevator ride
             * `last[0] = 0` since no weight is carried in an empty subset
         * Transition
-            * For each subset `bit`:
+            * For each subset `bit`
                 * Iterate through all people `i`
                 * If person `i` is included in `bit` (`bit & (1 << i) != 0`)
                     * Consider the subset without `i` (`prev = bit ^ (1 << i)`)
@@ -45,12 +46,12 @@
 * Greedy Approach and Its Failure
     A naive greedy approach might try to fit the heaviest person into an existing ride whenever possible. However, this fails in cases where a better grouping is possible but not selected greedily
     * Example Failure Case
-        Consider the following example:
+        Consider the following example
         ```
         n = 9, x = 10
         weights = {2, 2, 3, 3, 3, 4, 4, 4, 5}
         ```
-        A greedy approach takes `{5, 4}` first, then `{4, 3, 3}` next, and `{3, 2, 2}` last, resulting in `3` rides. However, a DP solution takes `{5, 2, 3}`, `{4, 4, 2}`, `{4, 3, 3}` instead, which only uses three rides (optimal).
+        A greedy approach takes `{5, 4}` first, then `{4, 3, 3}` next, and `{3, 2, 2}` last, resulting in `3` rides. However, a DP solution takes `{5, 2, 3}`, `{4, 4, 2}`, `{4, 3, 3}` instead, which only uses three rides.
 
 ## 2025. 03. 01
 
