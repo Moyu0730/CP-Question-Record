@@ -1,5 +1,36 @@
 # CP-Question-Record
 
+## 2025. 03. 11
+
+### 【CSES】 2181. Counting Tilings
+
+**Solved**
+
+。Bitmask DP - Plug DP、Contour Line DP - O(M ${\times}$ N ${\times}$ 2<sup>N</sup>)
+
+* Core Concepts
+    * Approach
+        * State Representation
+            * `dp[col][row][mask]` ⮕ The number of ways to fill the first `col` columns, where the current column is partially filled up to row `row` with a given `mask`
+            * `mask` is a bitmask of length `n`, each bit representing whether a row position is occupied or free
+            * The state `dp[i][j][bit]` means
+                * The first `i-2` rows are fully filled
+                * The `i-1` row is partially filled up to `j-1`
+                * `bit` encodes the occupied / free state for the next row’s transition
+        * Base Cases
+            * The base case starts with an empty grid `dp[0][0][(1 << n) - 2] = 1`, ensuring the transition is handled correctly by leaving the first cell empty
+        * Transitions
+            * For each column and each row, we iterate through possible bitmasks, which determine whether a cell is occupied
+                * Transition from Previous Column
+                    * If `j == 0 && i > 0`, we transition from `dp[i-1][n-1][bit ^ (1 << j)]`, ensuring the first cell in the new column is already occupied
+                        * If `bit & 1 == TRUE`, we place a horizontal domino, inheriting from `dp[i-1][n-1][bit ^ 1]`
+                        * If `bit & 1 == FALSE`, we inherit directly from `dp[i-1][n-1][bit ^ 1]` to maintain correctness
+                * Placing Dominos
+                    * If `mask & (1 << row) != 0`, this means the current cell is occupied, so we carry over `dp[col][row][mask] = dp[col][row-1][mask ^ (1 << row)]`
+                    * If the cell is empty `mask & (1 << row) == 0`, we consider placing dominos
+                        * Horizontal ⮕ We can extend the tiling by placing a `1 × 2` domino to cover the current cell and the next column
+                        * Vertical ⮕ If the row above is free, we can place a `2 × 1` domino
+
 ## 2025. 03. 07
 
 ### Adjust the Layout of README.md
