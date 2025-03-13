@@ -38,12 +38,6 @@
           This decision minimizes the overall sum when the XOR values are propagated through the connected component
         * After updating the starting value, a second DFS propagates the new values to ensure consistency throughout the component
 
-### 【AtCoder】 Beginner Contest 396 - E. Min of Restricted Sum
-
-**Solved**
-
-。DFS + Bitwise Operation - O((N + M)logA)
-
 ### 【AtCoder】 Beginner Contest 396 - D. Minimum XOR Path
 
 **Solved**
