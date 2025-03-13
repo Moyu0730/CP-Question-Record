@@ -1,5 +1,75 @@
 # CP-Question-Record
 
+## 2025. 03. 13
+
+### 【AtCoder】 Beginner Contest 396 - E. Min of Restricted Sum
+
+**Solved**
+
+。DFS + Bitwise Operation - O((N + M)logA)
+
+* Complexity Analysis
+    * The DFS/BFS traversal works in O(N + M) time per connected component
+    * The bitwise optimization iterates over 32 bits, adding an extra factor of 32, leading to an effective time complexity of O((N + M) x 32) ≈ O(N + M)
+    * Overall, the solution runs in O((N + M)logA) time
+* Core Concepts
+    * Graph Representation ⮕ Treat each index as a node in an undirected graph
+    * DFS Traversal & Consistency Verification
+        * DFS Assignment
+            * Process each connected component independently
+            * Start at an unvisited node ( assign it an arbitrary value, `0` ) and propagate values through DFS
+            * For every edge from a current node to a neighboring node with weight `w`, assign `res[next] = res[current] ⊕ w`
+        * Cycle Consistency Check 
+            * When DFS reaches a node that has already been visited, the previously computed value must be consistent with the new value derived from the current DFS path. That is, if you encounter an edge from node `u` to node `v` with weight `w` and `v` is already visited, then it must hold that `res[v] = res[u] ^ w`. If this condition fails, it means the XOR relations along a cycle do not match.
+            * Theoretical Justification 
+                * Consider a cycle with nodes arranged as u<sub>1</sub>, u<sub>2</sub>, ......, u<sub>m</sub>. By the properties of XOR, we have 
+                
+                   A[u<sub>1</sub>] ^ A[u<sub>2</sub>] = (A[u<sub>2</sub>] ^ A[u<sub>3</sub>]) ^ (A[u<sub>3</sub>] ^ A[u<sub>4</sub>]) ^ ...... ^ (A[u<sub>m</sub>] ^ A[u<sub>1</sub>]) 
+                   
+                   This can be rearranged as
+   
+                   w(u<sub>1</sub>, u<sub>2</sub>) = w(u<sub>2</sub>, u<sub>3</sub>) ^ w(u<sub>3</sub>, u<sub>4</sub>) ^ ...... ^ w(u<sub>m</sub>, u<sub>1</sub>)
+
+            * In other words, the XOR of the weights along the cycle must sum to zero ( or, equivalently, the XOR of a segment of edges must equal the XOR of the remaining edges). If not, the constraints are inherently contradictory, and the algorithm should output `-1`
+    * Bitwise Optimization for Minimum Sum
+        * For each connected component, count the number of `0`s and `1`s in every bit position across all nodes
+        * Adjust the starting node’s value bit-by-bit
+            * For bit position `j`, if the count of `1`s is greater than or equal to the count of `0`s, set the `j`th bit in the starting node’s value; otherwise, leave it as `0`
+          This decision minimizes the overall sum when the XOR values are propagated through the connected component
+        * After updating the starting value, a second DFS propagates the new values to ensure consistency throughout the component
+
+### 【AtCoder】 Beginner Contest 396 - E. Min of Restricted Sum
+
+**Solved**
+
+。DFS + Bitwise Operation - O((N + M)logA)
+
+### 【AtCoder】 Beginner Contest 396 - D. Minimum XOR Path
+
+**Solved**
+
+。DFS + Bitwise Operation
+
+### 【AtCoder】 Beginner Contest 396 - C. Buy Balls
+
+**Solved**
+
+。Basic Operations
+
+
+### 【AtCoder】 Beginner Contest 396 - B. Card Pile
+
+**Solved**
+
+。Basic Operations + Data Structure
+
+
+### 【AtCoder】 Beginner Contest 396 - A. Triple Four
+
+**Solved**
+
+。Basic Operations + Sliding Window
+
 ## 2025. 03. 11
 
 ### 【CSES】 2181. Counting Tilings
@@ -82,7 +152,7 @@
         n = 9, x = 10
         weights = {2, 2, 3, 3, 3, 4, 4, 4, 5}
         ```
-        A greedy approach takes `{5, 4}` first, then `{4, 3, 3}` next, and `{3, 2, 2}` last, resulting in `3` rides. However, a DP solution takes `{5, 2, 3}`, `{4, 4, 2}`, `{4, 3, 3}` instead, which only uses three rides.
+        A greedy approach takes `{5, 4}` first, then `{4, 3, 3}` next, and `{3, 2, 2}` last, resulting in `3` rides. However, a DP solution takes `{5, 2, 3}`, `{4, 4, 2}`, `{4, 3, 3}` instead, which only uses three rides
 
 ## 2025. 03. 01
 
