@@ -1,17 +1,21 @@
 # CP-Question-Record
 
-# 2025. 03. 21
+## 2025. 03. 22
 
-## 【AtCoder】 Beginner Contest 397 - D. Cubes
+### style: Adjust README.md Format
+
+## 2025. 03. 21
+
+### 【AtCoder】 Beginner Contest 397 - D. Cubes
 
 **Solved**
 
 。Mathematics + Binary Search - O($\sqrt[3]{N}log\sqrt{N}$)
 
 * Complexity Analysis
-    * Iterating over $d$ takes at most - O($\sqrt[3]{N}$)
-    * Binary search over $y$ runs in - O($log\sqrt{N}$)
-    * Overall complexity - O($\sqrt[3]{N}log\sqrt{N}$)
+    * Iterating over $d$ takes at most ⮕ O($\sqrt[3]{N}$)
+    * Binary search over $y$ runs in ⮕ O($log\sqrt{N}$)
+    * Overall complexity ⮕ O($\sqrt[3]{N}log\sqrt{N}$)
 * Mathematical Derivation
     1. We start by factorizing the given equation using the identity for the difference of cubes $x^{3} - y^3 = (x - y)(x^2 + xy + y^2)$
     2. Define $d = x - y$, so that  $N = d(x^2 + xy + y^2)$
@@ -33,19 +37,19 @@
    * If a valid $y$ is found for any $d = x - y$, output $x$ and $y$
    * If no such pair exists, return $-1$
 
-## 【AtCoder】 Beginner Contest 397 - C. Variety Split Easy
+### 【AtCoder】 Beginner Contest 397 - C. Variety Split Easy
 
 **Solved**
 
 。Sliding Window
 
-## 【AtCoder】 Beginner Contest 397 - B. Ticket Gate Log
+### 【AtCoder】 Beginner Contest 397 - B. Ticket Gate Log
 
 **Solved**
 
 。Basic Operations
 
-## 【AtCoder】 Beginner Contest 397 - A. Thermometer
+### 【AtCoder】 Beginner Contest 397 - A. Thermometer
 
 **Solved**
 
@@ -106,7 +110,6 @@
 **Solved**
 
 。Basic Operations + Data Structure
-
 
 ### 【AtCoder】 Beginner Contest 396 - A. Triple Four
 
