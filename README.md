@@ -2,6 +2,24 @@
 
 ## 2025. 03. 22
 
+### 【AtCoder】 Beginner Contest 397 - D. Cubes
+
+**Adjust Answer**
+
+* Feature
+    * In the previous program, I utilized binary search within the range of $logd$. However, I should have performed the search within the range of $log\sqrt{N}$
+    * This adjustment is necessary because I can only guarantee that when y > $\sqrt{N}$, the expression $x^{3} - y^3 = (x - y)(x^2 + xy + y^2)$ will be greater than N
+* Remark
+    * When we change the range of the binary search from $[1, d]$ to $[1, \sqrt{N}]$, we find that $10^6 \times 10^9 \times 10^9 = 10^24$ appears in the valid function, leading to overflow issues. Therefore, I have adjusted the valid function as follows
+
+        ```cpp
+        bool valid( int d, int y ){
+            return 3 * y * y + 3 * d * y + d * d > n / d;
+        }
+        ```
+    
+        The actions I took involved dividing the entire valid value by d to prevent overflow issues
+
 ### style: Adjust README.md Format
 
 ## 2025. 03. 21
@@ -9,6 +27,9 @@
 ### 【AtCoder】 Beginner Contest 397 - D. Cubes
 
 **Solved**
+
+> [!NOTE]
+> This question has undergone some new adjustments as of March 22
 
 。Mathematics + Binary Search - O($\sqrt[3]{N}log\sqrt{N}$)
 

@@ -36,21 +36,21 @@ int n;
 bool flag = false;
 
 bool valid( int d, int y ){
-    return 3 * d * y * y + 3 * d * d * y + d * d * d > n;
+    return 3 * y * y + 3 * d * y + d * d > n / d;
 }
 
 signed main(){
     opt;
 
     cin >> n;
-    for( int i = 0; i * i * i <= n; ++i ) {
-        int res = 1, step = i;
+    for( int i = 1 ; i * i * i <= n ; ++i ){
+        int res = 1, step = 1e9;
         while( step > 0 ) {
             if( valid(i, res + step) ) step /= 2;
             else res += step;
         }
 
-        if( (res + i) * (res + i) * (res + i) - res * res * res == n ) {
+        if( (res + i) * (res + i) * (res + i) - res * res * res == n ){
             cout << res + i << " " << res << "\n";
             flag = true;
             break;
