@@ -1,6 +1,9 @@
 # CP-Question-Record
 
-## 2025. 03. 22
+### style: Adjust README.md Format
+
+* Feature
+    * Delete Date
 
 ### style: Adjust README.md Format
 
@@ -23,8 +26,6 @@
         The actions I took involved dividing the entire valid value by d to prevent overflow issues
 
 ### style: Adjust README.md Format
-
-## 2025. 03. 21
 
 ### 【AtCoder】 Beginner Contest 397 - D. Cubes
 
@@ -77,8 +78,6 @@
 **Solved**
 
 。Basic Operations
-
-## 2025. 03. 13
 
 ### 【AtCoder】 Beginner Contest 396 - E. Min of Restricted Sum
 
@@ -140,8 +139,6 @@
 
 。Basic Operations + Sliding Window
 
-## 2025. 03. 11
-
 ### 【CSES】 2181. Counting Tilings
 
 **Solved**
@@ -171,9 +168,7 @@
                         * Horizontal ⮕ We can extend the tiling by placing a `1 × 2` domino to cover the current cell and the next column
                         * Vertical ⮕ If the row above is free, we can place a `2 × 1` domino
 
-## 2025. 03. 07
-
-### Adjust the Layout of README.md
+### style: Adjust the Layout of README.md
 
 ### 【CSES】 1653. Elevator Rides
 
@@ -224,8 +219,6 @@
         ```
         A greedy approach takes `{5, 4}` first, then `{4, 3, 3}` next, and `{3, 2, 2}` last, resulting in `3` rides. However, a DP solution takes `{5, 2, 3}`, `{4, 4, 2}`, `{4, 3, 3}` instead, which only uses three rides
 
-## 2025. 03. 01
-
 ### 【UVa】 737. Gleaming the Cubes
 
 **Solved**
@@ -234,8 +227,6 @@
 
 * Features
     * UVa doesn't support `#pragma GCC target("avx")` QQ
-
-## 2025. 02. 28
 
 ### Modify `tasks.json`
 
@@ -292,8 +283,6 @@
 **Solved**
 
 。Basic Operations
-
-## 2025. 02. 25
 
 ### 【CSES】 1140. Projects
 
@@ -357,8 +346,6 @@
     }
     ```
 
-## 2025. 02. 20
-
 ### 【UVa】 382. Perfection
 
 **Solved**
@@ -376,8 +363,6 @@
 **Solved**
 
 。Basic Operations
-
-## 2025. 02. 14
 
 ### 【CSES】 1145. Increasing Subsequence
 
@@ -454,8 +439,6 @@
         * `dp[i][j] %= Mod;`
             * To prevent overflow, take modulo `1e9 + 7` at each step
 
-## 2025. 02. 13
-
 ### 【CSES】 1097. Removal Game
 
 **Solved**
@@ -483,8 +466,6 @@
                 }
             }
             ```
-
-## 2025. 02. 11
 
 ### 【CSES】 1745. Money Sums
 
@@ -533,8 +514,6 @@
             * If `dp[k]` is already `true`, reset `amt` to the coin count
             * If `dp[k]` is `false` and `amt > 0`, set `dp[k] = true` and decrease `amt` ⮕ ensuring limited use of each coin
 
-## 2025. 02. 10
-
 ### 【CSES】 1639. Edit Distance
 
 **Solved**  
@@ -566,8 +545,6 @@
         * Otherwise, compute the minimum of insert, delete, replace operations
     * Final Result
         * The answer is stored in `dp[(first string).size()][(second string).size()]`, which gives the minimum operations needed to transform first string into second string
-
-## 2025. 02. 08
 
 ### 【CSES】 1632. Movie Festival II
 
@@ -603,8 +580,6 @@
                 ```
             * Replace their previous end time with the new movie’s end time
             * If the club still has less than `k` viewers active：Assign the movie to a new viewer
-
-## 2025. 02. 07
 
 ### 【CSES】 1077. Sliding Window Cost
 
@@ -672,8 +647,6 @@
 * Implementation Details 
     * In the implementation, when removing an element from `small` or `large`, use `small.erase(small.find(arr[i-k+1]));` instead of `small.erase(arr[i-k+1]);`  
         * The reason for this is that `erase(arr[i-k+1])` would remove all occurrences of `arr[i-k+1]` from the `multiset`, which is incorrect. Since we are maintaining a balance between `small` and `large`, we only want to remove **one occurrence** of the element that is sliding out of the window. Using `small.find(arr[i-k+1])` ensures that only a **single instance** of `arr[i-k+1]` is erased, preserving the correct structure of the data
-
-## 2025. 02. 06
 
 ### 【CSES】 2428. Subarray Distinct Values
 
@@ -747,8 +720,6 @@
             for( int i = 0 ; i < n ; i++ ) after[i] = lower_bound(distinct.begin(), distinct.end(), before[i]) - distinct.begin();
         }
         ```
-
-## 2025. 02. 05
 
 ### 【CSES】 1662. Subarray Divisibility
 
@@ -860,8 +831,6 @@
             }
         ```
 
-## 2025. 01. 31
-
 ### 【CSES】 2168. Nested Ranges Check
 
 **Solved**
@@ -937,15 +906,11 @@
             }
             ```
 
-## 2025. 01. 30
-
 ### 【CSES】 2162. Josephus Problem I
 
 **Solved**
 
 。Queue Simulation - O(N)：Each number is inserted into the queue once and removed once, meaning the total number of operations is O(N)
-
-## 2025. 01. 28 
 
 ### Push All Programs That Have Been Finished Before But Not Pushed
 
@@ -1015,8 +980,6 @@
             mem(dp, MEMINF);
             ```
 
-## 2025. 01. 26
-
 ### 【CSES】 2217. Collecting Numbers II
 
 **Solved**
@@ -1061,8 +1024,6 @@
 
 * Key to Solving the Problem
     * You have to found that the result only depends on how many pairs { $i, j$ } which satisfy `j = i + 1` and `index of j ( = i + 1 ) < index of i`
-
-## 2024. 12. 25
 
 ### 【CSES】 1673. High Score
 
@@ -1147,8 +1108,6 @@
             }
             ```
 
-## 2024. 12. 10
-
 ### 【ZeroJudge】 n750. 10858 - Unique Factorization
 
 **Solved**
@@ -1182,8 +1141,6 @@
         1. First define a backtracking function `dfs(`$x$`)`, where $x$ is the current number to be factored, and maintain a `path` to store the current factorization.
         2. When decreasing back, try concatenating $x$ as the product of two or more numbers and make sure the result is non-decreasing.
         3. In order to ensure that the result is non-decreasing, when looking for the next factor, we can limit the range of factors to $[pre, x]$, where $pre$ is the last number in `path`, if `path` is empty, Then $pre$ = 2.
-
-## 2024. 11. 20
 
 ### 【CSES】 1625. Grid Paths
 
@@ -1243,23 +1200,17 @@
             if( used[x+1][y+1] && !used[x+1][y] && !used[x][y+1] ) return;
         ```
 
-## 2024. 11. 19
-
 ### 【CSES】 2431. Digit Queries
 
 **Solved**
 
 。Basic Math Problem
 
-## 2024. 11. 16
-
 ### 【CSES】 1631. Reading Books
 
 **Solved**
 
 。Greedy
-
-## 2024. 11. 14
 
 ### 【CSES】 1661. Subarray Sums II
 
@@ -1303,8 +1254,6 @@
         Then, if sum of four elements less than x, increase k by 1. Otherwise, check whether sum equals to x or not. <br>
         If sum doesn't equals to x, decrease l by 1. Otherwise, output the answer.
 
-## 2024. 11. 02
-
 **Modify Problem Title**
 
 **Solved** - 【CSES】 1645. Nearest Smaller Values
@@ -1322,19 +1271,11 @@
     * `erase(val)` in `set` will erase all of the value which equals to val
     * `set` will be sorted `.first` and then `.second`
 
-## 2024. 10. 24
-
 **Solved** - 【CSES】 1641. Sum of Three Values
-
-## 2024. 10. 12
 
 **Solved** - 【CSES】 1164. Room Allocation
 
-## 2024. 10. 07
-
 **Update Set.cpp**
-
-## 2024. 09. 28
 
 **Solved** - 【Luogu】 P3376.【Template】Maximum Network Flow
 
@@ -1352,13 +1293,9 @@
 
 。Segment Tree、DP
 
-## 2024. 09. 26
-
 **Solved** - 【AtCoder】 Beginner Contest 368 - G. Add and Multiply Queries
 
 **Update BIT Code**
-
-## 2024. 09. 24
 
 **Update Answer II** - 【AtCoder】 Beginner Contest 368 - D. Minimum Steiner Tree
 
@@ -1390,11 +1327,7 @@
 
 **Commit & Push All Unexist Files** - Remove `Setup.cpp`
 
-## 2024. 09. 22
-
 **Solved** - 【AtCoder】 Beginner Contest 369 - C. Triple Attack
-
-## 2024. 09. 20
 
 **Opt README.md Contents**
 
@@ -1434,15 +1367,11 @@
         41｜int it = upper_bound(dp.begin(), dp.end(), coin[i].S) - dp.begin();
         ```
 
-## 2024. 09. 19
-
 **Solved** - 【AtCoder】 Beginner Contest 369 - D. Bonus EXP
 
 。Dynamic Programming
 
 **Opt IO Optimize & Add Long Long INF** - Set.cpp
-
-## 2024. 09. 18
 
 **Solved** - 【AtCoder】 Beginner Contest 369 - E. Sightseeing Tour
 
@@ -1454,11 +1383,7 @@
 
 **Update Quesiton Statement**
 
-## 2024. 09. 14
-
 **Opt Setup Code**
-
-## 2024. 09. 12
 
 **Solved** - 【AtCoder】 Beginner Contest 370 - A. Raise Both Hands
 
@@ -1466,13 +1391,9 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 370 - C. Word Ladder
 
-## 2024. 08. 29
-
 **Solved** - 【ZeroJudge】 a104. Sort - Quick Sort
 
 。Sort Algorithm
-
-## 2024. 08. 24
 
 **Correcnt Spelling Error** - 【ZeroJudge】 a104. Sort - Merge Sort
 
@@ -1484,15 +1405,11 @@
 
 。Sort Algorithm
 
-## 2024. 08. 21
-
 **Solved** - 【ZeroJudge】 a104. Sort - Insertion Sort
 
 。Sort Algorithm
 
 **Add Question Info** - 【ZeroJudge】 a104. Sort - Insertion Sort
-
-## 2024. 08. 10
 
 **Solved** - 【ZeroJudge】 a104. Sort - Bubble Sort
 
@@ -1502,8 +1419,6 @@
 
 。Sort Algorithm
 
-## 2024. 07. 15
-
 **Solved** - 【ZeroJudge】 d672. 10922 - 2 the 9s
 
 。Recursive、Basic String Processing
@@ -1511,8 +1426,6 @@
 **Solved** - 【ZeroJudge】 f928. Serial Bomb............Boom!
 
 。Recursive、BFS
-
-## 2024. 07. 02
 
 **Solved** - 【CSES】 2165. Tower of Hanoi
 
@@ -1522,19 +1435,13 @@
 
 。Recursive with Subset
 
-## 2024. 06. 26
-
 **Solved** - 【HWSH】 a062. Stick Midpoint Cut
 
 。Recursive Application
 
-## 2024. 06. 07
-
 **Solved** - 【ZeroJudge】 b967. 4. Blood Relationship
 
 。 Simple Tree Diameter
-
-## 2024. 05. 13
 
 **Solved** - 【AtCoder】 Beginner Contest 352 - C. Standing On The Shoulders
 
@@ -1542,25 +1449,15 @@
 
 。 Set、vector<pii>、Sort
 
-## 2024. 05. 08
-
 **Solved** - 【AtCoder】 Beginner Contest 351 - C. Merge the balls
-
-## 2024. 05. 07
 
 **Solved** - 【ZeroJudge】 g276. 2. Demon King no Labyrinth
 
-## 2024. 05. 06
-
 **Solved** - 【ZeroJudge】 j605. 1. Programming Exam
-
-## 2024. 05. 02
 
 **Solved** - 【ZeroJudge】 a003. Two Lights Mage Divination
 
 **Solved** - 【ZeroJudge】 d649. Digital Triangle
-
-## 2024. 04. 30
 
 **Solved** - 【TCIRC】 1001. Hello World!
 
@@ -1568,11 +1465,7 @@
 
 **Solved** - 【AtCoder】 A. Three Dice
 
-## 2024. 04. 12
-
 **Solved** - 【TCIRC】 d060. AP325 Q-4-19. The Meeting Place of the Leaders of The Five Sacred Mountains
-
-## 2024. 04. 11
 
 **Solved** - 【TCIRC】 d057. AP325 Q-4-16. Making Money and Fines
 
@@ -1580,21 +1473,15 @@
 
 **Solved** - 【TCIRC】 d059. AP325 Q-4-18. The Cabinet Sister of Shaolin Temple（@@）（＊）
 
-## 2024. 04. 09
-
 **Solved** - 【TCIRC】 d050. AP325 P-4-11. Line Segment Union（APCS 201603）
 
 **Solved** - 【TCIRC】 d051. AP325 P-4-12. One Transaction
 
 **Solved** - 【TCIRC】 d055. AP325 P-4-14. Control Point（2D-max）
 
-## 2024. 03. 10
-
 **Solved** - 【TCIRC】 d071. AP325 P-6-9. Free Large-Scale Moving in Hypermarkets
 
 **Solved** - 【ZeroJudge】 k184. pA. House
-
-## 2024. 03. 09
 
 **Solved** - 【TCIRC】 d054. AP325 Q-4-10. White Cloud Bear Gallbladder Pills to Restore Energy
 
@@ -1602,17 +1489,11 @@
 
 **Solved** - 【TCIRC】 d074. Q-6-8. Local Alignment
 
-## 2024. 03. 08
-
 **Solved** - 【TCIRC】 d069. AP325 P-6-6. Checkerboard Route
-
-## 2024. 03. 07
 
 **Solved** - 【TCIRC】 d052. AP325 P-4-13. Maximum Continuous Subpermutation（Same As P-5-2）
 
 **Solved** - 【TCIRC】 d073. AP325 Q-6-5. Two-Dimensional Maximum Submatrix
-
-## 2024. 03. 06
 
 **Solved** - 【TCIRC】 d066. AP325 P-6-1. Minimum Cost for Children To Go Up Stairs
 
@@ -1622,25 +1503,15 @@
 
 **Solved** - 【TCIRC】 d072. AP325 Q-6-4. Choose One of Two Levels
 
-## 2024. 03. 05
-
 **Solved** - 【CSES】 2413. Counting Towers
 
 **Solved** - 【CSES】 1744. Rectangle Cutting
 
-## 2024. 03. 04
-
 **Solved** - 【CSES】 1746. Array Description
-
-## 2024. 03. 01
 
 **Solved** - 【AtCoder】 Beginner Contest 342 - D. Square Pair
 
-## 2024. 02. 29
-
 **Opt BIT Templete**
-
-## 2024. 02. 25
 
 **Solved** - 【AtCoder】 Beginner Contest 342 - A. Yay!
 
@@ -1648,19 +1519,13 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 342 - C. Many Replacement
 
-## 2024. 02. 24
-
 **Solved** - 【AtCoder】 Beginner Contest 341 - E. Alternating String
 
 **Solved** - 【CSES】 1073. Towers.cpp
 
-## 2024. 02. 23
-
 **Solved** - 【AtCoder】 Beginner Contest 341 - D. Only one of two
 
 **Solved** - 【TCIRC】 d049. AP325 P-4-9. Base Station（APCS201703）
-
-## 2024. 02. 22
 
 **Solved** - 【AtCoder】 Beginner Contest 339 - E. Smooth Subsequence
 
@@ -1670,11 +1535,7 @@
 
 **Solved** - 【TCIRC】 d053. AP325 Q-4-8. First Come First Served（＊）
 
-## 2024. 02. 21
-
 **Solved** - 【ZeroJudge】 h557. pA. Entrance
-
-## 2024. 02. 20
 
 **RePush** - 【AtCoder】 Beginner Contest 328 - A. Not Too Hard
 
@@ -1686,21 +1547,15 @@
 
 **Solved** - 【ZeroJudge】 h558. pB. Keyboard
 
-## 2024. 02. 19
-
 **Solved** - 【AtCoder】 Beginner Contest 341 - A. Print 341
 
 **Solved** - 【AtCoder】 Beginner Contest 341 - B. Foreign Exchange
 
 **Solved** - 【AtCoder】 Beginner Contest 341 - C. Takahashi Gets Lost
 
-## 2024. 02. 17
-
 **Solved** - 【AtCoder】 Beginner Contest 340 - E. Mancala 2
 
 **Add INF Const** - Set.cpp
-
-## 2024. 02. 16
 
 **Solved** - 【TCIRC】 d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
 
@@ -1714,11 +1569,7 @@
 
 **Opt Code** - 【TCIRC】 d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
 
-## 2024. 02. 10
-
 **Solved** - 【TCIRC】 d045. AP325 P-4-4. Several Huashan Sword Debates（Activity Selection）
-
-## 2024. 02. 09
 
 **Solved** - 【TCIRC】 d042. AP325 P-4-1. Shaolin Temple Tokens
 
@@ -1726,15 +1577,11 @@
 
 **Solved** - 【TCIRC】 d044. AP325 P-4-3. Ten Years of Sharpening a Sword（Minimum Completion Time）
 
-## 2024. 02. 07
-
 **Solved** - 【AtCoder】 Beginner Contest 339 D. Synchronized Players
 
 **Solved** - 【TCIRC】 d038. AP325 Q-3-14 Linear Function（@@）
 
 **Opt Code** - 【TCIRC】 d037. AP325 Maximum Y Difference within X Difference Range
-
-## 2024. 02. 03
 
 **Solved** - 【AtCoder】 Beginner Contest 339 - A. TLD
 
@@ -1742,41 +1589,25 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 339 - C. Perfect Bus
 
-## 2024. 02. 01
-
 **Rename File** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
 
 **Solved** - 【TCIRC】 d037. AP325 Q-3-13. Maximum Y Difference within X Difference Range
 
-## 2024. 01. 30
-
 **Solved** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
-
-## 2024. 01. 29
 
 **Solved** - 【TCIRC】 d032. AP325 P-3-8. Maximum Segment Difference for Fixed-length Intervals
 
 **Solved** - 【TCIRC】 d035. AP325 Q-3-11. The Longest Distinct Color Band
 
-## 2024. 01. 28
-
 **Solved** - 【TCIRC】 d034. AP325 P-3-10. Full-Color Ribbon（Requires Discretization or Dictionary）（@@）
 
-## 2024. 01. 27
-
 **Solved** - 【TCIRC】 d033. AP325 P-3-9. Most Color Bands
-
-## 2024. 01. 24
 
 **Solved** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
 
 **Solved** - 【TCIRC】 d031. AP325 P-3-7. The Closest Interval Sum of A Sequence of Positive Integers
 
-## 2024. 01. 12
-
 **Solved** - 【TCIRC】 d025. AP325 P-3-1. Height and Root of Tree（Bottom-Up）（APCS201710）
-
-## 2024. 01. 06
 
 **Solved** - 【TCIRC】 d052. AP325 P-5-2. Maximum Continuous Subarray（Divide and Conquer）
 
@@ -1794,8 +1625,6 @@
 
 **Solved** - 【TCIRC】 d030. AP325 P-3-6. Cutting Down Trees（APCS202001）
 
-## 2024. 01. 05
-
 **Working On It** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
 
 **Remove Unused Code** - 【TCIRC】 d023. AP325 Q-2-14. Pond（108 High School National Competition）（@@）
@@ -1806,15 +1635,11 @@
 
 **Change File Name** - 【TCIRC】 d020. AP325 P-2-11. The Closest Interval Sum（＊） 
 
-## 2023. 12. 31
-
 **Solved** - 【TCIRC】 d018. AP325 P-2-9. Subset Product（Halved Enumeration）（@@）
 
 **Solved** - 【TCIRC】 d019. AP325 Q-2-10. Subset Sum（Halved Enumeration）
 
 **Solved** - 【TCIRC】 d020. AP325 P-2-11. The Closest Interval Sum（*）
-
-## 2023. 12. 30
 
 **Solved** - 【TCIRC】 d016. AP325 Q-2-7. Complementary Teams（APCS201906）
 
@@ -1824,13 +1649,9 @@
 
 **Modify File Name** - 【TCIRC】 d017. AP325 Q-2-8 Modular Multiplicative Inverse
 
-## 2023. 12. 29
-
 **Solved** - 【TCIRC】 d015. AP325 P-2-6. Two-Number Problem
 
 **Solved** - 【TCIRC】 d014. AP325 Q-2-5. Exponentiation by Squaring with Fibonacci Numbers
-
-## 2023. 12. 16
 
 **Solved** - 【TCIRC】 d013. AP325 Q-2-4. Exponentiation by Squaring — Integers Less than 200 Digits
 
@@ -1842,23 +1663,13 @@
 
 **Solved** - 【TCIRC】 d011. AP325 P-2-2. Discretization – Sort
 
-## 2023. 12. 15
-
 **Solved** - 【TCIRC】 d009. AP325 Q-1-11. Delete Rectangle Edge — Recursive（APCS201910, Subtask）
-
-## 2023. 12. 14
 
 **Solved** - 【ZeroJudge】 f640. Function Expression Evaluation
 
-## 2023. 12. 10
-
 **Solved** - 【CSES】 1163. Traffic Lights
 
-## 2023. 12. 08
-
 **Solved** - 【AtCoder】 Beginner Contest 330 - E. Mex and Update
-
-## 2023. 12. 02
 
 **Solved** - 【AtCoder】 Beginner Contest 331 - A. Tomorrow
 
@@ -1866,21 +1677,13 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 331 - C. Sum of Numbers Greater Than Me
 
-## 2023. 11. 29
-
 **Solved** - 【AtCoder】 Beginner Contest 329 - F. Colored Ball
 
 **WA** - 【AtCoder】 Beginner Contest 329 - E. Stamp
 
-## 2023. 11. 19
-
 **Solved** - 【AtCoder】 Beginner Contest 329 - D. Election Quick Report
 
-## 2023. 11. 14
-
 **Solved** - 【CSES】 1141. Playlist
-
-## 2023. 11. 12
 
 **Solved** - 【AtCoder】 Beginner Contest 328 - A. Not Too Hard
 
@@ -1889,8 +1692,6 @@
 **Solved** - 【AtCoder】 Beginner Contest 328 - C. Consecutive
 
 **Solved** - 【AtCoder】 Beginner Contest 328 - D. Take ABC
-
-## 2023. 11. 10
 
 **Solved** - 【CSES】 1640. Sum of Two Values
 
@@ -1901,8 +1702,6 @@
 **solved** - 【CSES】 2216. Collecting Numbers
 
 **solved** - 【CSES】 2183. Missing Coin Sum
-
-## 2023. 11. 04
 
 **Solved** - 【AtCoder】 Beginner Contest 327 - A. ab
 
@@ -1915,8 +1714,6 @@
 **Solved** - 【CSES】 1668. Building Teams
 
 **Solved** - 【CSES】 1669. Round Trip
-
-## 2023. 11. 03
 
 **Solved** - 【ZeroJudge】 b898. 1. Pythagorean Theorem
 
@@ -1932,8 +1729,6 @@
 
 **Solved** - 【CSES】 1158. Book Shop
 
-## 2023. 10. 31
-
 **Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
 
 **Change Name** - 【AtCoder】 Educational DP Contest - D. Knapsack 1
@@ -1941,8 +1736,6 @@
 **Solved** - 【AtCoder】 Educational DP Contest - G. Longest Path
 
 **Solved** - 【AtCoder】 Educational DP Contest - H. Grid 1
-
-## 2023. 10. 30
 
 **Solved** - 【AtCoder】 Beginner Contest 325 - A. Takahashi San
 
@@ -1952,23 +1745,15 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 325 - E. Our Clients, Please Wait a Moment
 
-## 2023. 10. 27
-
 **Solved** - 【ZeroJudge】 c518. 3. String Encryption
 
-## 2023. 10. 26
-
 **Solved** - 【ZeroJudge】 c517. 2. South Bird
-
-## 2023. 10. 25
 
 **Solved** - 【CSES】 2195. Convex Hull
 
 **Solved** - 【CSES】 2191. Polygon Area
 
 **Solved** - 【CSES】 1673. High Score
-
-## 2023. 10. 24
 
 **Solved** - 【AtCoder】 Beginner Contest 324 - E. Joint Two Strings
 
@@ -1986,27 +1771,15 @@
 
 **Change File Name** - 【AtCoder】 Educational DP Contest - C. Vacation
 
-## 2023. 10. 18
-
 **Solved** - 【AtCoder】 Educational DP Contest - D. Knapsack 1
-
-## 2023. 10. 17
 
 **Solved** - 【Luogu】 P1901. Transmitting Station
 
-## 2023. 10. 16
-
 **Solved** - 【CF】 APCS Practice Contest - B. Ladder String
-
-## 2023. 10. 14
 
 **Solved** - 【CF】 APCS Practice Contest - A. ABC5
 
-## 2023. 10. 09
-
 **Solved** - 【CSES】 2189. Point Location Test
-
-## 2023. 10. 07
 
 **Opt** - 【CSES】 1646. Static Range Sum Queries
 
@@ -2014,21 +1787,13 @@
 
 **Solved** - 【CSES】 1111. Longest Palindrome
 
-## 2023. 10. 06
-
 **Solved** - 【CSES】 1619. Restaurant Customers
 
 **Solved** - 【CSES】 1666. Building Roads
 
-## 2023. 10. 04
-
 **Solved** - 【CSES】 1131. Tree Diameter
 
-## 2023. 10. 03
-
 **Solved** - 【TIOJ】 1224. Rectangular Coverage Area
-
-## 2023. 09. 30
 
 **Solved** - 【CSES】 1623. Apple Division
 
@@ -2040,25 +1805,15 @@
 
 **TLE** - 【AtCoder】 Beginner Contest 182 - D. Wandering
 
-## 2023. 09. 27
-
 **Solved** - 【Green Judge】 d086-2. Settle Accounts
 
-## 2023. 09. 26
-
 **Solved** - 【TOJ】 628. Komachi
-
-## 2023. 09. 22
 
 **Solved** - 【AtCoder】 Beginner Contest 314 - D. LOWER
 
 **Solved** - 【TOJ】 630. EatAllLeftMost
 
-## 2023. 09. 20
-
 **Solved** - 【TOJ】 273. Diamond
-
-## 2023. 09. 16
 
 **Solved** - 【AtCoder】 Beginner Contest 320 - A - Leyland Number
 
@@ -2066,17 +1821,11 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 320 - E. Somen Nagashi
 
-## 2023. 09. 13
-
 **Solved** - 【CSES】 1753. String Matching
-
-## 2023. 09. 07
 
 **Solved** - 【2023 MD Player Training】 Simulation Contest 1 - A. Fivesteps
 
 **Solved** - 【CSES】 1628. Meet In The Middle
-
-## 2023. 09. 02
 
 **Solved** - 【AtCoder】 Beginner Contest 318 - A - Full Moon
 
@@ -2092,19 +1841,11 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 315 - E - Prerequisites
 
-## 2023. 09. 01
-
 **Solved** - 【CSES】 1190. Subarray Sum Queries
-
-## 2023. 08. 29
 
 **1/3 WA** - 【AtCoder】 Beginner Contest 317 - E - Avoid Eye Contact
 
-## 2023. 08. 28
-
 **Solved** - 【AtCoder】 Beginner Contest 317 - D - President
-
-## 2023. 08. 27
 
 **Solved** - 【AtCoder】 Beginner Contest 317 - A - Potions
 
@@ -2112,19 +1853,11 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 317 - C - Remembering the Days
 
-## 2023. 08. 25
-
 **Solved** - 【2023 MD Player Training】 Simulation Contest 1 - B. Conveyor
-
-## 2023. 08. 24
 
 **Solved** - 【MDJudge】 B053. Go Alone
 
-## 2023. 08. 23
-
 **Solved** - 【TIOJ】 1198. 8-puzzle
-
-## 2023. 08. 22
 
 **15% Solution** - 【2023 MD Player Training】 Simulation Contest 1 - B. Conveyor
 
@@ -2134,15 +1867,9 @@
 
 **Solved** - 【CSES】 1137. Subtree Queries
 
-## 2023. 08. 19
-
 **Solved** - 【CSES】 1202. Investigation
 
-## 2023. 08. 18
-
 **Solved** - 【AtCoder】 Beginner Contest 178 - F - Contrast
-
-## 2023. 08. 17
 
 **Solved** - 【CSES】 1622. Creating Strings
 
@@ -2152,101 +1879,59 @@
 
 **Solved** - 【AtCoder】 Beginner Contest 196 - D - Hanjo
 
-## 2023. 08. 16
-
 **Solved** - 【AtCoder】 Beginner Contest 152 - D - Handstand 2
 
 **Solved** - 【CSES】 1755. Palindrome Reorder
 
-## 2023. 08. 12
-
 **Solved** - 【CSES】 1754. Coin Piles
 
-## 2023. 08. 11
-
 **Solved** - 【CSES】 1618. Trailing Zeros
-
-## 2023. 08. 10
 
 **Solved** - 【CSES】 1687. Company Queries I
 
 **Solved** - 【CSES】 1688. Company Queries II
 
-## 2023. 08. 09
-
 **Haven't Finish** - 【CSES】 1734. Distinct Values Queries
 
-## 2023. 08. 07
-
 **Solved** - 【CSES】 1649. Dynamic Range Minimum Queries
-
-## 2023. 08. 06
 
 **Haven't Finish** - 【Luogu】 P1313. [ NOIP2011 Improvement Group ] Calculation Coefficient
 
 **Solved** - 【CSES】 1712. Exponentiation II
 
-## 2023. 08. 05
-
 **Haven't Finish** - 【CF】 1394A. Orac and LCM
-
-## 2023. 08. 04
 
 **Solved** - 【CSES】 1650. Range Xor Queries
 
-## 2023. 08. 03
-
 **Solved** - 【ZeroJudge】 d799. Interval Summation
-
-## 2023. 08. 02
 
 **Solved** - 【AtCoder】 Beginner Contest 119 - C - Synthetic Kadomatsu
 
-## 2023. 08. 01
-
 **Solved** - 【CSES】 1195. Flight Discount
 
-## 2023. 07. 31
-
 **Solved** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
-
-## 2023. 07. 30
 
 **Solved** - 【TOJ】 36. Simple Problem
 
 **Solved** - 【CSES】 1072. Two Knights 
 
-## 2023. 07. 29
-
 **Solved** - 【CSES】 1161. Stick Divisions
 
 **Solved** - 【CSES】 1630. Tasks and Deadlines
-
-## 2023. 07. 26
 
 **TLE Answer** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
 
 **Solved** - 【UVa】 441. Lotto
 
-## 2023. 07. 25
-
 **Seems Like AC, but UVa Was Dead** - 【UVa】 441. Lotto
-
-## 2023. 07. 24
 
 **Solved** - 【CSES】 1091. Concert Tickets
 
-## 2023. 07. 22
-
 **Solved** - 【UVa】 291. The House Of Santa Claus
-
-## 2023. 07. 21
 
 **Solved** - 【CSES】 1635. Coin Combinations I
 
 **Solved** - 【CSES】 1085. Array Division
-
-## 2023. 07. 20
 
 **Solved** - 【CSES】 1673. High Score
 
@@ -2254,13 +1939,9 @@
 
 **Solved** - 【CSES】 1671. Shortest Routes I
 
-## 2023. 07. 19
-
 **Solved** - 【CSES】 1090. Ferris Wheel
 
 **Solved** - 【Luogu】 P1396. Rescue
-
-## 2023. 07. 18
 
 **Solved** - 【CSES】 1092. Two Sets
 
@@ -2270,57 +1951,35 @@
 
 **Solved** - 【CSES】 1617. Bit Strings
 
-## 2023. 07. 17
-
 **Solved** - 【CSES】 1071. Number Spiral
 
 **Solved** - 【TCIRC】 d097. AP325 P-7-10 Pit Jumping
-
-## 2023. 07. 16
 
 **Solved** - 【AtCoder】 Competitive Professional Typical 90 Questions - 002 - Encyclopedia of Parentheses（★3）
 
 **Solved** - 【CSES】 1624. Chessboard and Queens
 
-## 2023. 07. 14
-
 **Solved** - 【UVa】 195. Anagram
-
-## 2023. 07. 13
 
 **TLE Answer** - 【UVa】 195. Anagram
 
-## 2023. 07. 12
-
 **Solved** - 【ZeroJudge】 e446. Arrangement Generation
-
-## 2023. 07. 09
 
 **Solved** - 【CSES】 1070. Permutations
 
 **Solved** - 【CSES】 1094. Increasing Array
 
-## 2023. 07. 08
-
 **Solved** - 【CSES】 1096. Repetitions
 
 **Solved** - 【MDJudge】 C040. Question 10 of the 2020 CIC Quarterfinals
 
-## 2023. 07. 04
-
 **Solved** - 【ZeroJudge】 a674. 10048 - Audiophobia
 
-## 2023. 07. 02
-
 **Solved** - 【Luogu】 P1629. Postman Delivering Letter
-
-## 2023. 06. 25
 
 **Solved** - 【ZeroJudge】 k734. Open Treasure Box
 
 **Solved** - 【CF】 510C. Fox And Names 
-
-## 2023. 06. 18
 
 **Solved** - 【Luogu】 P1036. [ NOIP2002 Popularization Group ] Selection Number
 
@@ -2332,51 +1991,33 @@
 
 **Solved** - 【TIOJ】 1081. B. Image recognition
 
-## 2023. 06. 17
-
 **Solved** - 【Kattis】 Playfair Cipher
 
 **Solved** - 【Luogu】 P1352. Prom Without Boss
 
 **50% Solution** - 【TIOJ】 1081. B. Image recognition
 
-## 2023. 06. 09
-
 **Solved** - 【CSES】 1674. Subordinates
 
 **Solved** - 【Luogu】 P3374［Template］Binary Indexed Tree 1
 
-## 2023. 06. 02
-
 **Solved** - 【NTFSOJ】 275 Dynamic Median
 
-## 2023. 05. 28
-
 **Solved** - 【ZeroJudge】 a020. ID Verification
-
-## 2023. 05. 27
 
 **Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) E. Stock Analyst
 
 **Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) B. Tim Chen no Loli Base
 
-## 2023. 05. 26
-
 **Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) D. Checkered Arena
-
-## 2023. 05. 24
 
 **Solved** - 【CSES】 1620. Factory Machines
 
 **Solved** - 【CSES】 1667. Message Route
 
-## 2023. 05. 23
-
 **Half AC Haven't Solved** - 【CSES】 1085. Array Division
 
-**Solved** - 【AtCoder】 DP Contest - C - Vacation
-
-## 2023. 05. 18 
+**Solved** - 【AtCoder】 DP Contest - C - Vacation 
 
 **Solved** - 【ZeroJudge】 b844. A Bunch of Buttons
 
