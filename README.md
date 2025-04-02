@@ -1,5 +1,37 @@
 # CP-Question-Record
 
+### 【AtCoder】 Beginner Contest 398 - F. ABCBA
+
+**Solved**
+
+。Rolling Hash + Modular Arithmetic - O(N)
+
+* Core Concepts
+    * Rolling Hash with Modular Arithmetic
+        * Use a rolling hash function with a prime base `p = 48763` and modulus `M = 1e9 + 7` to efficiently compute and compare substrings
+        * The modular arithmetic ensures we avoid overflow and efficiently calculate hash values </br>
+            $Hash(S) = ( ( Hash(S_{cnt-1}) \times p ) \mod M + S_{cnt} ) \mod M$
+        * Using the same principle in reverse order allows us to compute the hash from both directions
+    * Prefix and Suffix Hash Comparison 
+      * Since we want the shortest palindrome with `S` as a prefix, we check for the longest suffix of `S` that is also a prefix of its palindrome extension
+      * This is efficiently achieved by comparing the rolling hash values of the forward and reversed substrings
+* Solution Strategy
+    1. Precompute Hash Values
+       * Compute prefix hash and suffix hash
+       * Precompute powers of `p` to enable fast range hash calculations
+    2. Check Possible Palindrome Extensions
+       * Iterate from the middle of the string towards the end
+       * Compare prefix and suffix hash values using modular arithmetic
+* Implementation Details
+    * Modulo Inversion Handling 
+        * Since direct division is not possible under modular arithmetic, I use </br>
+            $H_{l,r} = (H_r - H_{l-1} \times p^{(r-l+1)} \mod M + M) \mod M$
+        * This ensures correct hash extraction even under modulo constraints
+
+### 【AtCoder】 Beginner Contest 398 - A. B. C.
+
+**Solved**
+
 ### 【CSES】 1194. Monsters
 
 **Solved**
