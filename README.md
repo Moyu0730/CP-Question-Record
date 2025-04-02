@@ -1,5 +1,42 @@
 # CP-Question-Record
 
+### 【CSES】 1194. Monsters
+
+**Solved**
+
+。Multi-Source BFS + Path Reconstruction - O(N $\times$ M)
+
+* Complexity Analysis
+    * BFS for Monsters in O(N × M) ⮕ because each cell is processed only once
+    * BFS for Player in O(N × M) ⮕ similar reasoning as above
+    * Overall Complexity is O(N × M)
+* Core Concept
+    * Optimal Monster Movement
+        * Since monsters always move optimally, if a monster can reach a cell before or at the same time as player, then that cell is unsafe for player
+        * Therefore, player may only move to a cell if the distance from player to that cell is strictly less than the distance from the nearest monster
+    * BFS for Reachability
+        * By performing a multi-source BFS starting from all monster positions, we precompute the minimum time each monster takes to reach every cell
+        * Then, a second BFS from the player’s starting position ensures that only cells where **player's shortest distance to current cell strictly less than any monster's shortest distance to current cell** are visited
+    * Path Reconstruction
+        * During the BFS for player, store the previous cell for every visited cell
+        * Once player reaches an arrive at boundary cell, retrace the steps using these stored values to reconstruct the path in reverse order, then output the path with the corresponding move directions `U`, `D`, `L`, `R`
+* Solution Strategy
+    1. Precompute Monster Distances
+        * Initialize a multi-source BFS using all monster locations
+        * For each cell, record `mdis[i][j]`, the minimum time required for any monster to reach that cell
+    2. Player BFS with Safety Check
+        * Start a BFS from player with an array `dis[i][j]` for the player
+        * At every step, only proceed to a neighboring cell if
+            * It is within bounds and not a wall
+            * The distance for player to that cell, `dis[current]` + 1, is strictly less than `mdis[i][j]`
+    3. Path Reconstruction
+        * As you perform the BFS for player, store the previous cell for each visited cell
+        * Once player reaches the maze boundary, use this stored data to reconstruct the escape path
+* Implementation Notes
+    * The key observation is that, for player to safely move into any cell, the distance from player must be less than the distance from the nearest monster
+    * Storing the previous cell during the BFS allows for an efficient retrace of the path once an exit is found, otherwise you will get TLE instead
+    * This approach guarantees that player only visits cells that remain safe even if the monsters know player's path in advance
+
 ### style: Adjust README.md Format
 
 * Feature
