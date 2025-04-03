@@ -1,10 +1,76 @@
 # CP-Question-Record
 
+### 【AtCoder】 Beginner Contest 395 - E. Flip Edge
+
+**Solved**
+
+。Dijkstra - O(($N+M$)$logN$)
+
+* Core Idea
+    * The problem can be solved using Dijkstra that considers two states for each node
+        1. Normal Graph `A` ⮕ Move along the edges as given
+        2. Flipped Graph `B` ⮕ Move along the reversed edges
+* Algorithm Strategy
+    * Dijkstra
+        * At each step, extract the node with the lowest cost
+        * If we reach node `N`, output the cost
+        * If visiting from mode `A`
+            * Move to all connected nodes in mode `A` with cost `+1`
+            * Switch to mode `B` at the same node with cost `+X`
+        * If visiting from mode `B`
+            * Move to all connected nodes in mode `B` with cost `+1`
+            * Switch to mode `A` at the same node with cost `+X`
+    * Avoid Reprocessing
+        * Use a map to store the best cost for `(node, graph)`
+        * Skip nodes if a cheaper path has already been found
+
+### 【AtCoder】 Beginner Contest 395 - D. Pigeon Swap
+
+**Solved**
+
+。Data Structures + Simulation - O($N$)
+
+* Approach & Data Structures
+    * To efficiently track and process these operations, we use three arrays
+        * `pigeon[i]` ⮕ This stores the **current nest** where pigeon `i` is located
+        * `nest[i]` ⮕ This keeps track of which pigeon is currently in **nest `i`**
+        * `id[i]` ⮕ This maps a **nest** back to the **original pigeon** assigned to it at the start
+    * Initialization
+        * Initially, each pigeon `i` is placed in nest `i`. Hence, the arrays are initialized as follows </br>
+            ```cpp
+            for (int i = 1; i <= n; ++i)  pigeon[i] = nest[i] = id[i] = i;
+            ```
+        * Handling Operations
+            1. Move Operation
+                * When we move pigeon `a` to nest `b`, it means pigeon `a` is now in the same place as pigeon `nest[b]`
+                * Update </br>
+                    ```cpp
+                    pigeon[a] = nest[b];
+                    ```
+                * This ensures that `pigeon[a]` correctly reflects that pigeon `a` has moved to nest `b`
+            2. Swap Operation
+                * Swap the contents of nest `a` and nest `b` </br>
+                    ```cpp
+                    swap(nest[a], nest[b]);
+                    ```
+                * Since the nests have changed, we update their original assignments
+                    ```cpp
+                    id[nest[a]] = a;
+                    id[nest[b]] = b;
+                    ```
+                * This maintains correct tracking of where each pigeon’s original nest now resides
+            3. Query Operation
+                * Given pigeon `a`, find where its original nest assignment is now located </br>
+                    ```cpp
+                    cout << id[pigeon[a]] << "\n";
+                    ```
+                * Here, `pigeon[a]` tells us the **current nest** where pigeon `a` is located, and `id[pigeon[a]]` retrieves the original nest assignment
+
 ### 【AtCoder】 Beginner Contest 398 - F. ABCBA
 
 **Solved**
 
-。Rolling Hash + Modular Arithmetic - O(N)
+。Rolling Hash + Modular Arithmetic - O($N$)
 
 * Core Concepts
     * Rolling Hash with Modular Arithmetic
@@ -36,12 +102,12 @@
 
 **Solved**
 
-。Multi-Source BFS + Path Reconstruction - O(N $\times$ M)
+。Multi-Source BFS + Path Reconstruction - O($N \times M$)
 
 * Complexity Analysis
-    * BFS for Monsters in O(N × M) ⮕ because each cell is processed only once
-    * BFS for Player in O(N × M) ⮕ similar reasoning as above
-    * Overall Complexity is O(N × M)
+    * BFS for Monsters in O(N $\times$ M) ⮕ because each cell is processed only once
+    * BFS for Player in O(N $\times$ M) ⮕ similar reasoning as above
+    * Overall Complexity is O(N $\times$ M)
 * Core Concept
     * Optimal Monster Movement
         * Since monsters always move optimally, if a monster can reach a cell before or at the same time as player, then that cell is unsafe for player
