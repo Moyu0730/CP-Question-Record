@@ -184,7 +184,7 @@
         &nbsp; &nbsp; $\Longrightarrow 3dy^2 + 3d^2y + d^3$
 * Solution Strategy
     1. Determine the range for $d = x - y$
-        * At $x^2 + xy + y^2 \geq (x - y)^3$, it follows that $(x - y)^3 \leq N$, that is $d \leq \sqrt[3]{N}$, which allowing us to conclude that the enumeration of $d$ is O($\sqrt[3]{N}$)
+        * At $( x - y )( x^2 + xy + y^2 ) \geq (x - y)^3$, it follows that $(x - y)^3 \leq N$, that is $d \leq \sqrt[3]{N}$, which allowing us to conclude that the enumeration of $d$ is O($\sqrt[3]{N}$)
     2. Find valid integer values of $y$ given $d$
         1. The judgment can be completed using the quadratic formula, and the time complexity is O(1); however, its implementation is more complicated to implement
         2. Considering that the coefficients of both the quadratic and linear terms are positive, the formula is monotonically increasing when $x > 0$. Therefore, we can apply binary search. Obviously, we only need to perform binary search within the interval $[1, \sqrt{N}]$, resulting in a time complexity of O($log\sqrt{N}$), which is relatively straightforward to implement
