@@ -4,7 +4,7 @@
 
 **Solved**
 
-。Dijkstra - O(($N+M$)$logN$)
+。Dijkstra - O($(N+M)logN$)
 
 * Core Idea
     * The problem can be solved using Dijkstra that considers two states for each node
@@ -38,12 +38,11 @@
     * Initialization
         * Initially, each pigeon `i` is placed in nest `i`. Hence, the arrays are initialized as follows </br>
             ```cpp
-            for (int i = 1; i <= n; ++i)  pigeon[i] = nest[i] = id[i] = i;
+            for( int i = 1 ; i <= n ; ++i ) pigeon[i] = nest[i] = id[i] = i;
             ```
         * Handling Operations
             1. Move Operation
                 * When we move pigeon `a` to nest `b`, it means pigeon `a` is now in the same place as pigeon `nest[b]`
-                * Update </br>
                     ```cpp
                     pigeon[a] = nest[b];
                     ```
