@@ -1,5 +1,7 @@
 # CP-Question-Record
 
+### style: Adjust README.md Format
+
 ### 【AtCoder】 Beginner Contest 397 - F. Variety Split Hard
 
 **Solved**
@@ -13,7 +15,7 @@
             * Precompute `suf[i]` as the number of distinct integers in the subarray $[i, N]$
             * These arrays capture the contribution of the first and third segments respectively
         * Next Occurrence Array
-            * Construct an array `nxt[i]` which stores the index of the next occurrence of A[i] (or -1 if none exists)
+            * Construct an array `nxt[i]` which stores the index of the next occurrence of `arr[i]`, -1 if none exists
             * This helps determine where a number's extra contribution might switch between segments
     * Middle Segment Contribution
         * For a fixed first split position `i`, the middle segment $[i+1, j]$ can gain an extra contribution from numbers appearing more than once
