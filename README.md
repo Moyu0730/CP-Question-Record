@@ -1,5 +1,46 @@
 # CP-Question-Record
 
+### 【AtCoder】 Beginner Contest 397 - F. Variety Split Hard
+
+**Solved**
+
+。Segment Tree + Sliding Window – O($NlogN$)
+
+* Core Concepts
+    * Approach
+        * Sliding Window to Maintain Prefix and Suffix Distinct Counts
+            * Precompute `pre[i]` as the number of distinct integers in the subarray $[1, i]$
+            * Precompute `suf[i]` as the number of distinct integers in the subarray $[i, N]$
+            * These arrays capture the contribution of the first and third segments respectively
+        * Next Occurrence Array
+            * Construct an array `nxt[i]` which stores the index of the next occurrence of A[i] (or -1 if none exists)
+            * This helps determine where a number's extra contribution might switch between segments
+    * Middle Segment Contribution
+        * For a fixed first split position `i`, the middle segment $[i+1, j]$ can gain an extra contribution from numbers appearing more than once
+        * The extra contribution is optimized by choosing an ideal second split position based on the positions of repeated elements
+    * Segment Tree Application
+        * The segment tree is used to maintain the extra contribution available for the middle segment
+        * It supports adding or subtracting contributions over intervals and range maximum queries
+        * Initially, for each index i with a valid next occurrence, the tree is updated over the interval $[i, nxt[i]-1]$ by +1
+        * As the first segment increasing i, the tree is updated to remove the influence of numbers that have already been included in the first segment
+        * A query on the segment tree then yields the maximum extra contribution for the middle segment
+* Detailed Strategy
+    1. Preprocessing
+        * Use a boolean array to compute the prefix array `pre` by marking which numbers have already been seen
+        * Process the array in reverse to build the suffix array `suf` and determine `nxt[i]` for each index
+    2. Segment Tree Setup
+        * Build a segment tree supporting range updates and maximum queries
+        * For every index i with `nxt[i] ≠ -1`, update the tree in the interval $[i, nxt[i]-1]$ with +1, representing the potential extra contribution if that number appears in the middle segment
+    3. Iterative Evaluation
+        * Iterate over potential first split positions `i`, $\forall i \in [1, n]$
+        * For each `i`, when `nxt[i]` exists, decrement the segment tree over the range $[i, nxt[i]-1]$ to remove the contribution from the number that now belongs to the first segment
+        * Query the segment tree over the interval $[i+1, n]$ to find the best possible extra contribution for the middle segment
+        * Update the final answer as </br>
+            `res = max(res, pre[i] + suf[i+1] + maximum extra contribution)`
+* Additional Notes
+    * The crucial insight is that each integer contributes at least once to the count in any segment it appears in, and may provide additional benefit if it spans across the split boundaries
+    * Using a segment tree is essential for efficiently managing interval updates and queries, making it feasible to solve the problem within the given constraints
+
 ### 【AtCoder】 Beginner Contest 395 - E. Flip Edge
 
 **Solved**
@@ -101,7 +142,7 @@
 
 **Solved**
 
-。Multi-Source BFS + Path Reconstruction - O($N \times M$)
+。Multi-Source BFS + Path Reconstruction - O($NM$)
 
 * Complexity Analysis
     * BFS for Monsters in O(N $\times$ M) ⮕ because each cell is processed only once
