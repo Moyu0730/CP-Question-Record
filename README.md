@@ -1,5 +1,35 @@
 # CP-Question-Record
 
+### 【CSES】 1197. Cycle Finding
+
+**Solved**
+
+。Bellman-Ford - O($NM$)
+
+* Complexity Analysis
+    * Bellman-Ford runs in O($NM$)
+    * Extracting the cycle requires O($N$)
+    * Overall complexity is O($NM$)
+* Core Concepts
+    * Approach
+        * Useing the **Bellman-Ford algorithm** to detect a **negative cycle** in a directed graph
+        * Since Bellman-Ford relaxes each edge **N times**, any negative cycle will cause an update in the **Nth iteration**
+    * Detecting a Negative Cycle
+        * We maintain a `fa[]` array to track the previous node for each node, which being relaxed, in the shortest path
+        * If an update happens on the **Nth iteration**, it means a negative cycle exists
+        * The last updated node `lst` might be part of the cycle, but it also may not be inside the cycle itself
+    * Extracting the Cycle
+        * To ensure that `lst` is inside the negative cycle, we perform **N additional steps** using `lst = fa[lst]`
+        * This guarantees that `lst` lands within the negative cycle
+        * Then, backtrack using `fa[]` to reconstruct the cycle path
+        * Since the order of backtracking is reversed, it is necessary to use the vector's member function `reverse()` to adjust its content
+* Edge Cases Considered and Observed
+    1. 【WA】A graph displaying both a positive cycle and a negative cycle simultaneously, but arranged in the different order
+    2. 【WA】A graph that contains both positive and negative cycles simultaneously
+    3. 【WA】A graph with many negative edges, however, some of them don't belong to a negative cycle
+    4. 【WA】A graph with a self-negative ring
+    5. 【TLE】A large graph that contains the maximum number of nodes and edges, which together form a complete cycle
+
 ### style: Adjust README.md Format
 
 ### 【AtCoder】 Beginner Contest 397 - F. Variety Split Hard
