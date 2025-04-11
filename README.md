@@ -1,5 +1,7 @@
 # CP-Question-Record
 
+### upload: AtCoder Beginner Contest 399
+
 ### style: Add Problem Info
 
 * Affected Files
