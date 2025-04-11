@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : AtCoder Beginner Contest 398 - B. Full House 3 */
 
 #include<bits/stdc++.h>
 using namespace std;

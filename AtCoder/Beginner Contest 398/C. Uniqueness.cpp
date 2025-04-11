@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : AtCoder Beginner Contest 398 - C. Uniqueness */
 
 #include<bits/stdc++.h>
 using namespace std;

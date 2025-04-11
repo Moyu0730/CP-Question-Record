@@ -1,5 +1,12 @@
 # CP-Question-Record
 
+### style: Add Problem Info
+
+* Affected Files
+    1. AtCoder\Beginner Contest 398\A. Doors in the Center.cpp
+    2. AtCoder\Beginner Contest 398\B. Full House 3.cpp
+    3. AtCoder\Beginner Contest 398\C. Uniqueness.cpp
+
 ### 【CSES】 1197. Cycle Finding
 
 **Solved**
