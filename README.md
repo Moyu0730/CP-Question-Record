@@ -2,8 +2,6 @@
 
 ### style: Adjust README.md Format
 
-### style: Adjust README.md Format
-
 ### 【AtCoder】 Beginner Contest 399 - D. Switch Seats
 
 **Solved**
@@ -32,7 +30,7 @@
             * Incorrect condition
                 * Skipping pairs based on `if(x > y) continue;` might omit valid (a, b) that should be checked
                     ```
-                    For Example3 2 1 3 2 1
+                    For Example ⮕ 3 2 1 3 2 1
                     ```
             * Correct condition
                 * Use `set<pii>` with `min(x,y), max(x,y)` to avoid duplicates without skipping valid permutations
