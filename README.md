@@ -1,10 +1,12 @@
 # CP-Question-Record
 
+### style: Adjust README.md Format
+
 ### 【AtCoder】 Beginner Contest 399 - D. Switch Seats
 
 **Solved**
 
-。Greedy + Observational Optimization - O(N)
+。Greedy + Observational Optimization - O($N$)
 
 * Key Observations
     1. For a couple to become adjacent, their two occurrences must be in positions that can be rearranged to be next to each other
