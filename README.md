@@ -14,7 +14,6 @@
         * Positions of `a` are `p1`, `p2`, and positions of `b` are `q1`, `q2`
         * After sorting `[p1, p2, q1, q2]`, the only acceptable order is
             * `(x1, x2, x3, x4)` such that `x1 + 1 == x2` and `x3 + 1 == x4`
-        * This means that with only **two swaps**, we can make both couples adjacent
 * Solution Strategy
     1. Read the input sequence `A` of size `2N`
     2. Track the **positions** of each number using a `vector<vector<int>> pos`
