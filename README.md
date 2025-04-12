@@ -1,5 +1,38 @@
 # CP-Question-Record
 
+### 【AtCoder】 Beginner Contest 399 - D. Switch Seats
+
+**Solved**
+
+。Greedy + Observational Optimization - O(N)
+
+* Key Observations
+    1. For a couple to become adjacent, their two occurrences must be in positions that can be rearranged to be next to each other
+    2. For a pair `(a, b)` to satisfy the condition
+        * Positions of `a` are `p1`, `p2`, and positions of `b` are `q1`, `q2`
+        * After sorting `[p1, p2, q1, q2]`, the only acceptable order is
+            * `(x1, x2, x3, x4)` such that `x1 + 1 == x2` and `x3 + 1 == x4`
+        * This means that with only **two swaps**, we can make both couples adjacent
+* Solution Strategy
+    1. Read the input sequence `A` of size `2N`
+    2. Track the **positions** of each number using a `vector<vector<int>> pos`
+    3. Iterate all **consecutive** pairs `(i, i+1)` in `A`
+        * Check if both `A[i]` and `A[i+1]` are non-adjacent couples
+        * Form a 4-element vector with their positions
+        * Sort the positions and verify if adjacent pair conditions are satisfied
+    4. Use a `set<pair<int,int>>` to store valid unordered pairs to ensure uniqueness
+    5. Output the size of the set as the final answer
+* Optimization Tips
+    * Avoid checking couples that are already adjacent
+        * Key Fixes from the Wrong Version
+            * Incorrect condition：Skipping pairs based on `if(x > y) continue;` might omit valid (a, b) that should be checked, For Example
+                ```
+                3 2 1 3 2 1
+                ```
+            * Correct condition：Use `set<pii>` with `min(x,y), max(x,y)` to avoid duplicates without skipping valid permutations
+    * Use `min(a, b), max(a, b)` when storing pairs in the set to prevent duplicates
+    * Swapping simulation is **not needed**, only need to check index positions
+
 ### upload: AtCoder Beginner Contest 399
 
 ### style: Add Problem Info
