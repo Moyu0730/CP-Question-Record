@@ -1,5 +1,17 @@
 # CP-Question-Record
 
+### feat: Modify Set.cpp Content
+
+* Features
+    * Remove
+        ```cpp
+        #define vsort(x) sort(x.begin(), x.end());
+        ```
+    * Add
+        ```cpp
+        #define all(v) x.begin(), v.end()
+        ```
+
 ### 【AtCoder】 Beginner Contest 399 - F. Range Power Sum
 
 **Solved**
