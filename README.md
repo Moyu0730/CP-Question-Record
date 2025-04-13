@@ -11,7 +11,7 @@
         * We consider that the numbers are assigned to the sequence $A$ sequentially, from the beginning to the end.
         * Specifically, for each number $A_{i}$, we only consider the contributions of the right endpoints in the intervals $[1, i], [2, i], \cdots [i, i]$ to the answer.
     1. Let $T[i][k]$ denote the total contribution of all subarrays ending at index $i$, raised to the $k^{th}$ power
-    2. $T[i][k]$ are defines as follow </br>
+    2. $T[i][k]$ are defined as follow </br>
         $\because$ &nbsp; $(x + y)^k = \sum_{t=0}^{k} \binom{k}{t} x^{k-t} y^t$ </br>
         $\therefore$ &nbsp; $T[i][k] = (A_{i})^k + (A_{i} + A_{i-1})^k + (A_{i} + A_{i-1} + A_{i-2})^k + \cdots$ </br>
         &nbsp; &nbsp; &nbsp; $\Longrightarrow [A_{i}]^k + [A_{i} + (A_{i-1})]^k + [A_{i} + (A_{i-1} + A_{i-2})]^k + \cdots$ </br>
