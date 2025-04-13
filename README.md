@@ -1,5 +1,25 @@
 # CP-Question-Record
 
+### 【AtCoder】 Beginner Contest 399 - F. Range Power Sum
+
+**Solved**
+
+。Binary Exponentiation + Binomial Expansion + DP - O($NK^2log{K}$)
+
+* Mathematical Derivation and Problem-Solving Strategies 
+    0. Before Starting the Mathematical Derivation
+        * We consider that the numbers are assigned to the sequence $A$ sequentially, from the beginning to the end.
+        * Specifically, for each number $A_{i}$, we only consider the contributions of the right endpoints in the intervals $[1, i], [2, i], \cdots [i, i]$ to the answer.
+    1. Let $T[i][k]$ denote the total contribution of all subarrays ending at index $i$, raised to the $k^{th}$ power
+    2. $T[i][k]$ are defines as follow </br>
+        $\because$ &nbsp; $(x + y)^k = \sum_{t=0}^{k} \binom{k}{t} x^{k-t} y^t$ </br>
+        $\therefore$ &nbsp; $T[i][k] = (A_{i})^k + (A_{i} + A_{i-1})^k + (A_{i} + A_{i-1} + A_{i-2})^k + \cdots$ </br>
+        &nbsp; &nbsp; &nbsp; $\Longrightarrow [A_{i}]^k + [A_{i} + (A_{i-1})]^k + [A_{i} + (A_{i-1} + A_{i-2})]^k + \cdots$ </br>
+        &nbsp; &nbsp; &nbsp; $\Longrightarrow [A_{i}]^k + [\sum_{t=0}^{k}\binom{k}{t}(A_{i})^{k-t}(A_{i-1})^{t}] + [\sum_{t=0}^{k}\binom{k}{t}(A_{i})^{k-t}(A_{i-1} + A_{i-2})^{t}] \cdots$ </br>
+        &nbsp; &nbsp; &nbsp; $\Longrightarrow [A_{i}]^k + \sum_{t=0}^{k}\binom{k}{t}(A_{i})^{k-t}[(A_{i-1})^t + (A_{i-1} + A_{i-2})^t + \cdots ]$ </br>
+        &nbsp; &nbsp; &nbsp; $\Longrightarrow [A_{i}]^k + \sum_{t=0}^{k}\binom{k}{t}(A_{i})^{k-t}T[i-1][t]$
+    3. Therefore, the answer will be $T[0][k] + T[1][k] + \cdots + T[k][k]$
+
 ### style: Adjust README.md Format
 
 ### 【AtCoder】 Beginner Contest 399 - D. Switch Seats
