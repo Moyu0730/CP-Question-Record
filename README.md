@@ -2,7 +2,7 @@
 
 ### feat: Modify Set.cpp Content
 
-* Features
+* Feature
     * Remove
         ```cpp
         #define vsort(x) sort(x.begin(), x.end());

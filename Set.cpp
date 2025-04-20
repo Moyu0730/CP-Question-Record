@@ -12,7 +12,7 @@ using namespace std;
 #define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 #define pirq(type) priority_queue<type, vector<type>, greater<type>>
 #define mem(x, value) memset(x, value, sizeof(x));
-#define all(v) x.begin(), v.end()
+#define all(v) v.begin(), v.end()
 #define pii pair<int, int>
 #define pdd pair<double, double>
 #define pb push_back
