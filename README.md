@@ -1,5 +1,37 @@
 # CP-Question-Record
 
+### 【CSES】 2220. Counting Numbers
+
+**Solved**
+
+。Digit DP - O($digits \times 10 × 2 × 2$)
+
+* Key Observations
+  * Design a recursive function `get(idx, pre, leading, tight)` which computes the number of valid digit sequences based on current digit position and constraints
+* Approach
+    * State Representation
+        * `idx` ⮕ Current digit index
+        * `pre` ⮕ Previous digit used
+        * `leading` ⮕ Boolean indicating whether leading zeros are still allowed
+        * `tight` ⮕ Boolean indicating whether the current digit must stay within the bounds of the original number
+    * Base Cases
+        * If `idx < 0`, a valid number has been constructed ⮕ return 1
+    * Transition
+        1. **Limit Selection**
+            * If `tight == true`, only consider digits up to `arr[idx]`; otherwise, up to 9
+        2. **Recursive Transitions**
+            * Skip digits that match the `pre` if `leading == false`
+            * For each possible digit `i` in range $[0, limit]$
+                * If `leading == true && i == 0`, continue treating as leading zero ⮕ `get(idx-1, i, true, false)`
+                * If `tight == true && i == limit`, preserve tight bound ⮕ `get(idx-1, i, false, true)`
+* Solution Strategy
+    1. Calculate `na`
+        * For number `a-1`, convert to string `sa`, store digits in `arr[]`, and run `get()` to count all valid numbers less than `a-1`
+    2. Calculate `nb`
+        * For number `b`, convert to string `sb`, store digits in `arr[]`, and run `get()` to count all valid numbers up to `b`
+    3. Final Answer
+        * The number of valid integers in range $[a, b]$ is `nb - na`
+
 ### 【UVa】 101. The Blocks Problem
 
 **Solved**
