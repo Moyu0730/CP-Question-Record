@@ -1,5 +1,14 @@
 # CP-Question-Record
 
+### 【CSES】 1679. Course Schedule
+
+**Solved**
+
+。Topological Sort - O($N$)
+
+* Description
+    * This is just a template question
+
 ### 【CSES】 2220. Counting Numbers
 
 **Solved**
