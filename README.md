@@ -1,5 +1,41 @@
 # CP-Question-Record
 
+### 【CSES】 1681. Game Routes
+
+**Solved**
+
+。Topological Sort + DP - O($N + M$)
+
+* Core Concepts
+  * Approach
+    * Topological Sort
+        * Every node with `indegree == 0` ( except node `1` ) is pushed into the queue before the process begins
+        * Special Rule
+            * Node `1` must be pushed into the queue at the beginning, even if its `indegree != 0`
+    * DP Transition
+        * `dp[v] += dp[u]` for each edge `u ⮕ v`
+        * Represents the number of ways to reach node `v` via all incoming paths
+        * Modulo must be applied during each transition to avoid overflow
+    * Final result
+        * `dp[n]` gives the total number of distinct paths from level `1` to level `n`
+* Algorithm Strategy
+    * Topological Sort Initialization
+        * Traverse from `2` to `n` and push all nodes with `indegree == 0` into the queue
+        * Push node `1` into queue explicitly, even if its `indegree > 0`
+    * Processing Queue
+        * For every node popped from the queue
+            * Traverse all its neighbors
+            * Decrement their `indegree`
+            * Perform transition: `dp[neighbor] += dp[current] (mod 1e9 + 7)`
+            * Push neighbor to queue only if `indegree == 0 && neighbor != 1`
+                * This ensures node `1` is only processed once at the start
+* Edge Case Handling
+    * Explicitly push node 1
+        * It's the source node, and the player starts at level 1
+        * If we rely solely on `indegree == 0`, node `1` might be excluded
+    * Avoid pushing node 1 again
+        * To prevent duplicate processing since `1` is the starting point and already processed
+
 ## feat: Update Set.cpp
 
 ### 【CSES】 1679. Course Schedule
