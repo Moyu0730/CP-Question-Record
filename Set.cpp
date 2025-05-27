@@ -19,7 +19,7 @@ using namespace std;
 #define pdd pair<double, double>
 #define mkp make_pair
 #define sz size()
-#define pb emplace_back
+#define pb push_back
 #define F first
 #define S second
 #define int long long
