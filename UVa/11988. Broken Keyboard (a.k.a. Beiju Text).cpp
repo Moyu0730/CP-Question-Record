@@ -16,13 +16,9 @@ signed main(){
 
         auto it = res.begin();
         for( int i = 0 ; i < str.size() ; ++i ){
-            if( str[i] == '[' ){
-                    it = res.begin();
-            }else if( str[i] == ']' ){
-                it = res.end();
-            }else{
-                it = next(res.insert(it, str[i]));
-            }
+            if( str[i] == '[' ) it = res.begin();
+            else if( str[i] == ']' ) it = res.end();
+            else it = next(res.insert(it, str[i]));
         }
 
         for( auto it = res.begin() ; it != res.end() ; ++it ) cout << *it;
