@@ -1,5 +1,34 @@
 # CP-Question-Record
 
+### 【CSES】 3217. Knight Moves Grid
+
+**Solved**
+
+。BFS - O($N^2$)
+
+* Core Concepts
+    * Approach
+        * State Representation
+            * We maintain a `dis[i][j]` array to record the minimum number of knight moves needed to reach square `(i, j)` from `(0, 0)`
+            * The BFS queue holds coordinates `(x, y)` of visited squares
+        * Base Cases
+            * Start from `(0, 0)` with distance 0
+        * Transitions
+            * For each square in the queue, iterate over the 8 knight move directions, if the next square is within bounds and unvisited, set its distance to `current + 1` and enqueue it
+    * Termination
+        * Continue BFS until all squares are visited
+* Solution Strategy
+    1. Initialize the `dis` array with `-1`, as unvisited
+    2. Mark `(0, 0)` as `0` and enqueue it
+    3. While queue is not empty
+        * Dequeue `(x, y)`
+        * For each knight move direction, check bounds and update `dis[nx][ny]` if unvisited
+    4. Print the `dis` array row by row
+
+> [!NOTE]
+> This problem is classic BFS on an unweighted grid graph, where each move has cost 1
+
+
 ### 【CSES】 3399. Raab Game I
 
 **Solved**
@@ -8,14 +37,14 @@
 
 * Solution Strategy
     1. Basic Constraints
-        * If $a + b \neq n$, it is impossible since there are $n$ rounds and each point comes from a round won by exactly one player
+        * If $A + B \neq N$, it is impossible since there are $N$ rounds and each point comes from a round won by exactly one player
         * If exactly one of $a$ or $b$ is zero but not both, impossible due to the problem constraints, brcause it forces symmetry of wins and losses
     2. Constructing the Game
-        * Reduce $t$ until $a + b = t$, since we cannot have more rounds than points
+        * Reduce $N$ until $A + B = N$, since we cannot have more rounds than points
         * Construct player sequences by assigning strongest cards to the player needing more points
         * Fill remaining rounds with non-conflicting choices ensuring total score constraints are met
     3. Check Feasibility
-        * If after reduction $t == 1$, impossible to satisfy scoring conditions simultaneously
+        * If after reduction $N == 1$, impossible to satisfy scoring conditions simultaneously
 * Implementation Details
     * Using greedy approach to assign high cards to winning player in each round
     * Handle edge conditions separately to ensure correctness
