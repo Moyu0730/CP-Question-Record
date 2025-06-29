@@ -1,5 +1,25 @@
 # CP-Question-Record
 
+### 【CSES】 3399. Raab Game I
+
+**Solved**
+
+。Observation + Construction - O($TN$)
+
+* Solution Strategy
+    1. Basic Constraints
+        * If $a + b \neq n$, it is impossible since there are $n$ rounds and each point comes from a round won by exactly one player
+        * If exactly one of $a$ or $b$ is zero but not both, impossible due to the problem constraints, brcause it forces symmetry of wins and losses
+    2. Constructing the Game
+        * Reduce $t$ until $a + b = t$, since we cannot have more rounds than points
+        * Construct player sequences by assigning strongest cards to the player needing more points
+        * Fill remaining rounds with non-conflicting choices ensuring total score constraints are met
+    3. Check Feasibility
+        * If after reduction $t == 1$, impossible to satisfy scoring conditions simultaneously
+* Implementation Details
+    * Using greedy approach to assign high cards to winning player in each round
+    * Handle edge conditions separately to ensure correctness
+
 ### 【CSES】 1681. Game Routes
 
 **Solved**
