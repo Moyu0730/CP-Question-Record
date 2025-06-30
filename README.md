@@ -1,5 +1,23 @@
 # CP-Question-Record
 
+### 【CSES】 3419. Mex Grid Construction
+
+**Solved**
+
+。Divide and Conquer - O($N^2$)
+
+* Solution Strategy
+    1. Build a sufficiently large grid, $128 \times 128$, recursively, then output the first $N \times N$ part
+    2. Use divide and conquer
+        * Divide the square into four quadrants of size $\frac{N}{2}$
+        * Propagate values around edges to maintain the mex condition
+        * Use different filling rules depending on quadrant ID
+        * When reaching base case, fill diagonals directly
+* Key Observations
+    * Using a fixed $128 \times 128$ base grid covers the constraint $N \leq 100$
+    * For each cell $(i, j)$, we use previous cells in its row or column to determine the current value without needing additional data structures
+    * Divide and conquer method avoids the naive method of checking mex at each step explicitly, which would be $O(N^3)$
+
 ### 【CSES】 3217. Knight Moves Grid
 
 **Solved**
@@ -100,7 +118,7 @@
 
 **Solved**
 
-。Digit DP - O($digits \times 10 × 2 × 2$)
+。Digit DP - O($digits \times 10 \times 2 \times 2$)
 
 * Key Observations
   * Design a recursive function `get(idx, pre, leading, tight)` which computes the number of valid digit sequences based on current digit position and constraints
