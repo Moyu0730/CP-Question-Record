@@ -1,5 +1,31 @@
 # CP-Question-Record
 
+### 【CSES】 3359. Minimal Grid Path
+
+**Solved**
+
+。Greedy + BFS-like Level Expansion - O($N^2$)
+
+* Core Concepts
+    * Observation
+        * This problem can be viewed as a pathfinding task over a grid, where at each step, we can only move right or down
+        * The key idea is to **always expand to the smallest character** at the next level, similar to Dijkstra or BFS using lexicographical priority
+* Solution Strategy
+    1. Greedy BFS Expansion
+        * We maintain a **queue of positions** we can reach in the current step
+        * For each of these positions, we examine their **right** and **down** neighbors
+        * From all these neighbors, we **only keep those with the smallest lexicographical character** at that level
+        * This guarantees we construct the minimal string, character by character
+    2. Avoiding Revisits
+        * A `used[i][j]` boolean array is maintained to avoid re-inserting the same cell into the queue
+        * Once a cell is added at its minimal character level, it's skipped in future steps
+    3. Path Construction
+        * We start from (0, 0) and repeatedly select the next minimal character from valid adjacent cells
+        * This process continues for `2n - 1` steps
+* Implementation Notes
+    * Standard BFS is used, but instead of distance, we track **lexicographical priority**
+    * Greedy pruning ensures that we **never explore non-minimal paths**
+
 ### feat: Update Set.cpp
 
 ### 【CSES】 3311. Grid Coloring I
