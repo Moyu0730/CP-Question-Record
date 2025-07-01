@@ -1,5 +1,42 @@
 # CP-Question-Record
 
+### 【CSES】 3311. Grid Coloring I
+
+**Solved**
+
+。Backtracking + DFS Brute Force - O($4^{NM}$) worst-case with aggressive pruning
+
+* Core Concepts
+    * DFS + Backtracking Strategy
+        * Traverse the grid cell-by-cell in row-major order
+        * At each cell $(x, y)$, attempt all possible replacements from `{A, B, C, D}`
+        * Skip the character if it matches the original one
+        * Skip if it causes a conflict with the top or left cell
+        * Use recursion and restore the previous state, backtrack, if a path fails
+        * If the traversal reaches the end, output the modified grid and halt the program immediately
+* Complexity Analysis
+    * Each cell has at most 3 coloring options
+    * Worst-case time complexity is O($3^{NM}$), but pruning adjacent conflicts significantly reduces the search space
+    * Works efficiently for $N, M \leq 500$ due to early halt the program immediately upon first solution
+* Edge Considerations
+    * In certain pathological cases, no valid coloring may exist — code will correctly output `IMPOSSIBLE`
+* Implementation Highlights
+    * Clean separation between input parsing, DFS traversal, and constraint checks
+    * The state is restored after each recursive attempt to avoid corruption
+
+> [!NOTE]
+> *Why does such an exponential-time backtracking solution pass the time limits*
+> 
+> Despite the worst-case complexity of O($3^{NM}$), the actual number of recursive calls is drastically reduced due to aggressive pruning and structural constraints in the problem
+> 1. Strong Local Constraints Reduce the Search Space
+>       * For each cell `(x, y)`, the algorithm only considers characters `{A, B, C, D}` that
+>           * Differ from the original character ⮕ eliminates 1 possibility
+>           * Differ from the character above
+>           * Differ from the character to the left
+>       * As a result, most cells have at most **2 valid choices**, sometimes even just 1, effectively transforming the exponential branching factor into a manageable constant
+> 2. Grid Coloring Is Highly Constrained
+>       * Many branches of the DFS are terminated early as soon as a conflict is detected, leading to **shallow recursion trees**
+
 ### 【CSES】 3419. Mex Grid Construction
 
 **Solved**
@@ -16,7 +53,7 @@
 * Key Observations
     * Using a fixed $128 \times 128$ base grid covers the constraint $N \leq 100$
     * For each cell $(i, j)$, we use previous cells in its row or column to determine the current value without needing additional data structures
-    * Divide and conquer method avoids the naive method of checking mex at each step explicitly, which would be $O(N^3)$
+    * Divide and conquer method avoids the naive method of checking mex at each step explicitly, which would be O($N^3$)
 
 ### 【CSES】 3217. Knight Moves Grid
 
