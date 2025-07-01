@@ -14,6 +14,7 @@ using namespace std;
 #define ALL(_array) _array.begin(), _array.end()
 #define LB(_array, v) lower_bound(ALL(_array), v)
 #define UB(_array, v) upper_bound(ALL(_array), v)
+#define REV(_vector) _vector.reverse();
 #define vc(_data) vector<_data>
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -26,7 +27,7 @@ using namespace std;
 #define ll long long
 
 /* Self Define Template Function */
-template <typename T> void print(vector<T> _vector ) { 
+template <typename T> void pV(vector<T> _vector ) { 
     for( auto _it : _vector ) cout << _it << " ";
     cout << "\n";
 }
