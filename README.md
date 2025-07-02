@@ -1,5 +1,26 @@
 # CP-Question-Record
 
+### 【CSES】 3420. Distinct Values Subarrays
+
+**Solved**
+
+。Two Pointers or Sliding Window - O($N$)
+
+* Core Concepts
+    * Sliding Window Technique
+        * Maintain a window `[pL, pR]` such that all elements within it are distinct
+        * Use a hash map `mp[x]` to track the frequency of elements inside the window
+        * When a duplicate is encountered at `arr[pR]`, advance `pL` to the right until the window becomes valid again
+    * Count of Subarrays
+        * For each valid `pR`, the number of valid subarrays ending at `pR` is `(pR - pL + 1)`
+        * Accumulate this for all valid `pR` to get the final result
+* Algorithm Strategy
+    1. Initialize `pL = 0`, `pR = 0` and increment frequency of `arr[0]`
+    2. Move `pR` forward while ensuring the subarray `[pL, pR]` contains only distinct elements
+    3. If a duplicate is added, move `pL` right and decrement frequencies until the window is valid
+    4. At each step, add `pR - pL + 1` to the result
+    5. Output the final accumulated result
+
 ### 【CSES】 3359. Minimal Grid Path
 
 **Solved**
@@ -57,7 +78,7 @@
 > 
 > Despite the worst-case complexity of O($3^{NM}$), the actual number of recursive calls is drastically reduced due to aggressive pruning and structural constraints in the problem
 > 1. Strong Local Constraints Reduce the Search Space
->       * For each cell `(x, y)`, the algorithm only considers characters `{A, B, C, D}` that
+>       * For each cell $(x, y)$, the algorithm only considers characters `{A, B, C, D}` that
 >           * Differ from the original character ⮕ eliminates 1 possibility
 >           * Differ from the character above
 >           * Differ from the character to the left

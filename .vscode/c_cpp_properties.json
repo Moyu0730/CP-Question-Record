@@ -4,9 +4,9 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}",
-                "C:\\MinGW\\include",
-                "C:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\include",
-                "C:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\include\\c++"
+                "C:\\MinGW64\\include",
+                "C:\\MinGW64\\lib\\gcc\\x86_64-w64-mingw32\\15.1.0\\include",
+                "C:\\MinGW64\\lib\\gcc\\x86_64-w64-mingw32\\15.1.0\\include\\ssp"
             ],
             "defines": [
                 "_DEBUG",
@@ -25,7 +25,7 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "compilerPath": "C:/MinGW/bin/gcc.exe"
+            "compilerPath": "C:/MinGW64/bin/gcc.exe"
         }
     ],
     "version": 4
