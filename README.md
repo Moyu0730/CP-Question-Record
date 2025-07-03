@@ -1,5 +1,33 @@
 # CP-Question-Record
 
+### feat: Update Tamplate.cpp
+
+### 【CSES】 1135. Distance Queries
+
+**Solved**
+
+。Binary Lifting+ LCA - O($NlogN$)
+
+* Core Concepts
+    * Approach
+        * Tree Preprocessing
+            * Use DFS to annotate each node’s depth and build a binary lifting table `fa[node][i]` where `fa[node][i]` is the $2^i$-th ancestor of `node`
+            * Preprocessing runs in O($NlogN$) because each level $i$ builds on top of the previous level
+    * Binary Lifting for LCA
+        * Equalize Depths
+            * If `u` is deeper than `v`, we first move `u` up until both nodes are at the same depth
+            * Each jump of size $2^i$ adds that value to the distance accumulator
+        * Find LCA
+            * From top-down, if `fa[u][i] != fa[v][i]`, then move both `u` and `v` up by $2^i$
+            * Each such move adds `2 × 2^i` to the total distance
+            * After this, both nodes will have the same parent, which is the LCA
+        * Final Adjustment
+            * If `u != v`, a final move of `2` steps (1 for each node) completes the distance
+* Preprocessing Details
+    1. `dfs(1, 0)` initializes the root node with depth 1, setting all ancestors using the formula:
+        `fa[u][i] = fa[ fa[u][i-1] ][i-1]`
+    2. The lifting table is built for up to 20 levels, sufficient for $N \leq 2 \times 10^5$
+
 ### 【CSES】 3420. Distinct Values Subarrays
 
 **Solved**
