@@ -1,5 +1,26 @@
 # CP-Question-Record
 
+### 【CSES】 1722. Fibonacci Numbers
+
+**Solved**
+
+。Matrix Exponentiation - O($logN$)
+
+* Core Concepts
+    * Matrix Formulation of Fibonacci
+        * The Fibonacci sequence can be represented using matrix exponentiation
+        * The transformation matrix `T = [[1, 1], [1, 0]]` can be raised to the power of (n-1), and its top-left entry gives `F_n`
+    * Modulo Arithmetic
+        * Since the answer must be output modulo \$10^9 + 7\$, all matrix multiplication operations are performed under modulo
+* Implementation Strategy
+    * Matrix Exponentiation
+        * Repeatedly square the matrix while halving the exponent (fast exponentiation)
+        * Time complexity: O(log n)
+    * Edge Case Handling
+        * If `n == 0`, directly return `0` as per definition
+
+### feat: Update Tamplate.cpp and Set.cpp
+
 ### feat: Update Tamplate.cpp
 
 ### 【CSES】 1135. Distance Queries
