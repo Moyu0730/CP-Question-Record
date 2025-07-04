@@ -25,6 +25,8 @@ using namespace std;
 #define S second
 #define int long long
 #define ll long long
+#define ld long double
+#define tpn typename
 
 /* Self Define Template Function */
 template <typename T> void pV(vector<T> _vector ) { 

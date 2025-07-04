@@ -299,3 +299,32 @@ int discretization(){
 
     for( int i = 0 ; i < n ; i++ ) after[i] = lower_bound(distinct.begin(), distinct.end(), before[i]) - distinct.begin();
 }
+
+/* Matrix Exponentiation */
+template<typename T> vector<vector<T>> mat( const vector<vector<T>>& x, const vector<vector<T>>& y ){
+    int p = x.size(), q = x[0].size(), r = y[0].size();
+    vector<vector<T>> res( p, vector<T>(r, 0) );
+    for( int i = 0; i < p; i++ ){
+        for( int j = 0; j < r; j++ ){
+            for( int k = 0; k < q; k++ ){
+                res[i][j] = (res[i][j] + x[i][k] * y[k][j]) % Mod;
+            }
+        }
+    }
+    return res;
+}
+
+template<typename T> void mpow( vector<vector<T>> &x, int y ){
+    int n = x.size();
+    vector<vector<T>> ret(n, vector<T>(n, 0));
+    
+    for( int i = 0 ; i < n ; i++ ) ret[i][i] = 1;
+    while( y ){
+        if( y & 1 ) ret = mat(ret, x);
+        x = mat(x, x);
+        y >>= 1;
+    }
+
+    x = ret;
+    return;
+}
