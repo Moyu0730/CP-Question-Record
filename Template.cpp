@@ -328,3 +328,65 @@ template<typename T> void mpow( vector<vector<T>> &x, int y ){
     x = ret;
     return;
 }
+
+/* Network Flow */
+struct DINIC {
+    struct EDGE {
+        int v, flow, rev; // rev is the pos in reverse edge
+    };
+
+    int n, s, t, level[MAXN];
+    vector<EDGE> edge[MAXN];
+
+    DINIC( int _n, int _s, int _t ){
+        n = _n, s = _s, t = _t;
+        for( int i = 0 ; i < n ; i++ ) edge[i].clear();
+    }
+
+    void add_edge( int u, int v, int w ){
+        edge[u].pb({v, w, (int)edge[v].sz});
+        edge[v].pb({u, 0, (int)edge[u].sz - 1});
+    }
+
+    bool bfs(){
+        MEM(level, -1);
+        queue<int> q;
+        q.push(s);
+        level[s] = 0;
+        while( !q.empty() ){
+            int cnt = q.front();
+            q.pop();
+            for( auto i : edge[cnt] ){
+                if( i.flow > 0 && level[i.v] == -1 ){
+                    level[i.v] = level[cnt] + 1;
+                    q.push(i.v);
+                }
+            }
+        }
+
+        return level[t] != -1;
+    }
+
+    int dfs( int cnt, int remFlow ){
+        if( cnt == t ) return remFlow;
+        int res = 0;
+        
+        for( auto &i : edge[cnt] ){
+            if( i.flow > 0 && level[i.v] == level[cnt] + 1 ){
+                int blockFlow = dfs(i.v, min(remFlow, i.flow));
+                res += blockFlow, remFlow -= blockFlow, i.flow -= blockFlow;
+                edge[i.v][i.rev].flow += blockFlow;
+                if( remFlow == 0 ) return res;
+            }
+        }
+
+        if( !res ) level[cnt] = -1;
+        return res;
+    }
+
+    int flow( int res = 0 ){
+        while( bfs() ) res += dfs( s, INF );
+
+        return res;
+    }
+};
