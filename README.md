@@ -1,5 +1,32 @@
 # CP-Question-Record
 
+### 【CSES】 1694. Download Speed
+
+**Solved**
+
+。Dinic - O($V^{2}E$)
+
+* Core Concepts
+    * Dinic’s Algorithm, which consists of two phases
+        1. Level Graph Construction by BFS
+            * Construct a level graph to find shortest augmenting paths from source to sink
+        2. Blocking Flow Computation by DFS
+            * Perform DFS to send blocking flows along the level graph
+    * Repeat the two phases until no more augmenting paths exist
+* Implementation Details
+    1. Edge Structure
+        * Each edge stores target node `v`, current residual capacity `flow`, and a reverse edge index `rev`
+        * Reverse edges are automatically added with `0` initial capacity for residual graph construction
+     2. Level Array
+        * Used to record the level of each node from the source during BFS
+        * Ensures that DFS only proceeds to the next level, preventing cycles
+    3. DFS Flow Propagation
+        * DFS attempts to push as much flow as possible along valid paths, updating both forward and reverse edges
+        * If a node cannot contribute to any flow, it is marked `-1` to prune the search space
+    4. Flow Accumulation
+        * Repeatedly perform BFS + DFS while level graph is valid
+        * Accumulate flow until saturation
+
 ### 【CSES】 1722. Fibonacci Numbers
 
 **Solved**
