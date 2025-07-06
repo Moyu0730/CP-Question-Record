@@ -209,32 +209,41 @@ void lca( int a, int b ){
 }
 
 /* ---------- BIT ---------- */
-int n, BIT[MAXN];
-
-int lowbit( int x ){ return x & -x; }
-
-int query( int pos ){
-    int ans = 0;
-    
-    while( pos ){
-        ans += BIT[pos];
-        pos -= lowbit(pos);
+template<tpn T> struct BIT {
+    T bit[MAXN];
+    int lowbit( int x ){ return x & -x; }
+    T query( int pos ){
+        T ans = 0;
+        while( pos ){
+            ans += bit[pos];
+            pos -= lowbit(pos);
+        }
+        return ans;
     }
-
-    return ans;
-}
-
-void update( int x, int val ){
-    while( x < MAXN ){
-        BIT[x] += val;
+    void update( int x, T val ){
+        while( x < MAXN ){
+        bit[x] += val;
         x += lowbit(x);
+        }
     }
-}
+    T sum( int l, int r ){
+        if( l > r ) return 0;
+        return query(r) - query(l - 1);
+    }
+    T LB( T val ){ // lower_bound by sum
+        T sum = 0, x = 0;
+        for( int i = __lg(MAXN) ; i >= 0 ; --i ){
+            int new_x = x | (1 << i);
+            if( new_x <= MAXN && sum + bit[new_x] < val ){
+                sum += bit[new_x];
+                x = new_x;
+            }
+        }
+        return x + 1;
+    }
+    void clear(){ MEM(bit, 0); }
+};
 
-int sum( int l, int r ){
-    if( l > r ) return 0;
-    return query(r) - query(l - 1);
-}
 
 /* ---------- KSM ---------- */
 int ksm( int base, int power ){
@@ -388,5 +397,50 @@ struct DINIC {
         while( bfs() ) res += dfs( s, INF );
 
         return res;
+    }
+};
+
+/* Heavy-Light Decomposition */
+struct HLD {
+    struct NODE {
+        int size, fa, depth, hson, id, chain;
+    } node[MAXN];
+
+    int timer = 0, id2pos[MAXN];
+    vector<vector<int>> edge;
+    
+    void init(){
+        build(1, 0);
+        decomposition(1, 1);
+    }
+    
+    int build( int root, int dep ){
+        node[root].hson = 0;
+        node[node[root].hson].size = 0;
+        node[root].depth = dep;
+        node[root].size = 1;
+        for( auto i : edge[root] ){
+            if( i == node[root].fa ) continue;
+            node[i].fa = root;
+            node[root].size += build(i, dep + 1);
+            if( node[i].size > node[node[root].hson].size ){
+                node[root].hson = i;
+            }
+        }
+    
+        return node[root].size;
+    }
+    
+    void decomposition( int root, int chain ){
+        node[root].chain = chain;
+        node[root].id = ++timer;
+        id2pos[node[root].id] = root;
+        if( node[root].hson != 0 ){
+            decomposition(node[root].hson, chain);
+            for( auto i : edge[root] ){
+                if( i == node[root].fa || i == node[root].hson ) continue;
+                decomposition(i, i);
+            }
+        }
     }
 };
