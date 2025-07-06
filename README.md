@@ -1,5 +1,39 @@
 # CP-Question-Record
 
+### 【CSES】 1138. Path Queries
+
+**Solved**
+
+。Heavy-Light Decomposition HLD with Segment Tree - O($log{log{N}}$)
+
+* Time Complexity
+    * Each modify and query takes O($log{N}$) for the segment tree
+    * Since a path from a node to the root is broken into at most O($log{N}$) chains, the total per-query cost is O($log{log{N}}$)
+    * Preprocessing, HLD + Segment Tree build, is O($N$)
+* Core Concepts
+    * Heavy-Light Decomposition
+        * Decomposes a tree into **chains** where each chain maintains the **heaviest** child connection, allowing **path queries** to be broken into O($log{N}$) segments
+        * This allows efficient traversal and updates on a path between any node and the root (or between any two nodes in general cases)
+    * Segment Tree with Lazy Propagation
+        * Used to maintain values on the linearized tree
+        * Allows efficient range updates and point queries with O(${logN}$) time complexity per operation
+        * The `tag` is used to implement lazy propagation, accumulating updates until necessary
+* Implementation Strategy
+    1. Tree Construction
+        * Run `tree_build()` DFS to calculate subtree sizes and identify heavy children
+        * Run `tree_decom()` to assign unique ids to nodes for segment tree mapping and chain identification\
+    2. Processing Queries
+        * Modify
+            * Retrieve the current value via `query()`, then modify via `modify()` to set it to `x`
+        * Path Sum
+            * Climb up the tree using HLD by chains
+            * For each chain, perform a range sum query
+            * Accumulate and print the result
+* Additional Notes
+    * The segment tree operates on a **flattened representation** of the tree using DFS order
+    * The `id` assigned in `tree_decom()` maps each node to its position in the segment tree
+    * `id2pos[]` reverses this mapping, from timer to segment id, is **NECESSARY**
+
 ### feat: Update Tamplate.cpp
 
 ### 【CSES】 1694. Download Speed
