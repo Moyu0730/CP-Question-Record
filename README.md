@@ -1,5 +1,36 @@
 # CP-Question-Record
 
+### 【CSES】 12749. John's Tree
+
+**Solved**
+
+。Mathematics + Modular Arithmetic + Fast Exponentiation - O($TlogD$)
+
+* Mathematical Derivation
+    1. Let $V$ be the **maximum degree**, and we assume the **root** uses at most $V$ children
+    2. For each level $i$ from 1 to D
+        * The number of nodes at level $i$ is $(V−1)^i$ for $i \geq 1$, since each child node can generate at most $V−1$ more
+    3. The total number of nodes is $1 + V + V(V-1) + V(V-1)^2 + \dots + V(V-1)^{D-1}$ </br>
+     &nbsp; &nbsp; which is $\Longrightarrow 1 + V \times \frac{(V-1)^{D}-1}{V-2}$ for $V \neq 2$
+* Special Case Handling
+    1. If `D == 0` ⮕ The tree only contains the root $\Longrightarrow$ Output 1
+    2. If `D == 1` ⮕ The tree contains the root and at most V neighbors $\Longrightarrow$ Output `1 + V`
+    3. If `V == 1` and `D > 1` ⮕ Only a **chain** is possible, and it can't reach depth D $\Longrightarrow$ Output `-1`
+    4. If `V == 2` $\Longrightarrow$ The tree becomes a straight line (chain), so the number of nodes is `2D + 1`
+* Solution Strategy
+    1. Use modular arithmetic to avoid overflow
+    2. Use a custom `Mod` struct with
+        * Modular addition, subtraction, multiplication
+        * Modular inverse using **Extended Euclidean Algorithm**
+        * Binary exponentiation for `(V-1)^D` in O($logD$)
+* Complexity Analysis
+    * Each test case runs in O($logD$) due to modular exponentiation
+    * Space usage is constant ⮕ O($1$)
+    * Overall time complexity is O($TlogD$) where $T$ is the number of test cases
+* Notes
+    * The custom `Mod` class is carefully designed to handle modular division even when `MOD` is not prime
+    * Avoid using Fermat's Little Theorem, and instead use `exgcd()` to compute the inverse to ensure correctness in all cases
+
 ### 【UVa】10036. Divisibility
 
 **Solved**
