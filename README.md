@@ -1,5 +1,7 @@
 # CP-Question-Record
 
+## feat: Update README.md
+
 ### 【CSES】 12749. John's Tree
 
 **Solved**
@@ -22,7 +24,7 @@
     2. Use a custom `Mod` struct with
         * Modular addition, subtraction, multiplication
         * Modular inverse using **Extended Euclidean Algorithm**
-        * Binary exponentiation for `(V-1)^D` in O($logD$)
+        * Binary exponentiation for $(V-1)^D$ in O($logD$)
 * Complexity Analysis
     * Each test case runs in O($logD$) due to modular exponentiation
     * Space usage is constant ⮕ O($1$)
