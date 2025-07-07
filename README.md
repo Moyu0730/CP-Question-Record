@@ -4,7 +4,7 @@
 
 **Solved**
 
-。LCA - O($max(Nlog{N}, Qlog{N})$)
+。LCA - O( max($Nlog{N}$, $Qlog{N}$) )
 
 * Complexity Analysis
     * Binary Lifting Preprocessing ⮕ O($Nlog{N}$)
