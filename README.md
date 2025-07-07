@@ -1,5 +1,42 @@
 # CP-Question-Record
 
+### 【CSES】 1136. Counting Paths
+
+**Solved**
+
+。LCA - O($max(Nlog{N}, Qlog{N})$)
+
+* Complexity Analysis
+    * Binary Lifting Preprocessing ⮕ O($Nlog{N}$)
+    * Processing Queries ⮕ O($Qlog{N}$)
+    * DFS Traversal ⮕ O($N$)
+    * Overall Time Complexity ⮕ O($(N+Q)log{N}$)
+* Core Concepts
+    * Tree Representation
+        * Use an adjacency list to store the tree edges
+        * Use DFS to preprocess binary lifting parent table and node depths
+    * LCA
+        * For each pair $(u, v)$, compute the LCA
+        * This allows us to find the overlapping region of paths in O($log{N}$) per query
+        * Preprocessing table `fa[x][i]` such that `fa[x][i]` is the 2ⁱ-th ancestor of node `x`
+* Solution Strategy
+    1. Difference Array on Tree
+        * For each path $(u, v)$
+            * `ans[u]++` and `ans[v]++` to mark both ends
+            * `ans[lca(u, v)]--` and `ans[parent_of_lca]--` to subtract the overlap
+        * This works similarly to a prefix sum difference array on a tree
+    2. DFS to Aggregate Result
+        * Perform a DFS from root to accumulate results
+        * `res[x] = ans[x] + sum of all res[child]` over its subtree
+        * Ensures each node counts the number of times it is passed through by a path
+* Summary of Key Functions
+    * `create_table(root, parent)` ⮕ Builds the depth and ancestor table for LCA
+    * `lca(a, b)` ⮕ Computes the lowest common ancestor of nodes `a` and `b`
+    * `dfs(root)` ⮕ Accumulates the number of paths through each node based on the difference array
+
+> [!NOTE]
+> This technique of using difference arrays on trees is powerful for counting path intersections or frequency propagation in subtree-related problems
+
 ### feat: Update Tamplate.cpp
 
 ### 【CSES】 1138. Path Queries
