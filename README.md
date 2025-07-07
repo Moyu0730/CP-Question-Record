@@ -1,5 +1,31 @@
 # CP-Question-Record
 
+### 【UVa】10036. Divisibility
+
+**Solved**
+
+。Modulo Optimization - O($NK$)
+
+* Core Concepts
+    * Approach
+        * This problem can be formulated as below, whether it's possible to get a cumulative sum modulo $K$ equal to $0$ using `+` or `-` between numbers
+        * Transitions are based on adding or subtracting the current number modulo $K$
+    * Optimization
+        * Since only the current and next states are needed, we can use two alternating `queue`s to avoid full allocation
+        * We use a boolean `used[0..K-1]` array to avoid redundant computation of the same modulo in the same stage
+* Problem Breakdown
+    1. Modulo Normalization
+        * Since input numbers can be negative, all numbers are first converted to positive modulo `arr[i] = (arr[i] % K + K) % K`
+    2. Initial Setup
+        * If all numbers are $0$ (mod $K$), then the sequence is trivially divisible
+        * Otherwise, start from the first number and initialize `q.push(arr[0])`
+    3. BFS-based Transition
+        * For each position $i$, simulate all reachable modulo values from the previous position
+        * From a current mod $m$, we can move to `(m + arr[i]) % K` and `(m - arr[i]) % K`
+        * If at any point the modulo becomes 0 at the last element, we conclude `Divisible`
+    4. Termination
+        * If no path reaches 0 modulo after processing all elements, output `Not divisible`
+
 ### 【CSES】 1136. Counting Paths
 
 **Solved**
