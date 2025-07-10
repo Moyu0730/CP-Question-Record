@@ -1,6 +1,32 @@
 # CP-Question-Record
 
-## feat: Update README.md
+### 【CSES】 3403. Longest Common Subsequence
+
+**Solved**
+
+。Classic LCS - O($NM$)
+
+* Core Concepts
+    * DP State
+        * Let `dp[i][j]` represent the **length of LCS** between the first `i` elements of array `A` and the first `j` elements of array `B`
+    * State Transition
+        * If `A[i] == B[j]`, then `dp[i][j] = dp[i-1][j-1] + 1`
+        * Otherwise, `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`
+    * Base Case
+        * `dp[0][j] = 0` and `dp[i][0] = 0` for all $i, j$, since empty subsequences have length $0$
+* Implementation Strategy
+    1. Initialization
+        * Read input arrays `A` and `B`, where $1 \leq N$, $M \leq 1000$
+        * Initialize `dp[n+1][m+1]` with all zeros using `memset`
+    2. DP Computation
+        * Fill in the 2D DP table in O($NM$) time
+    3. LCS Reconstruction
+        * Start from `dp[n][m]` and trace back to reconstruct one valid LCS
+        * At each step, if current cell equals the top cell, move up
+        * If it equals the left cell, move left
+        * Otherwise, record the matched value and move diagonally
+
+### feat: Update README.md
 
 ### 【CSES】 12749. John's Tree
 
@@ -399,7 +425,7 @@
     * Avoid pushing node 1 again
         * To prevent duplicate processing since `1` is the starting point and already processed
 
-## feat: Update Set.cpp
+### feat: Update Set.cpp
 
 ### 【CSES】 1679. Course Schedule
 
@@ -2751,6 +2777,6 @@
 
 **Solved** - 【ZeroJudge】 b844. A Bunch of Buttons
 
-## 2022. 07. 21
+### 2022. 07. 21
 
 **Solved** - 【CSES】 1646. Static Range Sum Queries
