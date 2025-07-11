@@ -1,5 +1,32 @@
 # CP-Question-Record
 
+### 【CSES】 1713. Counting Divisors
+
+**Solved**
+
+。Mathematics - Sieve + Prime Factorization - O($NlogX$) per query after O($NloglogN$) preprocessing
+
+* Core Concepts
+    * **Approach**
+        * Precompute smallest prime factor for all integers up to $10^6$ using a linear sieve
+        * For each input number $X$, perform prime factorization using `mpf[x]` and compute the number of divisors based on the formula
+            * If $X = p_1^{a_1} \cdot p_2^{a_2} \cdot \ldots \cdot p_{k}^{a_k}$, then $\text{divisors}(X) = (a_1 + 1)(a_2 + 1) \ldots (a_k + 1)$
+    * **Sieve of Eratosthenes**
+        * Linear time sieve computes
+            * `is_prime[i]` ⮕ whether $i$ is prime
+            * `mpf[i]` ⮕ the smallest prime factor of $i$
+            * Also computes Euler’s totient `phi[]` and Möbius `mu[]`
+            * Time Complexity ⮕O($N\log{\log{N}}$)
+* Solution Strategy
+    1. Sieve Construction
+        * Linear sieve ensures smallest prime factor for each number is known
+        * Store primes in a list for fast iteration
+    2. Divisor Count
+        * For each input number, factorize it using `mpf[]`
+        * Count the exponent of each prime and compute total number of divisors from the formula
+    3. Edge Case
+        * For $x = 1$, the number of divisors is exactly 1
+
 ### 【CSES】 3403. Longest Common Subsequence
 
 **Solved**
