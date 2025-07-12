@@ -1,5 +1,42 @@
 # CP-Question-Record
 
+### 【CSES】 3314. Mountain Range
+
+**Solved**
+
+。Monotonic Stack + Tree DP - O($N$)
+
+* Complexity Analysis
+    * Monotonic Stack Preprocessing ⮕ O($N$)
+    * DFS for DP ⮕ O($N$)
+    * Total Time Complexity ⮕ O($N$)
+* Problem Summary
+    * You are given an array of $N$ mountain heights. You can start hang gliding from any mountain, and you may glide to another mountain **only if**
+        * It is strictly **lower** than your current mountain
+        * All mountains between the two are also lower than your current mountain
+    * Find the **maximum number of mountains** you can visit in one such glide route
+* Core Concepts
+    * Next Greater Element ⮕ Monotonic Stack
+        * Use a **monotonic decreasing stack** to precompute for each mountain the **nearest taller mountain to the left and to the right**
+    * Graph Representation
+        * Each mountain is treated as a **node**, with directed edges to its left and right "glide" targets if they exist
+        * A mountain can glide left or right to the next taller peak, forming a type of **jump pointer graph**
+    * Tree DP via DFS
+        * Use DFS to compute the **maximum glide path length** starting from each mountain
+        * Store intermediate results in a `dp[i]` array
+        * Transition: `dp[i] = max(dp[l[i]] + 1, dp[r[i]] + 1)` where `l[i]` and `r[i]` are the glide targets
+* Solution Strategy
+    2. Compute Glide Targets
+        * Use monotonic stacks to compute
+            * `l[i]` ⮕ nearest higher mountain to the left of $i$
+            * `r[i]` ⮕ nearest higher mountain to the right of $i$
+    3. Tree-Like DP Computation
+        * Initialize all `dp[i] = -1`
+        * Use DFS to compute `dp[i]` if not already computed
+        * At each node, consider transitions to `l[i]` and `r[i]`, and take the maximum
+    4. Track Global Maximum
+        * After computing all `dp[i]`, take the maximum as the final result
+
 ### 【CSES】 1713. Counting Divisors
 
 **Solved**
