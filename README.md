@@ -4,10 +4,10 @@
 
 **Solved**
 
-。DP on LIS Count + Coordinate Compression + BIT - O($N\log{N}$)
+。DP on LIS Count + Discretization + BIT - O($N\log{N}$)
 
 * Complexity Analysis
-    * Coordinate Compression ⮕ O($N\log{N}$)
+    * Discretization ⮕ O($N\log{N}$)
     * BIT Query + Update per element ⮕ O($\log{N}$)
     * Overall Time Complexity ⮕ O($N\log{N}$)
 * DP Formulation
