@@ -1,5 +1,50 @@
 # CP-Question-Record
 
+### 【CSES】 1748. Increasing Subsequence II
+
+**Solved**
+
+。DP on LIS Count + Coordinate Compression + BIT - O($N\log{N}$)
+
+* Complexity Analysis
+    * Coordinate Compression ⮕ O($N\log{N}$)
+    * BIT Query + Update per element ⮕ O($\log{N}$)
+    * Overall Time Complexity ⮕ O($N\log{N}$)
+* DP Formulation
+    * State Definition
+        * `dp[i]` = Number of increasing subsequences **ending at `arr[i]`**
+    * Base Case
+        * All `dp[i]` initialized to `0`
+    * Transition
+        * For each index `i`, `dp[i] = sum(dp[j]) + 1` for all `j` such that `arr[j] < arr[i]` and `j < i`
+        * `+1` accounts for the new subsequence of length 1 ⮕ `[arr[i]]` itself
+    * Final Answer
+        * Sum of all `dp[i]` over `i = 0 .. n-1`
+* Core Concepts
+    * Discretization
+        * Since `arr[i]` can be up to $10^9$, compress them to range $[1, n]$ using sorting and `lower_bound()` in order to fit in BIT
+    * BIT Optimization
+        * To efficiently compute the sum of all `dp[j]` such that `arr[j] < arr[i]`, maintain a BIT indexed by the compressed values
+        * BIT performs prefix sum queries and updates in O($\log{N}$)
+    * Modular Arithmetic
+        * All operations are performed modulo $10^9 + 7$
+        * Use custom modular integer type `M<int>` to ensure correctness
+* Solution Strategy
+    1. Discretize Input
+        * Copy `arr[]` to a temp array, sort and remove duplicates
+        * Replace each `arr[i]` with its compressed rank (**1-based**)
+    2. Process DP with BIT
+        * Initialize BIT
+        * For each `i` from `0` to `n-1`
+            * Query BIT for prefix sum of values less than `arr[i]`
+            * Add `1` to account for `[arr[i]]` itself
+            * Update BIT at `arr[i]` with this new `dp[i]`
+            * Accumulate `dp[i]` to the final answer
+
+> [!NOTE]
+> While BIT is used for speed, this is fundamentally a **DP Problem**
+
+
 ### 【CSES】 3314. Mountain Range
 
 **Solved**
