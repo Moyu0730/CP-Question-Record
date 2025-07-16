@@ -1,5 +1,35 @@
 # CP-Question-Record
 
+### 【CSES】 3221. Sliding Window Minimum
+
+**Solved**
+
+。Monotonic Queue - O($N$)
+
+* Core Concepts
+    * Sliding Window Minimum using Monotonic Queue
+        * Maintain a **deque** that stores **indices** of candidates for the window minimum
+        * Always ensure
+            1. The front of the deque is the index of the minimum for the current window
+            2. Elements outside the window or larger than the current one are removed
+* Solution Strategy
+    1. Initialize First Window
+        * For $i = 0$ to $K - 1$
+            * While the deque is not empty and `arr[dq.back()] > arr[i]`, pop from back
+            * Push current index `i` into deque
+        * The first minimum is `arr[dq.front()]`, add it to result
+    2. Slide the Window
+        * For $i = k$ to $N - 1$
+            * Remove elements from the back that are larger than current value
+            * Remove elements from the front that are outside the window
+            * Push current index into deque
+            * XOR the front of the deque with the result
+
+> [!NOTE]
+> The deque operations are **amortized O(1)**, ensuring that the entire scan is linear
+> The algorithm is optimized for large input sizes up to $10^7$
+
+
 ### 【CSES】 1748. Increasing Subsequence II
 
 **Solved**
