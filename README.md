@@ -1,5 +1,40 @@
 # CP-Question-Record
 
+### 【AtCoder】 DP Contest - I. Coins
+
+**Solved**
+
+。DP - O($N^2$)
+
+* Core Concepts
+    * DP State Definition
+        * Let `dp[i][j]` represent the **probability** that after tossing the first $i$ coins, **exactly $j$ heads** appear
+    * Base Case
+        * `dp[1][0] = 1 - p[1]` ⮕ First coin is tail
+        * `dp[1][1] = p[1]` ⮕ First coin is head
+    * State Transition
+        * When processing coin $i$
+            * `dp[i][j] = dp[i-1][j] * (1 - p[i]) + dp[i-1][j-1] * p[i]`
+                * Coin $i$ is tail ⮕ stay at $j$ heads
+                * Coin $i$ is head ⮕ move from $j - 1$ to $j$ heads
+    * **Final Result**
+        * Sum over all `dp[N][j]` for $j > N/2$
+* Solution Strategy
+    1. DP Initialization
+        * Initialize `dp[i][j] = 1.0` for all $i, j$
+        * Set base cases for `dp[1][0]` and `dp[1][1]`
+    2. DP Computation
+        * Iterate over coins from $2$ to $N$
+        * For each `j = 0 to i`, compute `dp[i][j]` using the recurrence
+    3. Result Computation
+        * For $j = N/2 + 1$ to $N$, accumulate `dp[N][j]`
+        * Print result with `10` digits of precision
+
+> [!NOTE]
+> * Since the output must be accurate within $10^{-9}$, `double` precision with `fixed` and `setprecision(10)` is used
+> * This is a classic DP setup for coin toss probability modeling with head-count tracking
+
+
 ### 【CSES】 3221. Sliding Window Minimum
 
 **Solved**
