@@ -1,5 +1,29 @@
 # CP-Question-Record
 
+### 【UVa】1521. GCD Guessing Game
+
+**Solved**
+
+。Mathematics + Greedy - O($N$) Preprocessing + O( phi($N$) ) Per Query
+
+* Core Concepts
+    * If the response to a guess $x$ is `gcd(x, p) = d`, then Paul's age is a multiple of $d$
+        * If $d = 1$ ⮕ age is coprime with $x$, eliminates all multiples of $x$
+        * If $d > 1$ ⮕ age is a multiple of $d$, and lies in a smaller set of candidates
+    * So, guessing larger composite numbers can reduce the search space more effectively
+* Strategy Reformulation
+    * Suppose we know the set of prime numbers $\leq N$
+    * Try to pair primes $(p\_i, p\_j)$ such that $p\_i \cdot p\_j \leq N$ to eliminate multiple candidates in one query
+        * This pairing is critical to reducing the number of queries ⮕ one query might eliminate two or more possibilities
+    * If two primes can't be paired, i.e., $p\_i \cdot p\_j > N$ for all remaining $p\_j$, then they must be tested individually
+* Solution Strategy
+    1. For each input $N$
+        * Get all primes $\leq N$
+        * Use **two pointers** $(l, r)$ from both ends of the prime list
+            * If $p\_l \cdot p\_r \leq n$ ⮕ pair them, count 1, move both pointers
+            * Else ⮕ test $p\_r$ alone, count 1, move right pointer
+        * Total count is the number of worst-case queries needed
+
 ### 【AtCoder】 DP Contest - I. Coins
 
 **Solved**
