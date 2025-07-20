@@ -1,5 +1,37 @@
 # CP-Question-Record
 
+### 【AtCoder】 DP Contest - Q. Flowers
+
+**Solved**
+
+。Segment Tree + DP - O($N\log{N}$)
+
+* Core Concepts
+    * DP State
+        * Let `dp[h]` denote the **maximum sum of beauties** achievable for an increasing subsequence ending at height `h`
+    * Transition
+        * For each flower `i` with height `h[i]` and beauty `a[i]`
+            * Query the maximum `dp[k]` for all `k < h[i]`
+            * Then set `dp[h[i]] = max(dp[h[i]], dp[k] + a[i])`
+        * This ensures only increasing height subsequences are formed
+    * Segment Tree Optimization
+        * Use a **segment tree** to maintain `dp[]` and perform
+            * `query(1, h[i])` ⮕ get max dp value of all lower heights
+            * `update(h[i], dp[h[i]])` ⮕ update dp value at current height
+        * Since $1 \leq h[i] \leq N$, we can use a segment tree of size $N$
+* Solution Strategy
+    1. Read input arrays `h[]` and `a[]`
+    2. For each flower `i = 0` to `n - 1`
+            * Query `max(dp[1..h[i]-1])` from segment tree
+            * Compute new `dp[h[i]] = max(dp[h[i]], query + a[i])`
+            * Update the segment tree at `h[i]` with the new value
+  3. Final answer is the max value in the segment tree
+
+> [!NOTE]
+> * The height values are **unique and within $[1, N]$**, which allows direct use as segment tree indices
+> * Segment tree is initialized with all values 0, as base DP values are 0 before any flower is chosen
+
+
 ### 【UVa】1521. GCD Guessing Game
 
 **Solved**
