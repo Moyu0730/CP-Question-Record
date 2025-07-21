@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+### 【CSES】 1648. Dynamic Range Sum Queries
+
+**Solved**
+
 ### 【AtCoder】 DP Contest - Q. Flowers
 
 **Solved**
@@ -30,7 +34,6 @@
 > [!NOTE]
 > * The height values are **unique and within $[1, N]$**, which allows direct use as segment tree indices
 > * Segment tree is initialized with all values 0, as base DP values are 0 before any flower is chosen
-
 
 ### 【UVa】1521. GCD Guessing Game
 
@@ -90,7 +93,6 @@
 > * Since the output must be accurate within $10^{-9}$, `double` precision with `fixed` and `setprecision(10)` is used
 > * This is a classic DP setup for coin toss probability modeling with head-count tracking
 
-
 ### 【CSES】 3221. Sliding Window Minimum
 
 **Solved**
@@ -119,7 +121,6 @@
 > [!NOTE]
 > The deque operations are **amortized O(1)**, ensuring that the entire scan is linear
 > The algorithm is optimized for large input sizes up to $10^7$
-
 
 ### 【CSES】 1748. Increasing Subsequence II
 
@@ -164,7 +165,6 @@
 
 > [!NOTE]
 > While BIT is used for speed, this is fundamentally a **DP Problem**
-
 
 ### 【CSES】 3314. Mountain Range
 
