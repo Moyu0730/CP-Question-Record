@@ -1,5 +1,30 @@
 # CP-Question-Record
 
+### 【CSES】 1132. Tree Distances I
+
+**Solved**
+
+。Tree Diameter + Double DFS - O($N$)
+
+* Problem Summary
+    * You are given an unweighted tree with $N$ nodes
+    * For each node, find the **maximum distance to any other node**
+* Core Concepts
+    * Tree Diameter
+        * The longest path in a tree is called its **diameter**
+        * For any node, its farthest distance is either from one end of the diameter or the other
+    * Double DFS Technique
+        * First DFS from any node to find one endpoint of the diameter
+        * Second DFS from `start` to find the opposite endpoint
+    * Distance Propagation
+        * Do two additional DFS traversals
+            * `dfs(start)` computes distance from one end
+            * `dfs(end)` computes distance from the other end
+        * For each node, take the **maximum** of the two distances as the final answer
+* Key Observations
+    * In an unweighted tree, the farthest node from any node always lies on the tree’s diameter
+    * By taking max distance from both ends of the diameter, we ensure correctness for all nodes
+
 ### 【CSES】 1648. Dynamic Range Sum Queries
 
 **Solved**
