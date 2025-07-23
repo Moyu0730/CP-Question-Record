@@ -1,5 +1,37 @@
 # CP-Question-Record
 
+### 【CSES】 1130. Tree Matching
+
+**Solved**
+
+。Tree DP - O($N$)
+
+* Core Concepts
+    * Tree DP
+        * For each node, maintain a pair `dp[node] = {not_used, used}`
+            * `not_used`: max matching size if current node is **not** matched
+            * `used`: max matching size if current node is **matched with one of its children**
+        * Transition
+            1. For each child, recursively calculate its DP values
+            2. Aggregate total value `res` as sum of `max(dp[child].F, dp[child].S)` for all children
+                * This assumes the current node is not used
+            3. Try to match the current node with **one of its children**, and calculate the gain from switching that child to unmatched:
+                * Gain = `res - max(dp[child].F, dp[child].S) + dp[child].F + 1`
+                * Store the **best gain** across all children
+            4. `dp[node] = { res, res - best_dif + 1 }`
+* Solution Strategy
+    1. Tree Construction
+        * Use an adjacency list to store the undirected edges
+    2. DFS Traversal
+        * Start from the root
+        * For each node, apply the recursive DP strategy
+        * At leaf nodes, return `{0, 0}` since no matching is possible
+* Edge Case
+    * Single-node tree → No edges → Matching size is 0
+* Final Remark
+    * Elegant use of bottom-up recursion and greedy selection embedded inside dynamic programming on tree structures
+
+
 ### 【CSES】 1132. Tree Distances I
 
 **Solved**
