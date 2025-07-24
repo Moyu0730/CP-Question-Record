@@ -1,5 +1,36 @@
 # CP-Question-Record
 
+### 【CSES】 2134. Path Queries II
+
+**Solved**
+
+。Heavy-Light Decomposition + Segment Tree - O($Q\log{\log{N}}$)
+
+* Complexity Analysis
+    * HLD Build ⮕ O($N$)
+    * Segment Tree Build ⮕ O($N$)
+    * Modify Query ⮕ O($\log{N}$)
+    * Max on Path Query ⮕ O($\log{\log{N}}$)
+    * Total Time Complexity ⮕ O($Q\log{\log{N}}$)
+* Core Concepts
+    * Heavy-Light Decomposition
+        * Decompose the tree into multiple paths, or you can say `chains`,  such that each path has a heavy edge from parent to child with largest subtree size
+        * Enables path queries to be broken into O($\log{N}$) segments
+        * Each node is assigned a unique ID in a DFS-like order, so that segment tree operations can be performed on IDs
+    * Segment Tree
+        * Supports point update and range maximum queries in O($\log{N}$)
+        * After HLD decomposition, a segment tree is built over the IDs to maintain values of the nodes
+    * Path Queries
+        * To query max on the path from $a$ to $b$, repeatedly lift the deeper node to the higher chain head using segment tree queries on intervals of node IDs
+        * Once on the same chain, query directly on the segment between IDs of $a$ and $b$
+
+> [!NOTE]
+> * This problem is tight on time complexity constraints.
+> * Be sure to
+>   * Add `ios::sync_with_stdio(0); cin.tie(0);`
+>   * Avoid using `long long` unless strictly necessary, you can use `int` instead
+>   * Add `#pragma GCC optimize("O3")` for performance optimization
+
 ### 【CSES】 1130. Tree Matching
 
 **Solved**
@@ -9,8 +40,8 @@
 * Core Concepts
     * Tree DP
         * For each node, maintain a pair `dp[node] = {not_used, used}`
-            * `not_used`: max matching size if current node is **not** matched
-            * `used`: max matching size if current node is **matched with one of its children**
+            * `not_used` ⮕ max matching size if current node is **not** matched
+            * `used` ⮕ max matching size if current node is **matched with one of its children**
         * Transition
             1. For each child, recursively calculate its DP values
             2. Aggregate total value `res` as sum of `max(dp[child].F, dp[child].S)` for all children
