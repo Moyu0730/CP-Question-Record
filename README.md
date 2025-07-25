@@ -1,5 +1,9 @@
 # CP-Question-Record
 
+### 【CSES】 1079. Binomial Coefficients
+
+**Solved**
+
 ### 【CSES】 2134. Path Queries II
 
 **Solved**
@@ -346,7 +350,7 @@
 
 ### feat: Update README.md
 
-### 【CSES】 12749. John's Tree
+### 【UVa】 12749. John's Tree
 
 **Solved**
 
