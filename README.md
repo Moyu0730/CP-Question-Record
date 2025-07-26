@@ -1,5 +1,36 @@
 # CP-Question-Record
 
+### 【CSES】 1743. String Reorder
+
+**Solved**
+
+。Greedy + Character Frequency Validation - O($N$)
+
+* Core Concepts
+    * Feasibility Condition
+        * A necessary and sufficient condition for a valid reordering is $\text{max character frequency} \leq \left\lceil \frac{n}{2} \right\rceil$
+        * If one character appears more than half the length of the string (rounded up), it's impossible to place it without having two adjacent duplicates
+    * Greedy Strategy
+        * At each step, try to **place the lexicographicall smallest possible character lexicographically** that
+            1. Different from the previously placed character
+            2. Leaves the remaining multiset still valid
+* Solution Strategy
+    1. Character Frequency Map
+        * Build a frequency map `mp[ch]` of all characters in the input string
+    2. Feasibility Check
+        * Before placing any character, verify that no character appears more than $\left\lceil \frac{n}{2} \right\rceil$ times
+        * Re-check this condition **after every character placement** to ensure future rearrangements are still valid
+    3. Lexicographically Minimal Placement
+        * Iterate over characters from `'A'` to `'Z'`
+        * For each character
+            * Skip if it's the same as the previously placed character
+            * Try to place it, tentatively reduce its count
+            * Check if the remaining characters still satisfy the feasibility condition
+            * If yes, commit the placement; otherwise, backtrack and try the next smallest character
+    4. Termination
+        * Continue until all characters are placed
+        * If no valid character can be placed at some point, output `-1`
+
 ### 【CSES】 1079. Binomial Coefficients
 
 **Solved**
