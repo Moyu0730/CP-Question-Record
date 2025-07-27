@@ -1,5 +1,39 @@
 # CP-Question-Record
 
+### 【CSES】 1651. Range Update Queries
+
+**Solved**
+
+。Segment Tree with Lazy tag - O($max(N, Q)\log{N}$)
+
+* Core Concepts
+    * Segment Tree with Lazy tag
+        * Each node in the segment tree maintains
+            * `val` ⮕ the actual sum of the segment
+            * `tag` ⮕ the lazy tag value
+            * `len` ⮕ the length of the segment
+        * When applying a range update, update the `tag` and defer actual computation until the node is accessed
+    * Push Operation
+        * Before any child query or update, propagate the lazy value down to children
+        * This ensures correctness without unnecessary recalculation
+    * Query Logic
+        * When querying a point $k$, we perform a recursive query with lazy tag to get the correct updated value
+    * Update Logic
+        * To update $[a, b]$, recursively add to the tags of overlapping segments
+        * When moving back up, calculate new values from the children's updated values
+* Solution Strategy
+    1. Segment Tree Initialization
+        * Read the initial array of $N$ elements
+        * Build the segment tree bottom-up with each node maintaining its sum and length
+    2. Lazy Range Update
+        * For update operation `1 a b u`, call `modify()` on the segment tree to lazily add $u$ to all nodes in range $[a, b]$
+        * Accumulate updates in `tag` to delay computation until required
+    3. Point Query
+        * For query `2 k`, call `query()` on the segment tree to retrieve the true value at position $k$ using lazy tag
+    4. Efficiency
+        * Ensures all $Q$ operations run efficiently within O($\log{N}$) per query and update by using lazy tag
+        * Handles large value ranges due to use of `long long`
+
 ### 【CSES】 1743. String Reorder
 
 **Solved**
