@@ -1,5 +1,32 @@
 # CP-Question-Record
 
+### 【CSES】 1652. Forest Queries
+
+**Solved**
+
+。2D Prefix Sum - O($max(N^2, Q)$)
+
+* Core Concepts
+    * 2D Prefix Sum Array
+        * Let `pre[i][j]` denote the total number of trees in the rectangle from \$(1,1)\$ to \$(i,j)\$
+        * This is built using the recurrence
+            ```
+            pre[i][j] = pre[i-1][j] + pre[i][j-1] - pre[i-1][j-1] + (grid[i][j] == '*' ? 1 : 0);
+            ```
+    * Fast Rectangle Sum Query
+        * For any rectangle $(a, b)$ to $(c, d)$, compute
+            ```
+            pre[c][d] - pre[c][b-1] - pre[a-1][d] + pre[a-1][b-1];
+            ```
+        * This formula ensures constant-time answering of each query after preprocessing
+* Solution Strategy
+    1. Input Parsing
+        * Read the grid and initialize the prefix sum matrix `pre`
+    2. Prefix Sum Construction
+        * Iterate through each cell and build `pre[i][j]` based on the surrounding values and current cell's content
+    3. Query Answering
+        * For each query, use the precomputed `pre[][]` to return the count of trees in the given rectangle in O($1$)
+
 ### 【CSES】 1651. Range Update Queries
 
 **Solved**
