@@ -4,7 +4,7 @@
 
 **Solved**
 
-。2D Prefix Sum - O(max($N^2$, 4Q$))
+。2D Prefix Sum - O( max($N^2$, $Q$) )
 
 * Core Concepts
     * 2D Prefix Sum Array
