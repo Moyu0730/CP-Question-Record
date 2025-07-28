@@ -4,11 +4,11 @@
 
 **Solved**
 
-。2D Prefix Sum - O($max(N^2, Q)$)
+。2D Prefix Sum - O(max($N^2$, 4Q$))
 
 * Core Concepts
     * 2D Prefix Sum Array
-        * Let `pre[i][j]` denote the total number of trees in the rectangle from \$(1,1)\$ to \$(i,j)\$
+        * Let `pre[i][j]` denote the total number of trees in the rectangle from $(1,1)$ to $(i,j)$
         * This is built using the recurrence
             ```
             pre[i][j] = pre[i-1][j] + pre[i][j-1] - pre[i-1][j-1] + (grid[i][j] == '*' ? 1 : 0);
