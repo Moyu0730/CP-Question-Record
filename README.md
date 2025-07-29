@@ -1,5 +1,29 @@
 # CP-Question-Record
 
+### 【CSES】 1749. List Removals
+
+**Solved**
+
+。BIT + Binary Search - O($N\log{N}$)
+
+* Core Concepts
+    * Binary Indexed Tree
+        * BIT is used to efficiently maintain which indices are still "alive"
+        * Each index in BIT starts with a value of 1, which stands for alive
+        * On removal, we decrement that index’s value in BIT to mark it as removed
+    * Order Statistics via BIT
+        * To find the $k$-th remaining element, we use a custom binary search `LowerB(k)` on the prefix sums of BIT
+        * This simulates the process of removing the $k$-th alive number from the dynamic array
+* Solution Strategy
+    1. BIT Initialization
+        * Read array `arr[1..n]` and update BIT with `1` at each index to indicate all elements are initially alive
+    2. Process Removals
+        * For each removal query `q`, do the following
+            1. Find index `idx = bit.LowerB(q)` ⮕ this is the $q$-th alive number
+            2. Print `arr[idx]`
+            3. Mark it as removed via `bit.update(idx, -1)`
+    3. Output the sequence of removed elements
+
 ### 【CSES】 1652. Forest Queries
 
 **Solved**
