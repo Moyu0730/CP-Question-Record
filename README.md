@@ -1,5 +1,48 @@
 # CP-Question-Record
 
+### 【CSES】 1144. Salary Queries
+
+**Solved**
+
+。Discretization + Segment Tree - $Q\log{N}$
+
+* Complexity Analysis
+    * Coordinate Compression ⮕ $(N+Q)\log(N+Q)$
+    * Segment Tree Operation ⮕ $\log(N+Q)$ Per Operation
+    * Total Time Complexity ⮕ $(N+Q)\log(N+Q)$
+* Core Concepts
+    * Segment Tree
+        * Maintain a frequency count of the compressed salary values
+        * Supports both point updates and range sum queries
+    * Coordinate Compression
+        * Due to the large salary range ($1 \sim 10^9$), directly using salary values as segment tree indices is infeasible
+        * Instead, all distinct salary values are collected and compressed into a smaller range
+        * This reduces memory usage and avoids TLE from sparse mapping
+    * TLE Avoidance
+        * **Do not use `map` or `unordered_map`** for dynamic coordinate mapping during query time ⮕ it is too slow
+        * Preprocess all possible salary values before building the segment tree
+* Solution Strategy
+    1. Input Preprocessing
+        * Read all salaries into `arr[1..n]`
+        * For each query, if it is an update `! k x`, store the `x`
+        * If it is a query `? a b`, store both `a` and `b`
+        * Merge all these values into a temporary array for compression
+    2. Coordinate Compression
+        * Sort and deduplicate the temporary array
+        * Map each salary to its compressed index using `lower_bound`
+    3. Segment Tree Initialization
+        * Build a segment tree on the compressed salary indices
+        * For initial salaries, increment frequency at corresponding compressed index
+    4. Query Handling
+        * For `? a b` ⮕ compress both `a` and `b`, then query the segment tree in that range
+        * For `! k x` ⮕ decrement frequency at previous salary of employee `k`, and increment at new salary `x` after compression
+    5. Output
+        * For each `?` query, output the count of employees with salary in range
+
+> [!NOTE]
+> Due to tight time constraints, this problem **must** avoid STL structures like `map` or `set` for frequency management
+> Segment Tree + Coordinate Compression is the optimal and accepted approach
+
 ### 【CSES】 1749. List Removals
 
 **Solved**
@@ -8,7 +51,7 @@
 
 * Core Concepts
     * Binary Indexed Tree
-        * BIT is used to efficiently maintain which indices are still "alive"
+        * BIT is used to efficiently maintain which indices are still `alive`
         * Each index in BIT starts with a value of 1, which stands for alive
         * On removal, we decrement that index’s value in BIT to mark it as removed
     * Order Statistics via BIT
