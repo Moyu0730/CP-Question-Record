@@ -1,5 +1,38 @@
 # CP-Question-Record
 
+### 【CSES】 2166. Prefix Sum Queries
+
+**Solved**
+
+。Segment Tree with Lazy Propagation - O($(N + Q)\log{N}$)
+
+* Core Concepts
+    * Prefix Sum Preprocessing
+        * Compute `pre[i] = A[1] + A[2] + ... + A[i]` so that prefix queries become range queries over `pre[]`
+    * Segment Tree
+        * Store the prefix sum array in a Segment Tree
+        * Each node holds the **maximum value** in its segment, along with a **lazy tag** to enable fast updates
+    * Lazy Propagation
+        * Updates to `A[k]` affect `pre[i]` for all $i \ge k$
+        * So we perform **range additions** to the segment `[k, n]` with the delta `u - A[k]`
+* Solution Strategy
+    1. Precompute Prefix Sums
+        * Initialize `pre[i] = pre[i-1] + A[i]`
+    2. Build Segment Tree
+        * Each leaf stores `pre[i]`
+        * Internal nodes store the max of their children's values
+    3. Update Query
+        * To update `A[k]` to `u`, compute delta = `u - A[k]`
+        * Apply this delta to the range `[k, n]` in the Segment Tree using lazy propagation
+        * Update `A[k] = u`
+    4. Max Prefix Sum Query
+        * Query the maximum in `pre[a..b]`
+        * If $a > 1$, subtract `pre[a-1]` to get max prefix sum starting at $a$
+        * Take `max(0, result)` as the answer
+
+> [!NOTE]
+> This problem reduces to range maximum queries and range additions on a prefix sum array, making lazy Segment Tree a perfect fit.
+
 ### 【CSES】 1144. Salary Queries
 
 **Solved**
