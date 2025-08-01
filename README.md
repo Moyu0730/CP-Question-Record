@@ -1,10 +1,33 @@
 # CP-Question-Record
 
+### 【CSES】 3426. Sliding Window Xor
+
+**Solved**
+
+。Bitwise XOR + Sliding Window Technique - $N$
+
+* Core Concepts
+    * Prefix-Free Property of XOR
+        * XOR is both associative and invertible: $A \oplus A = 0$
+        * Hence, removing the leftmost and adding the rightmost element via XOR yields the next window's result efficiently
+* Solution Strategy
+    1. Input Parsing & Sequence Generation
+        * Read input parameters $n, k, x, a, b, c$
+        * Construct the array `arr` of length $N$ using the recurrence rule
+    2. Initial Window XOR
+        * Compute the XOR of the first $K$ elements and store it in `res`
+    3. Sliding Window XOR Updates
+        * Maintain a `cnt` variable representing the XOR of the current window
+        * For each step $i$ from $K$ to $N - 1$, update `cnt` by removing `arr[i - k]` and adding `arr[i]`
+        * Update the global `res` by XORing `cnt`
+    4. Final Output
+        * Print the XOR of all window xors
+
 ### 【CSES】 2166. Prefix Sum Queries
 
 **Solved**
 
-。Segment Tree with Lazy Propagation - O($(N + Q)\log{N}$)
+。Segment Tree with Lazy Propagation - $(N + Q)\log{N}$
 
 * Core Concepts
     * Prefix Sum Preprocessing
