@@ -8,7 +8,7 @@
 
 * Complexity Analysis
     * Monotonic Stack Preprocessing ⮕ $N$
-    * Binary Lifting Table Construction ⮕ $N \log{N}$
+    * Binary Lifting Table Construction ⮕ $N\log{N}$
     * Each Query ⮕ $\log{N}$
     * Total Time Complexity ⮕ $N\log{N}$ $+$ $Q\log{N}$
 * Core Concepts
@@ -16,7 +16,7 @@
         * Used to compute, for each building, the **next building to the right** that is taller
         * This allows us to define a jump pointer to the next visible building
     * Binary Lifting
-        * Build a `fa[i][j]` table where `fa[i][j]` is the 2^j-th next visible building from `i`
+        * Build a `fa[i][j]` table where `fa[i][j]` is the $2^{j-1}$-th next visible building from `i`
         * Enables jumping across multiple visible buildings in $\log{N}$ time
         * Be cautious ⮕ **binary lifting should not be combined with binary search** in this context, or it will degrade performance and result in TLE
 * Solution Strategy
@@ -26,10 +26,10 @@
         * Stack maintains a decreasing sequence of building heights
     2. Binary Lifting Table
         * Fill `fa[i][j] = fa[fa[i][j−1]][j−1]` for all `j > 1`
-        * Each `fa[i][j]` represents the 2^j-th visible building from `i`
+        * Each `fa[i][j]` represents the $2^{j-1}$-th visible building from `i`
     3. Answering Queries
         * Start from index `a` and repeatedly jump via the highest possible `fa[a][j]` that stays within range `b`
-        * For each valid jump, increment visible building count by `2^{j−1}`
+        * For each valid jump, increment visible building count by $2^{j−1}$
         * Stop once next jump exceeds `b` or becomes invalid
 * Key Observations
     * Unlike normal LCA or jump pointer use cases, we must **strictly stay within the query range $[a, b]$**
