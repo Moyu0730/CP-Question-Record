@@ -1,5 +1,46 @@
 # CP-Question-Record
 
+### 【CSES】 3304. Visible Buildings Queries
+
+**Solved**
+
+。Monotonic Stack + Binary Lifting - $N\logN$
+
+* Complexity Analysis
+    * Monotonic Stack Preprocessing ⮕ $N$
+    * Binary Lifting Table Construction ⮕ $N \log{N}$
+    * Each Query ⮕ $\log{N}$
+    * Total Time Complexity ⮕ $N\log{N}$ $+$ $Q\log{N}$
+* Core Concepts
+    * Monotonic Stack
+        * Used to compute, for each building, the **next building to the right** that is taller
+        * This allows us to define a jump pointer to the next visible building
+    * Binary Lifting
+        * Build a `fa[i][j]` table where `fa[i][j]` is the 2^j-th next visible building from `i`
+        * Enables jumping across multiple visible buildings in $\log{N}$ time
+        * Be cautious ⮕ **binary lifting should not be combined with binary search** in this context, or it will degrade performance and result in TLE
+* Solution Strategy
+    1. Preprocessing - Monotonic Stack
+        * Traverse from left to right
+        * For each building `i`, assign `fa[prev][1] = i` for any shorter building `prev` on the stack
+        * Stack maintains a decreasing sequence of building heights
+    2. Binary Lifting Table
+        * Fill `fa[i][j] = fa[fa[i][j−1]][j−1]` for all `j > 1`
+        * Each `fa[i][j]` represents the 2^j-th visible building from `i`
+    3. Answering Queries
+        * Start from index `a` and repeatedly jump via the highest possible `fa[a][j]` that stays within range `b`
+        * For each valid jump, increment visible building count by `2^{j−1}`
+        * Stop once next jump exceeds `b` or becomes invalid
+* Key Observations
+    * Unlike normal LCA or jump pointer use cases, we must **strictly stay within the query range $[a, b]$**
+    * Precomputed `fa[i][j]` allows jumping in powers of two without revisiting intermediate nodes
+    * This method guarantees each query runs in $\log{N}$, even for large $Q$
+
+> [!NOTE]
+> Binary lifting should **NOT** be combined with binary search in this problem
+> It would increase query complexity and cause **TLE** for large inputs. Stick to pure top-down greedy jump pointer traversal
+
+
 ### 【CSES】 3426. Sliding Window Xor
 
 **Solved**
