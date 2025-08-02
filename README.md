@@ -4,7 +4,7 @@
 
 **Solved**
 
-。Monotonic Stack + Binary Lifting - $N\logN$
+。Monotonic Stack + Binary Lifting - $N\log{N}$
 
 * Complexity Analysis
     * Monotonic Stack Preprocessing ⮕ $N$
