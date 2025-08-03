@@ -1,5 +1,30 @@
 # CP-Question-Record
 
+### 【CSES】 1750. Planets Queries I
+
+**Solved**
+
+。Binary Lifting - $Q\log{K}$
+
+* Core Concepts
+    * Binary Lifting
+        * Precompute a table `fa[i][j]` where `fa[i][j]` stores the $2^j$-th ancestor
+        * Allows efficient jump-by-power-of-two strategy to simulate $K$ teleportations in $\log{K}$
+    * Jump Simulation
+        * For each query $(X, K)$
+            * Starting from $X$, repeatedly jump to `fa[x][j]` while $2^j \leq K$
+            * Subtract the corresponding power of two from $K$ at each step
+* Solution Strategy
+    1. Binary Lifting Table Construction
+        * For each $j$ from 1 to 30
+            * Compute `fa[i][j] = fa[ fa[i][j-1] ][j-1]` for all $i$
+            * This ensures $2^j$ jumps can be simulated by two $2^{j-1}$ jumps
+    2. Query Answering
+        * For each query $(x, k)$
+            * From the highest power of 2 downward, jump whenever $k \geq 2^j$
+            * Update $x$ $=$ `fa[x][j]`, and reduce $K$ by $2^j$
+        * Output the final value of $X$
+     
 ### 【CSES】 3304. Visible Buildings Queries
 
 **Solved**
