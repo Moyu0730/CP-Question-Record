@@ -1,5 +1,38 @@
 # CP-Question-Record
 
+### 【CSES】 3226. Subarray Sum Queries II
+
+**Solved**
+
+。Segment Tree - $Q\log{N}$
+
+* Core Concepts
+    * Segment Tree with Custom Node Structure
+        * Each node stores
+            * `sum` ⮕ total sum of the range
+            * `pre` ⮕ maximum prefix sum in the range
+            * `suf` ⮕ maximum suffix sum in the range
+            * `ans` ⮕ maximum subarray sum in the range
+        * Merge two segments `L` and `R` with
+            * `pre = max(L.pre, L.sum + R.pre)`
+            * `suf = max(R.suf, R.sum + L.suf)`
+            * `sum = L.sum + R.sum`
+            * `ans = max(L.ans, R.ans, L.suf + R.pre)`
+    * Query Processing
+            * For each query $[a, b]$, return the `ans` field in the corresponding segment
+            * Return `max(0, ans)` to account for the empty subarray possibility
+* Solution Strategy
+    1. Segment Tree Initialization
+        * Read the array of size $N$
+        * Build the segment tree in O($N$) using recursion
+    2. Query Evaluation
+        * For each query $[a, b]$
+            * Recursively evaluate the maximum subarray sum in the range using the segment tree
+            * Print `max(0, result.ans)` for each query
+    3. Node Merge Logic
+            * Carefully combine child nodes to maintain accurate prefix, suffix, and maximum subarray sums
+            * This is similar to combining states in the classic **Kadane’s algorithm**, but within a tree structure
+
 ### 【CSES】 1750. Planets Queries I
 
 **Solved**
