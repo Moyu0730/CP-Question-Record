@@ -1,5 +1,21 @@
 # CP-Question-Record
 
+### 【CSES】 2136. Hamming Distance
+
+**Solved**
+
+。Bitmask - O($N^2$)
+
+* Core Concepts
+    * Bit Encoding
+        * Each length-$k$ bit string fits in a 32-bit integer (here stored as `bitset<31>`)
+        * convert input lines into masks
+    * Hamming via XOR
+        * For two masks `a` and `b`, `__builtin_popcount(a ^ b)` equals their Hamming distance
+    * Running Minimum
+        * Maintain a global minimum `res`
+        * update with each pair’s distance and early-stop when it hits `0` (tight lower bound)
+
 ### 【CSES】 3226. Subarray Sum Queries II
 
 **Solved**
