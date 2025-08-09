@@ -1,20 +1,31 @@
 # CP-Question-Record
 
-### 【CSES】 2136. Hamming Distance
+### 【CSES】 3421. Distinct Values Subsequences
 
 **Solved**
 
-。Bitmask - O($N^2$)
+。Combinatorics + Frequency Counting - $N\log{N}$
 
 * Core Concepts
-    * Bit Encoding
-        * Each length-$k$ bit string fits in a 32-bit integer (here stored as `bitset<31>`)
-        * convert input lines into masks
-    * Hamming via XOR
-        * For two masks `a` and `b`, `__builtin_popcount(a ^ b)` equals their Hamming distance
-    * Running Minimum
-        * Maintain a global minimum `res`
-        * update with each pair’s distance and early-stop when it hits `0` (tight lower bound)
+    * Distinct-in-subsequence constraint
+        * A valid subsequence may include **at most one occurrence of each value**
+        * If a value $v$ appears $c_v$ times, then when $v$ is chosen to appear in a subsequence, there are **$c_v$ choices** for which occurrence to use
+    * Product-sum identity
+        * For each distinct value $v$, you either **skip** it or **pick** it
+        * Independent choices across values multiply <br><br>
+            $\Longrightarrow \displaystyle \prod_{v}(c_v+1)$
+          <br>
+        * Subtract the empty choice to exclude the empty subsequence <br><br>
+            $\Longrightarrow \displaystyle \boxed{\sum_{\text{valid subseq}} 1 = \prod_{v}(c_v+1) - 1}$
+          <br>
+* Solution Strategy
+    1. Frequency Count
+        * Read the array and compute multiplicities $c_v$ for each distinct value using a hash map or ordered map
+    2. Multiplicative Accumulation
+        * Initialize `res = 1`
+        * For every distinct value with count `c`, update `res = res * (c + 1) % Mod`
+    3. Exclude Empty Subsequence
+        * Output `(res - 1 + MOD) % Mod` to avoid negative underflow
 
 ### 【CSES】 3226. Subarray Sum Queries II
 
