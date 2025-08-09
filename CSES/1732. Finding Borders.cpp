@@ -58,7 +58,7 @@ const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
 int hsh[MAXN], ksm[MAXN];
 string str;
-int p = 100;
+int p = 14341;
 
 int query( int l, int r ){
     if( l == 0 ) return hsh[r];
