@@ -26,6 +26,21 @@
         * For every distinct value with count `c`, update `res = res * (c + 1) % Mod`
     3. Exclude Empty Subsequence
         * Output `(res - 1 + MOD) % Mod` to avoid negative underflow
+      
+### 【CSES】 2136. Hamming Distance
+
+**Solved**
+
+。Bitmask - O($N^2$)
+
+* Core Concepts
+    * Bit Encoding
+        * Each length-$k$ bit string fits in a 32-bit integer
+        * convert input lines into masks
+    * Hamming via XOR
+        * For two masks `a` and `b`, `__builtin_popcount(a ^ b)` equals their Hamming distance
+    * Running Minimum
+        * Maintain a global minimum `res`
 
 ### 【CSES】 3226. Subarray Sum Queries II
 
