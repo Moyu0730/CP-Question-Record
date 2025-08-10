@@ -1,71 +1,150 @@
-/* CSES 1734. Distinct Values Queries */
+/* Question : CSES 1734. Distinct Values Queries */
 
 #include<bits/stdc++.h>
 using namespace std;
 
-#define opt ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-#define pirq(type) priority_queue<type, vector<type>, greater<type>>
-#define mem(x, value) memset(x, value, sizeof(x));
+/* Pragma */
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast,unroll-loops,no-stack-protector,fast-math")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+
+/* Self Define */
+#define IO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+#define MEM(_array, _value) memset(_array, _value, sizeof(_array));
+#define ALL(_array) _array.begin(), _array.end()
+#define LB(_array, v) lower_bound(ALL(_array), v)
+#define UB(_array, v) upper_bound(ALL(_array), v)
+#define vc(_data) vector<_data>
 #define pii pair<int, int>
 #define pdd pair<double, double>
+#define mkp make_pair
+#define sz size()
 #define pb push_back
-#define f first
-#define s second
+#define F first
+#define S second
 #define int long long
+#define ll long long
+#define ld long double
+#define tpn typename
 
-#define nL cnt * 2
-#define nR cnt * 2 + 1
-
-const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
-const int MAXN = 5e5 + 50;
-const int Mod = 1e9 + 7;
-int n, x, y, k, m, arr[MAXN];
-set<int> ans;
-
-struct Node {
-    set<int> dist;
-} seg[MAXN * 4];
-
-void build( int L, int R, int cnt ){
-    if( R == L ){
-        seg[cnt].dist.insert(arr[L]);
-        return;
-    }
-
-    int M = (L + R) / 2;
-    build(L, M, nL);
-    build(M+1, R, nR);
-
-    for( auto it = seg[nL].dist.begin() ; it != seg[nL].dist.end() ; it++ ) seg[cnt].dist.insert(*it);
-    for( auto it = seg[nR].dist.begin() ; it != seg[nR].dist.end() ; it++ ) seg[cnt].dist.insert(*it);
+/* Self Define Template Function */
+template <typename T> void pV(vector<T> _vector ) {
+    for( auto _it : _vector ) cout << _it << " ";
+    cout << "\n";
 }
 
-void query( int L, int R, int ql, int qr, int cnt ){
-    if( R < L || ql > R || qr < L ) return;
-    if( ql <= L && qr >= R ){
-        for( auto it = seg[cnt].dist.begin() ; it != seg[cnt].dist.end() ; it++ ) ans.insert(*it);
-        return;
+template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){
+    return 1 <= _pair.F && _pair.F <= _n && 1 <= _pair.S && _pair.S <= _m;
+}
+
+template <typename A, typename B> istream& operator>>( istream& _is, pair<A, B> &_pair ){ 
+    return _is >> _pair.F >> _pair.S;
+}
+
+template <typename A, typename B> ostream& operator<<( ostream& _os, pair<A, B> _pair ){ 
+    return _os << '(' << _pair.F << " " << _pair.S << ')';
+}
+
+/* Self Define Const */
+const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1},  {-1, 0}, {0, -1}, 
+                                            {1, 1}, {1, -1}, {-1, 1}, {-1, -1} };
+const int         MAXN = 2e5 + 50;
+const int          Mod = 1e9 + 7;
+const int          INF = 0x7FFFFFFF;
+const ll         LLINF = 0x7FFFFFFFFFFFFFFF;
+const int       MEMINF = 0x3F;
+const int   MEMINF_VAL = 0x3F3F3F3F;
+const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
+
+int k;
+
+struct QUERY {
+    int x, y, id;
+    QUERY() {}
+    QUERY( int X, int Y, int ID ) : x(X), y(Y), id(ID) {}
+    bool operator<( const QUERY &Q ) const {
+        if( x / k == Q.x / k ) return y < Q.y;
+        else return x < Q.x;
+    }
+};
+
+int n, q, l, r, cnt, arr[MAXN], tmp[MAXN], amt[MAXN];
+vc(QUERY) ask;
+vc(int) distinct, res;
+
+void add( int pos ){
+    if( amt[arr[pos]] == 0 ) ++cnt;
+    ++amt[arr[pos]];
+}
+
+void del( int pos ){
+    if( amt[arr[pos]] == 1 ) --cnt;
+    --amt[arr[pos]];
+}
+
+void disc(){
+    for( int i = 0 ; i < n ; ++i ) tmp[i] = arr[i];
+
+    sort(tmp, tmp + n);
+    distinct.pb(tmp[0]);
+
+    for( int i = 1 ; i < n ; i++ ){
+        if( tmp[i] != tmp[i-1] ) distinct.pb(tmp[i]);
     }
 
-    int M = (L + R) / 2;
-    query(L, M, ql, qr, nL);
-    query(M+1, R, ql, qr, nR);
-    
+    for( int i = 0 ; i < n ; i++ ) arr[i] = LB(distinct, arr[i]) - distinct.begin() + 1;
+}
+
+inline void solve(){
+    cin >> n >> q;
+    k = sqrt(n);
+
+    for( int i = 0 ; i < n ; i++ ) cin >> arr[i];
+
+    disc();
+
+    res.resize(q);
+    int a, b;
+    for( int i = 0 ; i < q ; ++i ){
+        cin >> a >> b;
+        --a; --b;
+        ask.pb(QUERY(a, b, i));
+    }
+
+    sort(ALL(ask));
+
+    l = r = ask[0].x;
+    ++amt[arr[ask[0].x]];
+    ++cnt;
+    for( int i = 0 ; i < q ; ++i ){
+        while( r < ask[i].y ){
+            ++r;
+            add(r);
+        }
+        while( r > ask[i].y ){
+            del(r);
+            --r;
+        }
+        while( l < ask[i].x ){
+            del(l);
+            ++l;
+        }
+        while( l > ask[i].x ){
+            --l;
+            add(l);
+        }
+        res[ask[i].id] = cnt;
+    }
+
+    for( auto i : res ) cout << i << "\n";
 }
 
 signed main(){
-    opt;
-    cin >> n >> m;
-    for( int i = 1 ; i <= n ; i++ ) cin >> arr[i];
-    build(1, n, 1);
+    // IO;
 
-    // for( int i = 1 ; i <= n * 4 ; i++ ) cout << seg[i].dist.size() << " \n"[i==n*4];
-    
-    while( m-- ){
-        int x, y;
-        cin >> x >> y;
-        ans.clear();
-        query(1, n, x, y, 1);
-        cout << ans.size() << "\n";
+    int T = 1;
+    // cin >> T;
+    while( T-- ){
+        solve();
     }
 }

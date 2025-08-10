@@ -1,5 +1,42 @@
 # CP-Question-Record
 
+### 【CSES】 1734. Distinct Values Queries
+
+**Solved**
+
+。Mo’s Algorithm + Coordinate Compression - $(N+Q)\sqrt{N}$
+
+* Complexity Analysis
+    * Sorting Queries ⮕ $Q\log Q$
+    * Pointer Moves ⮕ Each step changes `l` or `r` by 1 with O($1$) updates; amortized total $(N+Q)\sqrt{N}$
+* Core Concepts
+    * Coordinate Compression
+        * Values can be up to $10^9$; compress each $x_i$ to its rank in the sorted unique list so we can index a frequency array `amt[]` in O($1$)
+    * Mo’s Algorithm ⮕ Offline
+        * Each query `[a, b]` is processed after sorting all queries by **block of `a`**, where block size $k=\lfloor\sqrt{N}\rfloor$ and then by `b`
+        * Maintain a sliding window `[l, r]` and a running answer `cnt` $=$ number of values with frequency $> 0$ in the window
+    * Add and Delete Operations
+        * `add(pos)` ⮕ increase `amt[arr[pos]]`; if it goes from 0 to 1, increase `cnt`
+        * `del(pos)` ⮕ decrease `amt[arr[pos]]`; if it goes from 1 to 0, decrease `cnt`
+* Solution Strategy
+    1. Read & Compress
+        * Read array, copy to a temp vector, sort & unique, then remap each `arr[i]` to 1…`D`
+    2. Build Queries
+        * For each query `(a, b)`, store `(a-1, b-1, id)` to use 0-based indices
+    3. Sort for Mo
+        * Sort by `(a / k, b)` where $k=\lfloor\sqrt{N}\rfloor$
+    4. Sweep the Window
+        * Initialize `[l, r]` to the first query’s left, include that element
+        * For each sorted query, move `l` and `r` using `add()` and `del()` until the window equals `[a, b]`
+        * Store `cnt` into `res[id]`
+    5. Output
+        * Print answers in original query order
+* Correctness Invariants
+    * At any time, `cnt = |{ v : amt[v] > 0 }|` over the current window
+    * Only `add()` and `del()` change `amt[]`; transitions keep the invariant true as the window changes by $±1$ at the ends
+* Edge Cases & Implementation Notes
+    * Indexing ⮕ Convert input queries to 0-based before storing
+
 ### 【CSES】 3421. Distinct Values Subsequences
 
 **Solved**
