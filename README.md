@@ -1,5 +1,46 @@
 # CP-Question-Record
 
+### 【CSES】 2206. Pizzeria Queries
+
+**Solved**
+
+。Segment Tree with Two Linear Transforms — $(N + Q)\log{N}$
+
+* Core Concepts
+    * Absolute value split
+        * For a fixed destination $k$, the delivery cost from $i$ is <br>
+            $p_i + |i - k| =$ <br>
+            &nbsp; &nbsp; $\Longrightarrow ( p_i + i ) - k,$ &nbsp; $i \ge k$ <br>
+            &nbsp; &nbsp; $\Longrightarrow ( p_i - i ) + k,$ &nbsp; $i \le k$ <br>
+        * Hence the answer is <br>
+            &nbsp; &nbsp; $\min \displaystyle \Big( \min_{i \in [k, n] }(p_i + i) - k,$ &nbsp; $\displaystyle \min_{i \in[1 , k]}(p_i - i ) + k \Big)$
+    * Two segment trees
+        * Maintain minima of $p_i + i$ (right side) and $p_i - i$ (left side)
+        * Point updates at $i = k$ change both maintained values
+    * Implementation detail in code
+        * The **left** tree stores $p_i - i$ implicitly as `downward[i] = p_i + (n-i-1)` and later subtracts $(n-k-1)$
+        * This is algebraically identical <br>
+            &nbsp; &nbsp; $\min(p_i + n - i - 1) - n + k + 1 = \min(p_i - i) + k$
+* Solution Strategy
+    1. Build
+        * Construct two segment trees over indices $[1..n]$
+            * `upward` stores $(p_i + i)$
+            * `downward` stores $(p_i + n - i - 1)$ to emulate $(p_i - i)$
+    2. Point Update (`1 k x`)
+        * Set $p_k \leftarrow x$
+        * Update leaf $k$ in both trees
+            * `upward[k] = x + k`
+            * `downward[k] = x + n - k - 1`
+        * Recompute mins on the path to root
+    3. Query (`2 k`)
+        * Right side ⮕ `min_up = min(upward[k..n]) - k`
+        * Left side ⮕  `min_down = min(downward[1..k]) - n + k + 1`  ⮕ equals $\min(p_i - i) + k$
+        * Answer ⮕ `min(min_up, min_down)`
+* Correctness Sketch
+    * For any $k$, splitting by $i \ge k$ and $i \le k$ is exhaustive and disjoint
+    * Each half transforms the absolute value into a linear form; taking range minima yields the optimal source index on that side
+    * Taking the minimum of the two sides gives the global minimum cost
+
 ### 【CSES】 1734. Distinct Values Queries
 
 **Solved**
@@ -13,7 +54,7 @@
     * Coordinate Compression
         * Values can be up to $10^9$; compress each $x_i$ to its rank in the sorted unique list so we can index a frequency array `amt[]` in O($1$)
     * Mo’s Algorithm ⮕ Offline
-        * Each query `[a, b]` is processed after sorting all queries by **block of `a`**, where block size $k=\lfloor\sqrt{N}\rfloor$ and then by `b`
+        * Each query `[a, b]` is processed after sorting all queries by **block of `a`**, where block size $k = \lfloor \sqrt{N} \rfloor$ and then by `b`
         * Maintain a sliding window `[l, r]` and a running answer `cnt` $=$ number of values with frequency $> 0$ in the window
     * Add and Delete Operations
         * `add(pos)` ⮕ increase `amt[arr[pos]]`; if it goes from 0 to 1, increase `cnt`
@@ -24,7 +65,7 @@
     2. Build Queries
         * For each query `(a, b)`, store `(a-1, b-1, id)` to use 0-based indices
     3. Sort for Mo
-        * Sort by `(a / k, b)` where $k=\lfloor\sqrt{N}\rfloor$
+        * Sort by `(a / k, b)` where $k = \lfloor \sqrt{N} \rfloor$
     4. Sweep the Window
         * Initialize `[l, r]` to the first query’s left, include that element
         * For each sorted query, move `l` and `r` using `add()` and `del()` until the window equals `[a, b]`
