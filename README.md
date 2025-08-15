@@ -1,5 +1,42 @@
 # CP-Question-Record
 
+### 【CSES】 1735. Range Updates and Sums
+
+**Solved**
+
+。Lazy Segment Tree - $(N+Q)\log{N}$
+
+* Core Concepts
+    * **Two lazy tags per node**
+        * `tag` ⮕ pending **range add**
+        * `val` ⮕ pending **range assign**
+        * Effective segment sum on demand ⮕ `rv()`
+            * If `val == 0` ⮕ `sum + len * tag`
+            * Else ⮕ `len * val + len * tag`
+    * **Propagation precedence**
+        * **Assign overrides everything below**
+            * When pushing, if parent has `val != 0`, children get `val = parent.val` and their add-tag becomes **exactly** `parent.tag`
+        * If only an add is pending, it is **accumulated** into children’s `tag`
+    * **Sum maintenance strategy**
+        * Node’s `sum` is updated **lazily** via `rv()` and during `push()`
+        * On covering updates, only tags are set; recomputation uses `rv()` to avoid forced descents
+* Implementation Strategy
+    1. **Data structure**
+        * `struct Node { len, sum, tag, val; int rv(); }`
+        * Global `seg[4 * MAXN]`, `arr[]`
+    2. **Build**
+        * `build(L,R,x)` sets `len` and leaf `sum`, and aggregates `sum` upward
+    3. **Lazy propagation**
+        * `push(x)` applies the current node’s lazy to its children with the precedence rules above, fixes `seg[x].sum = seg[x].rv()`, then clears `val` and `tag`
+    4. **Operations**
+        * **Range add** ⮕ `modifyA(L,R,mL,mR,val,x)`; On full cover, do `seg[x].tag += val`; else `push()` and recurse, then set `seg[x].sum = seg[nL].rv() + seg[nR].rv()`
+        * **Range assign** ⮕ `modifyB(L,R,mL,mR,val,x)`; On full cover, do `seg[x].val = val; seg[x].tag = 0`; else `push()` and recurse, then aggregate with `rv()`
+        * **Range sum** ⮕ `query(L,R,qL,qR,x)` On full cover, return `seg[x].rv()`; otherwise `push()` and sum children
+* Notes & Edge Considerations
+    * Sentinel for **no assign** ⮕ `val == 0`. This is valid under the problem constraints because we never need to assign zero.
+    * Correctness of precedence ⮕ a parent **assign** wipes children’s pending ops and replaces them with the parent’s `val` and `tag`. A parent **add** is simply accumulated into children’s `tag`.
+    * Avoids pushing on fully covered ranges, relying on `rv()` to return the correct contributed sum without materializing children.
+
 ### 【CSES】 2206. Pizzeria Queries
 
 **Solved**
