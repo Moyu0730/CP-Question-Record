@@ -1,5 +1,24 @@
 # CP-Question-Record
 
+### 【CSES】 1196. Flight Routes
+
+**Solved**
+
+。K-shortest Paths - $NK\log{NK}$
+
+* Core Concepts
+    * **Multi-visit Dijkstra Idea**
+        * Unlike classic Dijkstra, here each node can be **finalized up to $k$ times** ⮕ once per distinct shortest route to that node
+        * Every time we pop `(cnt, u)` from `pq`, if we haven’t already collected enough costs for `u`, we **append `cnt` to `res[u]`** and relax all outgoing edges
+* Correctness Notes
+    * The priority queue ensures routes are explored by **nondecreasing total cost**; thus each time we append to `res[u]` we are fixing the next shortest route to `u`
+    * Because the problem allows revisiting cities and counts equal-price routes separately, the algorithm **does not deduplicate** ⮕ it records every popped cost in order
+    * Important guard condition (Line 82) must be `>`
+        * Using `==` or `>=` can drop a valid answer in corner cases due to the initial seeding `res[1].pb(0)` and the timing of when the k-th entry is appended. Keeping it as `>` ensures the k-th shortest path to any node (especially the target) is not skipped
+* Edge Cases Covered
+    * Multiple routes with the **same total price** are preserved because every popped state for a node is appended to `res[u]`
+    * Cycles are harmless ⮕ costs grow monotonically along a path, and the guard prevents infinite recording once we have enough entries per node
+
 ### 【CSES】 1735. Range Updates and Sums
 
 **Solved**
