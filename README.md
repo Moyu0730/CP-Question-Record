@@ -1,5 +1,47 @@
 # CP-Question-Record
 
+### 【CSES】 1680. Longest Flight Route
+
+**Solved**
+
+。DP + DFS - $N + M$
+
+* Core Concepts
+    * DAG Longest Path
+        * Since the graph is a DAG, **DFS with memoization** yields the longest route length in linear time
+    * DP State
+        * `dp[x]` = **maximum number of cities** on any valid route starting from city `x` and ending at city `n`
+    * Base Case
+        * `dp[n] = 1`
+    * Transition
+        * For `x != n`, iterate all outgoing edges `x -> y`
+            * Let `tmp = dfs(y)`
+            * If `tmp != 0`, candidate answer is `tmp + 1`
+            * Keep the best `y` and record it in `to[x]`
+        * If no child leads to `n`, set `dp[x] = 0`
+    * Path Reconstruction
+        * Start from city `1` and follow `to[i]` until reaching `n`
+        * The recorded chain forms one optimal route
+* Solution Strategy
+    1. Reachability Pre-check
+        * Run `check(1)` to mark all nodes reachable from city `1`
+        * If city `n` is **not** marked, print `"IMPOSSIBLE"` immediately
+    2. DFS + Memoized DP
+        * Initialize all `dp[] = -1`
+        * Call `dfs(1)` to compute the maximum route length from city `1`
+        * Store next-hop decisions in `to[]` when improving `dp[x]`
+    3. Output Construction
+        * Print `dp[1]` as the number of cities on the longest route
+        * Print the chain `1 ⮕ ... ⮕ n` by repeatedly following `to[]`
+    4. Correctness Notes
+        * The graph is guaranteed **acyclic**, so DFS has no back edges
+        * `dp[x]` is computed once due to memoization, ensuring linear complexity
+        * The `tmp != 0` guard ensures only paths that actually reach `n` are considered
+* Edge Cases
+    * No path from `1` to `n` ⮕ Output `"IMPOSSIBLE"`
+    * Direct edge `1 -> n` ⮕ Output `2` with route `1 n`
+    * Multiple optimal routes ⮕ Any one constructed via `to[]` is acceptable
+
 ### 【CSES】 1733. Finding Periods
 
 **Solved**
