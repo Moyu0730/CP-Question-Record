@@ -1,5 +1,54 @@
 # CP-Question-Record
 
+### 【CSES】 1678. Round Trip II
+
+**Solved**
+
+。DFS - $N+M$
+
+* Core Concepts
+    * Component Timestamping
+        * Each fresh DFS start assigns a new **timer id**; all nodes visited in that DFS get the same `t[u]`
+        * This avoids cross-component interference and lets us recognize **back-edges inside the current DFS component** via `t[v] == t[u]`
+    * On-Path Validity
+        * Simulates the recursion stack ⮕ nodes currently **active** in the DFS tree have `valid[u] == true`
+        * When we finish exploring a node without finding a cycle, set `valid[u] = false` to mark it **off the current path**
+    * Successor Link
+        * While exploring edges, we set `to[u] = v` to record the **forward pointer** we followed
+        * Once a back-edge inside the same component to a **still-valid** node is found, we remember `start = u` and later reconstruct the cycle by walking `to[]`
+    * Cycle Detection Rule
+        * When scanning `u → v`
+            * If `t[v] == t[u]` **and** `valid[v] == true`, we detected a back-edge to an active node ⇒ a directed cycle exists
+            * If `t[v] == -1`, continue DFS by labeling `v` with the same timer and set `to[u] = v`
+            * If `t[v] != -1` but `v` isn’t active or belongs to another timer then ignore
+* Solution Strategy
+    1. Input & Graph
+        * Read `n, m` and build `edge[1..n]` as a directed adjacency list
+    2. Initialization
+        * `MEM(t, -1)` to mark all nodes unvisited
+        * `MEM(valid, true)` so DFS can flip nodes to inactive upon exit
+        * `timer = 0`, `start = 0`
+    3. DFS over Components
+        * For each node `i` with `t[i] == -1`
+            * Set `t[i] = ++timer`, then call `dfs(i)`
+            * `dfs(u)` explores all $v ∈ edge[u]$
+                * If `t[v] == t[u]`
+                    * Set `to[u] = v`
+                    * If `valid[v] == true`, a cycle is found ⮕ `start = u`, return `true`
+                    * Otherwise mark `valid[u] = false` and continue
+            * Else if `t[v] == -1`:
+                * Label `v` with `t[u]`, set `to[u] = v`, and recurse; if recursion returns `true`, bubble up success
+        * If none succeed, set `valid[u] = false` and return `false`
+    4. Reconstruction & Output
+        * If `start == 0` ⮕ print `"IMPOSSIBLE"`
+        * Otherwise
+            * Build `res` by pushing `start`, then repeatedly follow `to[i]` until returning to `start`, and push `start` again
+            * Print `res.size()` and the route in order
+* Notes
+    * The approach **stops at the first cycle** found, which satisfies the problem
+    * Nodes are **1-indexed** and multiple disconnected components are handled via the per-component `timer`
+    * The `valid[]` flag is crucial-without it, edges to already-finished nodes could be mistaken for on-stack back-edges
+
 ### 【CSES】 1680. Longest Flight Route
 
 **Solved**
