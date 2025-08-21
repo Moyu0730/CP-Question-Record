@@ -1,5 +1,39 @@
 # CP-Question-Record
 
+### 【CSES】 1675. Road Reparation
+
+**Solved**
+
+。Kruskal MST - $M\log{M}$
+
+* Core Concepts
+    * Kruskal’s Algorithm
+        * Always pick the next **minimum-weight** edge that connects two **different** components
+        * Accumulate the total weight as edges are accepted
+    * Disjoint Set Union - DSU
+        * `query(x)` ⮕ finds the representative of the set containing `x`
+        * `comb(a, b)` ⮕ merges two components and maintains component size
+        * `SZ(x)` ⮕ returns the size of the component whose representative is `x`
+    * Connectivity Check
+        * After processing edges, if the size of the component containing node `1` is not `N`, the graph is **disconnected** ⮕ print `IMPOSSIBLE`
+* Solution Strategy
+    1. Read Input & Build Min-Heap
+        * For each road `(u, v, w)`, push `{w, {u, v}}` into a `priority_queue` so the smallest-weight edge is always on top
+    2. Initialize DSU
+        * Each node starts as its own parent with size `1`
+    3. Kruskal Process
+        * While the heap is non-empty
+            * Pop the smallest edge `(w, (u, v))`
+            * If `query(u) != query(v)`, call `comb(u, v)` and add `w` to `res`
+    4. Verify Spanning
+        * If `SZ(query(1)) == n`, output `res`
+        * Otherwise, output `IMPOSSIBLE`
+
+> [!NOTE]
+> * Using a **min-heap** avoids sorting an explicit edge array and still ensures edges are considered in **nondecreasing** order by weight
+> * The DSU here tracks component sizes and merges by representative index; it is sufficient for correctness for MST construction
+> * The final connectivity check via `SZ(query(1))` guarantees that exactly one component covers all nodes before printing the total MST cost
+
 ### 【CSES】 1678. Round Trip II
 
 **Solved**
@@ -325,8 +359,8 @@
             * `sum = L.sum + R.sum`
             * `ans = max(L.ans, R.ans, L.suf + R.pre)`
     * Query Processing
-            * For each query $[a, b]$, return the `ans` field in the corresponding segment
-            * Return `max(0, ans)` to account for the empty subarray possibility
+        * For each query $[a, b]$, return the `ans` field in the corresponding segment
+        * Return `max(0, ans)` to account for the empty subarray possibility
 * Solution Strategy
     1. Segment Tree Initialization
         * Read the array of size $N$
@@ -336,8 +370,8 @@
             * Recursively evaluate the maximum subarray sum in the range using the segment tree
             * Print `max(0, result.ans)` for each query
     3. Node Merge Logic
-            * Carefully combine child nodes to maintain accurate prefix, suffix, and maximum subarray sums
-            * This is similar to combining states in the classic **Kadane’s algorithm**, but within a tree structure
+        * Carefully combine child nodes to maintain accurate prefix, suffix, and maximum subarray sums
+        * This is similar to combining states in the classic **Kadane’s algorithm**, but within a tree structure
 
 ### 【CSES】 1750. Planets Queries I
 
