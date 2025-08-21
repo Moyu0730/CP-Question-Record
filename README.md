@@ -1,5 +1,33 @@
 # CP-Question-Record
 
+### 【CSES】 1676. Road Construction
+
+**Solved**
+
+。Connected Component - $N+M$
+
+* Core Concepts
+    * Connected Components Tracking
+        * Maintain `amt` as the current number of connected components
+        * Maintain `large` as the size of the largest component
+    * DSU Operations
+        * `query(x)` ⮕ returns the root of `x`
+        * `comb(a, b)` ⮕ merges the two components if their roots differ, updates:
+            * parent pointer of one root to the other
+            * component sizes via `ARRAY[root].size`
+            * `large = max(large, new_size)`
+            * `amt--` after a successful merge
+* Solution Strategy
+    1. Initialization
+        * Read `n, m`
+        * Build DSU for nodes `1..n` with `fa[i] = i`, `size[i] = 1`
+        * Set `amt = n`, `large = 1`
+    2. **Process Roads**
+        * For each road `(a, b)`
+            * Find `faa = query(a)`, `fab = query(b)`
+            * If `faa != fab` ⮕ call `comb(a, b)` and decrement `amt`
+        * After each road, output `amt` and `large`
+
 ### 【CSES】 1675. Road Reparation
 
 **Solved**
