@@ -1,5 +1,35 @@
 # CP-Question-Record
 
+### 【UVa】10003. Cutting Sticks
+
+**Solved**
+
+。Interval DP - O($N^3$)
+
+* Core Concepts
+    * DP State
+        * Let `dp[i][j]` be the **minimum cost** to cut the stick between position `arr[i]` and `arr[j]`
+    * Transition
+        * For every possible cutting point `k` between `i` and `j`
+        * `dp[i][j] = min(dp[i][k] + dp[k][j] + arr[j] - arr[i])`
+        * The additional cost `arr[j] - arr[i]` is the current stick length
+    * Base Case
+        * `dp[i][i] = 0` and `dp[i][i+1] = 0`, since no cut is needed for adjacent positions
+    * Input Handling
+        * Positions are stored in `arr[]` with `arr[0] = 0` and `arr[n+1] = l` to include both stick ends
+* Solution Strategy
+    1. Initialization
+        * Read stick length `l` and number of cuts `n`
+        * Read cutting positions into `arr[1..n]`, and append `0` and `l`
+        * Initialize `dp` with large values using `memset`
+    2. DP Computation
+        * Iterate over all segment lengths from `2` to `n+1`
+        * For each interval `(i, i+len)`, try all possible cutting points `k` inside
+        * Update `dp[i][i+len]` with the minimum cost
+    3. Output
+        * Final answer is `dp[0][n+1]`, the minimum cost to cut the full stick
+
+
 ### 【CSES】 1676. Road Construction
 
 **Solved**
