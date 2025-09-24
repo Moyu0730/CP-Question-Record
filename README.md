@@ -1,5 +1,36 @@
 # CP-Question-Record
 
+### 【UVa】 11420. Chest of Drawers
+
+**Solved**
+
+。Basic DP - $N^2$
+
+* Core Concepts
+    * DP State Definition
+        * `dp[n][s][0]` ⮕ Number of ways to arrange `n` drawers with exactly `s` secured drawers, when the **top drawer is unlocked**
+        * `dp[n][s][1]` ⮕ Number of ways to arrange `n` drawers with exactly `s` secured drawers, when the **top drawer is locked**
+    * State Transition
+        * If top drawer is **unlocked**
+            * It cannot secure itself, so total secure drawers come only from the rest
+                `dp[n][s][0] = dp[n-1][s-1][0] + dp[n-1][s-1][1]`
+        * If top drawer is **locked**
+            * It becomes secured only if the drawer below is also locked, otherwise it contributes nothing
+                `dp[n][s][1] = dp[n-1][s][1] + dp[n-1][s+1][0]`
+    * Base Cases
+        * `dp[0][0][0] = 1` ⮕ No drawers, zero secured, unlocked top is one valid configuration
+        * `dp[1][1][0] = 1` ⮕ Single drawer unlocked, secures nothing, only one valid way
+        * `dp[1][0][1] = 1` ⮕ Single drawer locked but not secured, still one way
+    * Solution Strategy
+        1. Precomputation
+            * Fill DP table up to `n = 65`, since the problem constraints are small
+            * Each entry `dp[n][s][0 or 1]` is built from smaller states
+        2. Query Answering
+            * For each input `(n, s)`, output `dp[n][s][0] + dp[n][s][1]`
+            * This represents total ways with `s` secured drawers regardless of top drawer state
+        3. Termination
+            * Stop processing when both `n` and `s` are `0`
+
 ### 【UVa】1207. AGTC
 
 **Solved**
