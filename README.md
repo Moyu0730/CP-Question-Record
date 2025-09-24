@@ -1,10 +1,29 @@
 # CP-Question-Record
 
+### 【UVa】1207. AGTC
+
+**Solved**
+
+。LCS - $NM$
+
+* Core Concepts
+    * DP State
+        * Let `dp[i][j]` represent the **minimum number of operations** required to transform the first $i$ characters of string `s` into the first $j$ characters of string `t`
+    * State Transition
+        * If `s[i-1] == t[j-1]` ⮕ `dp[i][j] = dp[i-1][j-1]`
+        * Otherwise ⮕ `dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1`
+            * `dp[i-1][j] + 1` ⮕ Deletion
+            * `dp[i][j-1] + 1` ⮕ Insertion
+            * `dp[i-1][j-1] + 1` ⮕ Change
+    * Base Case
+        * `dp[0][j] = j` ⮕ Transforming empty string into `t[0..j]` requires $j$ insertions
+        * `dp[i][0] = i` ⮕ Transforming `s[0..i]` into empty string requires $i$ deletions
+
 ### 【UVa】10003. Cutting Sticks
 
 **Solved**
 
-。Interval DP - O($N^3$)
+。Interval DP - $N^3$
 
 * Core Concepts
     * DP State
