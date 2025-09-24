@@ -1,4 +1,4 @@
-/* Question : UVa 11421. Tour de France */
+/* Question : UVa 11242. Tour de France */
 
 #include<bits/stdc++.h>
 using namespace std;
