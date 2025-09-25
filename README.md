@@ -1,5 +1,39 @@
 # CP-Question-Record
 
+### 【UVa】 544. Heavy Cargo
+
+**Solved**
+
+。Maximum Spanning Tree via Kruskal — $M\log{M}$
+
+* Core Concepts
+    * City ID Compression
+        * Uses `map<string,int> mp` to collect all city names while reading edges, then assigns consecutive IDs before processing
+    * Max-Heap of Edges
+        * Stores edges as `priority_queue<pair<int, pii>> pq` with items `{ w, {u, v} }`, making the **largest capacity** edge pop first
+    * Disjoint Set Union
+        * `DSU<int>` with `query(a)` and `comb(a, b)` maintains connected components
+        * Union picks parent by smaller representative ID, which is sufficient for constraints
+    * Descending Bottleneck via Kruskal
+        * Repeatedly take the **maximum** edge and union its endpoints until the components of `s` and `t` become the same
+        * The weight `w` of the **edge that first connects** `s` and `t` is the **maximum possible bottleneck capacity** between them
+* Solution Strategy
+    1. Read & Normalize
+        * Read $n, m$ until `0 0`; clear `mp`, `input`, and reset `pq` by swapping with an empty queue
+        * For each of the $m$ routes `(u, v, w)`, store as `input.push_back({w, {u, v}})` and mark `mp[u] = mp[v] = 1`
+        * After reading all edges, assign IDs to city names by iterating the `map` and writing back `mp[name] = ++no`
+    2. Build Max-Heap
+        * Convert stored edges into `(w, {mp[u], mp[v]})` and `push` into `pq`
+        * Read source and target names `s, t`
+    3. Run Kruskal Until Connected
+        * In `mst()`, create a fresh `DSU<int>` and repeatedly
+            * Pop the largest edge `(w, {u, v})`
+            * `dsu.comb(u, v)`
+            * If `query(mp[s]) == query(mp[t])`, **return $w$**
+* Correctness Sketch
+  * Running Kruskal in **descending** order builds a **maximum spanning forest**; the unique path between two nodes in any maximum spanning tree maximizes the **minimum edge** on that path
+  * Stopping as soon as `s` and `t` become connected returns exactly that **bottleneck capacity**
+
 ### 【UVa】 11420. Chest of Drawers
 
 **Solved**
