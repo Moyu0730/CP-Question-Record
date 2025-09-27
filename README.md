@@ -71,7 +71,7 @@
   * Running Kruskal in **descending** order builds a **maximum spanning forest**; the unique path between two nodes in any maximum spanning tree maximizes the **minimum edge** on that path
   * Stopping as soon as `s` and `t` become connected returns exactly that **bottleneck capacity**
 
-### 【UVa】 11420. Chest of Drawers
+### 【UVa】11420. Chest of Drawers
 
 **Solved**
 
