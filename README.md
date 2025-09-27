@@ -1,5 +1,42 @@
 # CP-Question-Record
 
+### 【UVa】1665. Islands
+
+**Solved**
+
+。DSU + Offline Query Processing - $NM\log{NM}+Q$
+
+* Complexity Analysis
+    * Sorting/Heap insertion of all grid cells by height ⮕ $NM\log{NM}$
+    * DSU operations with union-by-rank ⮕ almost $1$ per operation
+    * Processing $Q$ queries ⮕ $Q$
+    * Total Time Complexity ⮕ $NM\log{NM}+Q$
+* Core Concepts
+    * Flood Simulation
+        * Each cell has a height `arr[i][j]`
+        * A cell is flooded if `height <= sea_level`
+        * Queries ask the number of **connected unflooded areas** at a given sea level
+    * Offline Query Reversal
+        * Instead of simulating sea levels **increasing**, process queries in **reverse order**
+        * Start from highest sea level and progressively **unflood** cells by lowering threshold
+    * DSU for Connected Components
+        * Each unflooded cell corresponds to a DSU node
+        * When a cell becomes unflooded, connect it with already unflooded neighbors
+        * Maintain `amt` = current number of connected components of unflooded areas
+* Solution Strategy
+    1. Preprocessing
+        * Push all grid cells into a priority queue, sorted by height ⮕ descending
+    2. Reverse Query Processing
+        * Read queries, reverse their order
+        * For each query `year = i`, pop all cells with `height > i` from the heap and mark them valid
+        * Each new valid cell increases `amt` by 1
+        * If any of its 4 neighbors is already valid, merge them in DSU and reduce `amt`
+    3. Result Collection
+        * Store answers in reverse order while processing queries
+        * Reverse `res[]` at the end to restore original query order
+    4. Output
+        * Print the number of unflooded areas for each query in correct order
+
 ### 【UVa】 544. Heavy Cargo
 
 **Solved**
