@@ -1,5 +1,38 @@
 # CP-Question-Record
 
+### 【UVa】13211. Geonosis
+
+**Solved**
+
+。All-Pairs Shortest Path + Reverse Order Processing - $N^3$
+
+* Complexity Analysis
+    * Each node addition requires an $N^2$ update
+    * Across $N$ nodes, total runtime is $N^3$
+* Core Concepts
+    * Problem Reformulation
+        * We are given a weighted complete directed graph of $n$ towers
+        * Towers are destroyed in a fixed order, and after each destruction we must compute the sum of shortest path distances between all remaining towers
+        * Equivalent to progressively adding nodes **in reverse destruction order** and maintaining shortest paths
+    * Reverse Simulation
+        * The destruction order is reversed so that we simulate adding nodes one by one
+        * At each step, insert tower `cnt = del[k]` into the current set of nodes
+    * Floyd–Warshall Update
+        * For each new node `cnt`, update shortest paths
+            * `dp[i][j] = min(dp[i][j], dp[i][cnt] + dp[cnt][j])`
+        * Ensures all-pairs shortest paths are correctly maintained after the node is included
+    * Result Accumulation
+        * Keep a list of currently active nodes
+        * After each insertion, accumulate the total distance sum
+            * `res += sum(dp[u][v])` for all active pairs $(u, v), u ≠ v$
+* Solution Strategy
+    1. Reverse Order
+        * Reverse the destruction order so simulation proceeds as additions
+    3. Floyd–Warshall Iteration
+        * For each node added, update all pairs shortest paths
+    4. Summation
+        * For each step, compute and add the sum of shortest paths among currently added nodes
+
 ### 【UVa】10655. Contemplation! Algebra
 
 **Solved**
