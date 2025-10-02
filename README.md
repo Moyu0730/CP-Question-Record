@@ -1,5 +1,40 @@
 # CP-Question-Record
 
+### 【UVa】10655. Contemplation! Algebra
+
+**Solved**
+
+。Matrix Fast Exponentiation - $\log{N}$
+
+* Core Concepts
+    * Characteristic Recurrence
+        * The sequence satisfies $A_N = S \cdot A_{N-1} - P \cdot A_{N-2}$ with $A_0 = 2$, $A_1 = S$
+        * Edge Initialization
+            * `n == 0 ⮕ 2`
+            * `n == 1 ⮕ sum`
+            * Otherwise multiply $M^{N-1}$ by transition matrix
+        * Transition matrix 
+```math
+   \begin{bmatrix} 
+       S & -P \\
+       1 & 0
+   \end{bmatrix}
+```
+* Solution Strategy
+    1. Build Matrices
+        * `original = [[sum], [2]]`
+        * `ksm = [[sum, -mul], [1, 0]]`
+    2. Binary Exponentiation
+        * `mpow(ksm, n-1)` computes $M^{N-1}$ with repeated squaring
+    3. Final Multiply
+        * `original = mat(ksm, original)` and output `original[0][0]`
+    4. Input Handling
+        * Must use **EOF termination** instead of checking `sum == 0 && mul == 0`
+        * This is because valid test cases may include `sum = 0, mul = 0` and should still be processed
+* Notes
+    * The judge includes cases where both parameters are zero; hence **EOF-driven loop is required**
+    * Code uses `long long` via `#define int long long`; overflow is possible if results exceed 64-bit range. For full safety, replace with a wider integer type consistently across all matrix operations
+
 ### 【UVa】1665. Islands
 
 **Solved**
@@ -71,7 +106,7 @@
   * Running Kruskal in **descending** order builds a **maximum spanning forest**; the unique path between two nodes in any maximum spanning tree maximizes the **minimum edge** on that path
   * Stopping as soon as `s` and `t` become connected returns exactly that **bottleneck capacity**
 
-### 【UVa】11420. Chest of Drawers
+### 【UVa】 11420. Chest of Drawers
 
 **Solved**
 
