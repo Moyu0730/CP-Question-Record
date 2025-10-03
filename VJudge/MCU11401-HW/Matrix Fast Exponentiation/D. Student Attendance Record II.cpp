@@ -1,4 +1,4 @@
-/* Question : VJ MCU11401-HW - Matrix Fast Exponentiation - F. Count Vowels Permutation */
+/* Question : VJ MCU11401-HW - Matrix Fast Exponentiation - D. Student Attendance Record II */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -89,18 +89,36 @@ vc(vc(int)) ksm, dp;
 inline void solve(){
     cin >> n;
 
-    dp = { {1}, {1}, {1}, {1}, {1} };
-    ksm = { {0, 1, 1, 0, 1},
-            {1, 0, 1, 0, 0},
-            {0, 1, 0, 1, 0},
-            {0, 0, 1, 0, 0},
-            {0, 0, 1, 1, 0}  };
+    if( n == 1 ){
+        cout << "3\n";
+        return;
+    }else if( n == 2 ){
+        cout << "8\n";
+        return;
+    }
 
-    mpow(ksm, n-1);
+        //  0    1    2    3    4    5    6    7    8    9    10   11
+        //  AL   AP   LA   0LL  0LP  PA   0PL  0PP  1LL  1LP  1PL  1PP
+    dp = { {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {0}, {0}, {0}, {0} };
+        //   0  1  2  3  4  5  6  7  8  9 10 11
+    ksm = { {0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},    // 0  AL
+            {0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},    // 1  AP
+            {0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0},    // 2  LA
+            {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},    // 3  0LL
+            {0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0},    // 4  0LP
+            {0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0},    // 5  PA
+            {0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0},    // 6  0PL
+            {0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0},    // 7  0PP
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},    // 8  1LL
+            {1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0},    // 9  1LP
+            {0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},    // 10 1PL
+            {0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1}  }; // 11 1PP
+
+    mpow(ksm, n-2);
     dp = mat(ksm, dp);
 
     int res = 0;
-    for( int i = 0 ; i < 5 ; ++i ) res = ( res + dp[i][0] ) % Mod;
+    for( int i = 0 ; i <= 11 ; ++i ) res = ( res + dp[i][0] ) % Mod;
 
     cout << res << "\n";
 }
