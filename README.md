@@ -1,5 +1,50 @@
 # CP-Question-Record
 
+### 【UVa】11228. Transportation System
+
+**Solved**
+
+。Minimum Spanning Tree (Kruskal) - $N^{2}\log{N^2}$
+
+* Core Concepts
+    * MST Classification
+        * The problem requires building an **optimal transportation system** connecting all cities with minimal total cost
+        * Two types of connections
+            * **Roads** ⮕ between cities **within the same state**, where distance ≤ `r`
+            * **Railroads** ⮕ between cities **in different states**, where distance > `r`
+        * A “state” is defined as a connected component formed using only edges ≤ `r`
+    * Kruskal’s Algorithm
+        * All possible city pairs are inserted into a **min-heap priority queue** based on Euclidean distance
+        * The algorithm greedily selects the smallest edge that connects two different components, merging them via **DSU**
+    * DSU Structure
+        * Each city initially belongs to its own component
+        * On combining two components, their roots are updated and sizes merged
+        * Used to efficiently track connected components while forming the MST
+    * Edge Classification
+        * When merging two components
+            * If `distance ≤ r`, it contributes to **road length**
+            * If `distance > r`, it contributes to **railroad length** and increments the number of **states**
+    * Distance Computation
+        * Euclidean distance formula <br>
+           &nbsp; &nbsp; $\displaystyle dist(A, B) = \sqrt{ (A_x − B_x)^{2} + (A_y − B_y)^{2} }$
+        * All edges are precomputed between every pair `(i, j)` to populate the MST edge pool
+* Solution Strategy
+    1. Input Parsing
+        * Read the number of cities `n` and the threshold radius `r`
+        * Store all city coordinates in a vector `arr`
+    2. Edge Construction
+        * For every pair of cities `(i, j)`, compute their distance and push `{distance, {i, j}}` into a **min priority queue**
+    3. Kruskal’s MST Construction
+        * Initialize DSU with all cities as separate nodes
+        * Pop the smallest edge from the queue
+        * If the two cities are not already connected, merge them and
+            * Add to `road` if `distance ≤ r`
+            * Add to `rail` and increment `state count` if `distance > r`
+* Notes
+    * The MST ensures global minimal total cost under the state constraints
+    * The DSU structure avoids forming cycles while efficiently counting state boundaries
+    * Final rounding uses `setprecision(0)` to match the required integer output
+
 ### 【UVa】13211. Geonosis
 
 **Solved**
