@@ -16,7 +16,7 @@
     * **Base Case**
         * `dp[0][0][x] = 1` for all `x` ⮕ zero total units with zero bars is one valid empty arrangement
     * **State Transition**
-        * For each `dp[i][j][k]`, consider the width `x` of the last bar (ranging from $1$ to $min(i, k)$) <br>
+        * For each `dp[i][j][k]`, consider the width `x` of the last bar (ranging from $1$ to $min(i,k)$) <br>
             $dp[i][j][k] += dp[i - x][j - 1][k]$
         * Meaning: add one bar of width `x` to all valid configurations of $j−1$ bars occupying $i−x$ units
     * **Computation**
