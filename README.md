@@ -1,5 +1,36 @@
 # CP-Question-Record
 
+### 【UVa】10721. Bar Code
+
+**Solved**
+
+。3D Dynamic Programming Precomputation - $N^{3}M$
+
+* Core Concepts
+    * **State Definition**
+        * Let `dp[i][j][k]` denote the number of possible bar code arrangements that
+            * occupy exactly `i` total units
+            * use exactly `j` bars
+            * with each bar having a maximum width of `k`
+        * Bars **alternate colors**, starting with a dark one, so only their widths matter for counting combinations
+    * **Base Case**
+        * `dp[0][0][x] = 1` for all `x` ⮕ zero total units with zero bars is one valid empty arrangement
+    * **State Transition**
+        * For each `dp[i][j][k]`, consider the width `x` of the last bar (ranging from $1$ to $min(i, k)$) <br>
+            $dp[i][j][k] += dp[i - x][j - 1][k]$
+        * Meaning: add one bar of width `x` to all valid configurations of $j−1$ bars occupying $i−x$ units
+    * **Computation**
+        * Precompute all states for $i, j, k ∈ [1, 50]$ before processing input
+        * For each query `(n, m, k)`, output the precomputed value `dp[n][m][k]`
+* Solution Strategy
+    1. **Initialization**
+        * Set all `dp[0][0][i] = 1` for `i` from 0 to 50
+    2. **DP Precomputation**
+        * Triple nested loops iterate through possible total units, bar counts, and maximum widths
+        * Inner loop aggregates transitions by possible final bar widths
+    3. **Answer Retrieval**
+        * For each input triple `(n, m, k)`, simply print `dp[n][m][k]`
+
 ### 【UVa】10128. Queue
 
 **Solved**
