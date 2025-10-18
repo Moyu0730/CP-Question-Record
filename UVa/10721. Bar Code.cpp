@@ -56,7 +56,7 @@ const int       MEMINF = 0x3F;
 const int   MEMINF_VAL = 0x3F3F3F3F;
 const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
-int n, m, k, dp[MAXN][MAXN][MAXN];
+int n, m, q, dp[MAXN][MAXN][MAXN];
 
 inline void solve(){
     for( int i = 0 ; i <= 50 ; ++i ) dp[0][0][i] = 1;
@@ -71,7 +71,7 @@ inline void solve(){
         }
     }
 
-    while( cin >> n >> m >> k ) cout << dp[n][m][k] << "\n";
+    while( cin >> n >> m >> q ) cout << dp[n][m][q] << "\n";
 }
 
 signed main(){
