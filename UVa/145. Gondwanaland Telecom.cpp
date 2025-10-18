@@ -1,4 +1,4 @@
-/* Question : UVa 10943. How do you add */
+/* Question : OJ Number */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,6 @@ using namespace std;
 #define ALL(_array) _array.begin(), _array.end()
 #define LB(_array, v) lower_bound(ALL(_array), v)
 #define UB(_array, v) upper_bound(ALL(_array), v)
-#define REV(_vector) _vector.reverse()
 #define vc(_data) vector<_data>
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -49,28 +48,54 @@ template <typename A, typename B> ostream& operator<<( ostream& _os, pair<A, B> 
 /* Self Define Const */
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1},  {-1, 0}, {0, -1}, 
                                             {1, 1}, {1, -1}, {-1, 1}, {-1, -1} };
-const int         MAXN = 1e2 + 50;
-const int          Mod = 1e6;
+const int         MAXN = 1e5 + 50;
+const int          Mod = 1e9 + 7;
 const int          INF = 0x7FFFFFFF;
 const ll         LLINF = 0x7FFFFFFFFFFFFFFF;
 const int       MEMINF = 0x3F;
 const int   MEMINF_VAL = 0x3F3F3F3F;
 const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
-int n, k, dp[MAXN][MAXN];
+double fax[5][4] = {
+                  {0.10, 0.06, 0.02},
+                  {0.25, 0.15, 0.05},
+                  {0.53, 0.33, 0.13},
+                  {0.87, 0.47, 0.17},
+                  {1.44, 0.80, 0.30}  };
+double val[3 + 5];
+int section[3 + 5] = { 0, 8 * 60, 18 * 60, 22 * 60, 24 * 60 };
+int a, b, c, d, s, t, used[MAXN];
+char ch;
+string str;
 
 inline void solve(){
-    for( int i = 0 ; i <= 100 ; ++i ) dp[i][1] = 1;
+    while( cin >> ch && ch != '#' ){
+        cin >> str >> a >> b >> c >> d;
 
-    for( int len = 2 ; len <= 100 ; ++len ){
-        for( int sum = 0 ; sum <= 100 ; ++sum ){
-            for( int cnt = 0 ; cnt <= sum ; ++cnt ){
-                dp[sum][len] = ( dp[sum][len] + dp[sum - cnt][len - 1] ) % Mod;
-            }
+        MEM(val, 0);
+        MEM(used, 0);
+        s = a * 60 + b;
+        t = c * 60 + d;
+
+        if( t <= s ) t += 24 * 60;
+
+        for( int i = s ; i < t ; ++i ) ++used[i % (24 * 60)];
+
+        for( int i = 0 ; i < 4 ; ++i ){
+            val[i] = 0;
+            for( int j = section[i] ; j < section[i+1] ; ++j ) val[i] += used[j];
         }
-    }
 
-    while( cin >> n >> k && ( n || k ) ) cout << dp[n][k] % Mod << "\n";
+        val[3] += val[0];
+        double sum = val[1] * fax[ch-'A'][0] + val[2] * fax[ch-'A'][1] + val[3] * fax[ch-'A'][2];
+
+        cout << setw(10) << setfill(' ') << right << str;
+        cout << setw(6) << setfill(' ') << right << fixed << setprecision(0) << val[1];
+        cout << setw(6) << setfill(' ') << right << fixed << setprecision(0) << val[2];
+        cout << setw(6) << setfill(' ') << right << fixed << setprecision(0) << val[3];
+        cout << setw(3) << setfill(' ') << right << ch;
+        cout << setw(8) << setfill(' ') << right << fixed << setprecision(2) << sum << "\n";
+    }
 }
 
 signed main(){

@@ -1,5 +1,35 @@
 # CP-Question-Record
 
+### 【UVa】10128. Queue
+
+**Solved**
+
+。Combinatorics + Dynamic Programming -$N^3$
+
+* Core Concepts
+    * **State Definition**
+        * Let `dp[n][f][b]` denote the number of permutations of `n` distinct people such that
+        exactly `f` people are visible from the **front** and `b` people are visible from the **back**
+        * A person is visible from one side if they are **taller** than everyone before them in that direction
+    * **State Transition**
+        * When adding the shortest person ( height `n` ) into the queue of `n−1` people, there are three possibilities
+            1. Place at the **front** ⮕ increases visible count from front by 1
+                → `dp[n][f][b] += dp[n−1][f−1][b]`
+            2. Place at the **end** ⮕ increases visible count from back by 1
+                → `dp[n][f][b] += dp[n−1][f][b−1]`
+            3. Place **anywhere in the middle** (positions `2` to `n−1`) ⮕ doesn’t change visible count
+                → `dp[n][f][b] += dp[n−1][f][b] * (n−2)`
+        * Therefore, $dp[n][f][b] = dp[n−1][f−1][b] + dp[n−1][f][b−1] + (n−2) \times dp[n−1][f][b]$
+    * **Base Case**
+        * `dp[1][1][1] = 1` since with one person, one is visible from both ends
+* Solution Strategy
+    1. **Precomputation**
+        * Precompute all `dp[n][f][b]` for $1 ≤ n ≤ 13$ using the recurrence above
+        * This covers the full constraint range.
+    2. **Answer Queries**
+        * For each test case `(n, f, b)`, directly output `dp[n][f][b]`
+        * Since all values are precomputed, query time is constant
+
 ### 【UVa】11228. Transportation System
 
 **Solved**

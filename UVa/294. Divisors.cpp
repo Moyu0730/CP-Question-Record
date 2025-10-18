@@ -1,4 +1,4 @@
-/* Question : UVa 10943. How do you add */
+/* Question : UVa 294. Divisors */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,6 @@ using namespace std;
 #define ALL(_array) _array.begin(), _array.end()
 #define LB(_array, v) lower_bound(ALL(_array), v)
 #define UB(_array, v) upper_bound(ALL(_array), v)
-#define REV(_vector) _vector.reverse()
 #define vc(_data) vector<_data>
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -49,35 +48,49 @@ template <typename A, typename B> ostream& operator<<( ostream& _os, pair<A, B> 
 /* Self Define Const */
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1},  {-1, 0}, {0, -1}, 
                                             {1, 1}, {1, -1}, {-1, 1}, {-1, -1} };
-const int         MAXN = 1e2 + 50;
-const int          Mod = 1e6;
+const int         MAXN = 1e7 + 50;
+const int          Mod = 1e9 + 7;
 const int          INF = 0x7FFFFFFF;
 const ll         LLINF = 0x7FFFFFFFFFFFFFFF;
 const int       MEMINF = 0x3F;
 const int   MEMINF_VAL = 0x3F3F3F3F;
 const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
-int n, k, dp[MAXN][MAXN];
+int a, b;
 
-inline void solve(){
-    for( int i = 0 ; i <= 100 ; ++i ) dp[i][1] = 1;
-
-    for( int len = 2 ; len <= 100 ; ++len ){
-        for( int sum = 0 ; sum <= 100 ; ++sum ){
-            for( int cnt = 0 ; cnt <= sum ; ++cnt ){
-                dp[sum][len] = ( dp[sum][len] + dp[sum - cnt][len - 1] ) % Mod;
-            }
+int factor( int n ){
+    int ans = 0;
+    for( int i = 1 ; i * i <= n ; ++i ){
+        if( n % i == 0 ){
+            if( i * i == n ) ++ans;
+            else ans += 2;
         }
     }
 
-    while( cin >> n >> k && ( n || k ) ) cout << dp[n][k] % Mod << "\n";
+    return ans;
+}
+
+inline void solve(){
+    cin >> a >> b;
+    int res = -1, idx = 0;
+
+    for( int i = a ; i <= b ; ++i ){
+        int tmp = factor(i);
+
+        if( tmp > res ){
+            res = tmp;
+            idx = i;
+        }
+    }
+
+    cout << "Between " << a << " and " << b << ", " << idx << " has a maximum of " << res << " divisors.\n";
 }
 
 signed main(){
     IO;
 
     int T = 1;
-    // cin >> T;
+    cin >> T;
     while( T-- ){
         solve();
     }
