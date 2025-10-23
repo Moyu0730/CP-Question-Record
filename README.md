@@ -1,5 +1,36 @@
 # CP-Question-Record
 
+### 【UVa】11517. Exact Change
+
+**Solved**
+
+。0/1 Knapsack DP - $N \times V$
+
+* Core Concepts
+    * Problem Nature
+        * Given an item price `val` and `n` coins (each usable **once**), find the **smallest total payment $≥$ val**
+        * Among all such payments, also minimize the **number of coins** used
+        * This is a **0/1 Knapsack** problem where each coin can either be taken or skipped
+    * DP Definition
+        * Let `dp[x]` = the **minimum number of coins** needed to make an exact sum of `x` cents
+        * Initialize all `dp[x]` as infinity, except `dp[0] = 0`
+    * Transition
+        * For each coin `c`, iterate `j` **backward** from `MAXN` down to `c` → `dp[j] = min(dp[j], dp[j - c] + 1)`
+        * Backward iteration ensures each coin is only used **once**, satisfying the 0/1 constraint
+    * Result Extraction
+        * After all coins are processed, scan from `val` upward to find the first achievable amount `i` where `dp[i]` is finite, then output `(i, dp[i])`
+* Solution Strategy
+    1. Initialization
+        * Clear arrays `coin[]` and `dp[]` using `memset` before each test case
+        * Set `dp[0] = 0` since no coins are needed to reach total `0`
+    2. DP Computation
+        * For every coin, update `dp[j]` in descending order to enforce the 0/1 constraint
+        * Each update represents taking or not taking that coin
+
+> [!NOTE]
+> * The backward loop is the **core of 0/1 knapsack**, preventing a single coin from being reused
+> * If the loop ran forward instead, it would become **unbounded knapsack**, which would yield incorrect results for this problem
+
 ### 【UVa】10721. Bar Code
 
 **Solved**
@@ -323,7 +354,6 @@
         * Update `dp[i][i+len]` with the minimum cost
     3. Output
         * Final answer is `dp[0][n+1]`, the minimum cost to cut the full stick
-
 
 ### 【CSES】 1676. Road Construction
 
