@@ -1,5 +1,34 @@
 # CP-Question-Record
 
+### 【UVa】10449. Traffic
+
+**Solved**
+
+。Bellman-Ford - $N \times M$
+
+* Core Concepts
+    * Each junction has a **busyness value**, where the cost from junction `u` to `v` is defined as $(busyness[v] - busyness[u])^3$
+    * If a node’s distance is affected by a **negative cycle**, or if its minimum total earning is **less than 3**, the answer should be `?`
+* Solution Strategy
+    1. Graph Construction
+        * Read `n` and busyness values `arr[1..n]`
+        * For each directed road `(u, v)`, compute weight `w = (arr[v] - arr[u])³` and store it in `edge`
+        * Build adjacency list `graph` for DFS traversal
+    2. Bellman-Ford Relaxation
+        * Initialize all distances `dis[i] = INF`, except `dis[1] = 0`
+        * Repeat for `n` iterations
+            * For each edge with weight `w`, relax `dis[y]` if `dis[x] + w < dis[y]`
+            * On the `n`-th iteration, any further relaxation marks `y` as **reachable from a negative cycle**
+            * Perform DFS from such nodes to mark all affected nodes as invalid
+    3. Query Processing
+        * For each query `ask`, print
+            * `?` if `!valid[ask]` or `dis[ask] < 3` or `dis[ask] >= INF`
+            * Otherwise print `dis[ask]`
+* Key Implementation Details
+    * `dfs()` is used to propagate invalidity from negative-cycle nodes
+    * `trp(x)` computes the cubic cost $x^3$
+    * `bell()` performs Bellman-Ford relaxation and detects negative cycles
+
 ### 【UVa】11517. Exact Change
 
 **Solved**
