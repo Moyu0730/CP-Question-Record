@@ -1,5 +1,44 @@
 # CP-Question-Record
 
+### 【UVa】990. Diving for Gold
+
+**Solved**
+
+。0/1 Knapsack + Reconstruction - $N \times T$
+
+* Core Concepts
+    * State Definition
+        * Let `dp[i][j]` represent the **maximum gold** that can be collected using the first `i` treasures within time `j`
+        * Each treasure $i$ has
+            * Depth `w[i]`
+            * Gold amount `arr[i]`
+            * Time cost `3 * k * w[i]` ⮕ descent + ascent
+    * Transition Formula
+        * If the diver can afford the time cost
+            * `dp[i][j] = max(dp[i-1][j], dp[i-1][j - 3*k*w[i]] + arr[i])`
+    * Otherwise
+        * `dp[i][j] = dp[i-1][j]`
+    * Initialization
+        * `dp[0][j] = 0` for all `j`, since no treasure can be collected without diving
+    * Reconstruction
+        * Start from `dp[n][t]` and trace back
+        * If `dp[i][j] - arr[i] == dp[i-1][j - 3*k*w[i]]`, treasure `i` was taken
+        * Decrease `j` by the corresponding time cost until reaching 0
+        * Reverse the collected sequence to restore input order
+* Solution Strategy
+    1. **Input Parsing**
+        * Read total available time `t`, weight factor `k`, and number of treasures `n`
+        * For each treasure, store `(depth, gold)` in arrays `w[i]`, `arr[i]`
+    2. **DP Table Construction**
+        * Iterate `i = 1..n`, and for each time `j = t..0`
+        * Update `dp[i][j]` based on whether taking treasure `i` is beneficial
+    3. **Traceback**
+        * Start from `dp[n][t]` and retrieve which treasures were chosen
+        * Store chosen `(w[i], arr[i])` pairs in `ans` and reverse at the end
+    4. **Output**
+        * Print the maximum gold `dp[n][t]`, number of treasures taken, and the chosen treasures in order
+        * Print a blank line between datasets
+
 ### 【UVa】10449. Traffic
 
 **Solved**
@@ -44,7 +83,7 @@
         * Let `dp[x]` = the **minimum number of coins** needed to make an exact sum of `x` cents
         * Initialize all `dp[x]` as infinity, except `dp[0] = 0`
     * Transition
-        * For each coin `c`, iterate `j` **backward** from `MAXN` down to `c` → `dp[j] = min(dp[j], dp[j - c] + 1)`
+        * For each coin `c`, iterate `j` **backward** from `MAXN` down to `c` ⮕ `dp[j] = min(dp[j], dp[j - c] + 1)`
         * Backward iteration ensures each coin is only used **once**, satisfying the 0/1 constraint
     * Result Extraction
         * After all coins are processed, scan from `val` upward to find the first achievable amount `i` where `dp[i]` is finite, then output `(i, dp[i])`
