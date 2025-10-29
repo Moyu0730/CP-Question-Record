@@ -1,5 +1,38 @@
 # CP-Question-Record
 
+### 【UVa】10819. Trouble of 13-Dots
+
+**Solved**
+
+。0/1 Knapsack - $N \times (M+200)$
+
+* Core Concepts
+    * Two Initialization Paradigms
+        * *At-most spend* ⮕ don’t need to spend all
+            * `val[j]` can be initialized to **0**; result is `max(val[0..limit])` ⮕ **Wrong for this problem** when $M ≤ 2000 < M+200$ states in the **illegal "gap" $(M, 2000]$** can inflate later states and **pollute** valid answers in the refund zone
+        * *Exact spend* ⮕ must spend exactly `j`
+            * initialize `val[0]=0`, and **all others to `-INF`**. A state `val[j]` becomes valid **only** if `val[j - P[i]]` is valid ⮕ **Use this** to **preserve** all valid totals and avoid cross-contamination from the illegal gap.
+    * Transition
+        * `val[j] = max(val[j], val[j - P[i]] + D[i])` **iff** `val[j - P[i]] != -INF`
+        * Iterate `j` **downward** to enforce 0/1 usage
+    * Refund Rule as Split Budget
+        * If total **exceeds 2000**, you get **+ 200** refund ⇒ effective cap may extend to $M+200$, but totals in $(M, 2000]$ are **illegal** when $M ≤ 2000$
+        * Handle by **DP up to $M + 200$**, then **choose max over valid regions**
+* Solution Strategy
+    1. DP Setup
+        * `val[0] = 0`; for `j>0`, `val[j] = -INF`
+        * For each item `(P[i], D[i])`, update `j = M+200 … P[i]`
+    2. Why exact-spend init
+        * Prevents any value built via **illegal totals** in $(M, 2000]$ when $M ≤ 2000$ from leaking forward and **overwriting** the true optimum in the refund region.
+    3. Pick the Answer by Regions
+        * Let `cap = M + 200`
+            * **Case A: `M > 2000`** ⮕ answer is `max(val[0..cap])`
+            * **Case B: `M ≤ 2000` and `M + 200 ≤ 2000`** (i.e., effectively no refund) ⮕ answer is `max(val[0..M])`
+            * **Case C: `M ≤ 2000` and `M + 200 > 2000`** ⮕ answer is `max( max(val[0..M]), max(val[2001..cap]) )`. Skip the **illegal gap** $(M, 2000]$
+* Key Insight
+    * Initializing all `val[j] = 0` (at-most spend) lets **illegal** totals in $(M, 2000]$ spuriously improve `val[j]` for $j > 2000$, **corrupting** the refund-zone optimum.
+    * Enforcing **exact-spend validity** (`-INF` init) guarantees each `val[j]` is derived only from **legal** predecessors, so the final **region-based max** yields the correct answer.
+
 ### 【UVa】990. Diving for Gold
 
 **Solved**
