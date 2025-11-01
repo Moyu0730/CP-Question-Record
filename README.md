@@ -1,5 +1,43 @@
 # CP-Question-Record
 
+### 【UVa】242. Stamps and Envelope Size
+
+**Solved**
+
+。Bounded Knapsack - $N \times M \times S \times V$
+
+* Core Concepts
+    * Bounded Knapsack Formulation
+        * Each denomination can be used up to `S` times ⮕ bounded
+        * Goal ⮕ find the **maximum continuous postage value** that can be formed from value 1 up to some limit without any gap
+        * DP state ⮕ `dp[v]` = minimum number of stamps needed to form value `v`
+    * Transition
+        * For each denomination `arr[t][i]` and each quantity `amt` from 1 to `S`
+            * `dp[j] = min(dp[j], dp[j - amt * arr[t][i]] + amt)`
+        * Each `dp[v]` records the fewest number of stamps needed to form postage `v`
+    * Maximal No-Gap Coverage
+        * After filling DP, the smallest postage `i` where `dp[i] > S` means that value `i` cannot be formed with ≤ `S` stamps ⮕ Max coverage = `i − 1`
+  * Comparison Rule
+        * Sort all denomination sets by
+            1. Higher maximal coverage first
+            2. Fewer denominations second
+            3. Smaller largest denomination third
+            4. Lexicographically smaller overall if still tied
+* Solution Strategy
+    1. Initialize
+        * Initialize `dp` with a large constant (`MEMINF`) ⮕ Unreachable
+        * Set `dp[0] = 0`
+        * Iterate through each denomination and simulate bounded knapsack updates
+    2. Coverage Detection
+        * Scan from `i = 0` upward until the first `i` such that `dp[i] > S`
+        * Record `arr[t][0] = i` as this set’s coverage indicator
+    4. Result Selection
+        * Sort all sets using `cmp()` according to the above rules
+        * Select and print the first set with maximal coverage
+
+> [!NOTE]
+> Be careful with the output format
+
 ### 【UVa】10819. Trouble of 13-Dots
 
 **Solved**
