@@ -1,5 +1,47 @@
 # CP-Question-Record
 
+### 【UVa】11488. Hyper Prefix Sets
+
+**Solved**
+
+。Trie - $\sum len(S_i)$
+
+* Complexity Analysis
+    * Each string insertion takes O($len(S)$), proportional to its length
+    * Total time complexity ⮕ O($\sum len(S)$)
+    * Space complexity ⮕ O($\sum len(S)$), since every unique prefix creates one trie node
+* Core Concepts
+    * Trie Construction
+        * Each input string consists only of binary digits `0` and `1`
+        * For every inserted string, traverse the trie character by character
+        * Each node represents a unique binary prefix shared among inserted strings
+    * Prefix Frequency Counting
+        * Each node keeps a counter `val[cnt]` denoting how many strings share that prefix
+        * While inserting a string, increment this counter for each visited node
+    * Result Tracking
+        * The maximum "score" is updated at each step as `res = max(res, (prefix_length) × (prefix_frequency))`
+        * This ensures that for every possible prefix, we evaluate the contribution of how long it is and how many strings share it
+* Implementation Strategy
+  1. Initialization
+        * Before each test case, reset the global arrays using `memset`
+            * `nxt[MAXN][2]` ⮕ next nodes for `'0'` and `'1'`
+            * `val[MAXN]` ⮕ prefix count per node
+        * Reset counters ⮕ `res = 0`, `amt = 0`
+    2. Insertion Function
+        * Start from the root node
+        * For each character `s[i]` in the current string
+            * If the next node doesn’t exist, create it
+            * Move to the child node
+            * Increment its `val` counter
+            * Update the answer `res = max(res, (i + 1) * val[cnt])`
+    3. Solve Function
+        * Read `n`, the number of binary strings
+        * Insert each string using the `insert()` function
+        * Output the final `res` after all insertions
+* Key Insight
+    * The problem leverages trie traversal to simultaneously capture prefix frequency and prefix length
+    * The optimal answer emerges from balancing **how deep** the prefix is and **how many strings** share it
+
 ### 【UVa】242. Stamps and Envelope Size
 
 **Solved**
