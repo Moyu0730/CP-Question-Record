@@ -7,9 +7,9 @@
 。Trie - $\sum len(S_i)$
 
 * Complexity Analysis
-    * Each string insertion takes O($len(S)$), proportional to its length
-    * Total time complexity ⮕ O($\sum len(S)$)
-    * Space complexity ⮕ O($\sum len(S)$), since every unique prefix creates one trie node
+    * Each string insertion ⮕ $len(S)$
+    * Total time complexity ⮕ $\sum len(S)$
+    * Space complexity ⮕ $\sum len(S)$
 * Core Concepts
     * Trie Construction
         * Each input string consists only of binary digits `0` and `1`
@@ -24,7 +24,7 @@
 * Implementation Strategy
   1. Initialization
         * Before each test case, reset the global arrays using `memset`
-            * `nxt[MAXN][2]` ⮕ next nodes for `'0'` and `'1'`
+            * `nxt[MAXN][2]` ⮕ next nodes for `0` and `1`
             * `val[MAXN]` ⮕ prefix count per node
         * Reset counters ⮕ `res = 0`, `amt = 0`
     2. Insertion Function
