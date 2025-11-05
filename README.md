@@ -1,5 +1,56 @@
 # CP-Question-Record
 
+### 【Luogu】 P12385.【Blue Bridge Cup 2023 Provincial Python B】XOR Sum
+
+**Solved**
+
+。Tree Flatten + BIT – $(N+Q)\log{N}$
+
+* Complexity Analysis
+    * DFS flattening (`treeflat`) to get `pos[]` and `tsz[]` for the rooted tree ⮕ $N$
+    * BIT construction inside the `BIT<int>` constructor via `init()` ⮕ $N\log{N}$
+    * Each point update ⮕ $\log{N}$
+    * Each subtree XOR query ⮕ $\log{N}$
+    * Total over all operations ⮕ $(N+Q)\log{N}$
+* Core Concepts
+    * **Tree flattening to an interval**
+        * The DFS `treeflat(1, -1)` assigns every node `x` a discovery time `pos[x]` and computes its subtree size `tsz[x]`
+        * Because it’s a preorder-style flattening, **all nodes in the subtree of `x` occupy a contiguous segment** ⮕ subtree of `x` is exactly the range `L = pos[x]`, `R = pos[x] + tsz[x] - 1`
+    * **Store values by DFS order**
+        * The original weights are read into the global `arr[i]` (1-indexed by node id)
+        * The BIT, however, is built over **DFS order**: during `BIT::init()`, for each real node `i` we locate its flattened index `cnt = pos[i]` and XOR its value into BIT positions
+        * This makes it possible to do **subtree queries as range queries** on the BIT
+    * **BIT tree with XOR instead of sum**
+        * A classic BIT tree can be used for any associative + invertible-on-prefix operation; here the operation is XOR
+        * `query(pos)` in the struct returns **prefix XOR** of DFS positions `[1 .. pos]`
+        * A range XOR is then `xor(l, r) = query(r) ^ query(l - 1)`
+    * **Point reassignment via XOR diff**
+        * The operation `1 x y` means “set node `x`’s weight to `y`”
+        * Current value is kept in global `arr[x]`
+        * To update the BIT at flattened position `pos[x]`, the code XORs out the **old** value and XORs in the **new** value along the BIT chain
+            * inside `BIT::update(old, x, val)`
+                * `tmp = arr[old]` (old weight)
+                * `arr[old] = val` (update global array)
+                * at each BIT index: `ARR[idx] ^= tmp; ARR[idx] ^= val;`
+    * This works because **XOR is its own inverse**
+* Solution Strategy
+    1. Flatten the tree
+        * Call `treeflat(1, -1)` to fill
+            * `pos[u]` ⮕ DFS entry / flattened index
+            * `tsz[u]` ⮕ size of subtree rooted at `u`
+        * Also increments a global `timer`, so DFS order runs from `1..n`
+    2. Build the BIT over the flattened positions
+        * Instantiate `BIT<int> bit;`
+        * Its constructor calls `clear()` and then `init()`
+        * `init()` walks nodes `1..n`, maps each to its `pos[i]`, and propagates `arr[i]` into the BIT array using XOR
+    4. **Process all queries**
+        * If operation is `1 x y`
+            * Call `bit.update(x, pos[x], y);`
+            * This changes the weight of **tree node** `x` to `y`, and applies the corresponding XOR difference on BIT indices starting from its flattened index
+        * If operation is `2 x`
+        * The subtree of `x` is `[pos[x], pos[x] + tsz[x] - 1]`
+        * Output `bit.get(pos[x], pos[x] + tsz[x] - 1);` where `get(l, r)` is implemented as `query(r) ^ query(l - 1)`
+
 ### 【UVa】11488. Hyper Prefix Sets
 
 **Solved**
