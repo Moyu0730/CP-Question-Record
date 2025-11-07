@@ -19,39 +19,19 @@ using namespace std;
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
 const int MAXN = 2e5 + 50;
 const int Mod = 1e9 + 7;
-int n, q, x, y, arr[MAXN], seg[MAXN * 4];
 
-void update( int cnt ){
-    seg[cnt] = seg[nL] ^ seg[nR];
-    return;
-}
-
-void build( int L, int R, int cnt ){
-    if( L == R ){
-        seg[cnt] = arr[L];
-        return;
-    }
-    int M = ( L + R ) / 2;
-    build(L, M, nL);
-    build(M+1, R, nR);
-    update(cnt);
-}
-
-int query( int L, int R, int ql, int qr, int cnt ){
-    if( L > R || ql > R || qr < L ) return 0;
-    if( ql <= L && qr >= R ) return seg[cnt];
-    int M = (L + R) / 2;
-    return query(L, M, ql, qr, nL) ^ query(M+1, R, ql, qr, nR);
-}
+int n, q, x, y, arr[MAXN], pfx[MAXN];
 
 signed main(){
     opt;
     cin >> n >> q;
-    for( int i = 1 ; i <= n ; i++ ) cin >> arr[i];
-    build(1, n, 1);
-
+    for( int i = 1 ; i <= n ; i++ ){
+        cin >> arr[i];
+        pfx[i] = pfx[i-1] ^ arr[i];
+    }
+ 
     while( q-- ){
         cin >> x >> y;
-        cout << query(1, n, x, y, 1) << "\n";
+        cout << (pfx[y] ^ pfx[x-1]) << "\n";
     }
 }
