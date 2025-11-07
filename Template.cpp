@@ -54,55 +54,67 @@ const int   MEMINF_VAL = 0x3F3F3F3F;
 const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
 /* ---------- Segment Tree ---------- */
-#define nL v * 2
-#define nR v * 2 + 1
+template<tpn T> struct NODE {
+    T val, tag, len;
+    NODE() : val(0), tag(0), len(0) {}
+    T gV(){ return val + (tag * len); }
+};
 
-struct Node {
-    int val = 0, tag = 0, len;
-    int getValue(){ return val + (tag * len); }
-} SEG[MAXN * 4];
+NODE<int> ARRAY[MAXN * 4];
 
-void build( int L, int R, int v ){
-    SEG[v].len = R - L + 1;
-    if( R == L ){
-        SEG[v].val = arr[L];
-        return;
+template<tpn T> struct SEG {
+    #define nL (x<<1)
+    #define nR (x<<1) + 1
+
+    SEG(){ build(1, n, 1); }
+    T FUNC( T vL, T vR ){ return vL + vR; }
+
+    void push( int x ){
+        ARRAY[nL].tag += ARRAY[x].tag;
+        ARRAY[nR].tag += ARRAY[x].tag;
+        ARRAY[x].val = ARRAY[x].gV();
+        ARRAY[x].tag = 0;
     }
 
-    int M = (L + R) / 2;
-    build(L, M, nL);
-    build(M+1, R, nR);
-    SEG[v].val = SEG[nL].val + SEG[nR].val;
-}
+    void build( int L, int R, int x ){
+        ARRAY[x].len = R - L + 1;
 
-void push( int v ){
-    SEG[nL].tag += SEG[v].tag;
-    SEG[nR].tag += SEG[v].tag;
-    SEG[v].val = SEG[v].getValue();
-    SEG[v].tag = 0;
-}
+        if( R == L ){
+            ARRAY[x].val = arr[L];
+            return;
+        }
 
-int query( int L, int R, int qL, int qR, int v ){
-    if( R < L || qL > R || qR < L ) return 0;
-    if( qL <= L && R <= qR ) return SEG[v].getValue();
-
-    push(v);
-    int M = (L + R) / 2;
-    return query(L, M, qL, qR, nL) + query(M+1, R, qL, qR, nR);
-}
-
-void modify( int L, int R, int mL, int mR, int val, int v ){
-    if( R < L || mL > R || mR < L ) return;
-    if( mL <= L && R <= mR ){
-        SEG[v].tag += val;
-        return;
+        int M = (L + R) / 2;
+        build(L, M, nL);
+        build(M+1, R, nR);
+        ARRAY[x].val = FUNC( ARRAY[nL].gV(), ARRAY[nR].gV() );
     }
 
-    int M = (L + R) / 2;
-    modify(L, M, mL, mR, val, nL);
-    modify(M+1, R, mL, mR, val, nR);
-    SEG[v].val = SEG[nL].getValue() + SEG[nR].getValue();
-}
+    T query( int qL, int qR ){ return query(1, n, qL, qR, 1); }
+    T query( int L, int R, int qL, int qR, int x ){
+        if( R < L || qL > R || qR < L ) return 0;
+        if( qL <= L && R <= qR ) return ARRAY[x].gV();
+
+        push(x);
+
+        int M = (L + R) / 2;
+        return FUNC( query(L, M, qL, qR, nL), query(M+1, R, qL, qR, nR) );
+    }
+
+    void update( int mL, int mR, T mV ){ update(1, n, mL, mR, mV, 1); }
+    void update( int L, int R, int mL, int mR, T mV, int x ){
+        if( R < L || mL > R || mR < L ) return;
+        if( mL <= L && R <= mR ){
+            ARRAY[x].tag += mV;
+            return;
+        }
+
+        int M = (L + R) / 2;
+        update(L, M, mL, mR, mV, nL);
+        update(M+1, R, mL, mR, mV, nR);
+        ARRAY[x].val = FUNC( ARRAY[nL].gV(), ARRAY[nR].gV() );
+    }
+};
 
 /* ---------- Dijkstra ---------- */
 void dij( int root ){
@@ -210,40 +222,37 @@ void lca( int a, int b ){
 
 /* ---------- BIT ---------- */
 template<tpn T> struct BIT {
-    T bit[MAXN];
+    T ARR[MAXN];
+    BIT(){ clear(); }
     int lowbit( int x ){ return x & -x; }
     T query( int pos ){
         T ans = 0;
         while( pos ){
-            ans += bit[pos];
+            ans += ARR[pos];
             pos -= lowbit(pos);
         }
         return ans;
     }
     void update( int x, T val ){
         while( x < MAXN ){
-        bit[x] += val;
-        x += lowbit(x);
+            ARR[x] += val;
+            x += lowbit(x);
         }
     }
     T sum( int l, int r ){
         if( l > r ) return 0;
         return query(r) - query(l - 1);
     }
-    T LB( T val ){ // lower_bound by sum
-        T sum = 0, x = 0;
-        for( int i = __lg(MAXN) ; i >= 0 ; --i ){
-            int new_x = x | (1 << i);
-            if( new_x <= MAXN && sum + bit[new_x] < val ){
-                sum += bit[new_x];
-                x = new_x;
-            }
+    T LowerB( T val ){ // lower_bound by sum
+        T res = 0, step = MAXN - 1;
+        while( step != 0 ){
+            if( query(res + step) >= val ) step /= 2;
+            else res += step;
         }
-        return x + 1;
+        return res + 1;
     }
-    void clear(){ MEM(bit, 0); }
+    void clear(){ MEM(ARR, 0); }
 };
-
 
 /* ---------- KSM ---------- */
 int ksm( int base, int power ){
