@@ -1,5 +1,32 @@
 # CP-Question-Record
 
+### 【AtCoder】 Beginner Contest 098 - D. Xor Sum 2
+
+**Solved**
+
+。Two Pointers + Prefix Sum - $N$
+
+* Core Concepts
+    * Mathematical Observation
+        * For any subarray $A[l..r]$, the condition $$A_l + A_{l+1} + ... + A_r = A_l \oplus A_{l+1} \oplus ... \oplus A_r$$ holds **iff no two bits overlap** among the numbers in that subarray
+        * This implies that each bit position is set at most once inside $[l, r]$
+    * Prefix Arrays
+        * Define
+            `p[i] = p[i-1] + A[i]` ⮕ prefix sum
+            `x[i] = x[i-1] ^ A[i]` ⮕ prefix xor
+        * Then, the condition for a valid subarray $[j, i]$ becomes $$p[i] - p[j-1] = x[i] \oplus x[j-1]$$
+* Solution Strategy
+    1. Two-Pointer Sliding Window
+        * Maintain two indices `j` and `i` representing the left and right bounds of the window
+        * For each `i`, increase `j` while the condition `p[i] - p[j-1] != (x[i] ^ x[j-1])` is violated
+    2. Counting Valid Subarrays
+        * Once a valid window $[j, i]$ is found, every subarray ending at `i` and starting between $[j, i]$ satisfies the condition
+        * Add `(i - j + 1)` to the total count
+    3. Prefix Computation
+        * Compute prefix sum and prefix xor arrays in a single pass
+    4. Final Output
+        * The total number of valid pairs `(l, r)` is printed as `res`
+
 ### 【Luogu】 P12385.【Blue Bridge Cup 2023 Provincial Python B】XOR Sum
 
 **Solved**
