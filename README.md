@@ -1,5 +1,64 @@
 # CP-Question-Record
 
+### 【AtCoder】 ABC 429 E. Hit and Away
+
+**Solved**
+
+。Multi-source BFS - $N + M$
+
+* Core Concepts
+    * The problem is equivalent to ⮕ for each vertex, keep the **two shortest** distances from **two different safe sources**; then for a dangerous vertex, answer = (best distance from safe $A$) + (second-best distance from safe $B$), where $A ≠ B$
+    * The code does this in **one BFS** by pushing all safe vertices at once (multi-source BFS), but it also remembers **which safe vertex** the path came from
+* BFS State Design
+    * Arrays
+        * `dis[node][1]`, `dis[node][2]` store the **best** and **second-best** distance to this node
+        * `src[node][1]`, `src[node][2]` store **which safe node** achieved that distance
+        * both `dis` and `src` are sized as `[MAXN][2+5]` in the code, but only index `1` and `2` are actually used
+    * Queue stores a tuple ⮕ `(s, u, k)`
+        * `s` = the original safe vertex we started from
+        * `u` = current vertex in BFS
+        * `k` = whether this BFS layer corresponds to this node’s 1st-best or 2nd-best record
+    * Initialization
+        * read all nodes, build `edge`
+        * for every `i` with `str[i] == 'S'`
+            * push `(i+1, i+1, 1)` into the queue
+            * set `dis[i+1][1] = 0`, `src[i+1][1] = i+1`
+        * all other `dis` are filled with a large value via `MEM(dis, MEMINF);`
+    * This means BFS starts **simultaneously** from all safe nodes
+* Transition Logic
+    * When we pop `(s, u, k)`, we try all neighbors `v`
+    * Let `nd = dis[u][k] + 1`
+    * Case 1 ⮕ `nd < dis[v][1]`
+        * We found a strictly better shortest path to `v`
+        * But before overwriting, if `v` already had a 1st-best from **another** safe (`src[v][1] != 0 && src[v][1] != s`), we **promote** that old best into the 2nd-best slot
+            * `dis[v][2] = dis[v][1]`
+            * `src[v][2] = src[v][1]`
+            * and we push `(that_old_safe, v, 2)` back to queue
+        * Then we write the new best:
+        * `dis[v][1] = nd`
+        * `src[v][1] = s`
+        * push `(s, v, 1)`
+    * Case 2 ⮕ otherwise, if `s != src[v][1]` and `nd < dis[v][2]`
+        * i.e. we didn’t beat the best, but we are from a **different** safe source than the best, and we improved the 2nd-best
+        * then
+            * `dis[v][2] = nd`
+            * `src[v][2] = s`
+            * push `(s, v, 2)`
+    * This guarantees
+        * for every vertex, we keep **at most two** records
+        * and these two records always come from **two different** safe starting vertices
+* Why this answers the problem
+    * For a dangerous vertex `x`, we need to start from safe $A$ ⮕ reach `x` ⮕ go to **another** safe $B$
+        The optimal way in an unweighted graph is just two shortest paths that both pass through `x` but come from **different** safes
+    * Our BFS has already computed
+        * shortest distance from some safe $A$ to `x` = `dis[x][1]`, source = `src[x][1]`
+        * shortest distance from another safe $B ≠ A$ to `x` = `dis[x][2]`, source = `src[x][2]`
+    * Then the round-trip through `x` is just
+        `dis[x][1] + dis[x][2]`
+    * That’s exactly what the code prints at the end
+        * loop over all vertices
+        * if `str[i] == 'D'`, output `dis[i+1][1] + dis[i+1][2]`
+
 ### 【AtCoder】 Beginner Contest 098 - D. Xor Sum 2
 
 **Solved**
