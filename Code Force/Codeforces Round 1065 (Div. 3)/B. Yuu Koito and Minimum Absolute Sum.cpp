@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : Codeforces Round 1065 (Div. 3) - B. Yuu Koito and Minimum Absolute Sum */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,7 @@ using namespace std;
 #define ALL(_array) _array.begin(), _array.end()
 #define LB(_array, v) lower_bound(ALL(_array), v)
 #define UB(_array, v) upper_bound(ALL(_array), v)
-#define REV(_vector) _vector.reverse();
+#define REV(_vector) reverse(ALL(_vector))
 #define vc(_data) vector<_data>
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -33,12 +33,16 @@ using namespace std;
 #define tpn typename
 
 /* Self Define Template Function */
-template <typename T> void pV( vector<T> _vector ){ 
-    for( auto _it : _vector ) cout << _it << " ";
+template <typename T> void pV( vector<T> _vector, int rep ){
+    for( int i = 0 ; i < _vector.sz ; ++i ){
+        if( _vector[i] == -1 && ( i == 0 || i == _vector.sz-1 ) ) cout << rep << " ";
+        else if( _vector[i] == -1 ) cout << "0 ";
+        else cout << _vector[i] << " ";
+    }
     cout << "\n";
 }
 
-template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){ 
+template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){
     return 1 <= _pair.F && _pair.F <= _n && 1 <= _pair.S && _pair.S <= _m;
 }
 
@@ -47,7 +51,7 @@ template <typename A, typename B> istream& operator>>( istream& _is, pair<A, B> 
 }
 
 template <typename A, typename B> ostream& operator<<( ostream& _os, pair<A, B> _pair ){ 
-    return _os << '(' << _pair.F << ", " << _pair.S << ')';
+    return _os << '(' << _pair.F << " " << _pair.S << ')';
 }
 
 /* Self Define Const */
@@ -61,15 +65,35 @@ const int       MEMINF = 0x3F;
 const int   MEMINF_VAL = 0x3F3F3F3F;
 const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
-inline void solve(){
+int n, rep, res;
+vc(int) arr;
 
+inline void solve(){
+    cin >> n;
+
+    arr.rz(n);
+    for( int i = 0 ; i < n ; ++i ) cin >> arr[i];
+
+    if( arr[0] == -1 && arr[n-1] == -1 ){
+        rep = 0;
+        res = 0;
+    }else if( arr[0] == -1 ){
+        rep = arr[n-1];
+        res = 0;
+    }else if( arr[n-1] == -1 ){
+        rep = arr[0];
+        res = 0;
+    }else res = arr[n-1] - arr[0];
+
+    cout << abs(res) << "\n";
+    pV(arr, rep);
 }
 
 signed main(){
     IO;
 
     int T = 1;
-    // cin >> T;
+    cin >> T;
     while( T-- ){
         solve();
     }

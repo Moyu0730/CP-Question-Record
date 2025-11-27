@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : Codeforces Round 1065 (Div. 3) - C2. Renako Amaori and XOR Game (hard version) */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,7 @@ using namespace std;
 #define ALL(_array) _array.begin(), _array.end()
 #define LB(_array, v) lower_bound(ALL(_array), v)
 #define UB(_array, v) upper_bound(ALL(_array), v)
-#define REV(_vector) _vector.reverse();
+#define REV(_vector) reverse(ALL(_vector))
 #define vc(_data) vector<_data>
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -33,12 +33,12 @@ using namespace std;
 #define tpn typename
 
 /* Self Define Template Function */
-template <typename T> void pV( vector<T> _vector ){ 
+template <typename T> void pV(vector<T> _vector ){
     for( auto _it : _vector ) cout << _it << " ";
     cout << "\n";
 }
 
-template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){ 
+template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){
     return 1 <= _pair.F && _pair.F <= _n && 1 <= _pair.S && _pair.S <= _m;
 }
 
@@ -47,13 +47,13 @@ template <typename A, typename B> istream& operator>>( istream& _is, pair<A, B> 
 }
 
 template <typename A, typename B> ostream& operator<<( ostream& _os, pair<A, B> _pair ){ 
-    return _os << '(' << _pair.F << ", " << _pair.S << ')';
+    return _os << '(' << _pair.F << " " << _pair.S << ')';
 }
 
 /* Self Define Const */
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1},  {-1, 0}, {0, -1}, 
                                             {1, 1}, {1, -1}, {-1, 1}, {-1, -1} };
-const int         MAXN = 1e7 + 50;
+const int         MAXN = 2e5 + 50;
 const int          Mod = 1e9 + 7;
 const int          INF = 0x7FFFFFFF;
 const ll         LLINF = 0x7FFFFFFFFFFFFFFF;
@@ -61,15 +61,68 @@ const int       MEMINF = 0x3F;
 const int   MEMINF_VAL = 0x3F3F3F3F;
 const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
-inline void solve(){
+int n, tot, amtA, amtB;
+int arr[MAXN][2 + 5];
 
+inline void solve(){
+    cin >> n;
+
+    tot = 0;
+    amtA = 0;
+    amtB = 0;
+    for( int i = 0 ; i < n ; ++i ){
+        cin >> arr[i][0];
+        tot ^= arr[i][0];
+    }
+
+    for( int i = 0 ; i < n ; ++i ){
+        cin >> arr[i][1];
+        tot ^= arr[i][1];
+    }
+
+    int idx = max(0, 64 - __builtin_clzll(tot) - 1);
+
+    for( int i = 0 ; i < n ; ++i ){
+        if( arr[i][0] & (1<<idx) ) ++amtA;
+        if( arr[i][1] & (1<<idx) ) ++amtB;
+    }
+    
+    for( int i = 0 ; i < n ; ++i ){
+        int vA = arr[i][0] & (1<<idx);
+        int vB = arr[i][1] & (1<<idx); 
+        if( vA != vB ){
+            if( i % 2 == 0 && amtA % 2 == 0 ){
+                if( vA == 1 ){
+                    --amtA; 
+                    ++amtB;
+                }else{
+                    ++amtA;
+                    --amtB;
+                }
+            }else if( i % 2 == 1 && amtB % 2 == 0 ){
+                if( vB == 1 ){
+                    --amtB;
+                    ++amtA;
+                }else{
+                    ++amtB;
+                    --amtA;
+                }
+            }
+        }
+    }
+
+    amtA %= 2;
+    amtB %= 2;
+    if( amtA > amtB ) cout << "Ajisai\n";
+    else if( amtA < amtB ) cout << "Mai\n";
+    else cout << "Tie\n";
 }
 
 signed main(){
     IO;
 
     int T = 1;
-    // cin >> T;
+    cin >> T;
     while( T-- ){
         solve();
     }

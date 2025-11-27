@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : Codeforces Round 1065 (Div. 3) - A. Shizuku Hoshikawa and Farm Legs */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,7 @@ using namespace std;
 #define ALL(_array) _array.begin(), _array.end()
 #define LB(_array, v) lower_bound(ALL(_array), v)
 #define UB(_array, v) upper_bound(ALL(_array), v)
-#define REV(_vector) _vector.reverse();
+#define REV(_vector) reverse(ALL(_vector))
 #define vc(_data) vector<_data>
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -33,12 +33,12 @@ using namespace std;
 #define tpn typename
 
 /* Self Define Template Function */
-template <typename T> void pV( vector<T> _vector ){ 
+template <typename T> void pV(vector<T> _vector ){
     for( auto _it : _vector ) cout << _it << " ";
     cout << "\n";
 }
 
-template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){ 
+template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){
     return 1 <= _pair.F && _pair.F <= _n && 1 <= _pair.S && _pair.S <= _m;
 }
 
@@ -47,7 +47,7 @@ template <typename A, typename B> istream& operator>>( istream& _is, pair<A, B> 
 }
 
 template <typename A, typename B> ostream& operator<<( ostream& _os, pair<A, B> _pair ){ 
-    return _os << '(' << _pair.F << ", " << _pair.S << ')';
+    return _os << '(' << _pair.F << " " << _pair.S << ')';
 }
 
 /* Self Define Const */
@@ -61,15 +61,20 @@ const int       MEMINF = 0x3F;
 const int   MEMINF_VAL = 0x3F3F3F3F;
 const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
-inline void solve(){
+int n;
 
+inline void solve(){
+    cin >> n;
+
+    if( n % 2 == 0 ) cout << ( n / 4 ) + 1 << "\n";
+    else cout << "0\n";
 }
 
 signed main(){
     IO;
 
     int T = 1;
-    // cin >> T;
+    cin >> T;
     while( T-- ){
         solve();
     }

@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : Codeforces Round 1065 (Div. 3) - E. Anisphia Wynn Palettia and Good Permutations */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,7 @@ using namespace std;
 #define ALL(_array) _array.begin(), _array.end()
 #define LB(_array, v) lower_bound(ALL(_array), v)
 #define UB(_array, v) upper_bound(ALL(_array), v)
-#define REV(_vector) _vector.reverse();
+#define REV(_vector) reverse(ALL(_vector))
 #define vc(_data) vector<_data>
 #define pii pair<int, int>
 #define pdd pair<double, double>
@@ -33,12 +33,12 @@ using namespace std;
 #define tpn typename
 
 /* Self Define Template Function */
-template <typename T> void pV( vector<T> _vector ){ 
+template <typename T> void pV(vector<T> _vector ){
     for( auto _it : _vector ) cout << _it << " ";
     cout << "\n";
 }
 
-template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){ 
+template <typename A, typename B> bool boundry( pair<A, B> &_pair, int _n, int _m ){
     return 1 <= _pair.F && _pair.F <= _n && 1 <= _pair.S && _pair.S <= _m;
 }
 
@@ -47,7 +47,7 @@ template <typename A, typename B> istream& operator>>( istream& _is, pair<A, B> 
 }
 
 template <typename A, typename B> ostream& operator<<( ostream& _os, pair<A, B> _pair ){ 
-    return _os << '(' << _pair.F << ", " << _pair.S << ')';
+    return _os << '(' << _pair.F << " " << _pair.S << ')';
 }
 
 /* Self Define Const */
@@ -61,15 +61,60 @@ const int       MEMINF = 0x3F;
 const int   MEMINF_VAL = 0x3F3F3F3F;
 const ll  MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
-inline void solve(){
+int n;
+vc(vc(int)) num;
 
+inline void solve(){
+    cin >> n;
+
+    num.rz(3);
+    for( int i = 1 ; i <= n ; ++i ){
+        if( !(i % 2) ) num[0].pb(i);
+        else if( !(i % 3) ) num[1].pb(i);
+        else num[2].pb(i); 
+    }
+
+    while( !num[2].empty() && num[0].sz >= 2 ){
+        cout << num[2].back() << " ";
+        num[2].pop_back();
+        cout << num[0].back() << " ";
+        num[0].pop_back();
+        cout << num[0].back() << " ";
+        num[0].pop_back();
+    }
+
+    while( num[2].size() >= 1 && num[1].size() >= 2 ){
+        cout << num[2].back() << " ";
+        num[2].pop_back();
+        cout << num[1].back() << " ";
+        num[1].pop_back();
+        cout << num[1].back() << " ";
+        num[1].pop_back();
+    }
+
+    while( !num[0].empty() ){
+        cout << num[0].back() << " ";
+        num[0].pop_back();
+    }
+
+    while( !num[1].empty() ){
+        cout << num[1].back() << " ";
+        num[1].pop_back();
+    }
+
+    while( !num[2].empty() ){
+        cout << num[2].back() << " ";
+        num[2].pop_back();
+    }
+
+    cout << "\n";
 }
 
 signed main(){
     IO;
 
     int T = 1;
-    // cin >> T;
+    cin >> T;
     while( T-- ){
         solve();
     }
