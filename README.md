@@ -1,6 +1,54 @@
 # CP-Question-Record
 
-### 【AtCoder】 ABC 429 E. Hit and Away
+### 【AtCoder】 Beginner Contest 435 E. Cover Query
+**Solved**
+
+。Interval Union Maintenance with Ordered Set – $Q\log{Q}$
+
+* Complexity Analysis
+    * Each interval is inserted and erased at most once
+    * Set operations ⮕ $\log{Q}$
+    * Total Time Complexity ⮕ $Q \log Q$
+    * Space Complexity ⮕ $Q$
+* Core Concepts
+    * **Interval Union**
+        * Maintain a set of **disjoint black intervals** that represent all painted cells
+        * Each interval is stored as `(L, R)` and intervals are always kept **non-overlapping and merged**
+    * **Ordered Set**
+        * Intervals are ordered by left endpoint
+        * Allows efficient lookup of the first interval that may overlap with a new query range using `lower_bound`
+    * **Incremental Coverage Length Tracking**
+        * Maintain a global variable `len` that stores the **total number of black cells**
+        * Each merge operation updates `len` by removing old intervals and adding the merged one
+* Solution Strategy
+    1. Query Processing
+        * For each query $(l, r)$, find the first interval whose left endpoint is not smaller than `l`
+        * If the previous interval overlaps with `l`, include it as well
+    2. Interval Merging
+        * Iterate through all intervals that overlap with `[l, r]`
+        * Expand the new interval boundaries to cover all overlaps
+        * Subtract the length of each removed interval from `len`
+        * Erase merged intervals from the set
+    3. Insert Merged Interval
+        * Insert the merged interval `(newL, newR)` into the set
+        * Add its length `(newR - newL + 1)` to `len`
+    4. Answer Output
+        * Since total cells are `n`, the number of white cells is `n - len`
+        * Output this value after each query
+* Correctness Justification
+    * At any time, the set `st` contains a **canonical representation** of all black segments
+        * No two intervals overlap
+        * All black cells are covered by exactly one interval
+    * Each query correctly merges all overlapping intervals with the new painted range
+    * The variable `len` always equals the total number of black cells
+    * Therefore, `n - len` is exactly the number of white cells after each operation
+
+> [!NOTE]
+> * This approach works even for very large `N`, up to $10^9$, because it never iterates over individual cells
+> * Only interval boundaries are stored and manipulated
+> * The solution is robust to redundant queries where the range is already fully black
+
+### 【AtCoder】 Beginner Contest 429 E. Hit and Away
 
 **Solved**
 
