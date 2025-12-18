@@ -1,6 +1,54 @@
 # CP-Question-Record
 
+### 【AtCoder】 Beginner Contest 436 E. Minimum Swap
+
+**Solved**
+
+。Permutation Cycle Decomposition + Combinatorics - $N$
+
+* Core Concepts
+    * **Minimum Number of Swaps**
+        * For a permutation $P$, the minimum number of swaps needed to restore it to $(1, 2, \dots, N)$ is <br>
+            &nbsp; &nbsp; $\displaystyle \boxed{K = \sum_{\text{cycles}} (L - 1)}$ <br>
+        where $L$ stands for the length of the cycle
+        * Each cycle can be independently fixed, and a cycle of length $L$ requires exactly $L-1$ swaps
+    * **First Operation Validity**
+        * The problem does **not** ask for $K$, but asks
+            * How many swap operations $(i, j)$ can be chosen as the **first swap**, such that it is still possible to finish sorting in exactly $K$ swaps
+        * A key observation
+            * A valid first swap must **not increase** the minimum required number of swaps
+            * This happens **if and only if** the swap is performed between two indices that belong to the **same permutation cycle**
+    * **Combinatorial Counting**
+        * For a cycle of length $L$
+            * Any pair $(i, j)$ inside this cycle can be chosen as the first swap
+            * Number of valid first swaps contributed by this cycle is <br>
+                &nbsp; &nbsp; $\displaystyle \boxed{\binom{L}{2} = \frac{L(L-1)}{2}}$
+        * The final answer is the sum of $\binom{L}{2}$ over all cycles
+* Graph Interpretation
+    * The permutation is treated as a **functional graph**
+        * Each index $i$ has a directed edge to $P_i$
+    * Since $P$ is a permutation, the graph is composed of **disjoint cycles**
+    * Counting cycle sizes is sufficient to solve the problem
+* Solution Strategy
+    1. Build Functional Graph
+        * For each index $i$, define `nxt[i] = P[i]`
+    2. Cycle Detection via DFS
+        * Use a `used[]` array to mark visited nodes
+        * For each unvisited node
+            * Start DFS and count the cycle length `amt`
+    3. Accumulate Answer
+        * For each detected cycle, add <br>
+            &nbsp; &nbsp; $\displaystyle \boxed{\frac{L(L-1)}{2}}$ <br>
+        to the global result
+    4. Output the Result
+        * The sum corresponds exactly to the number of valid first operations
+* Correctness Argument
+    * Any swap between two different cycles merges them and increases the required number of swaps
+    * Any swap inside a single cycle preserves the optimality of $K$
+    * Therefore, counting all index pairs inside each cycle gives the exact number of valid first operations
+
 ### 【AtCoder】 Beginner Contest 435 E. Cover Query
+
 **Solved**
 
 。Interval Union Maintenance with Ordered Set – $Q\log{Q}$
