@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : Codeforces Round 1075 (Div. 2) - C1. XOR Convenience (Easy Version) */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -6,7 +6,7 @@ using namespace std;
 /* Pragma */
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("Ofast,unroll-loops,no-stack-protector,fast-math")
-// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 
 /* Self Define */
 #define IO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
