@@ -1,6 +1,46 @@
 # CP-Question-Record
 
-### 【UVa】 820. Internet Bandwidth
+### 【AtCoder】Beginner Contest 450 - E. Fibonacci String
+
+**Solved**
+
+。Recursive String Decomposition + Prefix Sums - O($Q\log{L}$)
+
+* Complexity Analysis
+    * Preprocessing lengths and character counts ⮕ O($90 \times 26$)
+    * Preprocessing $X$ and $Y$ prefix sums ⮕ O($|X| + |Y|$)
+    * Query Processing ⮕ O($Q \times 90$)
+    * Total Time Complexity ⮕ O($Q\log{L}$)
+* Core Concepts
+    * Fibonacci String Construction
+        * $S_1 = X, S_2 = Y$
+        * $S_i = S_{i-1} + S_{i-2}$ for $i \ge 3$
+        * The length grows exponentially, reaching $10^{18}$ in approximately 90 iterations
+    * Recursive Count Query
+        * To find the occurrences of character $C$ in the first $K$ characters of $S_i$
+            * If $K \le \text{length}(S_{i-1})$, the range is entirely within the left part ⮕ `query(K, i-1)`
+            * If $K > \text{length}(S_{i-1})$, the range covers all of $S_{i-1}$ plus a prefix of $S_{i-2}$ ⮕ `mp[i-1][C] + query(K - len[i-1], i-2)`
+    * Range Sum Query
+        * Transform the 1-indexed range $[L, R]$ into 0-indexed prefix subtraction
+        * Answer ⮕ `query(R, max_idx) - query(L-1, max_idx)`
+* Solution Strategy
+    1. String Preprocessing
+        * Build prefix sum arrays `mpx` and `mpy` for the initial strings $X$ and $Y$ to handle base cases in O(1)
+    2. Dynamic Programming for Totals
+        * Iteratively compute the total length `len[i]` and the total count of each character `mp[i][char]` for subsequent strings $S_i$
+    3. Recursive Search
+        * Implement the `query` function with base cases for `cnt == 1` and `cnt == 2`
+        * Use the calculated `len` array to decide which branch of the Fibonacci tree to traverse
+    4. Execution
+        * For each query, subtract the prefix count of $L-1$ from the prefix count of $R$
+        * Start all queries from the same "root" index (the largest index in the `len` array) to ensure consistency
+
+> [!NOTE]
+> * **Recursive Branching Pitfall** ⮕ A common mistake is adding a shortcut like `if (amt <= len[2]) return mpy[amt-1][ch]`. This is incorrect because during recursion, the function might be exploring the $S_1$ (string $X$) branch. Even if the remaining `amt` is small, it must be resolved relative to the current string identity ($X$ or $Y$), not a global length check
+> * **Non-Monotonic Lengths** ⮕ If $|X| > |Y|$, the `len` array is not strictly monotonic (e.g., $len[1]=100, len[2]=1$). Using `lower_bound` to find a starting index for queries will fail in such cases. The safest approach is to start all recursions from the maximum precomputed index that satisfies the total length requirement
+> * **Base Case Mapping** ⮕ Always ensure $S_1$ maps to $X$ and $S_2$ maps to $Y$ consistently within the `query` function to avoid character count mismatches during deep recursion
+
+### 【UVa】820. Internet Bandwidth
 
 **Solved**
 
@@ -44,7 +84,7 @@
 > [!NOTE]
 > Since the problem mentions that multiple connections may exist between the same two nodes, the `add_edge` function correctly handles this by adding new entries to the adjacency list, and the Dinic's implementation will naturally aggregate the total flow
 
-### 【AtCoder】 Beginner Contest 208 - E. Digit Products
+### 【AtCoder】Beginner Contest 208 - E. Digit Products
 
 **Solved**
 
@@ -87,7 +127,7 @@
     * `cps(val)` ⮕ Compresses product values to $K+1$ if they exceed $K$
     * `solve()` ⮕ Implements the iterative digit DP using two maps (`dp` and `dp_new`) to toggle between current and next digit positions
 
-### 【AtCoder】 Beginner Contest 436 E. Minimum Swap
+### 【AtCoder】Beginner Contest 436 E. Minimum Swap
 
 **Solved**
 
@@ -134,7 +174,7 @@
     * Any swap inside a single cycle preserves the optimality of $K$
     * Therefore, counting all index pairs inside each cycle gives the exact number of valid first operations
 
-### 【AtCoder】 Beginner Contest 435 E. Cover Query
+### 【AtCoder】Beginner Contest 435 E. Cover Query
 
 **Solved**
 
@@ -183,7 +223,7 @@
 > * Only interval boundaries are stored and manipulated
 > * The solution is robust to redundant queries where the range is already fully black
 
-### 【AtCoder】 Beginner Contest 429 E. Hit and Away
+### 【AtCoder】Beginner Contest 429 E. Hit and Away
 
 **Solved**
 
@@ -242,7 +282,7 @@
         * loop over all vertices
         * if `str[i] == 'D'`, output `dis[i+1][1] + dis[i+1][2]`
 
-### 【AtCoder】 Beginner Contest 098 - D. Xor Sum 2
+### 【AtCoder】Beginner Contest 098 - D. Xor Sum 2
 
 **Solved**
 
@@ -269,7 +309,7 @@
     4. Final Output
         * The total number of valid pairs `(l, r)` is printed as `res`
 
-### 【Luogu】 P12385.【Blue Bridge Cup 2023 Provincial Python B】XOR Sum
+### 【Luogu】P12385.【Blue Bridge Cup 2023 Provincial Python B】XOR Sum
 
 **Solved**
 
@@ -743,7 +783,7 @@
     4. Output
         * Print the number of unflooded areas for each query in correct order
 
-### 【UVa】 544. Heavy Cargo
+### 【UVa】544. Heavy Cargo
 
 **Solved**
 
@@ -777,7 +817,7 @@
   * Running Kruskal in **descending** order builds a **maximum spanning forest**; the unique path between two nodes in any maximum spanning tree maximizes the **minimum edge** on that path
   * Stopping as soon as `s` and `t` become connected returns exactly that **bottleneck capacity**
 
-### 【UVa】 11420. Chest of Drawers
+### 【UVa】11420. Chest of Drawers
 
 **Solved**
 
@@ -856,7 +896,7 @@
     3. Output
         * Final answer is `dp[0][n+1]`, the minimum cost to cut the full stick
 
-### 【CSES】 1676. Road Construction
+### 【CSES】1676. Road Construction
 
 **Solved**
 
@@ -884,7 +924,7 @@
             * If `faa != fab` ⮕ call `comb(a, b)` and decrement `amt`
         * After each road, output `amt` and `large`
 
-### 【CSES】 1675. Road Reparation
+### 【CSES】1675. Road Reparation
 
 **Solved**
 
@@ -918,7 +958,7 @@
 > * The DSU here tracks component sizes and merges by representative index; it is sufficient for correctness for MST construction
 > * The final connectivity check via `SZ(query(1))` guarantees that exactly one component covers all nodes before printing the total MST cost
 
-### 【CSES】 1678. Round Trip II
+### 【CSES】1678. Round Trip II
 
 **Solved**
 
@@ -967,7 +1007,7 @@
     * Nodes are **1-indexed** and multiple disconnected components are handled via the per-component `timer`
     * The `valid[]` flag is crucial-without it, edges to already-finished nodes could be mistaken for on-stack back-edges
 
-### 【CSES】 1680. Longest Flight Route
+### 【CSES】1680. Longest Flight Route
 
 **Solved**
 
@@ -1009,7 +1049,7 @@
     * Direct edge `1 -> n` ⮕ Output `2` with route `1 n`
     * Multiple optimal routes ⮕ Any one constructed via `to[]` is acceptable
 
-### 【CSES】 1733. Finding Periods
+### 【CSES】1733. Finding Periods
 
 **Solved**
 
@@ -1048,7 +1088,7 @@
     * If the string `S` can be generated by repeating its first `i` characters ( with a possibly partial final block ), then the **hash of that generated string** must equal the **hash of `S`** under the same polynomial base and modulus. The construction uses exact polynomial concatenation rules, so equality of constructed hash and `hsh[n-1]` certifies `i` as a period ( modulo negligible collision probability )
 
 
-### 【CSES】 1196. Flight Routes
+### 【CSES】1196. Flight Routes
 
 **Solved**
 
@@ -1067,7 +1107,7 @@
     * Multiple routes with the **same total price** are preserved because every popped state for a node is appended to `res[u]`
     * Cycles are harmless ⮕ costs grow monotonically along a path, and the guard prevents infinite recording once we have enough entries per node
 
-### 【CSES】 1735. Range Updates and Sums
+### 【CSES】1735. Range Updates and Sums
 
 **Solved**
 
@@ -1104,7 +1144,7 @@
     * Correctness of precedence ⮕ a parent **assign** wipes children’s pending ops and replaces them with the parent’s `val` and `tag`. A parent **add** is simply accumulated into children’s `tag`.
     * Avoids pushing on fully covered ranges, relying on `rv()` to return the correct contributed sum without materializing children.
 
-### 【CSES】 2206. Pizzeria Queries
+### 【CSES】2206. Pizzeria Queries
 
 **Solved**
 
@@ -1145,7 +1185,7 @@
     * Each half transforms the absolute value into a linear form; taking range minima yields the optimal source index on that side
     * Taking the minimum of the two sides gives the global minimum cost
 
-### 【CSES】 1734. Distinct Values Queries
+### 【CSES】1734. Distinct Values Queries
 
 **Solved**
 
@@ -1182,7 +1222,7 @@
 * Edge Cases & Implementation Notes
     * Indexing ⮕ Convert input queries to 0-based before storing
 
-### 【CSES】 3421. Distinct Values Subsequences
+### 【CSES】3421. Distinct Values Subsequences
 
 **Solved**
 
@@ -1209,7 +1249,7 @@
     3. Exclude Empty Subsequence
         * Output `(res - 1 + MOD) % Mod` to avoid negative underflow
       
-### 【CSES】 2136. Hamming Distance
+### 【CSES】2136. Hamming Distance
 
 **Solved**
 
@@ -1224,7 +1264,7 @@
     * Running Minimum
         * Maintain a global minimum `res`
 
-### 【CSES】 3226. Subarray Sum Queries II
+### 【CSES】3226. Subarray Sum Queries II
 
 **Solved**
 
@@ -1257,7 +1297,7 @@
         * Carefully combine child nodes to maintain accurate prefix, suffix, and maximum subarray sums
         * This is similar to combining states in the classic **Kadane’s algorithm**, but within a tree structure
 
-### 【CSES】 1750. Planets Queries I
+### 【CSES】1750. Planets Queries I
 
 **Solved**
 
@@ -1282,7 +1322,7 @@
             * Update $x$ $=$ `fa[x][j]`, and reduce $K$ by $2^j$
         * Output the final value of $X$
      
-### 【CSES】 3304. Visible Buildings Queries
+### 【CSES】3304. Visible Buildings Queries
 
 **Solved**
 
@@ -1323,7 +1363,7 @@
 > It would increase query complexity and cause **TLE** for large inputs. Stick to pure top-down greedy jump pointer traversal
 
 
-### 【CSES】 3426. Sliding Window Xor
+### 【CSES】3426. Sliding Window Xor
 
 **Solved**
 
@@ -1346,7 +1386,7 @@
     4. Final Output
         * Print the XOR of all window xors
 
-### 【CSES】 2166. Prefix Sum Queries
+### 【CSES】2166. Prefix Sum Queries
 
 **Solved**
 
@@ -1379,7 +1419,7 @@
 > [!NOTE]
 > This problem reduces to range maximum queries and range additions on a prefix sum array, making lazy Segment Tree a perfect fit.
 
-### 【CSES】 1144. Salary Queries
+### 【CSES】1144. Salary Queries
 
 **Solved**
 
@@ -1422,7 +1462,7 @@
 > Due to tight time constraints, this problem **must** avoid STL structures like `map` or `set` for frequency management
 > Segment Tree + Coordinate Compression is the optimal and accepted approach
 
-### 【CSES】 1749. List Removals
+### 【CSES】1749. List Removals
 
 **Solved**
 
@@ -1446,7 +1486,7 @@
             3. Mark it as removed via `bit.update(idx, -1)`
     3. Output the sequence of removed elements
 
-### 【CSES】 1652. Forest Queries
+### 【CSES】1652. Forest Queries
 
 **Solved**
 
@@ -1473,7 +1513,7 @@
     3. Query Answering
         * For each query, use the precomputed `pre[][]` to return the count of trees in the given rectangle in O($1$)
 
-### 【CSES】 1651. Range Update Queries
+### 【CSES】1651. Range Update Queries
 
 **Solved**
 
@@ -1507,7 +1547,7 @@
         * Ensures all $Q$ operations run efficiently within O($\log{N}$) per query and update by using lazy tag
         * Handles large value ranges due to use of `long long`
 
-### 【CSES】 1743. String Reorder
+### 【CSES】1743. String Reorder
 
 **Solved**
 
@@ -1538,11 +1578,11 @@
         * Continue until all characters are placed
         * If no valid character can be placed at some point, output `-1`
 
-### 【CSES】 1079. Binomial Coefficients
+### 【CSES】1079. Binomial Coefficients
 
 **Solved**
 
-### 【CSES】 2134. Path Queries II
+### 【CSES】2134. Path Queries II
 
 **Solved**
 
@@ -1573,7 +1613,7 @@
 >   * Avoid using `long long` unless strictly necessary, you can use `int` instead
 >   * Add `#pragma GCC optimize("O3")` for performance optimization
 
-### 【CSES】 1130. Tree Matching
+### 【CSES】1130. Tree Matching
 
 **Solved**
 
@@ -1605,7 +1645,7 @@
     * Elegant use of bottom-up recursion and greedy selection embedded inside dynamic programming on tree structures
 
 
-### 【CSES】 1132. Tree Distances I
+### 【CSES】1132. Tree Distances I
 
 **Solved**
 
@@ -1630,11 +1670,11 @@
     * In an unweighted tree, the farthest node from any node always lies on the tree’s diameter
     * By taking max distance from both ends of the diameter, we ensure correctness for all nodes
 
-### 【CSES】 1648. Dynamic Range Sum Queries
+### 【CSES】1648. Dynamic Range Sum Queries
 
 **Solved**
 
-### 【AtCoder】 DP Contest - Q. Flowers
+### 【AtCoder】DP Contest - Q. Flowers
 
 **Solved**
 
@@ -1689,7 +1729,7 @@
             * Else ⮕ test $p\_r$ alone, count 1, move right pointer
         * Total count is the number of worst-case queries needed
 
-### 【AtCoder】 DP Contest - I. Coins
+### 【AtCoder】DP Contest - I. Coins
 
 **Solved**
 
@@ -1723,7 +1763,7 @@
 > * Since the output must be accurate within $10^{-9}$, `double` precision with `fixed` and `setprecision(10)` is used
 > * This is a classic DP setup for coin toss probability modeling with head-count tracking
 
-### 【CSES】 3221. Sliding Window Minimum
+### 【CSES】3221. Sliding Window Minimum
 
 **Solved**
 
@@ -1752,7 +1792,7 @@
 > The deque operations are **amortized O(1)**, ensuring that the entire scan is linear
 > The algorithm is optimized for large input sizes up to $10^7$
 
-### 【CSES】 1748. Increasing Subsequence II
+### 【CSES】1748. Increasing Subsequence II
 
 **Solved**
 
@@ -1796,7 +1836,7 @@
 > [!NOTE]
 > While BIT is used for speed, this is fundamentally a **DP Problem**
 
-### 【CSES】 3314. Mountain Range
+### 【CSES】3314. Mountain Range
 
 **Solved**
 
@@ -1833,7 +1873,7 @@
     4. Track Global Maximum
         * After computing all `dp[i]`, take the maximum as the final result
 
-### 【CSES】 1713. Counting Divisors
+### 【CSES】1713. Counting Divisors
 
 **Solved**
 
@@ -1860,7 +1900,7 @@
     3. Edge Case
         * For $x = 1$, the number of divisors is exactly 1
 
-### 【CSES】 3403. Longest Common Subsequence
+### 【CSES】3403. Longest Common Subsequence
 
 **Solved**
 
@@ -1888,7 +1928,7 @@
 
 ### feat: Update README.md
 
-### 【UVa】 12749. John's Tree
+### 【UVa】12749. John's Tree
 
 **Solved**
 
@@ -1945,7 +1985,7 @@
     4. Termination
         * If no path reaches 0 modulo after processing all elements, output `Not divisible`
 
-### 【CSES】 1136. Counting Paths
+### 【CSES】1136. Counting Paths
 
 **Solved**
 
@@ -1984,7 +2024,7 @@
 
 ### feat: Update Tamplate.cpp
 
-### 【CSES】 1138. Path Queries
+### 【CSES】1138. Path Queries
 
 **Solved**
 
@@ -2020,7 +2060,7 @@
 
 ### feat: Update Tamplate.cpp
 
-### 【CSES】 1694. Download Speed
+### 【CSES】1694. Download Speed
 
 **Solved**
 
@@ -2047,7 +2087,7 @@
         * Repeatedly perform BFS + DFS while level graph is valid
         * Accumulate flow until saturation
 
-### 【CSES】 1722. Fibonacci Numbers
+### 【CSES】1722. Fibonacci Numbers
 
 **Solved**
 
@@ -2070,7 +2110,7 @@
 
 ### feat: Update Tamplate.cpp
 
-### 【CSES】 1135. Distance Queries
+### 【CSES】1135. Distance Queries
 
 **Solved**
 
@@ -2096,7 +2136,7 @@
         `fa[u][i] = fa[ fa[u][i-1] ][i-1]`
     2. The lifting table is built for up to 20 levels, sufficient for $N \leq 2 \times 10^5$
 
-### 【CSES】 3420. Distinct Values Subarrays
+### 【CSES】3420. Distinct Values Subarrays
 
 **Solved**
 
@@ -2117,7 +2157,7 @@
     4. At each step, add `pR - pL + 1` to the result
     5. Output the final accumulated result
 
-### 【CSES】 3359. Minimal Grid Path
+### 【CSES】3359. Minimal Grid Path
 
 **Solved**
 
@@ -2145,7 +2185,7 @@
 
 ### feat: Update Set.cpp
 
-### 【CSES】 3311. Grid Coloring I
+### 【CSES】3311. Grid Coloring I
 
 **Solved**
 
@@ -2182,7 +2222,7 @@
 > 2. Grid Coloring Is Highly Constrained
 >       * Many branches of the DFS are terminated early as soon as a conflict is detected, leading to **shallow recursion trees**
 
-### 【CSES】 3419. Mex Grid Construction
+### 【CSES】3419. Mex Grid Construction
 
 **Solved**
 
@@ -2200,7 +2240,7 @@
     * For each cell $(i, j)$, we use previous cells in its row or column to determine the current value without needing additional data structures
     * Divide and conquer method avoids the naive method of checking mex at each step explicitly, which would be O($N^3$)
 
-### 【CSES】 3217. Knight Moves Grid
+### 【CSES】3217. Knight Moves Grid
 
 **Solved**
 
@@ -2229,7 +2269,7 @@
 > This problem is classic BFS on an unweighted grid graph, where each move has cost 1
 
 
-### 【CSES】 3399. Raab Game I
+### 【CSES】3399. Raab Game I
 
 **Solved**
 
@@ -2249,7 +2289,7 @@
     * Using greedy approach to assign high cards to winning player in each round
     * Handle edge conditions separately to ensure correctness
 
-### 【CSES】 1681. Game Routes
+### 【CSES】1681. Game Routes
 
 **Solved**
 
@@ -2287,7 +2327,7 @@
 
 ### feat: Update Set.cpp
 
-### 【CSES】 1679. Course Schedule
+### 【CSES】1679. Course Schedule
 
 **Solved**
 
@@ -2296,7 +2336,7 @@
 * Description
     * This is just a template question
 
-### 【CSES】 2220. Counting Numbers
+### 【CSES】2220. Counting Numbers
 
 **Solved**
 
@@ -2328,7 +2368,7 @@
     3. Final Answer
         * The number of valid integers in range $[a, b]$ is `nb - na`
 
-### 【UVa】 101. The Blocks Problem
+### 【UVa】101. The Blocks Problem
 
 **Solved**
 
@@ -2344,7 +2384,7 @@
         #define all(v) x.begin(), v.end()
         ```
 
-### 【AtCoder】 Beginner Contest 399 - F. Range Power Sum
+### 【AtCoder】Beginner Contest 399 - F. Range Power Sum
 
 **Solved**
 
@@ -2366,7 +2406,7 @@
 
 ### style: Adjust README.md Format
 
-### 【AtCoder】 Beginner Contest 399 - D. Switch Seats
+### 【AtCoder】Beginner Contest 399 - D. Switch Seats
 
 **Solved**
 
@@ -2409,7 +2449,7 @@
     2. AtCoder\Beginner Contest 398\B. Full House 3.cpp
     3. AtCoder\Beginner Contest 398\C. Uniqueness.cpp
 
-### 【CSES】 1197. Cycle Finding
+### 【CSES】1197. Cycle Finding
 
 **Solved**
 
@@ -2441,7 +2481,7 @@
 
 ### style: Adjust README.md Format
 
-### 【AtCoder】 Beginner Contest 397 - F. Variety Split Hard
+### 【AtCoder】Beginner Contest 397 - F. Variety Split Hard
 
 **Solved**
 
@@ -2482,7 +2522,7 @@
     * The crucial insight is that each integer contributes at least once to the count in any segment it appears in, and may provide additional benefit if it spans across the split boundaries
     * Using a segment tree is essential for efficiently managing interval updates and queries, making it feasible to solve the problem within the given constraints
 
-### 【AtCoder】 Beginner Contest 395 - E. Flip Edge
+### 【AtCoder】Beginner Contest 395 - E. Flip Edge
 
 **Solved**
 
@@ -2506,7 +2546,7 @@
         * Use a map to store the best cost for `(node, graph)`
         * Skip nodes if a cheaper path has already been found
 
-### 【AtCoder】 Beginner Contest 395 - D. Pigeon Swap
+### 【AtCoder】Beginner Contest 395 - D. Pigeon Swap
 
 **Solved**
 
@@ -2547,7 +2587,7 @@
                     ```
                 * Here, `pigeon[a]` tells us the **current nest** where pigeon `a` is located, and `id[pigeon[a]]` retrieves the original nest assignment
 
-### 【AtCoder】 Beginner Contest 398 - F. ABCBA
+### 【AtCoder】Beginner Contest 398 - F. ABCBA
 
 **Solved**
 
@@ -2575,11 +2615,11 @@
             $H_{l,r} = (H_r - H_{l-1} \times p^{(r-l+1)} \mod M + M) \mod M$
         * This ensures correct hash extraction even under modulo constraints
 
-### 【AtCoder】 Beginner Contest 398 - A. B. C.
+### 【AtCoder】Beginner Contest 398 - A. B. C.
 
 **Solved**
 
-### 【CSES】 1194. Monsters
+### 【CSES】1194. Monsters
 
 **Solved**
 
@@ -2623,7 +2663,7 @@
 
 ### style: Adjust README.md Format
 
-### 【AtCoder】 Beginner Contest 397 - D. Cubes
+### 【AtCoder】Beginner Contest 397 - D. Cubes
 
 **Adjust Answer**
 
@@ -2643,7 +2683,7 @@
 
 ### style: Adjust README.md Format
 
-### 【AtCoder】 Beginner Contest 397 - D. Cubes
+### 【AtCoder】Beginner Contest 397 - D. Cubes
 
 **Solved**
 
@@ -2677,25 +2717,25 @@
    * If a valid $y$ is found for any $d = x - y$, output $x$ and $y$
    * If no such pair exists, return $-1$
 
-### 【AtCoder】 Beginner Contest 397 - C. Variety Split Easy
+### 【AtCoder】Beginner Contest 397 - C. Variety Split Easy
 
 **Solved**
 
 。Sliding Window
 
-### 【AtCoder】 Beginner Contest 397 - B. Ticket Gate Log
+### 【AtCoder】Beginner Contest 397 - B. Ticket Gate Log
 
 **Solved**
 
 。Basic Operations
 
-### 【AtCoder】 Beginner Contest 397 - A. Thermometer
+### 【AtCoder】Beginner Contest 397 - A. Thermometer
 
 **Solved**
 
 。Basic Operations
 
-### 【AtCoder】 Beginner Contest 396 - E. Min of Restricted Sum
+### 【AtCoder】Beginner Contest 396 - E. Min of Restricted Sum
 
 **Solved**
 
@@ -2731,31 +2771,31 @@
           This decision minimizes the overall sum when the XOR values are propagated through the connected component
         * After updating the starting value, a second DFS propagates the new values to ensure consistency throughout the component
 
-### 【AtCoder】 Beginner Contest 396 - D. Minimum XOR Path
+### 【AtCoder】Beginner Contest 396 - D. Minimum XOR Path
 
 **Solved**
 
 。DFS + Bitwise Operation
 
-### 【AtCoder】 Beginner Contest 396 - C. Buy Balls
+### 【AtCoder】Beginner Contest 396 - C. Buy Balls
 
 **Solved**
 
 。Basic Operations
 
-### 【AtCoder】 Beginner Contest 396 - B. Card Pile
+### 【AtCoder】Beginner Contest 396 - B. Card Pile
 
 **Solved**
 
 。Basic Operations + Data Structure
 
-### 【AtCoder】 Beginner Contest 396 - A. Triple Four
+### 【AtCoder】Beginner Contest 396 - A. Triple Four
 
 **Solved**
 
 。Basic Operations + Sliding Window
 
-### 【CSES】 2181. Counting Tilings
+### 【CSES】2181. Counting Tilings
 
 **Solved**
 
@@ -2786,7 +2826,7 @@
 
 ### style: Adjust the Layout of README.md
 
-### 【CSES】 1653. Elevator Rides
+### 【CSES】1653. Elevator Rides
 
 **Solved**
 
@@ -2835,7 +2875,7 @@
         ```
         A greedy approach takes `{5, 4}` first, then `{4, 3, 3}` next, and `{3, 2, 2}` last, resulting in `3` rides. However, a DP solution takes `{5, 2, 3}`, `{4, 4, 2}`, `{4, 3, 3}` instead, which only uses three rides
 
-### 【UVa】 737. Gleaming the Cubes
+### 【UVa】737. Gleaming the Cubes
 
 **Solved**
 
@@ -2870,37 +2910,37 @@
 
 ### Update `Set.cpp`
 
-### 【UVa】 494. Kindergarten Counting Game
+### 【UVa】494. Kindergarten Counting Game
 
 **Solved**
 
 。Basic Operations
 
-### 【UVa】 10633. Rare Easy Problem
+### 【UVa】10633. Rare Easy Problem
 
 **Solved**
 
 。Basic Operations
 
-### 【UVa】 118. Mutant Flatworld Explorers
+### 【UVa】118. Mutant Flatworld Explorers
 
 **Solved**
 
 。Basic Operations
 
-### 【ZeroJudge】 c082. 00118 - Mutant Flatworld Expolrers
+### 【ZeroJudge】c082. 00118 - Mutant Flatworld Expolrers
 
 **Solved**
 
 。Basic Operations
 
-### 【ZeroJudge】 e549. 00737 - Gleaming the Cubes
+### 【ZeroJudge】e549. 00737 - Gleaming the Cubes
 
 **Solved**
 
 。Basic Operations
 
-### 【CSES】 1140. Projects
+### 【CSES】1140. Projects
 
 **Solved**
 
@@ -2962,25 +3002,25 @@
     }
     ```
 
-### 【UVa】 382. Perfection
+### 【UVa】382. Perfection
 
 **Solved**
 
 。Basic Operations
 
-### 【UVa】 10038. Jolly Jumpers
+### 【UVa】10038. Jolly Jumpers
 
 **Solved**
 
 。Basic Operations
 
-### 【UVa】 12439. February 29
+### 【UVa】12439. February 29
 
 **Solved**
 
 。Basic Operations
 
-### 【CSES】 1145. Increasing Subsequence
+### 【CSES】1145. Increasing Subsequence
 
 **Solved**
 
@@ -3021,7 +3061,7 @@
             for( int i = 0 ; i <= Max ; ++i ) res = max(res, BIT[i]);
             ```
 
-### 【CSES】 1093. Two Sets II
+### 【CSES】1093. Two Sets II
 
 **Solved**
 
@@ -3055,7 +3095,7 @@
         * `dp[i][j] %= Mod;`
             * To prevent overflow, take modulo `1e9 + 7` at each step
 
-### 【CSES】 1097. Removal Game
+### 【CSES】1097. Removal Game
 
 **Solved**
 
@@ -3083,7 +3123,7 @@
             }
             ```
 
-### 【CSES】 1745. Money Sums
+### 【CSES】1745. Money Sums
 
 **Solved**  
 
@@ -3130,7 +3170,7 @@
             * If `dp[k]` is already `true`, reset `amt` to the coin count
             * If `dp[k]` is `false` and `amt > 0`, set `dp[k] = true` and decrease `amt` ⮕ ensuring limited use of each coin
 
-### 【CSES】 1639. Edit Distance
+### 【CSES】1639. Edit Distance
 
 **Solved**  
 
@@ -3162,7 +3202,7 @@
     * Final Result
         * The answer is stored in `dp[(first string).size()][(second string).size()]`, which gives the minimum operations needed to transform first string into second string
 
-### 【CSES】 1632. Movie Festival II
+### 【CSES】1632. Movie Festival II
 
 **Solved**  
 
@@ -3197,7 +3237,7 @@
             * Replace their previous end time with the new movie’s end time
             * If the club still has less than `k` viewers active：Assign the movie to a new viewer
 
-### 【CSES】 1077. Sliding Window Cost
+### 【CSES】1077. Sliding Window Cost
 
 **Solved**  
 
@@ -3207,7 +3247,7 @@
     * Each insertion, deletion, and balancing operation runs in O(logK)
     * Since there are N insertions and deletions across the entire array, the total complexity is O(NlogK)
 * Core Concept
-    * Balanced Multiset + Sliding Window：Same as `【CSES】 1076. Sliding Window Median` 
+    * Balanced Multiset + Sliding Window：Same as `【CSES】1076. Sliding Window Median` 
     * The Key Observation：The optimal target value for minimizing the cost is the **median** of the window
     * Finding the Minimum Cost
         * The cost is computed using the formula
@@ -3230,7 +3270,7 @@
         }
         ```
 
-### 【CSES】 1076. Sliding Window Median
+### 【CSES】1076. Sliding Window Median
 
 **Solved**
 
@@ -3264,7 +3304,7 @@
     * In the implementation, when removing an element from `small` or `large`, use `small.erase(small.find(arr[i-k+1]));` instead of `small.erase(arr[i-k+1]);`  
         * The reason for this is that `erase(arr[i-k+1])` would remove all occurrences of `arr[i-k+1]` from the `multiset`, which is incorrect. Since we are maintaining a balance between `small` and `large`, we only want to remove **one occurrence** of the element that is sliding out of the window. Using `small.find(arr[i-k+1])` ensures that only a **single instance** of `arr[i-k+1]` is erased, preserving the correct structure of the data
 
-### 【CSES】 2428. Subarray Distinct Values
+### 【CSES】2428. Subarray Distinct Values
 
 **Solved**
 
@@ -3337,7 +3377,7 @@
         }
         ```
 
-### 【CSES】 1662. Subarray Divisibility
+### 【CSES】1662. Subarray Divisibility
 
 **Solved**
 
@@ -3365,7 +3405,7 @@
         * `res[0]++` is used to handle cases where a prefix sum itself is already divisible by `n`
         * This ensures that subarrays starting from the beginning are correctly counted
 
-### 【CSES】 2169. Nested Ranges Count
+### 【CSES】2169. Nested Ranges Count
 
 **Solved**
 
@@ -3447,7 +3487,7 @@
             }
         ```
 
-### 【CSES】 2168. Nested Ranges Check
+### 【CSES】2168. Nested Ranges Check
 
 **Solved**
 
@@ -3480,7 +3520,7 @@
             }
             ```
 
-### 【CSES】 2163. Josephus Problem II
+### 【CSES】2163. Josephus Problem II
 
 **Solved**
 
@@ -3522,7 +3562,7 @@
             }
             ```
 
-### 【CSES】 2162. Josephus Problem I
+### 【CSES】2162. Josephus Problem I
 
 **Solved**
 
@@ -3596,7 +3636,7 @@
             mem(dp, MEMINF);
             ```
 
-### 【CSES】 2217. Collecting Numbers II
+### 【CSES】2217. Collecting Numbers II
 
 **Solved**
 
@@ -3632,7 +3672,7 @@
         if( abs( arr[a] - arr[b] ) == 1 ) res += check(arr[a], arr[b]) * -1;
         ```
 
-### 【CSES】 2216. Collecting Numbers
+### 【CSES】2216. Collecting Numbers
 
 **Solved - Another Better Solution ( Solution II )**
 
@@ -3641,7 +3681,7 @@
 * Key to Solving the Problem
     * You have to found that the result only depends on how many pairs { $i, j$ } which satisfy `j = i + 1` and `index of j ( = i + 1 ) < index of i`
 
-### 【CSES】 1673. High Score
+### 【CSES】1673. High Score
 
 **Solved**
 
@@ -3724,7 +3764,7 @@
             }
             ```
 
-### 【ZeroJudge】 n750. 10858 - Unique Factorization
+### 【ZeroJudge】n750. 10858 - Unique Factorization
 
 **Solved**
 
@@ -3758,7 +3798,7 @@
         2. When decreasing back, try concatenating $x$ as the product of two or more numbers and make sure the result is non-decreasing.
         3. In order to ensure that the result is non-decreasing, when looking for the next factor, we can limit the range of factors to $[pre, x]$, where $pre$ is the last number in `path`, if `path` is empty, Then $pre$ = 2.
 
-### 【CSES】 1625. Grid Paths
+### 【CSES】1625. Grid Paths
 
 **Solved**
 
@@ -3816,37 +3856,37 @@
             if( used[x+1][y+1] && !used[x+1][y] && !used[x][y+1] ) return;
         ```
 
-### 【CSES】 2431. Digit Queries
+### 【CSES】2431. Digit Queries
 
 **Solved**
 
 。Basic Math Problem
 
-### 【CSES】 1631. Reading Books
+### 【CSES】1631. Reading Books
 
 **Solved**
 
 。Greedy
 
-### 【CSES】 1661. Subarray Sums II
+### 【CSES】1661. Subarray Sums II
 
 **Solved**
 
 。Map - O(NlogN)
 
-### 【CSES】 1660. Subarray Sums I
+### 【CSES】1660. Subarray Sums I
 
 **Solved**
 
 。Binary Serach - O(NlogN)
 
-### 【CSES】 1645. Nearest Smaller Values
+### 【CSES】1645. Nearest Smaller Values
 
 **Solved**
 
 。Monotonic Stack - O(N)
 
-### 【CSES】 1642. Sum of Four Values
+### 【CSES】1642. Sum of Four Values
 
 **Solved**
 
@@ -3872,14 +3912,14 @@
 
 **Modify Problem Title**
 
-**Solved** - 【CSES】 1645. Nearest Smaller Values
+**Solved** - 【CSES】1645. Nearest Smaller Values
 
 。 Segment Tree、Discretization - O(NlogN)
 
 * Implementation Details
     * Notice to query like `query(1, n, 1, arr[i]-1, 1)` not `query(1, n, 1, arr[i], 1)`, but modify must be `modify(1, n, arr[i], arr[i], i, 1);`
 
-**Solved** - 【CSES】 1644. Maximum Subarray Sum II
+**Solved** - 【CSES】1644. Maximum Subarray Sum II
 
 。 Basic Set Operation、Prefix Sum
 
@@ -3887,37 +3927,37 @@
     * `erase(val)` in `set` will erase all of the value which equals to val
     * `set` will be sorted `.first` and then `.second`
 
-**Solved** - 【CSES】 1641. Sum of Three Values
+**Solved** - 【CSES】1641. Sum of Three Values
 
-**Solved** - 【CSES】 1164. Room Allocation
+**Solved** - 【CSES】1164. Room Allocation
 
 **Update Set.cpp**
 
-**Solved** - 【Luogu】 P3376.【Template】Maximum Network Flow
+**Solved** - 【Luogu】P3376.【Template】Maximum Network Flow
 
-**Solved** - 【Luogu】 P3379.【Template】LCA
+**Solved** - 【Luogu】P3379.【Template】LCA
 
-**Modify File Name** - 【Luogu】 P3385.【Template】Negative Cycle
+**Modify File Name** - 【Luogu】P3385.【Template】Negative Cycle
 
-**Solved** - 【Luogu】 P3385.【Templete】Negative Cycle
+**Solved** - 【Luogu】P3385.【Templete】Negative Cycle
 
 **Update Set.cpp**
 
 **Correct README.md**
 
-**Solved** - 【CSES】 1647. Static Range Minimum Queries
+**Solved** - 【CSES】1647. Static Range Minimum Queries
 
 。Segment Tree、DP
 
-**Solved** - 【AtCoder】 Beginner Contest 368 - G. Add and Multiply Queries
+**Solved** - 【AtCoder】Beginner Contest 368 - G. Add and Multiply Queries
 
 **Update BIT Code**
 
-**Update Answer II** - 【AtCoder】 Beginner Contest 368 - D. Minimum Steiner Tree
+**Update Answer II** - 【AtCoder】Beginner Contest 368 - D. Minimum Steiner Tree
 
-**Update Answer** - 【AtCoder】 Beginner Contest 368 - D. Minimum Steiner Tree
+**Update Answer** - 【AtCoder】Beginner Contest 368 - D. Minimum Steiner Tree
 
-**Solved** - 【AtCoder】 Beginner Contest 368 - D. Minimum Steiner Tree
+**Solved** - 【AtCoder】Beginner Contest 368 - D. Minimum Steiner Tree
 
 。DFS
 
@@ -3943,11 +3983,11 @@
 
 **Commit & Push All Unexist Files** - Remove `Setup.cpp`
 
-**Solved** - 【AtCoder】 Beginner Contest 369 - C. Triple Attack
+**Solved** - 【AtCoder】Beginner Contest 369 - C. Triple Attack
 
 **Opt README.md Contents**
 
-**Solved** - 【AtCoder】 Beginner Contest 369 - F. Gather Coins
+**Solved** - 【AtCoder】Beginner Contest 369 - F. Gather Coins
 
 。LIS in O(NlogN)
 
@@ -3983,17 +4023,17 @@
         41｜int it = upper_bound(dp.begin(), dp.end(), coin[i].S) - dp.begin();
         ```
 
-**Solved** - 【AtCoder】 Beginner Contest 369 - D. Bonus EXP
+**Solved** - 【AtCoder】Beginner Contest 369 - D. Bonus EXP
 
 。Dynamic Programming
 
 **Opt IO Optimize & Add Long Long INF** - Set.cpp
 
-**Solved** - 【AtCoder】 Beginner Contest 369 - E. Sightseeing Tour
+**Solved** - 【AtCoder】Beginner Contest 369 - E. Sightseeing Tour
 
 。Flyod-Warshall、Enum
 
-**Solved** - 【AtCoder】 Beginner Contest 369 - C. Count Arithmetic Subarrays
+**Solved** - 【AtCoder】Beginner Contest 369 - C. Count Arithmetic Subarrays
 
 。Basic Mathematical Operations
 
@@ -4001,642 +4041,642 @@
 
 **Opt Setup Code**
 
-**Solved** - 【AtCoder】 Beginner Contest 370 - A. Raise Both Hands
+**Solved** - 【AtCoder】Beginner Contest 370 - A. Raise Both Hands
 
-**Solved** - 【AtCoder】 Beginner Contest 370 - B. Binary Alchemy
+**Solved** - 【AtCoder】Beginner Contest 370 - B. Binary Alchemy
 
-**Solved** - 【AtCoder】 Beginner Contest 370 - C. Word Ladder
+**Solved** - 【AtCoder】Beginner Contest 370 - C. Word Ladder
 
-**Solved** - 【ZeroJudge】 a104. Sort - Quick Sort
-
-。Sort Algorithm
-
-**Correcnt Spelling Error** - 【ZeroJudge】 a104. Sort - Merge Sort
-
-**Remove Redundant Array** - 【ZeroJudge】 a104. Sort - Merge Sort
-
-**Oprtimize** - 【ZeroJudge】 a104. Sort - Merge Sort
-
-**Solved** - 【ZeroJudge】 a104. Sort - Merge Sort
+**Solved** - 【ZeroJudge】a104. Sort - Quick Sort
 
 。Sort Algorithm
 
-**Solved** - 【ZeroJudge】 a104. Sort - Insertion Sort
+**Correcnt Spelling Error** - 【ZeroJudge】a104. Sort - Merge Sort
+
+**Remove Redundant Array** - 【ZeroJudge】a104. Sort - Merge Sort
+
+**Oprtimize** - 【ZeroJudge】a104. Sort - Merge Sort
+
+**Solved** - 【ZeroJudge】a104. Sort - Merge Sort
 
 。Sort Algorithm
 
-**Add Question Info** - 【ZeroJudge】 a104. Sort - Insertion Sort
-
-**Solved** - 【ZeroJudge】 a104. Sort - Bubble Sort
+**Solved** - 【ZeroJudge】a104. Sort - Insertion Sort
 
 。Sort Algorithm
 
-**Solved** - 【ZeroJudge】 a104. Sort - Selection Sort
+**Add Question Info** - 【ZeroJudge】a104. Sort - Insertion Sort
+
+**Solved** - 【ZeroJudge】a104. Sort - Bubble Sort
 
 。Sort Algorithm
 
-**Solved** - 【ZeroJudge】 d672. 10922 - 2 the 9s
+**Solved** - 【ZeroJudge】a104. Sort - Selection Sort
+
+。Sort Algorithm
+
+**Solved** - 【ZeroJudge】d672. 10922 - 2 the 9s
 
 。Recursive、Basic String Processing
 
-**Solved** - 【ZeroJudge】 f928. Serial Bomb............Boom!
+**Solved** - 【ZeroJudge】f928. Serial Bomb............Boom!
 
 。Recursive、BFS
 
-**Solved** - 【CSES】 2165. Tower of Hanoi
+**Solved** - 【CSES】2165. Tower of Hanoi
 
 。Recursive Application
 
-**Solved** - 【HWSH】 a155. Sum of Subsets（APCS201810, Subtask）
+**Solved** - 【HWSH】a155. Sum of Subsets（APCS201810, Subtask）
 
 。Recursive with Subset
 
-**Solved** - 【HWSH】 a062. Stick Midpoint Cut
+**Solved** - 【HWSH】a062. Stick Midpoint Cut
 
 。Recursive Application
 
-**Solved** - 【ZeroJudge】 b967. 4. Blood Relationship
+**Solved** - 【ZeroJudge】b967. 4. Blood Relationship
 
 。 Simple Tree Diameter
 
-**Solved** - 【AtCoder】 Beginner Contest 352 - C. Standing On The Shoulders
+**Solved** - 【AtCoder】Beginner Contest 352 - C. Standing On The Shoulders
 
-**Solved** - 【AtCoder】 Beginner Contest 352 - D. Permutation Subsequence
+**Solved** - 【AtCoder】Beginner Contest 352 - D. Permutation Subsequence
 
 。 Set、vector<pii>、Sort
 
-**Solved** - 【AtCoder】 Beginner Contest 351 - C. Merge the balls
+**Solved** - 【AtCoder】Beginner Contest 351 - C. Merge the balls
 
-**Solved** - 【ZeroJudge】 g276. 2. Demon King no Labyrinth
+**Solved** - 【ZeroJudge】g276. 2. Demon King no Labyrinth
 
-**Solved** - 【ZeroJudge】 j605. 1. Programming Exam
+**Solved** - 【ZeroJudge】j605. 1. Programming Exam
 
-**Solved** - 【ZeroJudge】 a003. Two Lights Mage Divination
+**Solved** - 【ZeroJudge】a003. Two Lights Mage Divination
 
-**Solved** - 【ZeroJudge】 d649. Digital Triangle
+**Solved** - 【ZeroJudge】d649. Digital Triangle
 
-**Solved** - 【TCIRC】 1001. Hello World!
+**Solved** - 【TCIRC】1001. Hello World!
 
-**Solved** - 【ZeroJudge】 a002. Simple Addition
+**Solved** - 【ZeroJudge】a002. Simple Addition
 
-**Solved** - 【AtCoder】 A. Three Dice
+**Solved** - 【AtCoder】A. Three Dice
 
-**Solved** - 【TCIRC】 d060. AP325 Q-4-19. The Meeting Place of the Leaders of The Five Sacred Mountains
+**Solved** - 【TCIRC】d060. AP325 Q-4-19. The Meeting Place of the Leaders of The Five Sacred Mountains
 
-**Solved** - 【TCIRC】 d057. AP325 Q-4-16. Making Money and Fines
+**Solved** - 【TCIRC】d057. AP325 Q-4-16. Making Money and Fines
 
-**Solved** - 【TCIRC】 d058. AP325 Q-4-17. Deadline Master
+**Solved** - 【TCIRC】d058. AP325 Q-4-17. Deadline Master
 
-**Solved** - 【TCIRC】 d059. AP325 Q-4-18. The Cabinet Sister of Shaolin Temple（@@）（＊）
+**Solved** - 【TCIRC】d059. AP325 Q-4-18. The Cabinet Sister of Shaolin Temple（@@）（＊）
 
-**Solved** - 【TCIRC】 d050. AP325 P-4-11. Line Segment Union（APCS 201603）
+**Solved** - 【TCIRC】d050. AP325 P-4-11. Line Segment Union（APCS 201603）
 
-**Solved** - 【TCIRC】 d051. AP325 P-4-12. One Transaction
+**Solved** - 【TCIRC】d051. AP325 P-4-12. One Transaction
 
-**Solved** - 【TCIRC】 d055. AP325 P-4-14. Control Point（2D-max）
+**Solved** - 【TCIRC】d055. AP325 P-4-14. Control Point（2D-max）
 
-**Solved** - 【TCIRC】 d071. AP325 P-6-9. Free Large-Scale Moving in Hypermarkets
+**Solved** - 【TCIRC】d071. AP325 P-6-9. Free Large-Scale Moving in Hypermarkets
 
-**Solved** - 【ZeroJudge】 k184. pA. House
+**Solved** - 【ZeroJudge】k184. pA. House
 
-**Solved** - 【TCIRC】 d054. AP325 Q-4-10. White Cloud Bear Gallbladder Pills to Restore Energy
+**Solved** - 【TCIRC】d054. AP325 Q-4-10. White Cloud Bear Gallbladder Pills to Restore Energy
 
-**Solved** - 【TCIRC】 d070. AP325 P-6-7. LCS
+**Solved** - 【TCIRC】d070. AP325 P-6-7. LCS
 
-**Solved** - 【TCIRC】 d074. Q-6-8. Local Alignment
+**Solved** - 【TCIRC】d074. Q-6-8. Local Alignment
 
-**Solved** - 【TCIRC】 d069. AP325 P-6-6. Checkerboard Route
+**Solved** - 【TCIRC】d069. AP325 P-6-6. Checkerboard Route
 
-**Solved** - 【TCIRC】 d052. AP325 P-4-13. Maximum Continuous Subpermutation（Same As P-5-2）
+**Solved** - 【TCIRC】d052. AP325 P-4-13. Maximum Continuous Subpermutation（Same As P-5-2）
 
-**Solved** - 【TCIRC】 d073. AP325 Q-6-5. Two-Dimensional Maximum Submatrix
+**Solved** - 【TCIRC】d073. AP325 Q-6-5. Two-Dimensional Maximum Submatrix
 
-**Solved** - 【TCIRC】 d066. AP325 P-6-1. Minimum Cost for Children To Go Up Stairs
+**Solved** - 【TCIRC】d066. AP325 P-6-1. Minimum Cost for Children To Go Up Stairs
 
-**Solved** - 【TCIRC】 d067. AP325 P-6-2. Discontinuous Performance Remuneration
+**Solved** - 【TCIRC】d067. AP325 P-6-2. Discontinuous Performance Remuneration
 
-**Solved** - 【TCIRC】 d068. AP325 P-6-3. Minimum Cost of Monitoring Neighbors
+**Solved** - 【TCIRC】d068. AP325 P-6-3. Minimum Cost of Monitoring Neighbors
 
-**Solved** - 【TCIRC】 d072. AP325 Q-6-4. Choose One of Two Levels
+**Solved** - 【TCIRC】d072. AP325 Q-6-4. Choose One of Two Levels
 
-**Solved** - 【CSES】 2413. Counting Towers
+**Solved** - 【CSES】2413. Counting Towers
 
-**Solved** - 【CSES】 1744. Rectangle Cutting
+**Solved** - 【CSES】1744. Rectangle Cutting
 
-**Solved** - 【CSES】 1746. Array Description
+**Solved** - 【CSES】1746. Array Description
 
-**Solved** - 【AtCoder】 Beginner Contest 342 - D. Square Pair
+**Solved** - 【AtCoder】Beginner Contest 342 - D. Square Pair
 
 **Opt BIT Templete**
 
-**Solved** - 【AtCoder】 Beginner Contest 342 - A. Yay!
+**Solved** - 【AtCoder】Beginner Contest 342 - A. Yay!
 
-**Solved** - 【AtCoder】 Beginner Contest 342 - B. Which is ahead
+**Solved** - 【AtCoder】Beginner Contest 342 - B. Which is ahead
 
-**Solved** - 【AtCoder】 Beginner Contest 342 - C. Many Replacement
+**Solved** - 【AtCoder】Beginner Contest 342 - C. Many Replacement
 
-**Solved** - 【AtCoder】 Beginner Contest 341 - E. Alternating String
+**Solved** - 【AtCoder】Beginner Contest 341 - E. Alternating String
 
-**Solved** - 【CSES】 1073. Towers.cpp
+**Solved** - 【CSES】1073. Towers.cpp
 
-**Solved** - 【AtCoder】 Beginner Contest 341 - D. Only one of two
+**Solved** - 【AtCoder】Beginner Contest 341 - D. Only one of two
 
-**Solved** - 【TCIRC】 d049. AP325 P-4-9. Base Station（APCS201703）
+**Solved** - 【TCIRC】d049. AP325 P-4-9. Base Station（APCS201703）
 
-**Solved** - 【AtCoder】 Beginner Contest 339 - E. Smooth Subsequence
+**Solved** - 【AtCoder】Beginner Contest 339 - E. Smooth Subsequence
 
-**Solved** - 【TCIRC】 d047. AP325 Q-4-6. Automatic Lockers in Shaolin Temple（APCS201710）
+**Solved** - 【TCIRC】d047. AP325 Q-4-6. Automatic Lockers in Shaolin Temple（APCS201710）
 
-**Solved** - 【TCIRC】 d048. AP325 P-4-7. Yue Buquns Two-Way Merge（＊）
+**Solved** - 【TCIRC】d048. AP325 P-4-7. Yue Buquns Two-Way Merge（＊）
 
-**Solved** - 【TCIRC】 d053. AP325 Q-4-8. First Come First Served（＊）
+**Solved** - 【TCIRC】d053. AP325 Q-4-8. First Come First Served（＊）
 
-**Solved** - 【ZeroJudge】 h557. pA. Entrance
+**Solved** - 【ZeroJudge】h557. pA. Entrance
 
-**RePush** - 【AtCoder】 Beginner Contest 328 - A. Not Too Hard
+**RePush** - 【AtCoder】Beginner Contest 328 - A. Not Too Hard
 
-**RePush** - 【AtCoder】 Beginner Contest 328 - B. 11/11
+**RePush** - 【AtCoder】Beginner Contest 328 - B. 11/11
 
-**RePush** - 【AtCoder】 Beginner Contest 328 - C. Consecutive
+**RePush** - 【AtCoder】Beginner Contest 328 - C. Consecutive
 
-**RePush** - 【AtCoder】 Beginner Contest 328 - D. Take ABC
+**RePush** - 【AtCoder】Beginner Contest 328 - D. Take ABC
 
-**Solved** - 【ZeroJudge】 h558. pB. Keyboard
+**Solved** - 【ZeroJudge】h558. pB. Keyboard
 
-**Solved** - 【AtCoder】 Beginner Contest 341 - A. Print 341
+**Solved** - 【AtCoder】Beginner Contest 341 - A. Print 341
 
-**Solved** - 【AtCoder】 Beginner Contest 341 - B. Foreign Exchange
+**Solved** - 【AtCoder】Beginner Contest 341 - B. Foreign Exchange
 
-**Solved** - 【AtCoder】 Beginner Contest 341 - C. Takahashi Gets Lost
+**Solved** - 【AtCoder】Beginner Contest 341 - C. Takahashi Gets Lost
 
-**Solved** - 【AtCoder】 Beginner Contest 340 - E. Mancala 2
+**Solved** - 【AtCoder】Beginner Contest 340 - E. Mancala 2
 
 **Add INF Const** - Set.cpp
 
-**Solved** - 【TCIRC】 d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
+**Solved** - 【TCIRC】d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
 
-**Solved** - 【AtCoder】 Beginner Contest 340 - A. Arithmetic Progression
+**Solved** - 【AtCoder】Beginner Contest 340 - A. Arithmetic Progression
 
-**Solved** - 【AtCoder】 Beginner Contest 340 - B. Append
+**Solved** - 【AtCoder】Beginner Contest 340 - B. Append
 
-**Solved** - 【AtCoder】 Beginner Contest 340 - C. Divide and Divide
+**Solved** - 【AtCoder】Beginner Contest 340 - C. Divide and Divide
 
-**Solved** - 【AtCoder】 Beginner Contest 340 - D. Super Takahashi Bros.
+**Solved** - 【AtCoder】Beginner Contest 340 - D. Super Takahashi Bros.
 
-**Opt Code** - 【TCIRC】 d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
+**Opt Code** - 【TCIRC】d046. AP325 P-4-5. Problem of Songshan Mojianfang （Weighted Minimum Completion Time）
 
-**Solved** - 【TCIRC】 d045. AP325 P-4-4. Several Huashan Sword Debates（Activity Selection）
+**Solved** - 【TCIRC】d045. AP325 P-4-4. Several Huashan Sword Debates（Activity Selection）
 
-**Solved** - 【TCIRC】 d042. AP325 P-4-1. Shaolin Temple Tokens
+**Solved** - 【TCIRC】d042. AP325 P-4-1. Shaolin Temple Tokens
 
-**Solved** - 【TCIRC】 d043. AP325 P-4-2. The Three Battles of Swordsman
+**Solved** - 【TCIRC】d043. AP325 P-4-2. The Three Battles of Swordsman
 
-**Solved** - 【TCIRC】 d044. AP325 P-4-3. Ten Years of Sharpening a Sword（Minimum Completion Time）
+**Solved** - 【TCIRC】d044. AP325 P-4-3. Ten Years of Sharpening a Sword（Minimum Completion Time）
 
-**Solved** - 【AtCoder】 Beginner Contest 339 D. Synchronized Players
+**Solved** - 【AtCoder】Beginner Contest 339 D. Synchronized Players
 
-**Solved** - 【TCIRC】 d038. AP325 Q-3-14 Linear Function（@@）
+**Solved** - 【TCIRC】d038. AP325 Q-3-14 Linear Function（@@）
 
-**Opt Code** - 【TCIRC】 d037. AP325 Maximum Y Difference within X Difference Range
+**Opt Code** - 【TCIRC】d037. AP325 Maximum Y Difference within X Difference Range
 
-**Solved** - 【AtCoder】 Beginner Contest 339 - A. TLD
+**Solved** - 【AtCoder】Beginner Contest 339 - A. TLD
 
-**Solved** - 【AtCoder】 Beginner Contest 339 - B. Langton's Takahashi
+**Solved** - 【AtCoder】Beginner Contest 339 - B. Langton's Takahashi
 
-**Solved** - 【AtCoder】 Beginner Contest 339 - C. Perfect Bus
+**Solved** - 【AtCoder】Beginner Contest 339 - C. Perfect Bus
 
-**Rename File** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
+**Rename File** - 【TCIRC】d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
 
-**Solved** - 【TCIRC】 d037. AP325 Q-3-13. Maximum Y Difference within X Difference Range
+**Solved** - 【TCIRC】d037. AP325 Q-3-13. Maximum Y Difference within X Difference Range
 
-**Solved** - 【TCIRC】 d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
+**Solved** - 【TCIRC】d036. AP325 Q-3-12. Perfect Ribbons（APCS201906）
 
-**Solved** - 【TCIRC】 d032. AP325 P-3-8. Maximum Segment Difference for Fixed-length Intervals
+**Solved** - 【TCIRC】d032. AP325 P-3-8. Maximum Segment Difference for Fixed-length Intervals
 
-**Solved** - 【TCIRC】 d035. AP325 Q-3-11. The Longest Distinct Color Band
+**Solved** - 【TCIRC】d035. AP325 Q-3-11. The Longest Distinct Color Band
 
-**Solved** - 【TCIRC】 d034. AP325 P-3-10. Full-Color Ribbon（Requires Discretization or Dictionary）（@@）
+**Solved** - 【TCIRC】d034. AP325 P-3-10. Full-Color Ribbon（Requires Discretization or Dictionary）（@@）
 
-**Solved** - 【TCIRC】 d033. AP325 P-3-9. Most Color Bands
+**Solved** - 【TCIRC】d033. AP325 P-3-9. Most Color Bands
 
-**Solved** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
+**Solved** - 【TCIRC】d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
 
-**Solved** - 【TCIRC】 d031. AP325 P-3-7. The Closest Interval Sum of A Sequence of Positive Integers
+**Solved** - 【TCIRC】d031. AP325 P-3-7. The Closest Interval Sum of A Sequence of Positive Integers
 
-**Solved** - 【TCIRC】 d025. AP325 P-3-1. Height and Root of Tree（Bottom-Up）（APCS201710）
+**Solved** - 【TCIRC】d025. AP325 P-3-1. Height and Root of Tree（Bottom-Up）（APCS201710）
 
-**Solved** - 【TCIRC】 d052. AP325 P-5-2. Maximum Continuous Subarray（Divide and Conquer）
+**Solved** - 【TCIRC】d052. AP325 P-5-2. Maximum Continuous Subarray（Divide and Conquer）
 
-**Solved** - 【TCIRC】 d026. AP325 P-3-2. Bracket Matching
+**Solved** - 【TCIRC】d026. AP325 P-3-2. Bracket Matching
 
-**Anti-Annotation** - 【TCIRC】 d026. AP325 P-3-2. Bracket Matching
+**Anti-Annotation** - 【TCIRC】d026. AP325 P-3-2. Bracket Matching
 
-**Solved** - 【TCIRC】 d027. AP325 Q-3-3. Addition, Subtraction, Multiplication and Division
+**Solved** - 【TCIRC】d027. AP325 Q-3-3. Addition, Subtraction, Multiplication and Division
 
-**Solved** - 【TCIRC】 d028. AP325 P-3-4. The Closest Taller（APCS201902, Subtask）
+**Solved** - 【TCIRC】d028. AP325 P-3-4. The Closest Taller（APCS201902, Subtask）
 
 **Remove Deleted File**
 
-**Solved** - 【TCIRC】 d029. AP325 Q-3-5. The Taller with A Bench Cooking Chicken Steaks（APCS201902）
+**Solved** - 【TCIRC】d029. AP325 Q-3-5. The Taller with A Bench Cooking Chicken Steaks（APCS201902）
 
-**Solved** - 【TCIRC】 d030. AP325 P-3-6. Cutting Down Trees（APCS202001）
+**Solved** - 【TCIRC】d030. AP325 P-3-6. Cutting Down Trees（APCS202001）
 
-**Working On It** - 【TCIRC】 d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
+**Working On It** - 【TCIRC】d021. AP325 Q-2-12. The Closest Submatrix Sum（108 High School National Competition）（＊）
 
-**Remove Unused Code** - 【TCIRC】 d023. AP325 Q-2-14. Pond（108 High School National Competition）（@@）
+**Remove Unused Code** - 【TCIRC】d023. AP325 Q-2-14. Pond（108 High School National Competition）（@@）
 
-**Solved** - 【TCIRC】 d023. AP325 Q-2-14. Pond（108 High School National Competition）（@@）
+**Solved** - 【TCIRC】d023. AP325 Q-2-14. Pond（108 High School National Competition）（@@）
 
-**Solved** - 【TCIRC】 d022. AP325 Q-2-13. Exponentiation by Squaring with Irrational Numbers（108 High School National Competition, Simplifed）
+**Solved** - 【TCIRC】d022. AP325 Q-2-13. Exponentiation by Squaring with Irrational Numbers（108 High School National Competition, Simplifed）
 
-**Change File Name** - 【TCIRC】 d020. AP325 P-2-11. The Closest Interval Sum（＊） 
+**Change File Name** - 【TCIRC】d020. AP325 P-2-11. The Closest Interval Sum（＊） 
 
-**Solved** - 【TCIRC】 d018. AP325 P-2-9. Subset Product（Halved Enumeration）（@@）
+**Solved** - 【TCIRC】d018. AP325 P-2-9. Subset Product（Halved Enumeration）（@@）
 
-**Solved** - 【TCIRC】 d019. AP325 Q-2-10. Subset Sum（Halved Enumeration）
+**Solved** - 【TCIRC】d019. AP325 Q-2-10. Subset Sum（Halved Enumeration）
 
-**Solved** - 【TCIRC】 d020. AP325 P-2-11. The Closest Interval Sum（*）
+**Solved** - 【TCIRC】d020. AP325 P-2-11. The Closest Interval Sum（*）
 
-**Solved** - 【TCIRC】 d016. AP325 Q-2-7. Complementary Teams（APCS201906）
+**Solved** - 【TCIRC】d016. AP325 Q-2-7. Complementary Teams（APCS201906）
 
-**Opt** - 【TCIRC】 d016. AP325 Q-2-7. Complementary Teams（APCS201906）
+**Opt** - 【TCIRC】d016. AP325 Q-2-7. Complementary Teams（APCS201906）
 
-**Solved** - 【TCIRC】 d018. AP325 Q-2-8 Modular Multiplicative Inverse
+**Solved** - 【TCIRC】d018. AP325 Q-2-8 Modular Multiplicative Inverse
 
-**Modify File Name** - 【TCIRC】 d017. AP325 Q-2-8 Modular Multiplicative Inverse
+**Modify File Name** - 【TCIRC】d017. AP325 Q-2-8 Modular Multiplicative Inverse
 
-**Solved** - 【TCIRC】 d015. AP325 P-2-6. Two-Number Problem
+**Solved** - 【TCIRC】d015. AP325 P-2-6. Two-Number Problem
 
-**Solved** - 【TCIRC】 d014. AP325 Q-2-5. Exponentiation by Squaring with Fibonacci Numbers
+**Solved** - 【TCIRC】d014. AP325 Q-2-5. Exponentiation by Squaring with Fibonacci Numbers
 
-**Solved** - 【TCIRC】 d013. AP325 Q-2-4. Exponentiation by Squaring — Integers Less than 200 Digits
+**Solved** - 【TCIRC】d013. AP325 Q-2-4. Exponentiation by Squaring — Integers Less than 200 Digits
 
-**Modify File Name** - 【TCIRC】 d012. AP325 P-2-3. Exponentiation by Squaring
+**Modify File Name** - 【TCIRC】d012. AP325 P-2-3. Exponentiation by Squaring
 
-**Solved** - 【TCIRC】 d012. Exponentiation by Squaring
+**Solved** - 【TCIRC】d012. Exponentiation by Squaring
 
-**Solved** - 【ZeroJudge】 f581. 3. Roundabout Exit
+**Solved** - 【ZeroJudge】f581. 3. Roundabout Exit
 
-**Solved** - 【TCIRC】 d011. AP325 P-2-2. Discretization – Sort
+**Solved** - 【TCIRC】d011. AP325 P-2-2. Discretization – Sort
 
-**Solved** - 【TCIRC】 d009. AP325 Q-1-11. Delete Rectangle Edge — Recursive（APCS201910, Subtask）
+**Solved** - 【TCIRC】d009. AP325 Q-1-11. Delete Rectangle Edge — Recursive（APCS201910, Subtask）
 
-**Solved** - 【ZeroJudge】 f640. Function Expression Evaluation
+**Solved** - 【ZeroJudge】f640. Function Expression Evaluation
 
-**Solved** - 【CSES】 1163. Traffic Lights
+**Solved** - 【CSES】1163. Traffic Lights
 
-**Solved** - 【AtCoder】 Beginner Contest 330 - E. Mex and Update
+**Solved** - 【AtCoder】Beginner Contest 330 - E. Mex and Update
 
-**Solved** - 【AtCoder】 Beginner Contest 331 - A. Tomorrow
+**Solved** - 【AtCoder】Beginner Contest 331 - A. Tomorrow
 
-**Solved** - 【AtCoder】 Beginner Contest 331 - B. Buy One Carton of Milk
+**Solved** - 【AtCoder】Beginner Contest 331 - B. Buy One Carton of Milk
 
-**Solved** - 【AtCoder】 Beginner Contest 331 - C. Sum of Numbers Greater Than Me
+**Solved** - 【AtCoder】Beginner Contest 331 - C. Sum of Numbers Greater Than Me
 
-**Solved** - 【AtCoder】 Beginner Contest 329 - F. Colored Ball
+**Solved** - 【AtCoder】Beginner Contest 329 - F. Colored Ball
 
-**WA** - 【AtCoder】 Beginner Contest 329 - E. Stamp
+**WA** - 【AtCoder】Beginner Contest 329 - E. Stamp
 
-**Solved** - 【AtCoder】 Beginner Contest 329 - D. Election Quick Report
+**Solved** - 【AtCoder】Beginner Contest 329 - D. Election Quick Report
 
-**Solved** - 【CSES】 1141. Playlist
+**Solved** - 【CSES】1141. Playlist
 
-**Solved** - 【AtCoder】 Beginner Contest 328 - A. Not Too Hard
+**Solved** - 【AtCoder】Beginner Contest 328 - A. Not Too Hard
 
-**Solved** - 【AtCoder】 Beginner Contest 328 - B. 11.11
+**Solved** - 【AtCoder】Beginner Contest 328 - B. 11.11
 
-**Solved** - 【AtCoder】 Beginner Contest 328 - C. Consecutive
+**Solved** - 【AtCoder】Beginner Contest 328 - C. Consecutive
 
-**Solved** - 【AtCoder】 Beginner Contest 328 - D. Take ABC
+**Solved** - 【AtCoder】Beginner Contest 328 - D. Take ABC
 
-**Solved** - 【CSES】 1640. Sum of Two Values
+**Solved** - 【CSES】1640. Sum of Two Values
 
-**Solved** - 【CSES】 1074. Stick Lengths
+**Solved** - 【CSES】1074. Stick Lengths
 
-**Solved** - 【CSES】 1643. Maximum Subarray Sum 
+**Solved** - 【CSES】1643. Maximum Subarray Sum 
 
-**solved** - 【CSES】 2216. Collecting Numbers
+**solved** - 【CSES】2216. Collecting Numbers
 
-**solved** - 【CSES】 2183. Missing Coin Sum
+**solved** - 【CSES】2183. Missing Coin Sum
 
-**Solved** - 【AtCoder】 Beginner Contest 327 - A. ab
+**Solved** - 【AtCoder】Beginner Contest 327 - A. ab
 
-**Solved** - 【AtCoder】 Beginner Contest 327 - B. A^A
+**Solved** - 【AtCoder】Beginner Contest 327 - B. A^A
 
-**Solved** - 【AtCoder】 Beginner Contest 327 - C. Number Place
+**Solved** - 【AtCoder】Beginner Contest 327 - C. Number Place
 
-**Solved** - 【AtCoder】 Beginner Contest 327 - D. Good Tuple Problem
+**Solved** - 【AtCoder】Beginner Contest 327 - D. Good Tuple Problem
 
-**Solved** - 【CSES】 1668. Building Teams
+**Solved** - 【CSES】1668. Building Teams
 
-**Solved** - 【CSES】 1669. Round Trip
+**Solved** - 【CSES】1669. Round Trip
 
-**Solved** - 【ZeroJudge】 b898. 1. Pythagorean Theorem
+**Solved** - 【ZeroJudge】b898. 1. Pythagorean Theorem
 
-**Solved** - 【ZeroJudge】 c520. 5. Boss Baodao
+**Solved** - 【ZeroJudge】c520. 5. Boss Baodao
 
-**Solved** - 【ZeroJudge】 b899. 2. Item Detect
+**Solved** - 【ZeroJudge】b899. 2. Item Detect
 
-**Solved** - 【ZeroJudge】 b900. 3. Squirmy Worm
+**Solved** - 【ZeroJudge】b900. 3. Squirmy Worm
 
-**Solved** - 【CSES】 1636. Coin Combinations II
+**Solved** - 【CSES】1636. Coin Combinations II
 
-**Solved** - 【CSES】 1637. Removing Digits
+**Solved** - 【CSES】1637. Removing Digits
 
-**Solved** - 【CSES】 1158. Book Shop
+**Solved** - 【CSES】1158. Book Shop
 
-**Solved** - 【AtCoder】 Educational DP Contest - E. Knapsack 2
+**Solved** - 【AtCoder】Educational DP Contest - E. Knapsack 2
 
-**Change Name** - 【AtCoder】 Educational DP Contest - D. Knapsack 1
+**Change Name** - 【AtCoder】Educational DP Contest - D. Knapsack 1
 
-**Solved** - 【AtCoder】 Educational DP Contest - G. Longest Path
+**Solved** - 【AtCoder】Educational DP Contest - G. Longest Path
 
-**Solved** - 【AtCoder】 Educational DP Contest - H. Grid 1
+**Solved** - 【AtCoder】Educational DP Contest - H. Grid 1
 
-**Solved** - 【AtCoder】 Beginner Contest 325 - A. Takahashi San
+**Solved** - 【AtCoder】Beginner Contest 325 - A. Takahashi San
 
-**Solved** - 【AtCoder】 Beginner Contest 325 - C. Sensors
+**Solved** - 【AtCoder】Beginner Contest 325 - C. Sensors
 
-**Solved** - 【AtCoder】 Beginner Contest 325 - D. Printing Machine
+**Solved** - 【AtCoder】Beginner Contest 325 - D. Printing Machine
 
-**Solved** - 【AtCoder】 Beginner Contest 325 - E. Our Clients, Please Wait a Moment
+**Solved** - 【AtCoder】Beginner Contest 325 - E. Our Clients, Please Wait a Moment
 
-**Solved** - 【ZeroJudge】 c518. 3. String Encryption
+**Solved** - 【ZeroJudge】c518. 3. String Encryption
 
-**Solved** - 【ZeroJudge】 c517. 2. South Bird
+**Solved** - 【ZeroJudge】c517. 2. South Bird
 
-**Solved** - 【CSES】 2195. Convex Hull
+**Solved** - 【CSES】2195. Convex Hull
 
-**Solved** - 【CSES】 2191. Polygon Area
+**Solved** - 【CSES】2191. Polygon Area
 
-**Solved** - 【CSES】 1673. High Score
+**Solved** - 【CSES】1673. High Score
 
-**Solved** - 【AtCoder】 Beginner Contest 324 - E. Joint Two Strings
+**Solved** - 【AtCoder】Beginner Contest 324 - E. Joint Two Strings
 
-**Solving** - 【AtCoder】 Beginner Contest 324 - F. Beautiful Path
+**Solving** - 【AtCoder】Beginner Contest 324 - F. Beautiful Path
 
-**TLE** - 【AtCoder】 Beginner Contest 324 - F. Beautiful Path
+**TLE** - 【AtCoder】Beginner Contest 324 - F. Beautiful Path
 
-**Solved** - 【AtCoder】 Beginner Contest 324 - F. Beautiful Path
+**Solved** - 【AtCoder】Beginner Contest 324 - F. Beautiful Path
 
-**Solved** - 【AtCoder】 Educational DP Contest - F. LCS
+**Solved** - 【AtCoder】Educational DP Contest - F. LCS
 
-**Change File Name** - 【AtCoder】 Educational DP Contest - A. Frog 1
+**Change File Name** - 【AtCoder】Educational DP Contest - A. Frog 1
 
-**Change File Name** - 【AtCoder】 Educational DP Contest - B. Frog 2
+**Change File Name** - 【AtCoder】Educational DP Contest - B. Frog 2
 
-**Change File Name** - 【AtCoder】 Educational DP Contest - C. Vacation
+**Change File Name** - 【AtCoder】Educational DP Contest - C. Vacation
 
-**Solved** - 【AtCoder】 Educational DP Contest - D. Knapsack 1
+**Solved** - 【AtCoder】Educational DP Contest - D. Knapsack 1
 
-**Solved** - 【Luogu】 P1901. Transmitting Station
+**Solved** - 【Luogu】P1901. Transmitting Station
 
-**Solved** - 【CF】 APCS Practice Contest - B. Ladder String
+**Solved** - 【CF】APCS Practice Contest - B. Ladder String
 
-**Solved** - 【CF】 APCS Practice Contest - A. ABC5
+**Solved** - 【CF】APCS Practice Contest - A. ABC5
 
-**Solved** - 【CSES】 2189. Point Location Test
+**Solved** - 【CSES】2189. Point Location Test
 
-**Opt** - 【CSES】 1646. Static Range Sum Queries
+**Opt** - 【CSES】1646. Static Range Sum Queries
 
-**Solved** - 【CSES】 1629. Movie Festival
+**Solved** - 【CSES】1629. Movie Festival
 
-**Solved** - 【CSES】 1111. Longest Palindrome
+**Solved** - 【CSES】1111. Longest Palindrome
 
-**Solved** - 【CSES】 1619. Restaurant Customers
+**Solved** - 【CSES】1619. Restaurant Customers
 
-**Solved** - 【CSES】 1666. Building Roads
+**Solved** - 【CSES】1666. Building Roads
 
-**Solved** - 【CSES】 1131. Tree Diameter
+**Solved** - 【CSES】1131. Tree Diameter
 
-**Solved** - 【TIOJ】 1224. Rectangular Coverage Area
+**Solved** - 【TIOJ】1224. Rectangular Coverage Area
 
-**Solved** - 【CSES】 1623. Apple Division
+**Solved** - 【CSES】1623. Apple Division
 
-**Solved** - 【AtCoder】 Beginner Contest 182 - A. Twiblr
+**Solved** - 【AtCoder】Beginner Contest 182 - A. Twiblr
 
-**Solved** - 【AtCoder】 Beginner Contest 182 - B - Almost GCD
+**Solved** - 【AtCoder】Beginner Contest 182 - B - Almost GCD
 
-**Solved** - 【AtCoder】 Beginner Contest 182 - C - To 3
+**Solved** - 【AtCoder】Beginner Contest 182 - C - To 3
 
-**TLE** - 【AtCoder】 Beginner Contest 182 - D. Wandering
+**TLE** - 【AtCoder】Beginner Contest 182 - D. Wandering
 
-**Solved** - 【Green Judge】 d086-2. Settle Accounts
+**Solved** - 【Green Judge】d086-2. Settle Accounts
 
-**Solved** - 【TOJ】 628. Komachi
+**Solved** - 【TOJ】628. Komachi
 
-**Solved** - 【AtCoder】 Beginner Contest 314 - D. LOWER
+**Solved** - 【AtCoder】Beginner Contest 314 - D. LOWER
 
-**Solved** - 【TOJ】 630. EatAllLeftMost
+**Solved** - 【TOJ】630. EatAllLeftMost
 
-**Solved** - 【TOJ】 273. Diamond
+**Solved** - 【TOJ】273. Diamond
 
-**Solved** - 【AtCoder】 Beginner Contest 320 - A - Leyland Number
+**Solved** - 【AtCoder】Beginner Contest 320 - A - Leyland Number
 
-**Remain 1 WA** - 【AtCoder】 Beginner Contest 320 - D. Relative Position
+**Remain 1 WA** - 【AtCoder】Beginner Contest 320 - D. Relative Position
 
-**Solved** - 【AtCoder】 Beginner Contest 320 - E. Somen Nagashi
+**Solved** - 【AtCoder】Beginner Contest 320 - E. Somen Nagashi
 
-**Solved** - 【CSES】 1753. String Matching
+**Solved** - 【CSES】1753. String Matching
 
-**Solved** - 【2023 MD Player Training】 Simulation Contest 1 - A. Fivesteps
+**Solved** - 【2023 MD Player Training】Simulation Contest 1 - A. Fivesteps
 
-**Solved** - 【CSES】 1628. Meet In The Middle
+**Solved** - 【CSES】1628. Meet In The Middle
 
-**Solved** - 【AtCoder】 Beginner Contest 318 - A - Full Moon
+**Solved** - 【AtCoder】Beginner Contest 318 - A - Full Moon
 
-**Solved** - 【AtCoder】 Beginner Contest 318 - B - Overlapping sheets
+**Solved** - 【AtCoder】Beginner Contest 318 - B - Overlapping sheets
 
-**Solved** - 【AtCoder】 Beginner Contest 318 - C - Blue Spring
+**Solved** - 【AtCoder】Beginner Contest 318 - C - Blue Spring
 
-**Solved** - 【AtCoder】 Beginner Contest 315 - A - Tcdr
+**Solved** - 【AtCoder】Beginner Contest 315 - A - Tcdr
 
-**Solved** - 【AtCoder】 Beginner Contest 315 - B - The Middle Day
+**Solved** - 【AtCoder】Beginner Contest 315 - B - The Middle Day
 
-**Solved** - 【AtCoder】 Beginner Contest 315 - C - Flavors
+**Solved** - 【AtCoder】Beginner Contest 315 - C - Flavors
 
-**Solved** - 【AtCoder】 Beginner Contest 315 - E - Prerequisites
+**Solved** - 【AtCoder】Beginner Contest 315 - E - Prerequisites
 
-**Solved** - 【CSES】 1190. Subarray Sum Queries
+**Solved** - 【CSES】1190. Subarray Sum Queries
 
-**1/3 WA** - 【AtCoder】 Beginner Contest 317 - E - Avoid Eye Contact
+**1/3 WA** - 【AtCoder】Beginner Contest 317 - E - Avoid Eye Contact
 
-**Solved** - 【AtCoder】 Beginner Contest 317 - D - President
+**Solved** - 【AtCoder】Beginner Contest 317 - D - President
 
-**Solved** - 【AtCoder】 Beginner Contest 317 - A - Potions
+**Solved** - 【AtCoder】Beginner Contest 317 - A - Potions
 
-**Solved** - 【AtCoder】 Beginner Contest 317 - B - MissingNo
+**Solved** - 【AtCoder】Beginner Contest 317 - B - MissingNo
 
-**Solved** - 【AtCoder】 Beginner Contest 317 - C - Remembering the Days
+**Solved** - 【AtCoder】Beginner Contest 317 - C - Remembering the Days
 
-**Solved** - 【2023 MD Player Training】 Simulation Contest 1 - B. Conveyor
+**Solved** - 【2023 MD Player Training】Simulation Contest 1 - B. Conveyor
 
-**Solved** - 【MDJudge】 B053. Go Alone
+**Solved** - 【MDJudge】B053. Go Alone
 
-**Solved** - 【TIOJ】 1198. 8-puzzle
+**Solved** - 【TIOJ】1198. 8-puzzle
 
-**15% Solution** - 【2023 MD Player Training】 Simulation Contest 1 - B. Conveyor
+**15% Solution** - 【2023 MD Player Training】Simulation Contest 1 - B. Conveyor
 
-**20% Solution** - 【2023 MD Player Training】 Simulation Contest 1 - A. Fivesteps
+**20% Solution** - 【2023 MD Player Training】Simulation Contest 1 - A. Fivesteps
 
-**Solved** - 【2023 MD Player Training】 Simulation Contest 1 - C. Hsr
+**Solved** - 【2023 MD Player Training】Simulation Contest 1 - C. Hsr
 
-**Solved** - 【CSES】 1137. Subtree Queries
+**Solved** - 【CSES】1137. Subtree Queries
 
-**Solved** - 【CSES】 1202. Investigation
+**Solved** - 【CSES】1202. Investigation
 
-**Solved** - 【AtCoder】 Beginner Contest 178 - F - Contrast
+**Solved** - 【AtCoder】Beginner Contest 178 - F - Contrast
 
-**Solved** - 【CSES】 1622. Creating Strings
+**Solved** - 【CSES】1622. Creating Strings
 
-**Solved** - 【CSES】 2205. Gray Code
+**Solved** - 【CSES】2205. Gray Code
 
-**Solved** - 【CSES】 1143. Hotel Queries
+**Solved** - 【CSES】1143. Hotel Queries
 
-**Solved** - 【AtCoder】 Beginner Contest 196 - D - Hanjo
+**Solved** - 【AtCoder】Beginner Contest 196 - D - Hanjo
 
-**Solved** - 【AtCoder】 Beginner Contest 152 - D - Handstand 2
+**Solved** - 【AtCoder】Beginner Contest 152 - D - Handstand 2
 
-**Solved** - 【CSES】 1755. Palindrome Reorder
+**Solved** - 【CSES】1755. Palindrome Reorder
 
-**Solved** - 【CSES】 1754. Coin Piles
+**Solved** - 【CSES】1754. Coin Piles
 
-**Solved** - 【CSES】 1618. Trailing Zeros
+**Solved** - 【CSES】1618. Trailing Zeros
 
-**Solved** - 【CSES】 1687. Company Queries I
+**Solved** - 【CSES】1687. Company Queries I
 
-**Solved** - 【CSES】 1688. Company Queries II
+**Solved** - 【CSES】1688. Company Queries II
 
-**Haven't Finish** - 【CSES】 1734. Distinct Values Queries
+**Haven't Finish** - 【CSES】1734. Distinct Values Queries
 
-**Solved** - 【CSES】 1649. Dynamic Range Minimum Queries
+**Solved** - 【CSES】1649. Dynamic Range Minimum Queries
 
-**Haven't Finish** - 【Luogu】 P1313. [ NOIP2011 Improvement Group ] Calculation Coefficient
+**Haven't Finish** - 【Luogu】P1313. [ NOIP2011 Improvement Group ] Calculation Coefficient
 
-**Solved** - 【CSES】 1712. Exponentiation II
+**Solved** - 【CSES】1712. Exponentiation II
 
-**Haven't Finish** - 【CF】 1394A. Orac and LCM
+**Haven't Finish** - 【CF】1394A. Orac and LCM
 
-**Solved** - 【CSES】 1650. Range Xor Queries
+**Solved** - 【CSES】1650. Range Xor Queries
 
-**Solved** - 【ZeroJudge】 d799. Interval Summation
+**Solved** - 【ZeroJudge】d799. Interval Summation
 
-**Solved** - 【AtCoder】 Beginner Contest 119 - C - Synthetic Kadomatsu
+**Solved** - 【AtCoder】Beginner Contest 119 - C - Synthetic Kadomatsu
 
-**Solved** - 【CSES】 1195. Flight Discount
+**Solved** - 【CSES】1195. Flight Discount
 
-**Solved** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
+**Solved** - 【AtCoder】Beginner Contest 100 - D - Patisserie ABC
 
-**Solved** - 【TOJ】 36. Simple Problem
+**Solved** - 【TOJ】36. Simple Problem
 
-**Solved** - 【CSES】 1072. Two Knights 
+**Solved** - 【CSES】1072. Two Knights 
 
-**Solved** - 【CSES】 1161. Stick Divisions
+**Solved** - 【CSES】1161. Stick Divisions
 
-**Solved** - 【CSES】 1630. Tasks and Deadlines
+**Solved** - 【CSES】1630. Tasks and Deadlines
 
-**TLE Answer** - 【AtCoder】 Beginner Contest 100 - D - Patisserie ABC
+**TLE Answer** - 【AtCoder】Beginner Contest 100 - D - Patisserie ABC
 
-**Solved** - 【UVa】 441. Lotto
+**Solved** - 【UVa】441. Lotto
 
-**Seems Like AC, but UVa Was Dead** - 【UVa】 441. Lotto
+**Seems Like AC, but UVa Was Dead** - 【UVa】441. Lotto
 
-**Solved** - 【CSES】 1091. Concert Tickets
+**Solved** - 【CSES】1091. Concert Tickets
 
-**Solved** - 【UVa】 291. The House Of Santa Claus
+**Solved** - 【UVa】291. The House Of Santa Claus
 
-**Solved** - 【CSES】 1635. Coin Combinations I
+**Solved** - 【CSES】1635. Coin Combinations I
 
-**Solved** - 【CSES】 1085. Array Division
+**Solved** - 【CSES】1085. Array Division
 
-**Solved** - 【CSES】 1673. High Score
+**Solved** - 【CSES】1673. High Score
 
-**Solved** - 【CSES】 1672. Shortest Routes II
+**Solved** - 【CSES】1672. Shortest Routes II
 
-**Solved** - 【CSES】 1671. Shortest Routes I
+**Solved** - 【CSES】1671. Shortest Routes I
 
-**Solved** - 【CSES】 1090. Ferris Wheel
+**Solved** - 【CSES】1090. Ferris Wheel
 
-**Solved** - 【Luogu】 P1396. Rescue
+**Solved** - 【Luogu】P1396. Rescue
 
-**Solved** - 【CSES】 1092. Two Sets
+**Solved** - 【CSES】1092. Two Sets
 
-**Solved** - 【CSES】 1670. Swap Game
+**Solved** - 【CSES】1670. Swap Game
 
-**Solved** - 【CSES】 1634. Minimizing Coins
+**Solved** - 【CSES】1634. Minimizing Coins
 
-**Solved** - 【CSES】 1617. Bit Strings
+**Solved** - 【CSES】1617. Bit Strings
 
-**Solved** - 【CSES】 1071. Number Spiral
+**Solved** - 【CSES】1071. Number Spiral
 
-**Solved** - 【TCIRC】 d097. AP325 P-7-10 Pit Jumping
+**Solved** - 【TCIRC】d097. AP325 P-7-10 Pit Jumping
 
-**Solved** - 【AtCoder】 Competitive Professional Typical 90 Questions - 002 - Encyclopedia of Parentheses（★3）
+**Solved** - 【AtCoder】Competitive Professional Typical 90 Questions - 002 - Encyclopedia of Parentheses（★3）
 
-**Solved** - 【CSES】 1624. Chessboard and Queens
+**Solved** - 【CSES】1624. Chessboard and Queens
 
-**Solved** - 【UVa】 195. Anagram
+**Solved** - 【UVa】195. Anagram
 
-**TLE Answer** - 【UVa】 195. Anagram
+**TLE Answer** - 【UVa】195. Anagram
 
-**Solved** - 【ZeroJudge】 e446. Arrangement Generation
+**Solved** - 【ZeroJudge】e446. Arrangement Generation
 
-**Solved** - 【CSES】 1070. Permutations
+**Solved** - 【CSES】1070. Permutations
 
-**Solved** - 【CSES】 1094. Increasing Array
+**Solved** - 【CSES】1094. Increasing Array
 
-**Solved** - 【CSES】 1096. Repetitions
+**Solved** - 【CSES】1096. Repetitions
 
-**Solved** - 【MDJudge】 C040. Question 10 of the 2020 CIC Quarterfinals
+**Solved** - 【MDJudge】C040. Question 10 of the 2020 CIC Quarterfinals
 
-**Solved** - 【ZeroJudge】 a674. 10048 - Audiophobia
+**Solved** - 【ZeroJudge】a674. 10048 - Audiophobia
 
-**Solved** - 【Luogu】 P1629. Postman Delivering Letter
+**Solved** - 【Luogu】P1629. Postman Delivering Letter
 
-**Solved** - 【ZeroJudge】 k734. Open Treasure Box
+**Solved** - 【ZeroJudge】k734. Open Treasure Box
 
-**Solved** - 【CF】 510C. Fox And Names 
+**Solved** - 【CF】510C. Fox And Names 
 
-**Solved** - 【Luogu】 P1036. [ NOIP2002 Popularization Group ] Selection Number
+**Solved** - 【Luogu】P1036. [ NOIP2002 Popularization Group ] Selection Number
 
-**Solved** - 【Luogu】 P2677. [ USACO07DEC ] Bookshelf 2 B
+**Solved** - 【Luogu】P2677. [ USACO07DEC ] Bookshelf 2 B
 
-**Solved** - 【AtCoder】 Beginner Contest 240 - C - Jumping Takahashi
+**Solved** - 【AtCoder】Beginner Contest 240 - C - Jumping Takahashi
 
-**Solved** - 【Luogu】 P1100. High and Low Swap
+**Solved** - 【Luogu】P1100. High and Low Swap
 
-**Solved** - 【TIOJ】 1081. B. Image recognition
+**Solved** - 【TIOJ】1081. B. Image recognition
 
-**Solved** - 【Kattis】 Playfair Cipher
+**Solved** - 【Kattis】Playfair Cipher
 
-**Solved** - 【Luogu】 P1352. Prom Without Boss
+**Solved** - 【Luogu】P1352. Prom Without Boss
 
-**50% Solution** - 【TIOJ】 1081. B. Image recognition
+**50% Solution** - 【TIOJ】1081. B. Image recognition
 
-**Solved** - 【CSES】 1674. Subordinates
+**Solved** - 【CSES】1674. Subordinates
 
-**Solved** - 【Luogu】 P3374［Template］Binary Indexed Tree 1
+**Solved** - 【Luogu】P3374［Template］Binary Indexed Tree 1
 
-**Solved** - 【NTFSOJ】 275 Dynamic Median
+**Solved** - 【NTFSOJ】275 Dynamic Median
 
-**Solved** - 【ZeroJudge】 a020. ID Verification
+**Solved** - 【ZeroJudge】a020. ID Verification
 
-**Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) E. Stock Analyst
+**Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) E. Stock Analyst
 
-**Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) B. Tim Chen no Loli Base
+**Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) B. Tim Chen no Loli Base
 
-**Solved** - 【CF】 ( 2023 MD Subject Ability Intramural Competition ) D. Checkered Arena
+**Solved** - 【CF】( 2023 MD Subject Ability Intramural Competition ) D. Checkered Arena
 
-**Solved** - 【CSES】 1620. Factory Machines
+**Solved** - 【CSES】1620. Factory Machines
 
-**Solved** - 【CSES】 1667. Message Route
+**Solved** - 【CSES】1667. Message Route
 
-**Half AC Haven't Solved** - 【CSES】 1085. Array Division
+**Half AC Haven't Solved** - 【CSES】1085. Array Division
 
-**Solved** - 【AtCoder】 DP Contest - C - Vacation 
+**Solved** - 【AtCoder】DP Contest - C - Vacation 
 
-**Solved** - 【ZeroJudge】 b844. A Bunch of Buttons
+**Solved** - 【ZeroJudge】b844. A Bunch of Buttons
 
 ### 2022. 07. 21
 
-**Solved** - 【CSES】 1646. Static Range Sum Queries
+**Solved** - 【CSES】1646. Static Range Sum Queries
