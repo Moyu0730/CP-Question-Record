@@ -1,5 +1,48 @@
 # CP-Question-Record
 
+### 【AtCoder】 Beginner Contest 208 - E. Digit Products
+
+**Solved**
+
+。Digit DP - $O(\text{digits} \times 2 \times 2 \times \text{number of unique products})$
+
+* Complexity Analysis
+    * The number of digits is small ($\log_{10} N \approx 18$)
+    * The number of unique products of digits that are $\leq K$ is relatively small, allowing the use of `std::map` to store states
+    * Total Time Complexity ⮕ $O(\text{len}(N) \times \text{unique products})$
+* Core Concepts
+    * **Digit DP State**
+        * `dp[small][st][prod]`
+            * `small` ⮕ Boolean flag, true if the current number being formed is already strictly less than the prefix of $N$
+            * `st` ⮕ Boolean flag (state), true if we have started placing non-zero digits (handles leading zeros)
+            * `prod` ⮕ The running product of digits of the current number
+    * **Product Compression**
+        * Since we only care if the product is $\leq K$, any product greater than $K$ can be treated as $K+1$
+        * Function `cps(val)` ⮕ returns $\min(val, K + 1)$
+    * **Map-based DP**
+        * Because the set of possible products is sparse but the values can be up to $10^9$, `std::map<int, int>` is used to store and transition between product states for each `(small, st)` combination
+* Solution Strategy
+    1. **Initialization**
+        * Convert $N$ to string `n_str` to iterate through digit positions
+        * Set base case `dp[0][0][1] = 1`
+    2. **Transitions**
+        * Iterate through each digit position `pos`
+        * Determine the `limit` for the current digit based on the `small` flag
+        * For each possible digit `d` from $0$ to `limit`
+            * Update `small_new` and `st_new`
+            * Calculate `prod_new`
+                * If `st == 0` (leading zeros)
+                    * if `d == 0`, product remains 1; otherwise, it becomes `d`
+                * If `st == 1` (middle of number)
+                    * product becomes `current_prod * d`, capped at $K+1$
+            * Accumulate counts into `dp_new`
+    3. **Result Calculation**
+        * Sum all `i.S` (counts) from `dp[1][1]` where the product `i.F <= K`. This covers all positive integers strictly less than $N$
+        * **Edge Case**: The digit DP as implemented handles numbers strictly less than $N$. The code separately calculates the product of digits for $N$ itself (`p_new`) and adds 1 to the result if `p_new <= K`
+* Summary of Key Functions
+    * `cps(val)` ⮕ Compresses product values to $K+1$ if they exceed $K$
+    * `solve()` ⮕ Implements the iterative digit DP using two maps (`dp` and `dp_new`) to toggle between current and next digit positions
+
 ### 【AtCoder】 Beginner Contest 436 E. Minimum Swap
 
 **Solved**
