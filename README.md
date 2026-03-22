@@ -1,5 +1,49 @@
 # CP-Question-Record
 
+### 【UVa】 820. Internet Bandwidth
+
+**Solved**
+
+。Network Flow - Dinic's Algorithm - O($V^2 \times E$)
+
+* Complexity Analysis
+    * BFS for Level Graph ⮕ O($E$)
+    * DFS for Augmenting Paths ⮕ O($VE$)
+    * Total Time Complexity ⮕ O($V^2 \times E$), which is highly efficient for $N \le 100$
+* Core Concepts
+    * **Max-Flow Min-Cut Theorem**
+        * The problem asks for the maximum bandwidth between two nodes, which is equivalent to finding the **Maximum Flow** in a network where capacities are bidirectional
+    * **Dinic's Algorithm**
+        * Uses **BFS** to build a level graph, ensuring that augmenting paths always move toward the sink to prevent cycles and redundant steps.
+        * Uses **DFS** to find blocking flows within the level graph
+    * **Residual Graph**
+        * For every edge $(u, v)$ with capacity $w$, we maintain a residual capacity. When flow $f$ is pushed, the capacity of $(u, v)$ decreases by $f$, and the capacity of the reverse edge $(v, u)$ increases by $f$
+    * **Bidirectional Capacities**
+        * The problem states connections are bidirectional. In the implementation, an edge between $u$ and $v$ with bandwidth $w$ is treated by adding two directed edges: $u \to v$ and $v \to u$, both with capacity $w$. Since the sum of data in both directions must be less than $w$, this is handled by incrementing the capacities if multiple connections exist between the same pair
+* Solution Strategy
+    1. **Graph Construction**
+        * Use an adjacency list of `EDGE` structures containing the destination `v`, current capacity `cap`, and the index of the reverse edge `rid`
+        * For each input connection $(u, v, w)$, add directed edges for both $u \to v$ and $v \to u$ with capacity $w$
+    2. **Level Graph (BFS)**
+        * `bfs()` assigns a `level` to each node based on its distance from the source $s$
+        * Only edges with `cap > 0` are considered
+        * Returns `true` if the sink $t$ is reachable
+    3. **Blocking Flow (DFS)**
+        * `dfs()` pushes flow through the level graph
+        * It only moves from `level[root]` to `level[root] + 1`
+        * Implements **dead-end pruning**
+            * if a node cannot push any more flow, its level is set to `INF` to avoid visiting it again in the current phase
+    4. **Iteration**
+        * The `dinic()` function repeatedly calls `bfs()` and `dfs()` until no more flow can reach the sink
+* Summary of Key Functions
+    * `add_edge()` ⮕ Adds bidirectional edges and stores the index of the corresponding residual edge
+    * `bfs()` ⮕ Builds the level graph to find the shortest augmenting paths
+    * `dfs(root, th)` ⮕ Recursively pushes flow through the level graph up to the bottleneck capacity `th`
+    * `dinic()` ⮕ Orchestrates the overall flow augmentation process
+
+> [!NOTE]
+> Since the problem mentions that multiple connections may exist between the same two nodes, the `add_edge` function correctly handles this by adding new entries to the adjacency list, and the Dinic's implementation will naturally aggregate the total flow
+
 ### 【AtCoder】 Beginner Contest 208 - E. Digit Products
 
 **Solved**
