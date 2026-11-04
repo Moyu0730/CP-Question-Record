@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build", 
+            "type": "shell", 
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "-Wpedantic",
+                "-Wshadow",
+                "-Wfatal-errors",
+                "-D_GLIBCXX_DEBUG",
+                "-D_GLIBCXX_SANITIZE_VECTOR",
+                "-g",
+                "-O2",
+                "${file}",
+                "-o",
+                "${fileBasenameNoExtension}.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}

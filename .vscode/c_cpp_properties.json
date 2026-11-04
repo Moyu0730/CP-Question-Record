@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceRoot}",
+                "C:\\MinGW64\\include",
+                "C:\\MinGW64\\lib\\gcc\\x86_64-w64-mingw32\\15.1.0\\include",
+                "C:\\MinGW64\\lib\\gcc\\x86_64-w64-mingw32\\15.1.0\\include\\ssp"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "__GNUC__=5",
+                "__cdecl=__attribute__((__cdecl__))"
+            ],
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}",
+                    "C:\\MinGW64\\include",
+                    "C:\\MinGW64\\lib\\gcc\\x86_64-w64-mingw32\\15.1.0\\include",
+                    "C:\\MinGW64\\lib\\gcc\\x86_64-w64-mingw32\\15.1.0\\include\\ssp"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "compilerPath": "C:/MinGW64/bin/gcc.exe"
+        }
+    ],
+    "version": 4
+}
