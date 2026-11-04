@@ -1,1 +1,4 @@
 .vscode
+*.bin
+*.prob
+.cph/
