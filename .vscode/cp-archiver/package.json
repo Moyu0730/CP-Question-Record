@@ -1,0 +1,36 @@
+{
+    "name": "cp-archiver",
+    "displayName": "CP Archiver",
+    "description": "Archive problems from Competitive Companion into contest folders, working alongside cph.",
+    "version": "0.2.0",
+    "publisher": "moyu",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "main": "./extension.js",
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "contributes": {
+        "configuration": {
+            "title": "CP Archiver",
+            "properties": {
+                "cpArchiver.enabled": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Archive problems cph receives in this workspace."
+                },
+                "cpArchiver.abcSnippet": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Snippet file for AtCoder Beginner Contest. Empty = %APPDATA%/Code/User/snippets/abc-atcoder-template.code-snippets"
+                },
+                "cpArchiver.defaultSnippet": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Snippet file for everything else. Empty = %APPDATA%/Code/User/snippets/cp-template-c++.code-snippets"
+                }
+            }
+        }
+    }
+}
